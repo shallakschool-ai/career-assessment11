@@ -1,0 +1,2920 @@
+<!DOCTYPE html>
+<!-- saved from url=(0078)file:///C:/Users/samih/Downloads/student_career_interest_assessment%20(4).html -->
+<html lang="ar" dir="rtl"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>منصة اكتشاف الميول المهنية | المرحلة الثانوية</title>
+  <style>
+    :root {
+      --primary: #138f63;
+      --primary-dark: #0f6f4f;
+      --primary-deep: #0b5a40;
+      --secondary: #1aa06f;
+      --gold: #d7c97a;
+      --gold-soft: #efe6b0;
+      --bg: #f3fbf7;
+      --bg-2: #ecf7f1;
+      --card: rgba(255,255,255,0.94);
+      --text: #14392d;
+      --muted: #5d786d;
+      --border: rgba(19, 143, 99, 0.14);
+      --success: #157347;
+      --danger: #b3261e;
+      --shadow: 0 18px 42px rgba(15, 111, 79, 0.12);
+      --radius-xl: 28px;
+      --radius-lg: 20px;
+      --radius-md: 14px;
+      --realistic: #138f63;
+      --investigative: #17795f;
+      --artistic: #c8923f;
+      --social: #0f7c73;
+      --enterprising: #b9892a;
+      --conventional: #4c7f6a;
+    }
+
+    * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      font-family: "Cairo", "Tahoma", "Segoe UI", Arial, sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at top right, rgba(26,160,111,0.12), transparent 24%),
+        radial-gradient(circle at top left, rgba(215,201,122,0.16), transparent 20%),
+        linear-gradient(180deg, #eef9f4 0%, #f7fcf9 52%, #eef8f3 100%);
+      overflow-x: hidden;
+    }
+
+    .container {
+      width: min(1180px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 22px 0 48px;
+    }
+
+    .glass {
+      background: var(--card);
+      border: 1px solid rgba(255,255,255,0.65);
+      backdrop-filter: blur(12px);
+      box-shadow: var(--shadow);
+      border-radius: var(--radius-xl);
+    }
+
+    .hero {
+      position: relative;
+      overflow: hidden;
+      padding: 30px;
+      background:
+        linear-gradient(135deg, rgba(11,90,64,0.97) 0%, rgba(19,143,99,0.95) 48%, rgba(26,160,111,0.92) 100%);
+      color: #fff;
+      box-shadow: 0 24px 55px rgba(11,90,64,0.18);
+      border-radius: 30px;
+      margin-bottom: 22px;
+      isolation: isolate;
+    }
+
+    .hero::before,
+    .hero::after {
+      content: "";
+      position: absolute;
+      border-radius: 50%;
+      opacity: 0.16;
+      pointer-events: none;
+      animation: floatOrb 10s ease-in-out infinite;
+    }
+
+    .hero::before {
+      width: 320px;
+      height: 320px;
+      background: #fff;
+      top: -130px;
+      left: -100px;
+    }
+
+    .hero::after {
+      width: 240px;
+      height: 240px;
+      background: var(--gold);
+      bottom: -110px;
+      right: -60px;
+      animation-delay: -4s;
+    }
+
+    .hero-pattern {
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.035) 1px, transparent 1px);
+      background-size: 26px 26px;
+      mask-image: linear-gradient(180deg, rgba(0,0,0,0.9), transparent 92%);
+      z-index: 0;
+    }
+
+    .hero-grid {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: 1.35fr 0.95fr;
+      gap: 22px;
+      align-items: stretch;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 16px;
+      flex-wrap: wrap;
+    }
+
+    .logo-box {
+      width: 92px;
+      height: 92px;
+      flex: 0 0 92px;
+      border-radius: 26px;
+      background: rgba(255,255,255,0.16);
+      border: 1px solid rgba(255,255,255,0.22);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      box-shadow: inset 0 0 0 1px rgba(255,255,255,0.12), 0 8px 20px rgba(0,0,0,0.08);
+      animation: pulseSoft 4.5s ease-in-out infinite;
+    }
+
+    .logo-box img {
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: contain;
+      display: block;
+      transform: scale(1.03);
+    }
+
+    .logo-fallback {
+      font-size: 13px;
+      text-align: center;
+      line-height: 1.6;
+      padding: 8px;
+      color: rgba(255,255,255,0.92);
+      font-weight: 700;
+    }
+
+    .brand-meta small {
+      display: inline-block;
+      padding: 7px 12px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.12);
+      border: 1px solid rgba(255,255,255,0.14);
+      font-size: 12px;
+      margin-bottom: 10px;
+      backdrop-filter: blur(4px);
+    }
+
+    .brand-meta h1 {
+      margin: 0;
+      font-size: clamp(27px, 4vw, 40px);
+      line-height: 1.25;
+      letter-spacing: -0.3px;
+    }
+
+    .brand-meta p {
+      margin: 12px 0 0;
+      line-height: 1.95;
+      font-size: 16px;
+      color: rgba(255,255,255,0.94);
+      max-width: 760px;
+    }
+
+    .hero-side {
+      background: rgba(255,255,255,0.11);
+      border: 1px solid rgba(255,255,255,0.14);
+      border-radius: 26px;
+      padding: 22px;
+      display: grid;
+      gap: 14px;
+      align-content: start;
+      backdrop-filter: blur(8px);
+    }
+
+    .hero-side h3 {
+      margin: 0;
+      font-size: 19px;
+      color: var(--gold-soft);
+    }
+
+    .chip-list {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .chip {
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.12);
+      border: 1px solid rgba(255,255,255,0.14);
+      font-size: 13px;
+      font-weight: 700;
+      transition: transform 0.25s ease, background 0.25s ease;
+    }
+
+    .chip:hover {
+      transform: translateY(-2px);
+      background: rgba(255,255,255,0.18);
+    }
+
+    .hero-side ul {
+      margin: 0;
+      padding-inline-start: 18px;
+      line-height: 1.9;
+      color: rgba(255,255,255,0.96);
+    }
+
+    .section {
+      margin-bottom: 20px;
+      padding: 24px;
+    }
+
+    .section-title {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+      margin-bottom: 18px;
+    }
+
+    .section-title h2 {
+      margin: 0;
+      color: var(--primary-dark);
+      font-size: 24px;
+    }
+
+    .section-title p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.8;
+      font-size: 14px;
+    }
+
+    .meta-grid,
+    .stats-grid,
+    .insight-grid,
+    .top3-grid,
+    .riasec-grid,
+    .question-grid,
+    .career-grid,
+    .embed-grid {
+      display: grid;
+      gap: 16px;
+    }
+
+    .meta-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+    .stats-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+    .insight-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .top3-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .riasec-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .question-grid { grid-template-columns: 1fr; }
+    .career-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .embed-grid { grid-template-columns: 1.1fr 0.9fr; }
+
+    .field label {
+      display: block;
+      margin-bottom: 8px;
+      color: var(--primary-dark);
+      font-weight: 800;
+      font-size: 14px;
+    }
+
+    .field input,
+    .field select {
+      width: 100%;
+      border: 1px solid rgba(19,143,99,0.16);
+      outline: none;
+      border-radius: 16px;
+      padding: 14px 15px;
+      background: #fff;
+      font-size: 15px;
+      color: var(--text);
+      transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+    }
+
+    .field input:focus,
+    .field select:focus {
+      border-color: var(--secondary);
+      box-shadow: 0 0 0 4px rgba(26,160,111,0.12);
+      transform: translateY(-1px);
+    }
+
+    .helper-box {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 16px;
+      margin-top: 16px;
+    }
+
+    .info-box,
+    .mini-box,
+    .track-card,
+    .stat-card,
+    .insight-card,
+    .result-card,
+    .question-card,
+    .career-card,
+    .embed-card {
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,0.96);
+      border-radius: 22px;
+      box-shadow: 0 12px 28px rgba(15,111,79,0.05);
+    }
+
+    .info-box,
+    .mini-box,
+    .track-card,
+    .career-card,
+    .embed-card,
+    .result-card,
+    .question-card,
+    .insight-card,
+    .stat-card {
+      padding: 18px;
+    }
+
+    .info-box h3,
+    .mini-box h3,
+    .result-card h3,
+    .embed-card h3 {
+      margin-top: 0;
+      margin-bottom: 10px;
+      color: var(--primary-dark);
+      font-size: 18px;
+    }
+
+    .info-box p,
+    .mini-box p,
+    .embed-card p,
+    .career-card p,
+    .result-card p,
+    .insight-card p,
+    .stat-card p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.9;
+      font-size: 14px;
+    }
+
+    .mini-box ul,
+    .result-card ul {
+      margin: 10px 0 0;
+      padding-inline-start: 18px;
+      color: var(--muted);
+      line-height: 1.9;
+      font-size: 14px;
+    }
+
+    .track-card {
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.28s ease, box-shadow 0.28s ease;
+    }
+
+    .track-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 18px 32px rgba(15,111,79,0.09);
+    }
+
+    .track-card::before {
+      content: "";
+      position: absolute;
+      inset-inline-start: 0;
+      top: 0;
+      bottom: 0;
+      width: 6px;
+      border-radius: 0 10px 10px 0;
+      background: var(--accent-color, var(--primary));
+    }
+
+    .track-card h3 {
+      margin: 0 0 8px;
+      font-size: 18px;
+      color: var(--primary-dark);
+    }
+
+    .track-card .abbr {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 42px;
+      height: 42px;
+      border-radius: 14px;
+      font-weight: 900;
+      color: #fff;
+      background: var(--accent-color, var(--primary));
+      margin-bottom: 12px;
+      box-shadow: 0 10px 18px rgba(15,111,79,0.15);
+    }
+
+    .track-card p { margin: 0; color: var(--muted); line-height: 1.85; font-size: 14px; }
+
+    .track-card strong { color: var(--text); }
+
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 18px;
+    }
+
+    button {
+      border: 0;
+      cursor: pointer;
+      border-radius: 16px;
+      padding: 14px 20px;
+      font-family: inherit;
+      font-size: 15px;
+      font-weight: 800;
+      transition: transform 0.2s ease, box-shadow 0.2s ease, opacity 0.2s ease;
+    }
+
+    button:hover { transform: translateY(-2px); }
+
+    .btn-primary {
+      color: #fff;
+      background: linear-gradient(135deg, var(--primary-deep) 0%, var(--primary) 60%, var(--secondary) 100%);
+      box-shadow: 0 14px 24px rgba(15,111,79,0.18);
+    }
+
+    .btn-secondary {
+      color: var(--primary-dark);
+      background: #eff9f4;
+      border: 1px solid rgba(19,143,99,0.12);
+    }
+
+    .btn-ghost {
+      color: var(--primary-dark);
+      background: transparent;
+      border: 1px dashed rgba(19,143,99,0.24);
+    }
+
+    .question-card {
+      padding: 20px;
+      transition: transform 0.18s ease, box-shadow 0.18s ease;
+    }
+
+    .question-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 14px 28px rgba(15,111,79,0.08);
+    }
+
+    .question-head {
+      display: flex;
+      align-items: start;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 14px;
+    }
+
+    .question-number {
+      min-width: 44px;
+      height: 44px;
+      border-radius: 14px;
+      background: linear-gradient(135deg, #edf9f3, #ffffff);
+      color: var(--primary-dark);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 900;
+      border: 1px solid rgba(19,143,99,0.12);
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.85);
+    }
+
+    .question-card h3 {
+      margin: 0;
+      font-size: 18px;
+      line-height: 1.8;
+      flex: 1;
+    }
+
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 7px 10px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 800;
+      color: #fff;
+      background: var(--tag-color, var(--primary));
+      white-space: nowrap;
+      box-shadow: 0 6px 14px rgba(15,111,79,0.12);
+    }
+
+    .options {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 10px;
+    }
+
+    .option {
+      position: relative;
+    }
+
+    .option input {
+      position: absolute;
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    .option label {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 4px;
+      min-height: 68px;
+      border-radius: 18px;
+      border: 1px solid rgba(19,143,99,0.12);
+      background: linear-gradient(180deg, #ffffff, #f8fcfa);
+      text-align: center;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      padding: 10px;
+      color: var(--text);
+      font-weight: 800;
+    }
+
+    .option small {
+      color: var(--muted);
+      font-size: 11px;
+      font-weight: 700;
+    }
+
+    .option input:checked + label {
+      border-color: var(--secondary);
+      background: linear-gradient(180deg, #e9f8f0, #ffffff);
+      box-shadow: 0 0 0 4px rgba(26,160,111,0.12);
+      transform: translateY(-1px);
+      color: var(--primary-dark);
+    }
+
+    .hidden { display: none !important; }
+
+    .stats-grid .stat-card h3 {
+      margin: 0 0 6px;
+      font-size: 28px;
+      color: var(--primary-dark);
+    }
+
+    .insight-card h3,
+    .career-card h3 {
+      margin: 0 0 10px;
+      color: var(--primary-dark);
+      font-size: 18px;
+    }
+
+    .result-hero {
+      padding: 24px;
+      border-radius: 26px;
+      background: linear-gradient(135deg, rgba(19,143,99,0.08), rgba(215,201,122,0.18));
+      border: 1px solid rgba(19,143,99,0.10);
+      margin-bottom: 18px;
+    }
+
+    .result-hero h2 {
+      margin: 0 0 8px;
+      font-size: 28px;
+      color: var(--primary-dark);
+    }
+
+    .result-hero p {
+      margin: 6px 0;
+      line-height: 1.9;
+    }
+
+    .code-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 14px;
+      border-radius: 999px;
+      background: #fff;
+      border: 1px solid rgba(19,143,99,0.12);
+      font-weight: 900;
+      color: var(--primary-dark);
+      margin-top: 10px;
+      box-shadow: 0 8px 18px rgba(15,111,79,0.08);
+    }
+
+    .bar-list {
+      display: grid;
+      gap: 12px;
+      margin-top: 12px;
+    }
+
+    .bar-card {
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 14px;
+      background: #fff;
+    }
+
+    .bar-head {
+      display: flex;
+      justify-content: space-between;
+      gap: 14px;
+      margin-bottom: 8px;
+      font-weight: 800;
+      flex-wrap: wrap;
+    }
+
+    .bar-track {
+      width: 100%;
+      height: 12px;
+      border-radius: 999px;
+      background: #ebf3ef;
+      overflow: hidden;
+      margin-bottom: 8px;
+    }
+
+    .bar-fill {
+      height: 100%;
+      width: 0;
+      border-radius: 999px;
+      transition: width 0.75s cubic-bezier(0.22, 1, 0.36, 1);
+      background: var(--fill-color, var(--primary));
+      box-shadow: 0 4px 12px rgba(15,111,79,0.16);
+    }
+
+    .top-pill {
+      display: inline-flex;
+      padding: 8px 12px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 900;
+      color: #fff;
+      background: var(--fill-color, var(--primary));
+    }
+
+    .top3-card {
+      padding: 18px;
+      border-radius: 22px;
+      border: 1px solid var(--border);
+      background: linear-gradient(180deg, #ffffff, #fbfefc);
+      box-shadow: 0 12px 22px rgba(15,111,79,0.05);
+    }
+
+    .top3-card h3 {
+      margin: 0 0 8px;
+      color: var(--primary-dark);
+      font-size: 18px;
+    }
+
+    .top3-card p { margin: 0; color: var(--muted); line-height: 1.85; font-size: 14px; }
+
+    .career-card ul {
+      margin: 10px 0 0;
+      padding-inline-start: 18px;
+      line-height: 1.9;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .code-box {
+      direction: ltr;
+      background: #0d2d20;
+      color: #daf0e6;
+      border-radius: 18px;
+      padding: 16px;
+      overflow: auto;
+      font-size: 13px;
+      line-height: 1.8;
+      border: 1px solid rgba(255,255,255,0.06);
+      white-space: pre-wrap;
+    }
+
+    .footer-note {
+      margin-top: 14px;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.9;
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(18px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @keyframes floatOrb {
+      0%, 100% { transform: translateY(0) translateX(0) scale(1); }
+      50% { transform: translateY(12px) translateX(8px) scale(1.04); }
+    }
+
+    @keyframes pulseSoft {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.03); }
+    }
+
+    @media (max-width: 1080px) {
+      .hero-grid,
+      .embed-grid,
+      .helper-box,
+      .meta-grid,
+      .stats-grid,
+      .riasec-grid,
+      .career-grid,
+      .insight-grid,
+      .top3-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media (max-width: 760px) {
+      .container { width: min(100% - 18px, 100%); }
+      .hero, .section { padding: 18px; }
+      .hero-grid,
+      .embed-grid,
+      .helper-box,
+      .meta-grid,
+      .stats-grid,
+      .riasec-grid,
+      .career-grid,
+      .insight-grid,
+      .top3-grid {
+        grid-template-columns: 1fr;
+      }
+      .options { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .question-head { flex-direction: column; align-items: stretch; }
+      .brand-meta h1 { font-size: 28px; }
+      .logo-box { width: 72px; height: 72px; flex-basis: 72px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <section class="hero reveal visible">
+      <div class="hero-pattern"></div>
+      <div class="hero-grid">
+        <div>
+          <div class="brand">
+            <div class="logo-box">
+              <img id="schoolLogo" src="./منصة اكتشاف الميول المهنية _ المرحلة الثانوية_files/logo.png" alt="شعار المدرسة" class="">
+              <div id="logoFallback" class="logo-fallback hidden">شعار<br>المدرسة</div>
+            </div>
+            <div class="brand-meta">
+              <small>منصة حديثة للتوجيه المهني المدرسي</small>
+              <h1>اكتشاف الميول المهنية لطلاب المرحلة الثانوية</h1>
+              <p>
+                أداة مدرسية احترافية مبنية على نموذج RIASEC المستخدم على نطاق واسع في منصات التوجيه المهني الحديثة.
+                تساعد طلاب الصف الأول الثانوي والثاني الثانوي والثالث الثانوي على تكوين صورة أولية عن ميولهم، ثم ربطها بمسارات جامعية ومهنية مناسبة داخل المدرسة وخارجها.
+              </p>
+            </div>
+          </div>
+          <div class="chip-list">
+            <span class="chip">الأول الثانوي</span>
+            <span class="chip">الثاني الثانوي</span>
+            <span class="chip">الثالث الثانوي</span>
+            <span class="chip">RIASEC</span>
+            <span class="chip">قابل للدمج في موقع المدرسة</span>
+          </div>
+        </div>
+        <div class="hero-side">
+          <h3>ماذا يقدم هذا التقييم؟</h3>
+          <ul>
+            <li>نتيجة فورية مع أعلى 3 ميول مهنية لدى الطالب.</li>
+            <li>عرض كود مهني مختصر مثل: <strong>ISA</strong> أو <strong>SEC</strong>.</li>
+            <li>ربط كل ميل بأمثلة تخصصات ومجالات مستقبلية.</li>
+            <li>تصميم حديث مناسب لموقع المدرسة الرسمي.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="section glass reveal visible">
+      <div class="section-title">
+        <div>
+          <h2>بيانات الطالب وإعدادات التقييم</h2>
+          <p>يمكن تخصيص هذه البيانات أو ربطها لاحقًا بنظام المدرسة أو قاعدة بيانات خارجية.</p>
+        </div>
+      </div>
+
+      <div class="meta-grid">
+        <div class="field">
+          <label for="studentName">اسم الطالب / الطالبة</label>
+          <input id="studentName" type="text" placeholder="أدخل الاسم الكامل">
+        </div>
+        <div class="field">
+          <label for="gradeLevel">الصف</label>
+          <select id="gradeLevel">
+            <option value="">اختر الصف</option>
+            <option value="الأول الثانوي">الأول الثانوي</option>
+            <option value="الثاني الثانوي">الثاني الثانوي</option>
+            <option value="الثالث الثانوي">الثالث الثانوي</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="sectionName">الشعبة / القسم</label>
+          <input id="sectionName" type="text" placeholder="مثال: 11-A">
+        </div>
+        <div class="field">
+          <label for="advisorName">المرشد / المسؤول</label>
+          <input id="advisorName" type="text" placeholder="اختياري">
+        </div>
+      </div>
+
+      <div class="helper-box">
+        <div class="info-box">
+          <h3>طريقة الإجابة</h3>
+          <p>
+            اقرأ كل عبارة وحدد إلى أي درجة تعبّر عنك. استخدم المقياس من 1 إلى 5 حيث:
+            <strong>1 = لا تنطبق علي أبدًا</strong>، و<strong>5 = تنطبق علي بدرجة كبيرة جدًا</strong>.
+            حاول الإجابة بصدق وبشكل تلقائي دون التفكير بما يتوقعه الآخرون منك.
+          </p>
+        </div>
+        <div class="mini-box">
+          <h3>المقياس</h3>
+          <ul>
+            <li>1 = لا تنطبق</li>
+            <li>2 = تنطبق قليلًا</li>
+            <li>3 = تنطبق بدرجة متوسطة</li>
+            <li>4 = تنطبق كثيرًا</li>
+            <li>5 = تنطبق جدًا</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="section glass reveal">
+      <div class="section-title">
+        <div>
+          <h2>أنماط الميول المهنية المعتمدة</h2>
+          <p>يعتمد هذا النموذج على ستة أنماط اهتمام مهني مستخدمة في أدوات التوجيه المهني الحديثة.</p>
+        </div>
+      </div>
+
+      <div class="riasec-grid" id="riasecCards">
+        <div class="track-card reveal" style="--accent-color:var(--realistic); transition-delay:0ms;">
+          <div class="abbr">R</div>
+          <h3>العملي / التطبيقي</h3>
+          <p><strong>Realistic</strong></p>
+          <p style="margin-top:8px;">يفضل الأنشطة العملية، التطبيق، الأدوات، التنفيذ، والإنجاز الملموس.</p>
+        </div>
+      
+        <div class="track-card reveal" style="--accent-color:var(--investigative); transition-delay:70ms;">
+          <div class="abbr">I</div>
+          <h3>البحثي / التحليلي</h3>
+          <p><strong>Investigative</strong></p>
+          <p style="margin-top:8px;">يفضل التفكير، التحليل، الاكتشاف، الفهم، وحل المشكلات المعقدة.</p>
+        </div>
+      
+        <div class="track-card reveal" style="--accent-color:var(--artistic); transition-delay:140ms;">
+          <div class="abbr">A</div>
+          <h3>الإبداعي / الفني</h3>
+          <p><strong>Artistic</strong></p>
+          <p style="margin-top:8px;">يفضل التعبير، التصميم، الابتكار، والحرية في إنتاج الأفكار.</p>
+        </div>
+      
+        <div class="track-card reveal" style="--accent-color:var(--social); transition-delay:210ms;">
+          <div class="abbr">S</div>
+          <h3>الاجتماعي / الإنساني</h3>
+          <p><strong>Social</strong></p>
+          <p style="margin-top:8px;">يفضل مساعدة الناس، التعليم، التواصل، والإرشاد والدعم.</p>
+        </div>
+      
+        <div class="track-card reveal" style="--accent-color:var(--enterprising); transition-delay:280ms;">
+          <div class="abbr">E</div>
+          <h3>القيادي / الريادي</h3>
+          <p><strong>Enterprising</strong></p>
+          <p style="margin-top:8px;">يفضل المبادرة، القيادة، الإقناع، واتخاذ القرار وإدارة المشاريع.</p>
+        </div>
+      
+        <div class="track-card reveal" style="--accent-color:var(--conventional); transition-delay:350ms;">
+          <div class="abbr">C</div>
+          <h3>التنظيمي / الإداري</h3>
+          <p><strong>Conventional</strong></p>
+          <p style="margin-top:8px;">يفضل النظام، التفاصيل، الدقة، البيانات، والإجراءات الواضحة.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section glass reveal">
+      <div class="section-title">
+        <div>
+          <h2>الاستبيان المهني</h2>
+          <div style="margin-top:10px;font-weight:700;color:#b3261e;">
+            ⏳ الوقت المتبقي: <span id="timer">13:46</span>
+          </div>
+          <p>أجب عن جميع العبارات للحصول على تقرير فوري قابل للاستخدام في جلسات الإرشاد المهني.</p>
+        </div>
+      </div>
+
+      <div id="questionsContainer" class="question-grid">
+          <div class="question-card reveal" style="transition-delay:0ms;">
+            <div class="question-head">
+              <div class="question-number">1</div>
+              <h3>أحب تنفيذ الأعمال العملية واستخدام الأدوات أو الأجهزة في حل المهام.</h3>
+              <span class="tag" style="--tag-color:var(--realistic)">R · العملي / التطبيقي</span>
+            </div>
+            <div class="options">
+              
+                <div class="option">
+                  <input type="radio" name="q0" id="q0_1" value="1">
+                  <label for="q0_1">
+                    <span>1</span>
+                    <small>لا تنطبق</small>
+                  </label>
+                </div>
+              
+                <div class="option">
+                  <input type="radio" name="q0" id="q0_2" value="2">
+                  <label for="q0_2">
+                    <span>2</span>
+                    <small>قليلًا</small>
+                  </label>
+                </div>
+              
+                <div class="option">
+                  <input type="radio" name="q0" id="q0_3" value="3">
+                  <label for="q0_3">
+                    <span>3</span>
+                    <small>متوسطة</small>
+                  </label>
+                </div>
+              
+                <div class="option">
+                  <input type="radio" name="q0" id="q0_4" value="4">
+                  <label for="q0_4">
+                    <span>4</span>
+                    <small>كثيرًا</small>
+                  </label>
+                </div>
+              
+                <div class="option">
+                  <input type="radio" name="q0" id="q0_5" value="5">
+                  <label for="q0_5">
+                    <span>5</span>
+                    <small>جدًا</small>
+                  </label>
+                </div>
+              
+            </div>
+          </div>
+        
+          <div class="question-card reveal" style="transition-delay:18ms;">
+            <div class="question-head">
+              <div class="question-number">2</div>
+              <h3>أشعر بالمتعة عند البحث عن أسباب المشكلات وتحليلها بدقة.</h3>
+              <span class="tag" style="--tag-color:var(--investigative)">I · البحثي / التحليلي</span>
+            </div>
+            <div class="options">
+              
+                <div class="option">
+                  <input type="radio" name="q1" id="q1_1" value="1">
+                  <label for="q1_1">
+                    <span>1</span>
+                    <small>لا تنطبق</small>
+                  </label>
+                </div>
+              
+                <div class="option">
+                  <input type="radio" name="q1" id="q1_2" value="2">
+                  <label for="q1_2">
+                    <span>2</span>
+                    <small>قليلًا</small>
+                  </label>
+                </div>
+              
+                <div class="option">
+                  <input type="radio" name="q1" id="q1_3" value="3">
+                  <label for="q1_3">
+                    <span>3</span>
+                    <small>متوسطة</small>
+                  </label>
+                </div>
+              
+                <div class="option">
+                  <input type="radio" name="q1" id="q1_4" value="4">
+                  <label for="q1_4">
+                    <span>4</span>
+                    <small>كثيرًا</small>
+                  </label>
+                </div>
+              
+                <div class="option">
+                  <input type="radio" name="q1" id="q1_5" value="5">
+                  <label for="q1_5">
+                    <span>5</span>
+                    <small>جدًا</small>
+                  </label>
+                </div>
+              
+            </div>
+          </div>
+        
+          <div class="question-card reveal" style="transition-delay:36ms;">
+            <div class="question-head">
+              <div class="question-number">3</div>
+              <h3>أحب ابتكار أفكار جديدة والتعبير عنها بطريقة فنية أو مختلفة.</h3>
+              <span class="tag" style="--tag-color:var(--artistic)">A · الإبداعي / الفني</span>
+            </div>
+            <div class="options">
+              
+                <div class="option">
+                  <input type="radio" name="q2" id="q2_1" value="1">
+                  <label for="q2_1">
+                    <span>1</span>
+                    <small>لا تنطبق</small>
+                  </label>
+                </div>
+              
+                <div class="option">
+                  <input type="radio" name="q2" id="q2_2" value="2">
+                  <label for="q2_2">
+                    <span>2</span>
+                    <small>قليلًا</small>
+                  </label>
+                </div>
+              
+                <div class="option">
+                  <input type="radio" name="q2" id="q2_3" value="3">
+                  <label for="q2_3">
+                    <span>3</span>
+                    <small>متوسطة</small>
+                  </label>
+                </div>
+              
+                <div class="option">
+                  <input type="radio" name="q2" id="q2_4" value="4">
+                  <label for="q2_4">
+                    <span>4</span>
+                    <small>كثيرًا</small>
+                  </label>
+                </div>
+              
+                <div class="option">
+                  <input type="radio" name="q2" id="q2_5" value="5">
+                  <label for="q2_5">
+                    <span>5</span>
+                    <small>جدًا</small>
+                  </label>
+                </div>
+              
+            </div>
+          </div>
+        
+          <div class="question-card reveal" style="transition-delay:54ms;">
+            <div class="question-head">
+              <div class="question-number">4</div>
+              <h3>أرتاح عندما أساعد الآخرين أو أشرح لهم شيئًا يحتاجونه.</h3>
+              <span class="tag" style="--tag-color:var(--social)">S · الاجتماعي / الإنساني</span>
+            </div>
+            <div class="options">
+              
+                <div class="option">
+                  <input type="radio" name="q3" id="q3_1" value="1">
+                  <label for="q3_1">
+                    <span>1</span>
+                    <small>لا تنطبق</small>
+                  </label>
+                </div>
+              
+                <div class="option">
+                  <input type="radio" name="q3" id="q3_2" value="2">
+                  <label for="q3_2">
+                    <span>2</span>
+                    <small>قليلًا</small>
+                  </label>
+                </div>
+              
+                <div class="option">
+                  <input type="radio" name="q3" id="q3_3" value="3">
+                  <label for="q3_3">
+                    <span>3</span>
+                    <small>متوسطة</small>
+                  </label>
+                </div>
+              
+                <div class="option">
+                  <input type="radio" name="q3" id="q3_4" value="4">
+                  <label for="q3_4">
+                    <span>4</span>
+                    <small>كثيرًا</small>
+                  </label>
+                </div>
+              
+                <div class="option">
+                  <input type="radio" name="q3" id="q3_5" value="5">
+                  <label for="q3_5">
+                    <span>5</span>
+                    <small>جدًا</small>
+                  </label>
+                </div>
+              
+            </div>
+          </div>
+        
+          <div class="question-card reveal" style="transition-delay:72ms;">
+            <div class="question-head">
+              <div class="question-number">5</div>
+              <h3>أحب قيادة الأنشطة أو التأثير في الناس وإقناعهم بفكرة ما.</h3>
+              <span class="tag" style="--tag-color:var(--enterprising)">E · القيادي / الريادي</span>
+            </div>
+            <div class="options">
+              
+                <div class="option">
+                  <input type="radio" name="q4" id="q4_1" value="1">
+                  <label for="q4_1">
+                    <span>1</span>
+                    <small>لا تنطبق</small>
+                  </label>
+                </div>
+              
+                <div class="option">
+                  <input type="radio" name="q4" id="q4_2" value="2">
+                  <label for="q4_2">
+                    <span>2</span>
+                    <small>قليلًا</small>
+                  </label>
+                </div>
+              
+                <div class="option">
+                  <input type="radio" name="q4" id="q4_3" value="3">
+                  <label for="q4_3">
+                    <span>3</span>
+                    <small>متوسطة</small>
+                  </label>
+                </div>
+              
+                <div class="option">
+                  <input type="radio" name="q4" id="q4_4" value="4">
+                  <label for="q4_4">
+                    <span>4</span>
+                    <small>كثيرًا</small>
+                  </label>
+                </div>
+              
+                <div class="option">
+                  <input type="radio" name="q4" id="q4_5" value="5">
+                  <label for="q4_5">
+                    <span>5</span>
+                    <small>جدًا</small>
+                  </label>
+                </div>
+              
+            </div>
+          </div>
+        
+          <div class="question-card reveal" style="transition-delay:90ms;">
+            <div class="question-head">
+              <div class="question-number">6</div>
+              <h3>أفضل العمل المنظم الذي يعتمد على خطوات واضحة ودقيقة.</h3>
+              <span class="tag" style="--tag-color:var(--conventional)">C · التنظيمي / الإداري</span>
+            </div>
+            <div class="options">
+              
+                <div class="option">
+                  <input type="radio" name="q5" id="q5_1" value="1">
+                  <label for="q5_1">
+                    <span>1</span>
+                    <small>لا تنطبق</small>
+                  </label>
+                </div>
+              
+                <div class="option">
+                  <input type="radio" name="q5" id="q5_2" value="2">
+                  <label for="q5_2">
+                    <span>2</span>
+                    <small>قليلًا</small>
+                  </label>
+                </div>
+              
+                <div class="option">
+                  <input type="radio" name="q5" id="q5_3" value="3">
+                  <label for="q5_3">
+                    <span>3</span>
+                    <small>متوسطة</small>
+                  </label>
+                </div>
+              
+                <div class="option">
+                  <input type="radio" name="q5" id="q5_4" value="4">
+                  <label for="q5_4">
+                    <span>4</span>
+                    <small>كثيرًا</small>
+                  </label>
+                </div>
+              
+                <div class="option">
+                  <input type="radio" name="q5" id="q5_5" value="5">
+                  <label for="q5_5">
+                    <span>5</span>
+                    <small>جدًا</small>
+                  </label>
+                </div>
+              
+            </div>
+          </div>
+        
+          <div class="question-card reveal" style="transition-delay:108ms;">
+            <div class="question-head">
+              <div class="question-number">7</div>
+              <h3>أفضل المهام التي تتطلب حركة وإنجازًا ملموسًا أكثر من الجلوس الطويل.</h3>
+              <span class="tag" style="--tag-color:var(--realistic)">R · العملي / التطبيقي</span>
+            </div>
+            <div class="options">
+              
+                <div class="option">
+                  <input type="radio" name="q6" id="q6_1" value="1">
+                  <label for="q6_1">
+                    <span>1</span>
+                    <small>لا تنطبق</small>
+                  </label>
+                </div>
+              
+                <div class="option">
+                  <input type="radio" name="q6" id="q6_2" value="2">
+                  <label for="q6_2">
+                    <span>2</span>
+                    <small>قليلًا</small>
+                  </label>
+                </div>
+              
+                <div class="option">
+                  <input type="radio" name="q6" id="q6_3" value="3">
+                  <label for="q6_3">
+                    <span>3</span>
+                    <small>متوسطة</small>
+                  </label>
+                </div>
+              
+                <div class="option">
+                  <input type="radio" name="q6" id="q6_4" value="4">
+                  <label for="q6_4">
+                    <span>4</span>
+                    <small>كثيرًا</small>
+                  </label>
+                </div>
+              
+                <div class="option">
+                  <input type="radio" name="q6" id="q6_5" value="5">
+                  <label for="q6_5">
+                    <span>5</span>
+                    <small>جدًا</small>
+                  </label>
+                </div>
+              
+            </div>
+          </div>
+        
+          <div class="question-card reveal" style="transition-delay:126ms;">
+            <div class="question-head">
+              <div class="question-number">8</div>
+              <h3>أستمتع بحل المسائل العلمية أو المنطقية أو الرقمية المعقدة.</h3>
+              <span class="tag" style="--tag-color:var(--investigative)">I · البحثي / التحليلي</span>
+            </div>
+            <div class="options">
+              
+                <div class="option">
+                  <input type="radio" name="q7" id="q7_1" value="1">
+                  <label for="q7_1">
+                    <span>1</span>
+                    <small>لا تنطبق</small>
+                  </label>
+                </div>
+              
+                <div class="option">
+                  <input type="radio" name="q7" id="q7_2" value="2">
+                  <label for="q7_2">
+                    <span>2</span>
+                    <small>قليلًا</small>
+                  </label>
+                </div>
+              
+                <div class="option">
+                  <input type="radio" name="q7" id="q7_3" value="3">
+                  <label for="q7_3">
+                    <span>3</span>
+                    <small>متوسطة</small>
+                  </label>
+                </div>
+              
+                <div class="option">
+                  <input type="radio" name="q7" id="q7_4" value="4">
+                  <label for="q7_4">
+                    <span>4</span>
+                    <small>كثيرًا</small>
+                  </label>
+                </div>
+              
+                <div class="option">
+                  <input type="radio" name="q7" id="q7_5" value="5">
+                  <label for="q7_5">
+                    <span>5</span>
+                    <small>جدًا</small>
+                  </label>
+                </div>
+              
+            </div>
+          </div>
+        
+          <div class="question-card reveal" style="transition-delay:144ms;">
+            <div class="question-head">
+              <div class="question-number">9</div>
+              <h3>أميل إلى الرسم أو التصميم أو الكتابة أو صناعة المحتوى الإبداعي.</h3>
+              <span class="tag" style="--tag-color:var(--artistic)">A · الإبداعي / الفني</span>
+            </div>
+            <div class="options">
+              
+                <div class="option">
+                  <input type="radio" name="q8" id="q8_1" value="1">
+                  <label for="q8_1">
+                    <span>1</span>
+                    <small>لا تنطبق</small>
+                  </label>
+                </div>
+              
+                <div class="option">
+                  <input type="radio" name="q8" id="q8_2" value="2">
+                  <label for="q8_2">
+                    <span>2</span>
+                    <small>قليلًا</small>
+                  </label>
+                </div>
+              
+                <div class="option">
+                  <input type="radio" name="q8" id="q8_3" value="3">
+                  <label for="q8_3">
+                    <span>3</span>
+                    <small>متوسطة</small>
+                  </label>
+                </div>
+              
+                <div class="option">
+                  <input type="radio" name="q8" id="q8_4" value="4">
+                  <label for="q8_4">
+                    <span>4</span>
+                    <small>كثيرًا</small>
+                  </label>
+                </div>
+              
+                <div class="option">
+                  <input type="radio" name="q8" id="q8_5" value="5">
+                  <label for="q8_5">
+                    <span>5</span>
+                    <small>جدًا</small>
+                  </label>
+                </div>
+              
+            </div>
+          </div>
+        
+          <div class="question-card reveal" style="transition-delay:162ms;">
+            <div class="question-head">
+              <div class="question-number">10</div>
+              <h3>أحب العمل مع الناس أكثر من العمل المنفرد لفترات طويلة.</h3>
+              <span class="tag" style="--tag-color:var(--social)">S · الاجتماعي / الإنساني</span>
+            </div>
+            <div class="options">
+              
+                <div class="option">
+                  <input type="radio" name="q9" id="q9_1" value="1">
+                  <label for="q9_1">
+                    <span>1</span>
+                    <small>لا تنطبق</small>
+                  </label>
+                </div>
+              
+                <div class="option">
+                  <input type="radio" name="q9" id="q9_2" value="2">
+                  <label for="q9_2">
+                    <span>2</span>
+                    <small>قليلًا</small>
+                  </label>
+                </div>
+              
+                <div class="option">
+                  <input type="radio" name="q9" id="q9_3" value="3">
+                  <label for="q9_3">
+                    <span>3</span>
+                    <small>متوسطة</small>
+                  </label>
+                </div>
+              
+                <div class="option">
+                  <input type="radio" name="q9" id="q9_4" value="4">
+                  <label for="q9_4">
+                    <span>4</span>
+                    <small>كثيرًا</small>
+                  </label>
+                </div>
+              
+                <div class="option">
+                  <input type="radio" name="q9" id="q9_5" value="5">
+                  <label for="q9_5">
+                    <span>5</span>
+                    <small>جدًا</small>
+                  </label>
+                </div>
+              
+            </div>
+          </div>
+        
+          <div class="question-card reveal" style="transition-delay:180ms;">
+            <div class="question-head">
+              <div class="question-number">11</div>
+              <h3>أفكر أحيانًا في إنشاء مشروع خاص أو نشاط ريادي مستقبلاً.</h3>
+              <span class="tag" style="--tag-color:var(--enterprising)">E · القيادي / الريادي</span>
+            </div>
+            <div class="options">
+              
+                <div class="option">
+                  <input type="radio" name="q10" id="q10_1" value="1">
+                  <label for="q10_1">
+                    <span>1</span>
+                    <small>لا تنطبق</small>
+                  </label>
+                </div>
+              
+                <div class="option">
+                  <input type="radio" name="q10" id="q10_2" value="2">
+                  <label for="q10_2">
+                    <span>2</span>
+                    <small>قليلًا</small>
+                  </label>
+                </div>
+              
+                <div class="option">
+                  <input type="radio" name="q10" id="q10_3" value="3">
+                  <label for="q10_3">
+                    <span>3</span>
+                    <small>متوسطة</small>
+                  </label>
+                </div>
+              
+                <div class="option">
+                  <input type="radio" name="q10" id="q10_4" value="4">
+                  <label for="q10_4">
+                    <span>4</span>
+                    <small>كثيرًا</small>
+                  </label>
+                </div>
+              
+                <div class="option">
+                  <input type="radio" name="q10" id="q10_5" value="5">
+                  <label for="q10_5">
+                    <span>5</span>
+                    <small>جدًا</small>
+                  </label>
+                </div>
+              
+            </div>
+          </div>
+        
+          <div class="question-card reveal" style="transition-delay:198ms;">
+            <div class="question-head">
+              <div class="question-number">12</div>
+              <h3>أهتم بترتيب الملفات أو المعلومات أو البيانات بطريقة دقيقة ومنظمة.</h3>
+              <span class="tag" style="--tag-color:var(--conventional)">C · التنظيمي / الإداري</span>
+            </div>
+            <div class="options">
+              
+                <div class="option">
+                  <input type="radio" name="q11" id="q11_1" value="1">
+                  <label for="q11_1">
+                    <span>1</span>
+                    <small>لا تنطبق</small>
+                  </label>
+                </div>
+              
+                <div class="option">
+                  <input type="radio" name="q11" id="q11_2" value="2">
+                  <label for="q11_2">
+                    <span>2</span>
+                    <small>قليلًا</small>
+                  </label>
+                </div>
+              
+                <div class="option">
+                  <input type="radio" name="q11" id="q11_3" value="3">
+                  <label for="q11_3">
+                    <span>3</span>
+                    <small>متوسطة</small>
+                  </label>
+                </div>
+              
+                <div class="option">
+                  <input type="radio" name="q11" id="q11_4" value="4">
+                  <label for="q11_4">
+                    <span>4</span>
+                    <small>كثيرًا</small>
+                  </label>
+                </div>
+              
+                <div class="option">
+                  <input type="radio" name="q11" id="q11_5" value="5">
+                  <label for="q11_5">
+                    <span>5</span>
+                    <small>جدًا</small>
+                  </label>
+                </div>
+              
+            </div>
+          </div>
+        
+          <div class="question-card reveal" style="transition-delay:216ms;">
+            <div class="question-head">
+              <div class="question-number">13</div>
+              <h3>أفضل التعلم من خلال التطبيق العملي والتجربة المباشرة.</h3>
+              <span class="tag" style="--tag-color:var(--realistic)">R · العملي / التطبيقي</span>
+            </div>
+            <div class="options">
+              
+                <div class="option">
+                  <input type="radio" name="q12" id="q12_1" value="1">
+                  <label for="q12_1">
+                    <span>1</span>
+                    <small>لا تنطبق</small>
+                  </label>
+                </div>
+              
+                <div class="option">
+                  <input type="radio" name="q12" id="q12_2" value="2">
+                  <label for="q12_2">
+                    <span>2</span>
+                    <small>قليلًا</small>
+                  </label>
+                </div>
+              
+                <div class="option">
+                  <input type="radio" name="q12" id="q12_3" value="3">
+                  <label for="q12_3">
+                    <span>3</span>
+                    <small>متوسطة</small>
+                  </label>
+                </div>
+              
+                <div class="option">
+                  <input type="radio" name="q12" id="q12_4" value="4">
+                  <label for="q12_4">
+                    <span>4</span>
+                    <small>كثيرًا</small>
+                  </label>
+                </div>
+              
+                <div class="option">
+                  <input type="radio" name="q12" id="q12_5" value="5">
+                  <label for="q12_5">
+                    <span>5</span>
+                    <small>جدًا</small>
+                  </label>
+                </div>
+              
+            </div>
+          </div>
+        
+          <div class="question-card reveal" style="transition-delay:234ms;">
+            <div class="question-head">
+              <div class="question-number">14</div>
+              <h3>أحب الاكتشاف العلمي وطرح الأسئلة والبحث عن إجاباتها.</h3>
+              <span class="tag" style="--tag-color:var(--investigative)">I · البحثي / التحليلي</span>
+            </div>
+            <div class="options">
+              
+                <div class="option">
+                  <input type="radio" name="q13" id="q13_1" value="1">
+                  <label for="q13_1">
+                    <span>1</span>
+                    <small>لا تنطبق</small>
+                  </label>
+                </div>
+              
+                <div class="option">
+                  <input type="radio" name="q13" id="q13_2" value="2">
+                  <label for="q13_2">
+                    <span>2</span>
+                    <small>قليلًا</small>
+                  </label>
+                </div>
+              
+                <div class="option">
+                  <input type="radio" name="q13" id="q13_3" value="3">
+                  <label for="q13_3">
+                    <span>3</span>
+                    <small>متوسطة</small>
+                  </label>
+                </div>
+              
+                <div class="option">
+                  <input type="radio" name="q13" id="q13_4" value="4">
+                  <label for="q13_4">
+                    <span>4</span>
+                    <small>كثيرًا</small>
+                  </label>
+                </div>
+              
+                <div class="option">
+                  <input type="radio" name="q13" id="q13_5" value="5">
+                  <label for="q13_5">
+                    <span>5</span>
+                    <small>جدًا</small>
+                  </label>
+                </div>
+              
+            </div>
+          </div>
+        
+          <div class="question-card reveal" style="transition-delay:240ms;">
+            <div class="question-head">
+              <div class="question-number">15</div>
+              <h3>أشعر أن الخيال والإبداع من أقوى جوانب شخصيتي.</h3>
+              <span class="tag" style="--tag-color:var(--artistic)">A · الإبداعي / الفني</span>
+            </div>
+            <div class="options">
+              
+                <div class="option">
+                  <input type="radio" name="q14" id="q14_1" value="1">
+                  <label for="q14_1">
+                    <span>1</span>
+                    <small>لا تنطبق</small>
+                  </label>
+                </div>
+              
+                <div class="option">
+                  <input type="radio" name="q14" id="q14_2" value="2">
+                  <label for="q14_2">
+                    <span>2</span>
+                    <small>قليلًا</small>
+                  </label>
+                </div>
+              
+                <div class="option">
+                  <input type="radio" name="q14" id="q14_3" value="3">
+                  <label for="q14_3">
+                    <span>3</span>
+                    <small>متوسطة</small>
+                  </label>
+                </div>
+              
+                <div class="option">
+                  <input type="radio" name="q14" id="q14_4" value="4">
+                  <label for="q14_4">
+                    <span>4</span>
+                    <small>كثيرًا</small>
+                  </label>
+                </div>
+              
+                <div class="option">
+                  <input type="radio" name="q14" id="q14_5" value="5">
+                  <label for="q14_5">
+                    <span>5</span>
+                    <small>جدًا</small>
+                  </label>
+                </div>
+              
+            </div>
+          </div>
+        
+          <div class="question-card reveal" style="transition-delay:240ms;">
+            <div class="question-head">
+              <div class="question-number">16</div>
+              <h3>يسعدني أن يكون لعملي أثر إيجابي على حياة الآخرين.</h3>
+              <span class="tag" style="--tag-color:var(--social)">S · الاجتماعي / الإنساني</span>
+            </div>
+            <div class="options">
+              
+                <div class="option">
+                  <input type="radio" name="q15" id="q15_1" value="1">
+                  <label for="q15_1">
+                    <span>1</span>
+                    <small>لا تنطبق</small>
+                  </label>
+                </div>
+              
+                <div class="option">
+                  <input type="radio" name="q15" id="q15_2" value="2">
+                  <label for="q15_2">
+                    <span>2</span>
+                    <small>قليلًا</small>
+                  </label>
+                </div>
+              
+                <div class="option">
+                  <input type="radio" name="q15" id="q15_3" value="3">
+                  <label for="q15_3">
+                    <span>3</span>
+                    <small>متوسطة</small>
+                  </label>
+                </div>
+              
+                <div class="option">
+                  <input type="radio" name="q15" id="q15_4" value="4">
+                  <label for="q15_4">
+                    <span>4</span>
+                    <small>كثيرًا</small>
+                  </label>
+                </div>
+              
+                <div class="option">
+                  <input type="radio" name="q15" id="q15_5" value="5">
+                  <label for="q15_5">
+                    <span>5</span>
+                    <small>جدًا</small>
+                  </label>
+                </div>
+              
+            </div>
+          </div>
+        
+          <div class="question-card reveal" style="transition-delay:240ms;">
+            <div class="question-head">
+              <div class="question-number">17</div>
+              <h3>أميل إلى المبادرة واتخاذ القرار وتحمل المسؤولية.</h3>
+              <span class="tag" style="--tag-color:var(--enterprising)">E · القيادي / الريادي</span>
+            </div>
+            <div class="options">
+              
+                <div class="option">
+                  <input type="radio" name="q16" id="q16_1" value="1">
+                  <label for="q16_1">
+                    <span>1</span>
+                    <small>لا تنطبق</small>
+                  </label>
+                </div>
+              
+                <div class="option">
+                  <input type="radio" name="q16" id="q16_2" value="2">
+                  <label for="q16_2">
+                    <span>2</span>
+                    <small>قليلًا</small>
+                  </label>
+                </div>
+              
+                <div class="option">
+                  <input type="radio" name="q16" id="q16_3" value="3">
+                  <label for="q16_3">
+                    <span>3</span>
+                    <small>متوسطة</small>
+                  </label>
+                </div>
+              
+                <div class="option">
+                  <input type="radio" name="q16" id="q16_4" value="4">
+                  <label for="q16_4">
+                    <span>4</span>
+                    <small>كثيرًا</small>
+                  </label>
+                </div>
+              
+                <div class="option">
+                  <input type="radio" name="q16" id="q16_5" value="5">
+                  <label for="q16_5">
+                    <span>5</span>
+                    <small>جدًا</small>
+                  </label>
+                </div>
+              
+            </div>
+          </div>
+        
+          <div class="question-card reveal" style="transition-delay:240ms;">
+            <div class="question-head">
+              <div class="question-number">18</div>
+              <h3>أفضل البيئات التي فيها وضوح ونظام وتعليمات محددة.</h3>
+              <span class="tag" style="--tag-color:var(--conventional)">C · التنظيمي / الإداري</span>
+            </div>
+            <div class="options">
+              
+                <div class="option">
+                  <input type="radio" name="q17" id="q17_1" value="1">
+                  <label for="q17_1">
+                    <span>1</span>
+                    <small>لا تنطبق</small>
+                  </label>
+                </div>
+              
+                <div class="option">
+                  <input type="radio" name="q17" id="q17_2" value="2">
+                  <label for="q17_2">
+                    <span>2</span>
+                    <small>قليلًا</small>
+                  </label>
+                </div>
+              
+                <div class="option">
+                  <input type="radio" name="q17" id="q17_3" value="3">
+                  <label for="q17_3">
+                    <span>3</span>
+                    <small>متوسطة</small>
+                  </label>
+                </div>
+              
+                <div class="option">
+                  <input type="radio" name="q17" id="q17_4" value="4">
+                  <label for="q17_4">
+                    <span>4</span>
+                    <small>كثيرًا</small>
+                  </label>
+                </div>
+              
+                <div class="option">
+                  <input type="radio" name="q17" id="q17_5" value="5">
+                  <label for="q17_5">
+                    <span>5</span>
+                    <small>جدًا</small>
+                  </label>
+                </div>
+              
+            </div>
+          </div>
+        
+          <div class="question-card reveal" style="transition-delay:240ms;">
+            <div class="question-head">
+              <div class="question-number">19</div>
+              <h3>أحب مجالات مثل التقنيات والآلات والروبوتات أو الأعمال الميدانية.</h3>
+              <span class="tag" style="--tag-color:var(--realistic)">R · العملي / التطبيقي</span>
+            </div>
+            <div class="options">
+              
+                <div class="option">
+                  <input type="radio" name="q18" id="q18_1" value="1">
+                  <label for="q18_1">
+                    <span>1</span>
+                    <small>لا تنطبق</small>
+                  </label>
+                </div>
+              
+                <div class="option">
+                  <input type="radio" name="q18" id="q18_2" value="2">
+                  <label for="q18_2">
+                    <span>2</span>
+                    <small>قليلًا</small>
+                  </label>
+                </div>
+              
+                <div class="option">
+                  <input type="radio" name="q18" id="q18_3" value="3">
+                  <label for="q18_3">
+                    <span>3</span>
+                    <small>متوسطة</small>
+                  </label>
+                </div>
+              
+                <div class="option">
+                  <input type="radio" name="q18" id="q18_4" value="4">
+                  <label for="q18_4">
+                    <span>4</span>
+                    <small>كثيرًا</small>
+                  </label>
+                </div>
+              
+                <div class="option">
+                  <input type="radio" name="q18" id="q18_5" value="5">
+                  <label for="q18_5">
+                    <span>5</span>
+                    <small>جدًا</small>
+                  </label>
+                </div>
+              
+            </div>
+          </div>
+        
+          <div class="question-card reveal" style="transition-delay:240ms;">
+            <div class="question-head">
+              <div class="question-number">20</div>
+              <h3>أشعر أن التحليل والاستنتاج والتفكير العميق يناسبني.</h3>
+              <span class="tag" style="--tag-color:var(--investigative)">I · البحثي / التحليلي</span>
+            </div>
+            <div class="options">
+              
+                <div class="option">
+                  <input type="radio" name="q19" id="q19_1" value="1">
+                  <label for="q19_1">
+                    <span>1</span>
+                    <small>لا تنطبق</small>
+                  </label>
+                </div>
+              
+                <div class="option">
+                  <input type="radio" name="q19" id="q19_2" value="2">
+                  <label for="q19_2">
+                    <span>2</span>
+                    <small>قليلًا</small>
+                  </label>
+                </div>
+              
+                <div class="option">
+                  <input type="radio" name="q19" id="q19_3" value="3">
+                  <label for="q19_3">
+                    <span>3</span>
+                    <small>متوسطة</small>
+                  </label>
+                </div>
+              
+                <div class="option">
+                  <input type="radio" name="q19" id="q19_4" value="4">
+                  <label for="q19_4">
+                    <span>4</span>
+                    <small>كثيرًا</small>
+                  </label>
+                </div>
+              
+                <div class="option">
+                  <input type="radio" name="q19" id="q19_5" value="5">
+                  <label for="q19_5">
+                    <span>5</span>
+                    <small>جدًا</small>
+                  </label>
+                </div>
+              
+            </div>
+          </div>
+        
+          <div class="question-card reveal" style="transition-delay:240ms;">
+            <div class="question-head">
+              <div class="question-number">21</div>
+              <h3>أحب أن أترك بصمتي الخاصة في أي عمل أقوم به.</h3>
+              <span class="tag" style="--tag-color:var(--artistic)">A · الإبداعي / الفني</span>
+            </div>
+            <div class="options">
+              
+                <div class="option">
+                  <input type="radio" name="q20" id="q20_1" value="1">
+                  <label for="q20_1">
+                    <span>1</span>
+                    <small>لا تنطبق</small>
+                  </label>
+                </div>
+              
+                <div class="option">
+                  <input type="radio" name="q20" id="q20_2" value="2">
+                  <label for="q20_2">
+                    <span>2</span>
+                    <small>قليلًا</small>
+                  </label>
+                </div>
+              
+                <div class="option">
+                  <input type="radio" name="q20" id="q20_3" value="3">
+                  <label for="q20_3">
+                    <span>3</span>
+                    <small>متوسطة</small>
+                  </label>
+                </div>
+              
+                <div class="option">
+                  <input type="radio" name="q20" id="q20_4" value="4">
+                  <label for="q20_4">
+                    <span>4</span>
+                    <small>كثيرًا</small>
+                  </label>
+                </div>
+              
+                <div class="option">
+                  <input type="radio" name="q20" id="q20_5" value="5">
+                  <label for="q20_5">
+                    <span>5</span>
+                    <small>جدًا</small>
+                  </label>
+                </div>
+              
+            </div>
+          </div>
+        
+          <div class="question-card reveal" style="transition-delay:240ms;">
+            <div class="question-head">
+              <div class="question-number">22</div>
+              <h3>أجيد التواصل والإنصات وفهم حاجات الآخرين.</h3>
+              <span class="tag" style="--tag-color:var(--social)">S · الاجتماعي / الإنساني</span>
+            </div>
+            <div class="options">
+              
+                <div class="option">
+                  <input type="radio" name="q21" id="q21_1" value="1">
+                  <label for="q21_1">
+                    <span>1</span>
+                    <small>لا تنطبق</small>
+                  </label>
+                </div>
+              
+                <div class="option">
+                  <input type="radio" name="q21" id="q21_2" value="2">
+                  <label for="q21_2">
+                    <span>2</span>
+                    <small>قليلًا</small>
+                  </label>
+                </div>
+              
+                <div class="option">
+                  <input type="radio" name="q21" id="q21_3" value="3">
+                  <label for="q21_3">
+                    <span>3</span>
+                    <small>متوسطة</small>
+                  </label>
+                </div>
+              
+                <div class="option">
+                  <input type="radio" name="q21" id="q21_4" value="4">
+                  <label for="q21_4">
+                    <span>4</span>
+                    <small>كثيرًا</small>
+                  </label>
+                </div>
+              
+                <div class="option">
+                  <input type="radio" name="q21" id="q21_5" value="5">
+                  <label for="q21_5">
+                    <span>5</span>
+                    <small>جدًا</small>
+                  </label>
+                </div>
+              
+            </div>
+          </div>
+        
+          <div class="question-card reveal" style="transition-delay:240ms;">
+            <div class="question-head">
+              <div class="question-number">23</div>
+              <h3>أحب تنظيم الفرق أو عرض الأفكار أو التفاوض بشأنها.</h3>
+              <span class="tag" style="--tag-color:var(--enterprising)">E · القيادي / الريادي</span>
+            </div>
+            <div class="options">
+              
+                <div class="option">
+                  <input type="radio" name="q22" id="q22_1" value="1">
+                  <label for="q22_1">
+                    <span>1</span>
+                    <small>لا تنطبق</small>
+                  </label>
+                </div>
+              
+                <div class="option">
+                  <input type="radio" name="q22" id="q22_2" value="2">
+                  <label for="q22_2">
+                    <span>2</span>
+                    <small>قليلًا</small>
+                  </label>
+                </div>
+              
+                <div class="option">
+                  <input type="radio" name="q22" id="q22_3" value="3">
+                  <label for="q22_3">
+                    <span>3</span>
+                    <small>متوسطة</small>
+                  </label>
+                </div>
+              
+                <div class="option">
+                  <input type="radio" name="q22" id="q22_4" value="4">
+                  <label for="q22_4">
+                    <span>4</span>
+                    <small>كثيرًا</small>
+                  </label>
+                </div>
+              
+                <div class="option">
+                  <input type="radio" name="q22" id="q22_5" value="5">
+                  <label for="q22_5">
+                    <span>5</span>
+                    <small>جدًا</small>
+                  </label>
+                </div>
+              
+            </div>
+          </div>
+        
+          <div class="question-card reveal" style="transition-delay:240ms;">
+            <div class="question-head">
+              <div class="question-number">24</div>
+              <h3>أتميز في متابعة التفاصيل والالتزام بالمواعيد والإجراءات.</h3>
+              <span class="tag" style="--tag-color:var(--conventional)">C · التنظيمي / الإداري</span>
+            </div>
+            <div class="options">
+              
+                <div class="option">
+                  <input type="radio" name="q23" id="q23_1" value="1">
+                  <label for="q23_1">
+                    <span>1</span>
+                    <small>لا تنطبق</small>
+                  </label>
+                </div>
+              
+                <div class="option">
+                  <input type="radio" name="q23" id="q23_2" value="2">
+                  <label for="q23_2">
+                    <span>2</span>
+                    <small>قليلًا</small>
+                  </label>
+                </div>
+              
+                <div class="option">
+                  <input type="radio" name="q23" id="q23_3" value="3">
+                  <label for="q23_3">
+                    <span>3</span>
+                    <small>متوسطة</small>
+                  </label>
+                </div>
+              
+                <div class="option">
+                  <input type="radio" name="q23" id="q23_4" value="4">
+                  <label for="q23_4">
+                    <span>4</span>
+                    <small>كثيرًا</small>
+                  </label>
+                </div>
+              
+                <div class="option">
+                  <input type="radio" name="q23" id="q23_5" value="5">
+                  <label for="q23_5">
+                    <span>5</span>
+                    <small>جدًا</small>
+                  </label>
+                </div>
+              
+            </div>
+          </div>
+        
+          <div class="question-card reveal" style="transition-delay:240ms;">
+            <div class="question-head">
+              <div class="question-number">25</div>
+              <h3>أرتاح للأنشطة التي تتطلب مهارة عملية ودقة تنفيذ.</h3>
+              <span class="tag" style="--tag-color:var(--realistic)">R · العملي / التطبيقي</span>
+            </div>
+            <div class="options">
+              
+                <div class="option">
+                  <input type="radio" name="q24" id="q24_1" value="1">
+                  <label for="q24_1">
+                    <span>1</span>
+                    <small>لا تنطبق</small>
+                  </label>
+                </div>
+              
+                <div class="option">
+                  <input type="radio" name="q24" id="q24_2" value="2">
+                  <label for="q24_2">
+                    <span>2</span>
+                    <small>قليلًا</small>
+                  </label>
+                </div>
+              
+                <div class="option">
+                  <input type="radio" name="q24" id="q24_3" value="3">
+                  <label for="q24_3">
+                    <span>3</span>
+                    <small>متوسطة</small>
+                  </label>
+                </div>
+              
+                <div class="option">
+                  <input type="radio" name="q24" id="q24_4" value="4">
+                  <label for="q24_4">
+                    <span>4</span>
+                    <small>كثيرًا</small>
+                  </label>
+                </div>
+              
+                <div class="option">
+                  <input type="radio" name="q24" id="q24_5" value="5">
+                  <label for="q24_5">
+                    <span>5</span>
+                    <small>جدًا</small>
+                  </label>
+                </div>
+              
+            </div>
+          </div>
+        
+          <div class="question-card reveal" style="transition-delay:240ms;">
+            <div class="question-head">
+              <div class="question-number">26</div>
+              <h3>أحب المواد التي تعتمد على الاكتشاف والتفكير والتحليل.</h3>
+              <span class="tag" style="--tag-color:var(--investigative)">I · البحثي / التحليلي</span>
+            </div>
+            <div class="options">
+              
+                <div class="option">
+                  <input type="radio" name="q25" id="q25_1" value="1">
+                  <label for="q25_1">
+                    <span>1</span>
+                    <small>لا تنطبق</small>
+                  </label>
+                </div>
+              
+                <div class="option">
+                  <input type="radio" name="q25" id="q25_2" value="2">
+                  <label for="q25_2">
+                    <span>2</span>
+                    <small>قليلًا</small>
+                  </label>
+                </div>
+              
+                <div class="option">
+                  <input type="radio" name="q25" id="q25_3" value="3">
+                  <label for="q25_3">
+                    <span>3</span>
+                    <small>متوسطة</small>
+                  </label>
+                </div>
+              
+                <div class="option">
+                  <input type="radio" name="q25" id="q25_4" value="4">
+                  <label for="q25_4">
+                    <span>4</span>
+                    <small>كثيرًا</small>
+                  </label>
+                </div>
+              
+                <div class="option">
+                  <input type="radio" name="q25" id="q25_5" value="5">
+                  <label for="q25_5">
+                    <span>5</span>
+                    <small>جدًا</small>
+                  </label>
+                </div>
+              
+            </div>
+          </div>
+        
+          <div class="question-card reveal" style="transition-delay:240ms;">
+            <div class="question-head">
+              <div class="question-number">27</div>
+              <h3>أفضل المجالات التي تمنحني حرية في التعبير والابتكار.</h3>
+              <span class="tag" style="--tag-color:var(--artistic)">A · الإبداعي / الفني</span>
+            </div>
+            <div class="options">
+              
+                <div class="option">
+                  <input type="radio" name="q26" id="q26_1" value="1">
+                  <label for="q26_1">
+                    <span>1</span>
+                    <small>لا تنطبق</small>
+                  </label>
+                </div>
+              
+                <div class="option">
+                  <input type="radio" name="q26" id="q26_2" value="2">
+                  <label for="q26_2">
+                    <span>2</span>
+                    <small>قليلًا</small>
+                  </label>
+                </div>
+              
+                <div class="option">
+                  <input type="radio" name="q26" id="q26_3" value="3">
+                  <label for="q26_3">
+                    <span>3</span>
+                    <small>متوسطة</small>
+                  </label>
+                </div>
+              
+                <div class="option">
+                  <input type="radio" name="q26" id="q26_4" value="4">
+                  <label for="q26_4">
+                    <span>4</span>
+                    <small>كثيرًا</small>
+                  </label>
+                </div>
+              
+                <div class="option">
+                  <input type="radio" name="q26" id="q26_5" value="5">
+                  <label for="q26_5">
+                    <span>5</span>
+                    <small>جدًا</small>
+                  </label>
+                </div>
+              
+            </div>
+          </div>
+        
+          <div class="question-card reveal" style="transition-delay:240ms;">
+            <div class="question-head">
+              <div class="question-number">28</div>
+              <h3>أستمتع بالتعليم والمساندة والإرشاد والعمل الجماعي.</h3>
+              <span class="tag" style="--tag-color:var(--social)">S · الاجتماعي / الإنساني</span>
+            </div>
+            <div class="options">
+              
+                <div class="option">
+                  <input type="radio" name="q27" id="q27_1" value="1">
+                  <label for="q27_1">
+                    <span>1</span>
+                    <small>لا تنطبق</small>
+                  </label>
+                </div>
+              
+                <div class="option">
+                  <input type="radio" name="q27" id="q27_2" value="2">
+                  <label for="q27_2">
+                    <span>2</span>
+                    <small>قليلًا</small>
+                  </label>
+                </div>
+              
+                <div class="option">
+                  <input type="radio" name="q27" id="q27_3" value="3">
+                  <label for="q27_3">
+                    <span>3</span>
+                    <small>متوسطة</small>
+                  </label>
+                </div>
+              
+                <div class="option">
+                  <input type="radio" name="q27" id="q27_4" value="4">
+                  <label for="q27_4">
+                    <span>4</span>
+                    <small>كثيرًا</small>
+                  </label>
+                </div>
+              
+                <div class="option">
+                  <input type="radio" name="q27" id="q27_5" value="5">
+                  <label for="q27_5">
+                    <span>5</span>
+                    <small>جدًا</small>
+                  </label>
+                </div>
+              
+            </div>
+          </div>
+        
+          <div class="question-card reveal" style="transition-delay:240ms;">
+            <div class="question-head">
+              <div class="question-number">29</div>
+              <h3>تجذبني الأدوار التي فيها قيادة أو مبيعات أو إدارة مبادرات.</h3>
+              <span class="tag" style="--tag-color:var(--enterprising)">E · القيادي / الريادي</span>
+            </div>
+            <div class="options">
+              
+                <div class="option">
+                  <input type="radio" name="q28" id="q28_1" value="1">
+                  <label for="q28_1">
+                    <span>1</span>
+                    <small>لا تنطبق</small>
+                  </label>
+                </div>
+              
+                <div class="option">
+                  <input type="radio" name="q28" id="q28_2" value="2">
+                  <label for="q28_2">
+                    <span>2</span>
+                    <small>قليلًا</small>
+                  </label>
+                </div>
+              
+                <div class="option">
+                  <input type="radio" name="q28" id="q28_3" value="3">
+                  <label for="q28_3">
+                    <span>3</span>
+                    <small>متوسطة</small>
+                  </label>
+                </div>
+              
+                <div class="option">
+                  <input type="radio" name="q28" id="q28_4" value="4">
+                  <label for="q28_4">
+                    <span>4</span>
+                    <small>كثيرًا</small>
+                  </label>
+                </div>
+              
+                <div class="option">
+                  <input type="radio" name="q28" id="q28_5" value="5">
+                  <label for="q28_5">
+                    <span>5</span>
+                    <small>جدًا</small>
+                  </label>
+                </div>
+              
+            </div>
+          </div>
+        
+          <div class="question-card reveal" style="transition-delay:240ms;">
+            <div class="question-head">
+              <div class="question-number">30</div>
+              <h3>أحب الجداول والترتيب وإدارة المعلومات بطريقة واضحة.</h3>
+              <span class="tag" style="--tag-color:var(--conventional)">C · التنظيمي / الإداري</span>
+            </div>
+            <div class="options">
+              
+                <div class="option">
+                  <input type="radio" name="q29" id="q29_1" value="1">
+                  <label for="q29_1">
+                    <span>1</span>
+                    <small>لا تنطبق</small>
+                  </label>
+                </div>
+              
+                <div class="option">
+                  <input type="radio" name="q29" id="q29_2" value="2">
+                  <label for="q29_2">
+                    <span>2</span>
+                    <small>قليلًا</small>
+                  </label>
+                </div>
+              
+                <div class="option">
+                  <input type="radio" name="q29" id="q29_3" value="3">
+                  <label for="q29_3">
+                    <span>3</span>
+                    <small>متوسطة</small>
+                  </label>
+                </div>
+              
+                <div class="option">
+                  <input type="radio" name="q29" id="q29_4" value="4">
+                  <label for="q29_4">
+                    <span>4</span>
+                    <small>كثيرًا</small>
+                  </label>
+                </div>
+              
+                <div class="option">
+                  <input type="radio" name="q29" id="q29_5" value="5">
+                  <label for="q29_5">
+                    <span>5</span>
+                    <small>جدًا</small>
+                  </label>
+                </div>
+              
+            </div>
+          </div>
+        </div>
+
+      <div class="actions">
+        <button class="btn-primary" onclick="calculateResults()">إظهار التقرير المهني</button>
+        <button class="btn-secondary" onclick="saveCurrentResult()">حفظ النتيجة في Google Sheets</button>
+        <button class="btn-secondary" onclick="resetForm()">إعادة التقييم</button>
+        <button class="btn-ghost" onclick="window.print()">طباعة النتيجة</button>
+      </div>
+    </section>
+
+    <section id="resultsSection" class="section glass hidden">
+      <div class="section-title">
+        <div>
+          <h2>تقرير الطالب</h2>
+          <p>نتيجة استرشادية أولية تدعم القرار المهني ولا تُستخدم وحدها لاتخاذ قرار نهائي.</p>
+        </div>
+      </div>
+
+      <div id="resultContent"></div>
+    </section>
+
+    <section class="section glass reveal">
+      <div class="section-title">
+        <div>
+          <h2>دمج المنصة داخل موقع المدرسة</h2>
+          <p>يمكن نشر هذه الصفحة كما هي أو دمجها داخل صفحة مستقلة في الموقع الرسمي للمدرسة.</p>
+        </div>
+      </div>
+
+      <div class="embed-grid">
+        <div class="embed-card">
+          <h3>كود الدمج</h3>
+          <p>بعد رفع الملف على استضافة المدرسة، يمكن إدراجه ضمن أي صفحة باستخدام الكود التالي:</p>
+          <div class="code-box">&lt;iframe src="career-interest-pro.html" width="100%" height="2200" style="border:none;border-radius:24px;overflow:hidden;" loading="lazy"&gt;&lt;/iframe&gt;</div>
+          <p class="footer-note">
+            يمكن أيضًا تحويله إلى مكوّن داخل موقع المدرسة، أو ربطه لاحقًا بـ Google Sheets أو قاعدة بيانات لحفظ نتائج الطلاب تلقائيًا.
+          </p>
+        </div>
+
+        <div class="embed-card">
+          <h3>تخصيص الشعار</h3>
+          <p>لتفعيل شعار المدرسة، ضع مسار صورة الشعار داخل المتغير <strong>schoolLogoPath</strong> في نهاية الملف.</p>
+          <div class="code-box">const schoolLogoPath = "logo-school.png";</div>
+          <p class="footer-note">
+            عند تزويدي بشعار المدرسة واسمها الرسمي وألوانها المعتمدة، يمكن تحويل هذه النسخة إلى إصدار نهائي مطابق لهوية المدرسة بالكامل.
+          </p>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <script>
+    const schoolLogoPath = "logo.png";
+    const sheetWebhookUrl = "PUT_YOUR_GOOGLE_SCRIPT_URL_HERE";
+    let latestPayload = null;
+
+    const tracks = {
+      realistic: {
+        code: "R",
+        title: "العملي / التطبيقي",
+        english: "Realistic",
+        color: "var(--realistic)",
+        short: "يفضل الأنشطة العملية، التطبيق، الأدوات، التنفيذ، والإنجاز الملموس.",
+        details: "يميل إلى المهام العملية والبيئات التطبيقية والأنشطة التي تعتمد على التعامل المباشر مع الأشياء والأجهزة والعمليات الميدانية.",
+        careers: ["الهندسة التطبيقية", "الصيانة والتقنيات", "الميكانيك", "الروبوتات", "التكنولوجيا الصناعية"]
+      },
+      investigative: {
+        code: "I",
+        title: "البحثي / التحليلي",
+        english: "Investigative",
+        color: "var(--investigative)",
+        short: "يفضل التفكير، التحليل، الاكتشاف، الفهم، وحل المشكلات المعقدة.",
+        details: "يميل إلى الاستقصاء والبحث العلمي واستخدام التفكير النقدي والتحليل المنطقي وفهم الأسباب والعلاقات بين الظواهر.",
+        careers: ["الطب", "علوم الحاسوب", "المختبرات", "تحليل البيانات", "البحث العلمي"]
+      },
+      artistic: {
+        code: "A",
+        title: "الإبداعي / الفني",
+        english: "Artistic",
+        color: "var(--artistic)",
+        short: "يفضل التعبير، التصميم، الابتكار، والحرية في إنتاج الأفكار.",
+        details: "يميل إلى التعبير الإبداعي والتصميم وصناعة المحتوى والأنشطة التي تسمح بالخيال والابتكار بعيدًا عن النمطية الصارمة.",
+        careers: ["التصميم الجرافيكي", "العمارة", "الإعلام الرقمي", "الفنون", "الإنتاج الإبداعي"]
+      },
+      social: {
+        code: "S",
+        title: "الاجتماعي / الإنساني",
+        english: "Social",
+        color: "var(--social)",
+        short: "يفضل مساعدة الناس، التعليم، التواصل، والإرشاد والدعم.",
+        details: "يميل إلى العمل مع الآخرين، تقديم الدعم، الشرح، الإرشاد، التعاون، والأنشطة ذات الأثر الإنساني والاجتماعي المباشر.",
+        careers: ["التعليم", "الإرشاد", "علم النفس", "التمريض", "الخدمة الاجتماعية"]
+      },
+      enterprising: {
+        code: "E",
+        title: "القيادي / الريادي",
+        english: "Enterprising",
+        color: "var(--enterprising)",
+        short: "يفضل المبادرة، القيادة، الإقناع، واتخاذ القرار وإدارة المشاريع.",
+        details: "يميل إلى التأثير والإقناع والقيادة وتنظيم الفرق والمشاريع والتوجه نحو المبادرة وريادة الأعمال وتحمل المسؤولية.",
+        careers: ["إدارة الأعمال", "التسويق", "ريادة الأعمال", "القانون", "إدارة المشاريع"]
+      },
+      conventional: {
+        code: "C",
+        title: "التنظيمي / الإداري",
+        english: "Conventional",
+        color: "var(--conventional)",
+        short: "يفضل النظام، التفاصيل، الدقة، البيانات، والإجراءات الواضحة.",
+        details: "يميل إلى التنظيم والالتزام والإجراءات المرتبة والعمل الدقيق مع البيانات والمعلومات والجداول والمتابعة المنهجية.",
+        careers: ["المحاسبة", "المالية", "إدارة المكاتب", "التحليل الإداري", "أعمال البيانات"]
+      }
+    };
+
+    const questions = [
+      { text: "أحب تنفيذ الأعمال العملية واستخدام الأدوات أو الأجهزة في حل المهام.", track: "realistic" },
+      { text: "أشعر بالمتعة عند البحث عن أسباب المشكلات وتحليلها بدقة.", track: "investigative" },
+      { text: "أحب ابتكار أفكار جديدة والتعبير عنها بطريقة فنية أو مختلفة.", track: "artistic" },
+      { text: "أرتاح عندما أساعد الآخرين أو أشرح لهم شيئًا يحتاجونه.", track: "social" },
+      { text: "أحب قيادة الأنشطة أو التأثير في الناس وإقناعهم بفكرة ما.", track: "enterprising" },
+      { text: "أفضل العمل المنظم الذي يعتمد على خطوات واضحة ودقيقة.", track: "conventional" },
+      { text: "أفضل المهام التي تتطلب حركة وإنجازًا ملموسًا أكثر من الجلوس الطويل.", track: "realistic" },
+      { text: "أستمتع بحل المسائل العلمية أو المنطقية أو الرقمية المعقدة.", track: "investigative" },
+      { text: "أميل إلى الرسم أو التصميم أو الكتابة أو صناعة المحتوى الإبداعي.", track: "artistic" },
+      { text: "أحب العمل مع الناس أكثر من العمل المنفرد لفترات طويلة.", track: "social" },
+      { text: "أفكر أحيانًا في إنشاء مشروع خاص أو نشاط ريادي مستقبلاً.", track: "enterprising" },
+      { text: "أهتم بترتيب الملفات أو المعلومات أو البيانات بطريقة دقيقة ومنظمة.", track: "conventional" },
+      { text: "أفضل التعلم من خلال التطبيق العملي والتجربة المباشرة.", track: "realistic" },
+      { text: "أحب الاكتشاف العلمي وطرح الأسئلة والبحث عن إجاباتها.", track: "investigative" },
+      { text: "أشعر أن الخيال والإبداع من أقوى جوانب شخصيتي.", track: "artistic" },
+      { text: "يسعدني أن يكون لعملي أثر إيجابي على حياة الآخرين.", track: "social" },
+      { text: "أميل إلى المبادرة واتخاذ القرار وتحمل المسؤولية.", track: "enterprising" },
+      { text: "أفضل البيئات التي فيها وضوح ونظام وتعليمات محددة.", track: "conventional" },
+      { text: "أحب مجالات مثل التقنيات والآلات والروبوتات أو الأعمال الميدانية.", track: "realistic" },
+      { text: "أشعر أن التحليل والاستنتاج والتفكير العميق يناسبني.", track: "investigative" },
+      { text: "أحب أن أترك بصمتي الخاصة في أي عمل أقوم به.", track: "artistic" },
+      { text: "أجيد التواصل والإنصات وفهم حاجات الآخرين.", track: "social" },
+      { text: "أحب تنظيم الفرق أو عرض الأفكار أو التفاوض بشأنها.", track: "enterprising" },
+      { text: "أتميز في متابعة التفاصيل والالتزام بالمواعيد والإجراءات.", track: "conventional" },
+      { text: "أرتاح للأنشطة التي تتطلب مهارة عملية ودقة تنفيذ.", track: "realistic" },
+      { text: "أحب المواد التي تعتمد على الاكتشاف والتفكير والتحليل.", track: "investigative" },
+      { text: "أفضل المجالات التي تمنحني حرية في التعبير والابتكار.", track: "artistic" },
+      { text: "أستمتع بالتعليم والمساندة والإرشاد والعمل الجماعي.", track: "social" },
+      { text: "تجذبني الأدوار التي فيها قيادة أو مبيعات أو إدارة مبادرات.", track: "enterprising" },
+      { text: "أحب الجداول والترتيب وإدارة المعلومات بطريقة واضحة.", track: "conventional" }
+    ];
+
+    const scoreLabels = {
+      1: "لا تنطبق",
+      2: "قليلًا",
+      3: "متوسطة",
+      4: "كثيرًا",
+      5: "جدًا"
+    };
+
+    const riasecCards = document.getElementById("riasecCards");
+    const questionsContainer = document.getElementById("questionsContainer");
+    const logoImg = document.getElementById("schoolLogo");
+    const logoFallback = document.getElementById("logoFallback");
+
+    function initLogo() {
+      if (schoolLogoPath && schoolLogoPath.trim() !== "") {
+        logoImg.src = schoolLogoPath;
+        logoImg.classList.remove("hidden");
+        logoFallback.classList.add("hidden");
+      }
+    }
+
+    function renderTrackCards() {
+      riasecCards.innerHTML = Object.entries(tracks).map(([key, item], index) => `
+        <div class="track-card reveal" style="--accent-color:${item.color}; transition-delay:${index * 70}ms;">
+          <div class="abbr">${item.code}</div>
+          <h3>${item.title}</h3>
+          <p><strong>${item.english}</strong></p>
+          <p style="margin-top:8px;">${item.short}</p>
+        </div>
+      `).join("");
+    }
+
+    function renderQuestions() {
+      questionsContainer.innerHTML = questions.map((q, index) => {
+        const item = tracks[q.track];
+        return `
+          <div class="question-card reveal" style="transition-delay:${Math.min(index * 18, 240)}ms;">
+            <div class="question-head">
+              <div class="question-number">${index + 1}</div>
+              <h3>${q.text}</h3>
+              <span class="tag" style="--tag-color:${item.color}">${item.code} · ${item.title}</span>
+            </div>
+            <div class="options">
+              ${[1,2,3,4,5].map(value => `
+                <div class="option">
+                  <input type="radio" name="q${index}" id="q${index}_${value}" value="${value}">
+                  <label for="q${index}_${value}">
+                    <span>${value}</span>
+                    <small>${scoreLabels[value]}</small>
+                  </label>
+                </div>
+              `).join("")}
+            </div>
+          </div>
+        `;
+      }).join("");
+      setupRevealAnimation();
+    }
+
+    function calculateResults() {
+      const studentName = document.getElementById("studentName").value.trim() || "—";
+      const gradeLevel = document.getElementById("gradeLevel").value || "—";
+      const sectionName = document.getElementById("sectionName").value.trim() || "—";
+      const advisorName = document.getElementById("advisorName").value.trim() || "—";
+
+      const scores = {
+        realistic: 0,
+        investigative: 0,
+        artistic: 0,
+        social: 0,
+        enterprising: 0,
+        conventional: 0
+      };
+
+      for (let i = 0; i < questions.length; i++) {
+        const selected = document.querySelector(`input[name="q${i}"]:checked`);
+        if (!selected) {
+          alert("يرجى الإجابة عن جميع العبارات قبل عرض التقرير المهني.");
+          return;
+        }
+        scores[questions[i].track] += Number(selected.value);
+      }
+
+      const sorted = Object.entries(scores).sort((a, b) => b[1] - a[1]);
+      const maxPerTrack = 25;
+      const totalScore = Object.values(scores).reduce((a, b) => a + b, 0);
+      const top3 = sorted.slice(0, 3);
+      const code = top3.map(([key]) => tracks[key].code).join("");
+      const dominant = tracks[top3[0][0]];
+
+      const insights = [
+        {
+          title: "أعلى نمط مهني",
+          value: `${dominant.title}`,
+          desc: dominant.details
+        },
+        {
+          title: "الكود المهني المختصر",
+          value: code,
+          desc: "يعكس الترتيب الأعلى للميول الثلاثة الأكثر بروزًا لدى الطالب."
+        },
+        {
+          title: "إجمالي التفاعل",
+          value: `${totalScore} / 150`,
+          desc: "يفيد في قراءة مدى وضوح اختيارات الطالب عبر الاستبيان."
+        }
+      ];
+
+      const careerSuggestions = Array.from(new Set(top3.flatMap(([key]) => tracks[key].careers))).slice(0, 8);
+
+      const payload = {
+        studentName,
+        gradeLevel,
+        sectionName,
+        advisorName,
+        careerCode: code,
+        top1: tracks[top3[0][0]].title,
+        top2: tracks[top3[1][0]].title,
+        top3: tracks[top3[2][0]].title,
+        totalScore,
+        realistic: scores.realistic,
+        investigative: scores.investigative,
+        artistic: scores.artistic,
+        social: scores.social,
+        enterprising: scores.enterprising,
+        conventional: scores.conventional
+      };
+
+      latestPayload = payload;
+
+      const resultContent = document.getElementById("resultContent");
+      resultContent.innerHTML = `
+        <div class="result-hero reveal visible">
+          <h2>${studentName}</h2>
+          <p><strong>الصف:</strong> ${gradeLevel} &nbsp; | &nbsp; <strong>الشعبة:</strong> ${sectionName} &nbsp; | &nbsp; <strong>المرشد:</strong> ${advisorName}</p>
+          <p>يُظهر هذا التقرير أن الميل الأكثر بروزًا لدى الطالب هو <strong>${dominant.title}</strong>، مع حضور واضح لأنماط أخرى داعمة ضمن الملف المهني العام.</p>
+          <div class="code-badge">الكود المهني المقترح: ${code}</div>
+        </div>
+
+        <div class="stats-grid">
+          ${top3.map(([key, value], index) => `
+            <div class="stat-card reveal" style="transition-delay:${index * 90}ms;">
+              <h3>${value}</h3>
+              <p><strong>المرتبة ${index + 1}:</strong> ${tracks[key].title}</p>
+              <p style="margin-top:8px;">${tracks[key].short}</p>
+            </div>
+          `).join("")}
+          <div class="stat-card reveal" style="transition-delay:270ms;">
+            <h3>${totalScore}</h3>
+            <p><strong>الإجمالي العام</strong></p>
+            <p style="margin-top:8px;">مجموع درجات الطالب في جميع الأنماط المهنية الستة.</p>
+          </div>
+        </div>
+
+        <div class="bar-list">
+          ${sorted.map(([key, value], index) => `
+            <div class="bar-card reveal" style="transition-delay:${index * 80}ms;">
+              <div class="bar-head">
+                <span>${tracks[key].title} <span class="top-pill" style="--fill-color:${tracks[key].color}">${tracks[key].code}</span></span>
+                <span>${value} / ${maxPerTrack}</span>
+              </div>
+              <div class="bar-track">
+                <div class="bar-fill" data-width="${(value / maxPerTrack) * 100}%" style="--fill-color:${tracks[key].color}; width:0;"></div>
+              </div>
+              <p>${tracks[key].details}</p>
+            </div>
+          `).join("")}
+        </div>
+
+        <div class="top3-grid" style="margin-top:18px;">
+          ${top3.map(([key, value], index) => `
+            <div class="top3-card reveal" style="transition-delay:${index * 90}ms;">
+              <h3>الميول رقم ${index + 1}: ${tracks[key].title}</h3>
+              <p><strong>الدرجة:</strong> ${value} من ${maxPerTrack}</p>
+              <p style="margin-top:8px;">${tracks[key].details}</p>
+            </div>
+          `).join("")}
+        </div>
+
+        <div class="insight-grid" style="margin-top:18px;">
+          ${insights.map((item, index) => `
+            <div class="insight-card reveal" style="transition-delay:${index * 90}ms;">
+              <h3>${item.title}</h3>
+              <p><strong>${item.value}</strong></p>
+              <p style="margin-top:8px;">${item.desc}</p>
+            </div>
+          `).join("")}
+        </div>
+
+        <div class="career-grid" style="margin-top:18px;">
+          <div class="career-card reveal">
+            <h3>تخصصات ومسارات مناسبة مبدئيًا</h3>
+            <ul>${careerSuggestions.map(item => `<li>${item}</li>`).join("")}</ul>
+          </div>
+          <div class="career-card reveal" style="transition-delay:100ms;">
+            <h3>توصيات إرشادية للمدرسة</h3>
+            <ul>
+              <li>مناقشة النتيجة مع الطالب في جلسة إرشاد فردية.</li>
+              <li>مراجعة المواد التي يبرع فيها الطالب فعليًا داخل المدرسة.</li>
+              <li>ربط النتيجة بأنشطة عملية أو نوادٍ مدرسية مناسبة.</li>
+              <li>إشراك ولي الأمر عند الانتقال إلى قرارات تخصصية مهمة.</li>
+            </ul>
+          </div>
+          <div class="career-card reveal" style="transition-delay:180ms;">
+            <h3>تنبيه مهني</h3>
+            <p>
+              هذا التقييم يُستخدم كأداة مساندة في التوجيه المهني. لا يعتمد وحده لاتخاذ قرار نهائي، بل يُستحسن دمجه مع التحصيل الدراسي، المقابلة الإرشادية، ملاحظات المعلمين، وخبرة الطالب العملية واهتماماته الواقعية.
+            </p>
+          </div>
+        </div>
+      `;
+
+      document.getElementById("resultsSection").classList.remove("hidden");
+      setupRevealAnimation();
+      requestAnimationFrame(() => animateBars());
+      document.getElementById("resultsSection").scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+
+    async function saveResultToGoogleSheets(payload) {
+      if (!sheetWebhookUrl || sheetWebhookUrl.includes("PUT_YOUR")) {
+        alert("يرجى أولًا وضع رابط Google Apps Script داخل المتغير sheetWebhookUrl.");
+        return { success: false, reason: "missing_url" };
+      }
+
+      try {
+        const response = await fetch(sheetWebhookUrl, {
+          method: "POST",
+          headers: {
+            "Content-Type": "text/plain;charset=utf-8"
+          },
+          body: JSON.stringify(payload)
+        });
+
+        const text = await response.text();
+        let result = {};
+
+        try {
+          result = JSON.parse(text);
+        } catch (e) {
+          result = { success: true, raw: text };
+        }
+
+        if (result.success === false) {
+          alert("حصلت مشكلة أثناء حفظ النتيجة في Google Sheets.");
+          return result;
+        }
+
+        alert("تم حفظ النتيجة بنجاح في Google Sheets.");
+        return result;
+      } catch (error) {
+        console.error("Error saving to Google Sheets:", error);
+        alert("تعذر الاتصال بـ Google Sheets. تأكد من نشر Apps Script كرابط Web App وإتاحة الوصول له.");
+        return { success: false, error: error.toString() };
+      }
+    }
+
+    async function saveCurrentResult() {
+      if (!latestPayload) {
+        alert("يرجى حساب النتيجة أولًا ثم الضغط على زر الحفظ.");
+        return;
+      }
+      await saveResultToGoogleSheets(latestPayload);
+    }
+
+    function animateBars() {
+      document.querySelectorAll('.bar-fill').forEach((bar, index) => {
+        const targetWidth = bar.dataset.width || '0%';
+        setTimeout(() => {
+          bar.style.width = targetWidth;
+        }, 120 + index * 90);
+      });
+    }
+
+    function setupRevealAnimation() {
+      const elements = document.querySelectorAll('.reveal');
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+          }
+        });
+      }, { threshold: 0.12 });
+
+      elements.forEach(el => observer.observe(el));
+    }
+
+    function startTimer(duration) {
+      let time = duration;
+      const timerDisplay = document.getElementById("timer");
+
+      const interval = setInterval(() => {
+        const minutes = Math.floor(time / 60);
+        const seconds = time % 60;
+
+        timerDisplay.textContent = `${minutes.toString().padStart(2,'0')}:${seconds.toString().padStart(2,'0')}`;
+
+        if (time <= 0) {
+          clearInterval(interval);
+          alert("انتهى الوقت! سيتم عرض النتيجة تلقائيًا.");
+          calculateResults();
+        }
+
+        time--;
+      }, 1000);
+    }
+
+    function resetForm() {
+      document.getElementById("studentName").value = "";
+      document.getElementById("gradeLevel").value = "";
+      document.getElementById("sectionName").value = "";
+      document.getElementById("advisorName").value = "";
+      document.querySelectorAll('input[type="radio"]').forEach(input => input.checked = false);
+      document.getElementById("resultsSection").classList.add("hidden");
+      document.getElementById("resultContent").innerHTML = "";
+      latestPayload = null;
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+
+    startTimer(15 * 60);
+    initLogo();
+    renderTrackCards();
+    renderQuestions();
+    setupRevealAnimation();
+  </script>
+
+
+</body></html>

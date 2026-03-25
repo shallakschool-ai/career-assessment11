@@ -3,33 +3,22 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>اختبار الميول المهنية</title>
+<title>منصة الميول المهنية</title>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
 
 <style>
-body {font-family:Arial;margin:0;background:#f5f5f5;}
-.container {max-width:1000px;margin:auto;padding:20px;}
+body{font-family:Arial;margin:0;background:#f5f5f5;}
+.container{max-width:1000px;margin:auto;padding:20px;}
 h1{text-align:center;color:#138f63;}
-
 .card{background:#fff;padding:15px;margin-bottom:12px;border-radius:10px;}
-.question{font-weight:bold;margin-bottom:10px;}
-
 .options{display:grid;grid-template-columns:repeat(5,1fr);gap:5px;}
-.options label{background:#eee;padding:10px;text-align:center;border-radius:8px;cursor:pointer;}
+.options label{background:#eee;padding:10px;text-align:center;border-radius:8px;}
 .options input{display:none;}
 .options input:checked+label{background:#138f63;color:#fff;}
-
-button{
-width:100%;padding:15px;background:#138f63;color:#fff;border:none;
-border-radius:10px;font-size:16px;margin-top:10px;
-}
-
+button{width:100%;padding:15px;background:#138f63;color:#fff;border:none;border-radius:10px;margin-top:10px;}
 .result{background:#fff;padding:20px;margin-top:20px;border-radius:10px;}
-
-@media(max-width:600px){
-.options{grid-template-columns:repeat(2,1fr);}
-}
+@media(max-width:600px){.options{grid-template-columns:repeat(2,1fr);}}
 </style>
 </head>
 
@@ -39,7 +28,9 @@ border-radius:10px;font-size:16px;margin-top:10px;
 
 <h1>اختبار الميول المهنية</h1>
 
-<select id="grade" style="width:100%;padding:10px;margin-bottom:15px;">
+<input id="name" placeholder="اسم الطالب" style="width:100%;padding:10px;margin-bottom:10px;">
+
+<select id="grade" style="width:100%;padding:10px;margin-bottom:10px;">
 <option value="">اختر الفرع</option>
 <option>ثالث ثانوي علوم عامة</option>
 <option>ثالث ثانوي علوم حياة</option>
@@ -52,34 +43,49 @@ border-radius:10px;font-size:16px;margin-top:10px;
 
 <div id="result" class="result" style="display:none;"></div>
 
-<button onclick="downloadPDF()">حفظ النتيجة PDF</button>
+<button onclick="downloadPDF()">تحميل PDF</button>
 
 </div>
 
 <script>
+
+// 🔥 رابط Google Script (ضع الرابط هنا)
+const SHEET_URL = "PUT_YOUR_URL_HERE";
+
 const questions=[
 {t:"أحب العمل اليدوي",c:"R"},
 {t:"أحب التحليل",c:"I"},
 {t:"أحب الإبداع",c:"A"},
 {t:"أحب مساعدة الناس",c:"S"},
 {t:"أحب القيادة",c:"E"},
-{t:"أحب التنظيم",c:"C"},
-
-{t:"أفضل التطبيق",c:"R"},
-{t:"أحب البحث",c:"I"},
-{t:"أحب التصميم",c:"A"},
-{t:"أحب العمل الجماعي",c:"S"},
-{t:"أحب المشاريع",c:"E"},
-{t:"أحب الدقة",c:"C"}
+{t:"أحب التنظيم",c:"C"}
 ];
 
 const majors={
+"ثالث ثانوي علوم عامة":{
 R:{main:["هندسة","ميكانيك"],alt:["إدارة مشاريع"]},
-I:{main:["طب","علوم","برمجة"],alt:["ذكاء اصطناعي"]},
-A:{main:["تصميم","إعلام"],alt:["تسويق"]},
-S:{main:["تعليم","علم نفس"],alt:["موارد بشرية"]},
+I:{main:["طب","هندسة"],alt:["برمجة"]},
+A:{main:["عمارة"],alt:["تصميم"]},
+S:{main:["تعليم"],alt:["تمريض"]},
+E:{main:["إدارة"],alt:["أعمال"]},
+C:{main:["محاسبة"],alt:["بنوك"]}
+},
+"ثالث ثانوي علوم حياة":{
+R:{main:["مختبر"],alt:["تغذية"]},
+I:{main:["طب","صيدلة"],alt:["بحث"]},
+A:{main:["إعلام صحي"],alt:["تصميم"]},
+S:{main:["تمريض","علم نفس"],alt:["تعليم"]},
+E:{main:["إدارة صحية"],alt:["تسويق"]},
+C:{main:["إدارة مستشفيات"],alt:["محاسبة"]}
+},
+"ثالث ثانوي اقتصاد واجتماع":{
+R:{main:["إدارة عمليات"],alt:["تقني"]},
+I:{main:["اقتصاد"],alt:["تحليل بيانات"]},
+A:{main:["إعلام"],alt:["تصميم"]},
+S:{main:["علم نفس"],alt:["تعليم"]},
 E:{main:["إدارة أعمال","تسويق"],alt:["مبيعات"]},
-C:{main:["محاسبة","إدارة"],alt:["بنوك"]}
+C:{main:["محاسبة","بنوك"],alt:["إدارة"]}
+}
 };
 
 const container=document.getElementById("questions");
@@ -87,7 +93,7 @@ const container=document.getElementById("questions");
 questions.forEach((q,i)=>{
 container.innerHTML+=`
 <div class="card">
-<div class="question">${i+1}. ${q.t}</div>
+<div>${i+1}. ${q.t}</div>
 <div class="options">
 ${[1,2,3,4,5].map(v=>`
 <div>
@@ -99,13 +105,18 @@ ${[1,2,3,4,5].map(v=>`
 });
 
 function getAdvice(code){
-if(code.includes("I")) return "ركز على المواد العلمية.";
-if(code.includes("E")) return "طور مهارات القيادة.";
+if(code.includes("I")) return "ركز على المواد العلمية وخذ دورات.";
+if(code.includes("E")) return "ابدأ مشروع صغير.";
 if(code.includes("A")) return "ابنِ portfolio.";
-return "استكشف مجالاتك أكثر.";
+return "استكشف أكثر.";
 }
 
 function calculate(){
+let name=document.getElementById("name").value;
+let grade=document.getElementById("grade").value;
+
+if(!grade){alert("اختر الفرع");return;}
+
 let scores={R:0,I:0,A:0,S:0,E:0,C:0};
 
 for(let i=0;i<questions.length;i++){
@@ -118,29 +129,39 @@ let sorted=Object.entries(scores).sort((a,b)=>b[1]-a[1]);
 let top=sorted[0][0];
 let code=sorted.map(x=>x[0]).join("");
 
-let best=majors[top];
+let best=majors[grade][top];
 
 document.getElementById("result").style.display="block";
 document.getElementById("result").innerHTML=`
 <h2>النتيجة</h2>
-
+<p><b>${name}</b></p>
+<p>${grade}</p>
 <p><b>الكود:</b> ${code}</p>
 
 <h3>🎯 أفضل اختصاصات</h3>
 <ul>${best.main.map(m=>`<li>${m}</li>`).join("")}</ul>
 
-<h3>🔄 اختصاصات ممكنة</h3>
+<h3>🔄 بدائل</h3>
 <ul>${best.alt.map(m=>`<li>${m}</li>`).join("")}</ul>
 
 <h3>🚀 الخطوة التالية</h3>
 <p>${getAdvice(code)}</p>
 `;
+
+saveToSheet(name,grade,code,best.main,best.alt);
+}
+
+function saveToSheet(name,grade,code,best,alt){
+fetch(SHEET_URL,{
+method:"POST",
+body:JSON.stringify({name,grade,code,best:best.join(","),alt:alt.join(",")})
+});
 }
 
 function downloadPDF(){
-var element=document.getElementById("result");
-html2pdf().from(element).save("result.pdf");
+html2pdf().from(document.getElementById("result")).save();
 }
+
 </script>
 
 </body>

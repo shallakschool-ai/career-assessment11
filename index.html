@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>منصة اكتشاف الميول المهنية | المرحلة الثانوية</title>
+  <title>منصة اكتشاف الميول المهنية | النسخة الاحترافية</title>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
 
@@ -16,16 +16,15 @@
       --gold: #d7c97a;
       --gold-soft: #efe6b0;
       --bg: #f3fbf7;
-      --bg-2: #ecf7f1;
-      --card: rgba(255,255,255,0.94);
+      --card: rgba(255,255,255,0.96);
       --text: #14392d;
       --muted: #5d786d;
-      --border: rgba(19, 143, 99, 0.14);
-      --danger: #b3261e;
-      --shadow: 0 18px 42px rgba(15, 111, 79, 0.12);
+      --border: rgba(19,143,99,.14);
+      --shadow: 0 18px 42px rgba(15,111,79,.12);
       --radius-xl: 28px;
       --radius-lg: 20px;
       --radius-md: 14px;
+
       --realistic: #138f63;
       --investigative: #17795f;
       --artistic: #c8923f;
@@ -39,12 +38,12 @@
 
     body {
       margin: 0;
-      font-family: "Cairo", "Tahoma", "Segoe UI", Arial, sans-serif;
+      font-family: "Cairo","Tahoma","Segoe UI",Arial,sans-serif;
       color: var(--text);
       background:
-        radial-gradient(circle at top right, rgba(26,160,111,0.12), transparent 24%),
-        radial-gradient(circle at top left, rgba(215,201,122,0.16), transparent 20%),
-        linear-gradient(180deg, #eef9f4 0%, #f7fcf9 52%, #eef8f3 100%);
+        radial-gradient(circle at top right, rgba(26,160,111,.12), transparent 24%),
+        radial-gradient(circle at top left, rgba(215,201,122,.16), transparent 20%),
+        linear-gradient(180deg,#eef9f4 0%,#f7fcf9 52%,#eef8f3 100%);
       overflow-x: hidden;
     }
 
@@ -56,7 +55,7 @@
 
     .glass {
       background: var(--card);
-      border: 1px solid rgba(255,255,255,0.65);
+      border: 1px solid rgba(255,255,255,.65);
       backdrop-filter: blur(12px);
       box-shadow: var(--shadow);
       border-radius: var(--radius-xl);
@@ -66,10 +65,9 @@
       position: relative;
       overflow: hidden;
       padding: 30px;
-      background:
-        linear-gradient(135deg, rgba(11,90,64,0.97) 0%, rgba(19,143,99,0.95) 48%, rgba(26,160,111,0.92) 100%);
+      background: linear-gradient(135deg, rgba(11,90,64,.97) 0%, rgba(19,143,99,.95) 48%, rgba(26,160,111,.92) 100%);
       color: #fff;
-      box-shadow: 0 24px 55px rgba(11,90,64,0.18);
+      box-shadow: 0 24px 55px rgba(11,90,64,.18);
       border-radius: 30px;
       margin-bottom: 22px;
       isolation: isolate;
@@ -80,7 +78,7 @@
       content: "";
       position: absolute;
       border-radius: 50%;
-      opacity: 0.16;
+      opacity: .16;
       pointer-events: none;
       animation: floatOrb 10s ease-in-out infinite;
     }
@@ -106,10 +104,10 @@
       position: absolute;
       inset: 0;
       background-image:
-        linear-gradient(rgba(255,255,255,0.035) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255,255,255,0.035) 1px, transparent 1px);
+        linear-gradient(rgba(255,255,255,.035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,.035) 1px, transparent 1px);
       background-size: 26px 26px;
-      mask-image: linear-gradient(180deg, rgba(0,0,0,0.9), transparent 92%);
+      mask-image: linear-gradient(180deg, rgba(0,0,0,.9), transparent 92%);
       z-index: 0;
     }
 
@@ -117,7 +115,7 @@
       position: relative;
       z-index: 1;
       display: grid;
-      grid-template-columns: 1.35fr 0.95fr;
+      grid-template-columns: 1.35fr .95fr;
       gap: 22px;
       align-items: stretch;
     }
@@ -135,13 +133,13 @@
       height: 92px;
       flex: 0 0 92px;
       border-radius: 26px;
-      background: rgba(255,255,255,0.16);
-      border: 1px solid rgba(255,255,255,0.22);
+      background: rgba(255,255,255,.16);
+      border: 1px solid rgba(255,255,255,.22);
       display: flex;
       align-items: center;
       justify-content: center;
       overflow: hidden;
-      box-shadow: inset 0 0 0 1px rgba(255,255,255,0.12), 0 8px 20px rgba(0,0,0,0.08);
+      box-shadow: inset 0 0 0 1px rgba(255,255,255,.12), 0 8px 20px rgba(0,0,0,.08);
       animation: pulseSoft 4.5s ease-in-out infinite;
     }
 
@@ -158,7 +156,7 @@
       text-align: center;
       line-height: 1.6;
       padding: 8px;
-      color: rgba(255,255,255,0.92);
+      color: rgba(255,255,255,.92);
       font-weight: 700;
     }
 
@@ -168,8 +166,8 @@
       display: inline-block;
       padding: 7px 12px;
       border-radius: 999px;
-      background: rgba(255,255,255,0.12);
-      border: 1px solid rgba(255,255,255,0.14);
+      background: rgba(255,255,255,.12);
+      border: 1px solid rgba(255,255,255,.14);
       font-size: 12px;
       margin-bottom: 10px;
       backdrop-filter: blur(4px);
@@ -179,20 +177,20 @@
       margin: 0;
       font-size: clamp(27px, 4vw, 40px);
       line-height: 1.25;
-      letter-spacing: -0.3px;
+      letter-spacing: -.3px;
     }
 
     .brand-meta p {
       margin: 12px 0 0;
       line-height: 1.95;
       font-size: 16px;
-      color: rgba(255,255,255,0.94);
+      color: rgba(255,255,255,.94);
       max-width: 760px;
     }
 
     .hero-side {
-      background: rgba(255,255,255,0.11);
-      border: 1px solid rgba(255,255,255,0.14);
+      background: rgba(255,255,255,.11);
+      border: 1px solid rgba(255,255,255,.14);
       border-radius: 26px;
       padding: 22px;
       display: grid;
@@ -207,6 +205,13 @@
       color: var(--gold-soft);
     }
 
+    .hero-side ul {
+      margin: 0;
+      padding-inline-start: 18px;
+      line-height: 1.9;
+      color: rgba(255,255,255,.96);
+    }
+
     .chip-list {
       display: flex;
       gap: 10px;
@@ -216,17 +221,10 @@
     .chip {
       padding: 8px 12px;
       border-radius: 999px;
-      background: rgba(255,255,255,0.12);
-      border: 1px solid rgba(255,255,255,0.14);
+      background: rgba(255,255,255,.12);
+      border: 1px solid rgba(255,255,255,.14);
       font-size: 13px;
       font-weight: 700;
-    }
-
-    .hero-side ul {
-      margin: 0;
-      padding-inline-start: 18px;
-      line-height: 1.9;
-      color: rgba(255,255,255,0.96);
     }
 
     .section {
@@ -260,9 +258,9 @@
     .riasec-grid,
     .question-grid,
     .analysis-grid,
-    .result-grid,
     .career-grid,
-    .top3-grid {
+    .top3-grid,
+    .result-grid {
       display: grid;
       gap: 16px;
     }
@@ -271,9 +269,9 @@
     .riasec-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
     .question-grid { grid-template-columns: 1fr; }
     .analysis-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-    .result-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
     .career-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
     .top3-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .result-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
 
     .field label {
       display: block;
@@ -286,20 +284,20 @@
     .field input,
     .field select {
       width: 100%;
-      border: 1px solid rgba(19,143,99,0.16);
+      border: 1px solid rgba(19,143,99,.16);
       outline: none;
       border-radius: 16px;
       padding: 14px 15px;
       background: #fff;
       font-size: 15px;
       color: var(--text);
-      transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+      transition: border-color .2s ease, box-shadow .2s ease, transform .2s ease;
     }
 
     .field input:focus,
     .field select:focus {
       border-color: var(--secondary);
-      box-shadow: 0 0 0 4px rgba(26,160,111,0.12);
+      box-shadow: 0 0 0 4px rgba(26,160,111,.12);
       transform: translateY(-1px);
     }
 
@@ -311,9 +309,9 @@
     .career-card,
     .top3-card {
       border: 1px solid var(--border);
-      background: rgba(255,255,255,0.97);
+      background: rgba(255,255,255,.97);
       border-radius: 22px;
-      box-shadow: 0 12px 28px rgba(15,111,79,0.05);
+      box-shadow: 0 12px 28px rgba(15,111,79,.05);
       padding: 18px;
     }
 
@@ -341,9 +339,9 @@
       font-size: 14px;
     }
 
-    .result-card ul,
     .analysis-card ul,
-    .career-card ul {
+    .career-card ul,
+    .result-card ul {
       margin: 10px 0 0;
       padding-inline-start: 18px;
       line-height: 1.9;
@@ -378,7 +376,7 @@
       color: #fff;
       background: var(--accent-color, var(--primary));
       margin-bottom: 12px;
-      box-shadow: 0 10px 18px rgba(15,111,79,0.15);
+      box-shadow: 0 10px 18px rgba(15,111,79,.15);
     }
 
     .question-card {
@@ -397,13 +395,13 @@
       min-width: 44px;
       height: 44px;
       border-radius: 14px;
-      background: linear-gradient(135deg, #edf9f3, #ffffff);
+      background: linear-gradient(135deg,#edf9f3,#ffffff);
       color: var(--primary-dark);
       display: inline-flex;
       align-items: center;
       justify-content: center;
       font-weight: 900;
-      border: 1px solid rgba(19,143,99,0.12);
+      border: 1px solid rgba(19,143,99,.12);
     }
 
     .question-card h3 {
@@ -432,9 +430,7 @@
       gap: 10px;
     }
 
-    .option {
-      position: relative;
-    }
+    .option { position: relative; }
 
     .option input {
       position: absolute;
@@ -450,11 +446,11 @@
       gap: 4px;
       min-height: 68px;
       border-radius: 18px;
-      border: 1px solid rgba(19,143,99,0.12);
-      background: linear-gradient(180deg, #ffffff, #f8fcfa);
+      border: 1px solid rgba(19,143,99,.12);
+      background: linear-gradient(180deg,#ffffff,#f8fcfa);
       text-align: center;
       cursor: pointer;
-      transition: all 0.2s ease;
+      transition: all .2s ease;
       padding: 10px;
       color: var(--text);
       font-weight: 800;
@@ -468,8 +464,8 @@
 
     .option input:checked + label {
       border-color: var(--secondary);
-      background: linear-gradient(180deg, #e9f8f0, #ffffff);
-      box-shadow: 0 0 0 4px rgba(26,160,111,0.12);
+      background: linear-gradient(180deg,#e9f8f0,#ffffff);
+      box-shadow: 0 0 0 4px rgba(26,160,111,.12);
       transform: translateY(-1px);
       color: var(--primary-dark);
     }
@@ -489,28 +485,28 @@
       font-family: inherit;
       font-size: 15px;
       font-weight: 800;
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      transition: transform .2s ease, box-shadow .2s ease;
     }
 
     button:hover { transform: translateY(-2px); }
 
     .btn-primary {
       color: #fff;
-      background: linear-gradient(135deg, var(--primary-deep) 0%, var(--primary) 60%, var(--secondary) 100%);
-      box-shadow: 0 14px 24px rgba(15,111,79,0.18);
+      background: linear-gradient(135deg,var(--primary-deep) 0%,var(--primary) 60%,var(--secondary) 100%);
+      box-shadow: 0 14px 24px rgba(15,111,79,.18);
     }
 
     .btn-secondary {
       color: var(--primary-dark);
       background: #eff9f4;
-      border: 1px solid rgba(19,143,99,0.12);
+      border: 1px solid rgba(19,143,99,.12);
     }
 
     .result-hero {
       padding: 24px;
       border-radius: 26px;
-      background: linear-gradient(135deg, rgba(19,143,99,0.08), rgba(215,201,122,0.18));
-      border: 1px solid rgba(19,143,99,0.10);
+      background: linear-gradient(135deg, rgba(19,143,99,.08), rgba(215,201,122,.18));
+      border: 1px solid rgba(19,143,99,.10);
       margin-bottom: 18px;
     }
 
@@ -532,11 +528,11 @@
       padding: 10px 14px;
       border-radius: 999px;
       background: #fff;
-      border: 1px solid rgba(19,143,99,0.12);
+      border: 1px solid rgba(19,143,99,.12);
       font-weight: 900;
       color: var(--primary-dark);
       margin-top: 10px;
-      box-shadow: 0 8px 18px rgba(15,111,79,0.08);
+      box-shadow: 0 8px 18px rgba(15,111,79,.08);
     }
 
     .bar-list {
@@ -574,7 +570,6 @@
       height: 100%;
       border-radius: 999px;
       background: var(--fill-color, var(--primary));
-      box-shadow: 0 4px 12px rgba(15,111,79,0.16);
     }
 
     .match-badge {
@@ -590,10 +585,6 @@
       margin-top: 8px;
     }
 
-    .top3-card {
-      background: linear-gradient(180deg, #ffffff, #fbfefc);
-    }
-
     .footer-note {
       margin-top: 14px;
       color: var(--muted);
@@ -602,12 +593,12 @@
     }
 
     @keyframes floatOrb {
-      0%, 100% { transform: translateY(0) translateX(0) scale(1); }
+      0%,100% { transform: translateY(0) translateX(0) scale(1); }
       50% { transform: translateY(12px) translateX(8px) scale(1.04); }
     }
 
     @keyframes pulseSoft {
-      0%, 100% { transform: scale(1); }
+      0%,100% { transform: scale(1); }
       50% { transform: scale(1.03); }
     }
 
@@ -616,9 +607,9 @@
       .meta-grid,
       .riasec-grid,
       .analysis-grid,
-      .result-grid,
       .career-grid,
-      .top3-grid {
+      .top3-grid,
+      .result-grid {
         grid-template-columns: 1fr 1fr;
       }
     }
@@ -640,15 +631,10 @@
       .meta-grid,
       .riasec-grid,
       .analysis-grid,
-      .result-grid,
       .career-grid,
-      .top3-grid {
+      .top3-grid,
+      .result-grid {
         grid-template-columns: 1fr !important;
-        gap: 12px;
-      }
-
-      .brand {
-        align-items: center;
         gap: 12px;
       }
 
@@ -664,57 +650,16 @@
         line-height: 1.5;
       }
 
-      .brand-meta p,
-      .section-title p,
-      .info-box p,
-      .track-card p,
-      .result-card p,
-      .analysis-card p,
-      .career-card p,
-      .top3-card p {
-        font-size: 14px;
-        line-height: 1.8;
-      }
-
-      .hero-side {
-        padding: 16px;
-        border-radius: 18px;
-      }
-
-      .hero-side h3,
-      .section-title h2 {
-        font-size: 20px;
-      }
-
       .field input,
       .field select {
         font-size: 16px;
         padding: 12px 14px;
-        border-radius: 14px;
-      }
-
-      .question-card,
-      .info-box,
-      .track-card,
-      .result-card,
-      .analysis-card,
-      .career-card,
-      .top3-card {
-        padding: 14px;
-        border-radius: 16px;
       }
 
       .question-head {
         flex-direction: column;
         align-items: stretch;
         gap: 10px;
-      }
-
-      .question-number {
-        min-width: 40px;
-        width: 40px;
-        height: 40px;
-        border-radius: 12px;
       }
 
       .question-card h3 {
@@ -725,7 +670,6 @@
       .tag {
         align-self: flex-start;
         font-size: 11px;
-        padding: 6px 10px;
       }
 
       .options {
@@ -735,32 +679,15 @@
 
       .option label {
         min-height: 60px;
-        border-radius: 14px;
-        padding: 8px;
         font-size: 14px;
-      }
-
-      .option small {
-        font-size: 10px;
       }
 
       button {
         width: 100%;
-        padding: 13px 16px;
-        font-size: 15px;
       }
 
       .actions {
         flex-direction: column;
-      }
-
-      .result-hero {
-        padding: 16px;
-        border-radius: 18px;
-      }
-
-      .result-hero h2 {
-        font-size: 22px;
       }
     }
   </style>
@@ -780,26 +707,28 @@
               <small>منصة حديثة للتوجيه المهني المدرسي</small>
               <h1>اكتشاف الميول المهنية لطلاب المرحلة الثانوية</h1>
               <p>
-                أداة مدرسية احترافية مبنية على نموذج RIASEC، تهدف إلى إعطاء قراءة أكثر عمقًا لميول الطالب المهنية
-                من خلال تحليل الأنماط الثلاثة الأعلى، ثم ربطها بالاختصاصات الجامعية والبيئات التعليمية والمهنية الأنسب.
+                نسخة أكثر تطورًا من اختبار الميول المهنية، مستوحاة من منطق المنصات الشهيرة:
+                تحليل أوسع، أسئلة أكثر، ونتائج تربط بين شخصية الطالب وبيئة التعلّم والاختصاصات الأنسب ضمن الفرع المدرسي.
               </p>
             </div>
           </div>
+
           <div class="chip-list">
-            <span class="chip">علوم عامة / رياضيات</span>
-            <span class="chip">علوم حياة</span>
-            <span class="chip">اقتصاد واجتماع</span>
+            <span class="chip">72 سؤالًا</span>
             <span class="chip">RIASEC</span>
-            <span class="chip">تحليل أعمق</span>
+            <span class="chip">تحليل شامل</span>
+            <span class="chip">مطابقة اختصاصات</span>
+            <span class="chip">PDF</span>
           </div>
         </div>
+
         <div class="hero-side">
-          <h3>ماذا يقدم هذا التقييم؟</h3>
+          <h3>ما الجديد في هذه النسخة؟</h3>
           <ul>
-            <li>تحليل أعلى 3 ميول مهنية لدى الطالب.</li>
-            <li>قراءة أولية للشخصية المهنية ونمط التعلّم المناسب.</li>
-            <li>مطابقة اختصاصات بحسب الكود والفرع.</li>
-            <li>أفضل اختصاصات + اختصاصات ممكنة + خطوات عملية لاحقة.</li>
+            <li>عدد أسئلة أكبر لرفع دقة القراءة.</li>
+            <li>تحليل أعلى 3 أنماط بدل الاعتماد على ميل واحد فقط.</li>
+            <li>ربط بين الميول، أسلوب التعلم، بيئة العمل، والاختصاصات.</li>
+            <li>نتيجة أقرب لتجربة المواقع المهنية الحديثة.</li>
           </ul>
         </div>
       </div>
@@ -809,7 +738,7 @@
       <div class="section-title">
         <div>
           <h2>بيانات الطالب</h2>
-          <p>أدخل البيانات الأساسية ثم أجب عن العبارات التالية بصدق ودون محاولة اختيار ما يبدو “أفضل”.</p>
+          <p>أدخل البيانات الأساسية ثم أجب عن العبارات التالية باستخدام المقياس من 1 إلى 5.</p>
         </div>
       </div>
 
@@ -843,10 +772,8 @@
       <div class="info-box" style="margin-top:16px;">
         <h3>طريقة الإجابة</h3>
         <p>
-          استخدم المقياس من 1 إلى 5:
-          <strong>1 = لا تنطبق علي أبدًا</strong>،
-          <strong>5 = تنطبق علي بدرجة كبيرة جدًا</strong>.
-          النتيجة الأقوى تظهر حين تكون الإجابة تلقائية وصادقة.
+          1 = لا تنطبق علي أبدًا، 5 = تنطبق علي بدرجة كبيرة جدًا.
+          أجب كما أنت فعلًا، لا كما تظن أنه “أفضل” أكاديميًا أو اجتماعيًا.
         </p>
       </div>
     </section>
@@ -854,26 +781,25 @@
     <section class="section glass">
       <div class="section-title">
         <div>
-          <h2>أنماط الميول المهنية</h2>
-          <p>يعتمد التحليل على ستة أنماط رئيسية مستخدمة في التوجيه المهني الحديث.</p>
+          <h2>الأنماط المهنية الأساسية</h2>
+          <p>يعتمد هذا النموذج على ستة أنماط تستخدم على نطاق واسع في التوجيه المهني الحديث.</p>
         </div>
       </div>
-
       <div class="riasec-grid" id="riasecCards"></div>
     </section>
 
     <section class="section glass">
       <div class="section-title">
         <div>
-          <h2>الاستبيان المهني</h2>
-          <p>أجب عن جميع العبارات للحصول على تحليل متكامل ومطابقة أولية للاختصاصات.</p>
+          <h2>الاستبيان المهني المتقدم</h2>
+          <p>كلما كانت الإجابات صادقة أكثر، كانت النتيجة أقرب إلى واقع الطالب.</p>
         </div>
       </div>
 
       <div id="questionsContainer" class="question-grid"></div>
 
       <div class="actions">
-        <button class="btn-primary" onclick="calculateResults()">إظهار النتيجة</button>
+        <button class="btn-primary" onclick="calculateResults()">إظهار التحليل</button>
         <button class="btn-secondary" onclick="resetForm()">إعادة التعيين</button>
       </div>
     </section>
@@ -892,7 +818,7 @@
         code: "R",
         title: "العملي / التطبيقي",
         english: "Realistic",
-        short: "يفضل التطبيق، الأدوات، التنفيذ، الإنجاز الملموس، والعمل الميداني أو التقني.",
+        short: "يفضل التطبيق، الأدوات، الإنجاز الملموس، والعمل الميداني أو التقني.",
         color: "var(--realistic)"
       },
       investigative: {
@@ -906,61 +832,31 @@
         code: "A",
         title: "الإبداعي / الفني",
         english: "Artistic",
-        short: "يفضل الابتكار، التعبير، التصميم، الأفكار الجديدة، والمرونة في الإنجاز.",
+        short: "يفضل الابتكار، التعبير، التصميم، والأفكار الجديدة.",
         color: "var(--artistic)"
       },
       social: {
         code: "S",
         title: "الاجتماعي / الإنساني",
         english: "Social",
-        short: "يفضل الدعم، التعليم، التواصل، مساعدة الآخرين، والعمل الإنساني.",
+        short: "يفضل التواصل، التعليم، الدعم، ومساعدة الآخرين.",
         color: "var(--social)"
       },
       enterprising: {
         code: "E",
         title: "القيادي / الريادي",
         english: "Enterprising",
-        short: "يفضل المبادرة، القيادة، التأثير، اتخاذ القرار، والتوجيه.",
+        short: "يفضل المبادرة، التأثير، القيادة، واتخاذ القرار.",
         color: "var(--enterprising)"
       },
       conventional: {
         code: "C",
         title: "التنظيمي / الإداري",
         english: "Conventional",
-        short: "يفضل النظام، الترتيب، الدقة، البيانات، والمهام الواضحة والمنظمة.",
+        short: "يفضل النظام، الدقة، البيانات، والوضوح في الإجراءات.",
         color: "var(--conventional)"
       }
     };
-
-    const questions = [
-      { text: "أحب تنفيذ الأعمال العملية واستخدام الأدوات أو الأجهزة في حل المهام.", track: "realistic" },
-      { text: "أشعر بالمتعة عند البحث عن أسباب المشكلات وتحليلها بدقة.", track: "investigative" },
-      { text: "أحب ابتكار أفكار جديدة والتعبير عنها بطريقة فنية أو مختلفة.", track: "artistic" },
-      { text: "أرتاح عندما أساعد الآخرين أو أشرح لهم شيئًا يحتاجونه.", track: "social" },
-      { text: "أحب قيادة الأنشطة أو التأثير في الناس وإقناعهم بفكرة ما.", track: "enterprising" },
-      { text: "أفضل العمل المنظم الذي يعتمد على خطوات واضحة ودقيقة.", track: "conventional" },
-
-      { text: "أفضل المهام التي تتطلب حركة وإنجازًا ملموسًا أكثر من الجلوس الطويل.", track: "realistic" },
-      { text: "أستمتع بحل المسائل العلمية أو المنطقية أو الرقمية المعقدة.", track: "investigative" },
-      { text: "أميل إلى الرسم أو التصميم أو الكتابة أو صناعة المحتوى الإبداعي.", track: "artistic" },
-      { text: "أحب العمل مع الناس أكثر من العمل المنفرد لفترات طويلة.", track: "social" },
-      { text: "أفكر أحيانًا في إنشاء مشروع خاص أو نشاط ريادي مستقبلاً.", track: "enterprising" },
-      { text: "أهتم بترتيب الملفات أو المعلومات أو البيانات بطريقة دقيقة ومنظمة.", track: "conventional" },
-
-      { text: "أفضل التعلم من خلال التطبيق العملي والتجربة المباشرة.", track: "realistic" },
-      { text: "أحب الاكتشاف العلمي وطرح الأسئلة والبحث عن إجاباتها.", track: "investigative" },
-      { text: "أشعر أن الخيال والإبداع من أقوى جوانب شخصيتي.", track: "artistic" },
-      { text: "يسعدني أن يكون لعملي أثر إيجابي على حياة الآخرين.", track: "social" },
-      { text: "أميل إلى المبادرة واتخاذ القرار وتحمل المسؤولية.", track: "enterprising" },
-      { text: "أفضل البيئات التي فيها وضوح ونظام وتعليمات محددة.", track: "conventional" },
-
-      { text: "أحب مجالات مثل التقنيات والآلات والروبوتات أو الأعمال الميدانية.", track: "realistic" },
-      { text: "أشعر أن التحليل والاستنتاج والتفكير العميق يناسبني.", track: "investigative" },
-      { text: "أفضل أن يكون لي أسلوب خاص ومختلف في إنجاز الأعمال.", track: "artistic" },
-      { text: "أحب الاستماع للناس ودعمهم ومساندتهم.", track: "social" },
-      { text: "أحب التفاوض والإقناع وقيادة الفرق أو المبادرات.", track: "enterprising" },
-      { text: "أحب الجداول والترتيب وإدارة المعلومات بطريقة واضحة.", track: "conventional" }
-    ];
 
     const scoreLabels = {
       1: "لا تنطبق",
@@ -970,197 +866,208 @@
       5: "جدًا"
     };
 
-    const detailedProfiles = {
-      "RIA": {
-        description: "تميل شخصيتك المهنية إلى المزج بين التحليل العلمي والتطبيق العملي مع مساحة للإبداع. غالبًا ما تنجح في التخصصات التي تجمع الفهم العميق مع التنفيذ والابتكار.",
-        strengths: ["التحليل المنطقي", "التعلّم السريع", "حل المشكلات", "التطبيق العملي", "الابتكار"],
-        development: ["زيادة الخبرة العملية الميدانية", "تنظيم الأولويات تحت الضغط", "بناء ملف أعمال أو تجارب"],
-        environment: "بيئة تعليمية أو مهنية تجمع بين المختبر أو التطبيق والبحث والتطوير."
-      },
-      "RIS": {
-        description: "تميل إلى التفكير العلمي مع نزعة عملية واضحة وحسّ إنساني في توظيف المعرفة لخدمة الآخرين.",
-        strengths: ["المنهجية", "الدقة", "المسؤولية", "التحليل", "الرغبة في المساعدة"],
-        development: ["تعزيز مهارات التواصل", "التدرّب على اتخاذ القرار السريع", "التعرض لتجارب تطبيقية"],
-        environment: "بيئات علمية تطبيقية مرتبطة بالصحة أو التعليم أو المختبرات."
-      },
-      "ISE": {
-        description: "يميل نمطك إلى التحليل والفهم مع قدرة على المبادرة والقيادة والتأثير. يناسبك المسار الذي يجمع التفكير واتخاذ القرار.",
-        strengths: ["التفكير التحليلي", "الرؤية المستقبلية", "القيادة", "حل المشكلات", "الإقناع"],
-        development: ["العمل ضمن فريق متنوع", "تعزيز الصبر على التفاصيل", "زيادة التجربة الواقعية"],
-        environment: "بيئة تتطلب التفكير واتخاذ القرار والتفاعل مع الناس."
-      },
-      "SIE": {
-        description: "أنت تميل إلى فهم الناس وتحليل المواقف مع قدرة على التواصل والتوجيه. يناسبك العمل الإنساني المنظم.",
-        strengths: ["التواصل", "الاستماع", "الفهم", "التأثير", "الوعي الاجتماعي"],
-        development: ["تقوية الجانب الرقمي أو التحليلي", "التعامل مع الضغط", "التدرب على الحزم"],
-        environment: "بيئات تعليمية أو نفسية أو اجتماعية أو إدارية إنسانية."
-      }
-    };
+    const questions = [
+      // R
+      { text: "أحب تنفيذ الأعمال العملية واستخدام الأدوات أو الأجهزة في حل المهام.", track: "realistic", dim: "things" },
+      { text: "أفضل المهام التي تتطلب حركة وإنجازًا ملموسًا أكثر من الجلوس الطويل.", track: "realistic", dim: "action" },
+      { text: "أفضل التعلم من خلال التطبيق العملي والتجربة المباشرة.", track: "realistic", dim: "learning" },
+      { text: "أحب مجالات مثل التقنيات والآلات والروبوتات أو الأعمال الميدانية.", track: "realistic", dim: "things" },
+      { text: "أرتاح عندما أرى نتيجة واضحة وملموسة لما أفعله.", track: "realistic", dim: "action" },
+      { text: "أفضل أحيانًا إصلاح شيء أو تركيبه بدل الاكتفاء بالكلام عنه.", track: "realistic", dim: "things" },
+      { text: "أستمتع بالتجارب المخبرية أو الأعمال التطبيقية أكثر من الشرح النظري فقط.", track: "realistic", dim: "learning" },
+      { text: "أميل إلى المهام التي تحتاج دقة تنفيذ وانتباهًا عمليًا.", track: "realistic", dim: "action" },
+      { text: "أحب التعامل مع الأجهزة أو الأدوات أو الوسائل التقنية.", track: "realistic", dim: "things" },
+      { text: "العمل الميداني أو العملي يبدو لي أكثر جذبًا من العمل المكتبي الصرف.", track: "realistic", dim: "environment" },
+      { text: "أفضّل أن أتعلم عبر الممارسة أكثر من القراءة وحدها.", track: "realistic", dim: "learning" },
+      { text: "أشعر أن لدي ميلًا طبيعيًا لفهم كيف تعمل الأشياء عمليًا.", track: "realistic", dim: "things" },
 
-    function getFallbackProfile(code) {
-      const lead = code[0];
-      const byLead = {
-        "R": {
-          description: "تميل إلى الإنجاز العملي، وتفضّل رؤية نتائج ملموسة لما تقوم به. يناسبك التعلّم عبر التطبيق والممارسة.",
-          strengths: ["العملية", "التركيز على التنفيذ", "القدرة على الإنجاز", "التعامل مع الأدوات"],
-          development: ["التحليل النظري العميق", "الصبر على المهام الطويلة", "التوثيق والتنظيم"],
-          environment: "بيئات تطبيقية وتقنية وميدانية."
-        },
-        "I": {
-          description: "تميل إلى الفهم والتحليل والبحث عن المعنى والمنطق. يناسبك التخصص الذي يتطلب استكشافًا وتفكيرًا عميقًا.",
-          strengths: ["التحليل", "حب الاستكشاف", "التركيز الذهني", "التفكير العلمي"],
-          development: ["زيادة التفاعل العملي", "العمل الجماعي", "تحويل المعرفة إلى تطبيق"],
-          environment: "بيئات علمية أو بحثية أو أكاديمية منظمة."
-        },
-        "A": {
-          description: "تميل إلى الابتكار والتعبير والأفكار الجديدة. يناسبك المجال الذي يسمح لك بالتميّز والأسلوب الخاص.",
-          strengths: ["الإبداع", "الخيال", "المرونة", "التعبير"],
-          development: ["الانضباط في التنفيذ", "التخطيط", "تحويل الأفكار إلى مشاريع مكتملة"],
-          environment: "بيئات مرنة تسمح بالإبداع وصناعة الأفكار."
-        },
-        "S": {
-          description: "تميل إلى الناس، وتستمد دافعك من الأثر الإيجابي الذي يمكن أن تحدثه في الآخرين.",
-          strengths: ["التواصل", "الاستماع", "المساندة", "التفاعل الإنساني"],
-          development: ["الحزم", "العمل تحت الضغط", "التحليل الرقمي أحيانًا"],
-          environment: "بيئات تعليمية أو اجتماعية أو صحية أو إرشادية."
-        },
-        "E": {
-          description: "تميل إلى القيادة والمبادرة والتأثير. يناسبك المجال الذي يعطيك فرصة لاتخاذ القرار وتوجيه الجهود.",
-          strengths: ["القيادة", "المبادرة", "الإقناع", "الرؤية"],
-          development: ["الاهتمام بالتفاصيل", "الاستمرارية", "التحليل العميق قبل الحسم"],
-          environment: "بيئات إدارية وريادية وتنافسية."
-        },
-        "C": {
-          description: "تميل إلى النظام والدقة والوضوح. يناسبك المجال الذي يقوم على الترتيب والبيانات والإجراءات.",
-          strengths: ["التنظيم", "الانضباط", "الالتزام", "الوضوح"],
-          development: ["المرونة", "المبادرة", "الابتكار خارج القوالب"],
-          environment: "بيئات منظمة وإدارية وبيانية."
-        }
-      };
-      return byLead[lead];
-    }
+      // I
+      { text: "أشعر بالمتعة عند البحث عن أسباب المشكلات وتحليلها بدقة.", track: "investigative", dim: "ideas" },
+      { text: "أستمتع بحل المسائل العلمية أو المنطقية أو الرقمية المعقدة.", track: "investigative", dim: "data" },
+      { text: "أحب الاكتشاف العلمي وطرح الأسئلة والبحث عن إجاباتها.", track: "investigative", dim: "ideas" },
+      { text: "أشعر أن التحليل والاستنتاج والتفكير العميق يناسبني.", track: "investigative", dim: "ideas" },
+      { text: "أفضّل فهم الشيء بعمق قبل أن أقرر موقفي منه.", track: "investigative", dim: "data" },
+      { text: "أحب مقارنة الاحتمالات والبحث عن التفسير الأدق.", track: "investigative", dim: "ideas" },
+      { text: "أشعر بفضول كبير تجاه الظواهر العلمية وكيف تحدث.", track: "investigative", dim: "ideas" },
+      { text: "أفضل أحيانًا المهام التي تتطلب تفكيرًا وتحليلًا على المهام الروتينية.", track: "investigative", dim: "data" },
+      { text: "أحب أن أبني رأيي على الأدلة والمعطيات أكثر من الانطباع السريع.", track: "investigative", dim: "data" },
+      { text: "أرتاح عندما يكون هناك منطق واضح وراء ما أتعلمه.", track: "investigative", dim: "learning" },
+      { text: "حل المشكلات العقلية يشعرني بالرضا.", track: "investigative", dim: "ideas" },
+      { text: "أفضّل التخصصات التي تحتاج إلى فهم وتحليل وتفكير مستمر.", track: "investigative", dim: "environment" },
+
+      // A
+      { text: "أحب ابتكار أفكار جديدة والتعبير عنها بطريقة فنية أو مختلفة.", track: "artistic", dim: "ideas" },
+      { text: "أميل إلى الرسم أو التصميم أو الكتابة أو صناعة المحتوى الإبداعي.", track: "artistic", dim: "ideas" },
+      { text: "أشعر أن الخيال والإبداع من أقوى جوانب شخصيتي.", track: "artistic", dim: "ideas" },
+      { text: "أفضل أن يكون لي أسلوب خاص ومختلف في إنجاز الأعمال.", track: "artistic", dim: "ideas" },
+      { text: "أحب التعبير عن نفسي بالأفكار أو الصور أو الكلمات أو الشكل البصري.", track: "artistic", dim: "ideas" },
+      { text: "أرتاح أكثر في البيئات التي تسمح بالمرونة والإبداع.", track: "artistic", dim: "environment" },
+      { text: "أشعر أنني أستمتع بابتكار حلول غير تقليدية.", track: "artistic", dim: "ideas" },
+      { text: "لفت الانتباه إلى الجمال أو الأسلوب أو التميّز يهمني.", track: "artistic", dim: "ideas" },
+      { text: "أميل إلى الأعمال التي فيها حرية أكبر من القوالب الجامدة.", track: "artistic", dim: "environment" },
+      { text: "أحب أن أقدّم شيئًا يعكس شخصيتي الخاصة.", track: "artistic", dim: "ideas" },
+      { text: "أحيانًا أشعر أنني أملّ من التكرار وأبحث عن التجديد.", track: "artistic", dim: "environment" },
+      { text: "أفضّل المجالات التي تسمح بإنتاج أفكار أو أعمال أصلية.", track: "artistic", dim: "learning" },
+
+      // S
+      { text: "أرتاح عندما أساعد الآخرين أو أشرح لهم شيئًا يحتاجونه.", track: "social", dim: "people" },
+      { text: "أحب العمل مع الناس أكثر من العمل المنفرد لفترات طويلة.", track: "social", dim: "people" },
+      { text: "يسعدني أن يكون لعملي أثر إيجابي على حياة الآخرين.", track: "social", dim: "people" },
+      { text: "أحب الاستماع للناس ودعمهم ومساندتهم.", track: "social", dim: "people" },
+      { text: "أشعر بالرضا عندما أساهم في حل مشكلة لشخص آخر.", track: "social", dim: "people" },
+      { text: "أفضل البيئات التي يكون فيها تفاعل إنساني وتعاون.", track: "social", dim: "environment" },
+      { text: "أميل إلى شرح الأفكار ومساعدة الآخرين على الفهم.", track: "social", dim: "people" },
+      { text: "أتفاعل عادة مع مشاعر الناس ومشكلاتهم.", track: "social", dim: "people" },
+      { text: "أرتاح عندما أكون جزءًا من فريق متعاون.", track: "social", dim: "people" },
+      { text: "أحب أن أشعر أن عملي له قيمة إنسانية أو تربوية.", track: "social", dim: "environment" },
+      { text: "التواصل الجيد مع الناس مهم بالنسبة لي في أي دراسة أو عمل.", track: "social", dim: "people" },
+      { text: "أشعر أنني أتعلم جيدًا عبر الحوار والتفاعل.", track: "social", dim: "learning" },
+
+      // E
+      { text: "أحب قيادة الأنشطة أو التأثير في الناس وإقناعهم بفكرة ما.", track: "enterprising", dim: "people" },
+      { text: "أفكر أحيانًا في إنشاء مشروع خاص أو نشاط ريادي مستقبلاً.", track: "enterprising", dim: "action" },
+      { text: "أميل إلى المبادرة واتخاذ القرار وتحمل المسؤولية.", track: "enterprising", dim: "action" },
+      { text: "أحب التفاوض والإقناع وقيادة الفرق أو المبادرات.", track: "enterprising", dim: "people" },
+      { text: "أشعر بالحماس عندما أُمنح فرصة تنظيم شيء أو قيادته.", track: "enterprising", dim: "action" },
+      { text: "أفضل أن يكون لي دور واضح في التوجيه أو اتخاذ القرار.", track: "enterprising", dim: "environment" },
+      { text: "أحب أن أؤثر في النتائج لا أن أبقى متفرجًا فقط.", track: "enterprising", dim: "action" },
+      { text: "أميل إلى الفرص التي تتضمن مسؤولية أو تحديًا.", track: "enterprising", dim: "action" },
+      { text: "أرتاح عندما أعبّر عن رأيي بثقة أمام الآخرين.", track: "enterprising", dim: "people" },
+      { text: "أحب أن أرى نفسي في دور قيادي أو ريادي مستقبلًا.", track: "enterprising", dim: "environment" },
+      { text: "أهتم بالأهداف والإنجاز والنتائج الواضحة.", track: "enterprising", dim: "action" },
+      { text: "أستمتع أحيانًا بإقناع الآخرين بوجهة نظري.", track: "enterprising", dim: "people" },
+
+      // C
+      { text: "أفضل العمل المنظم الذي يعتمد على خطوات واضحة ودقيقة.", track: "conventional", dim: "data" },
+      { text: "أهتم بترتيب الملفات أو المعلومات أو البيانات بطريقة دقيقة ومنظمة.", track: "conventional", dim: "data" },
+      { text: "أفضل البيئات التي فيها وضوح ونظام وتعليمات محددة.", track: "conventional", dim: "environment" },
+      { text: "أحب الجداول والترتيب وإدارة المعلومات بطريقة واضحة.", track: "conventional", dim: "data" },
+      { text: "أرتاح عندما أعرف المطلوب مني بشكل واضح ومحدد.", track: "conventional", dim: "environment" },
+      { text: "الدقة والانتباه للتفاصيل من الأمور المهمة بالنسبة لي.", track: "conventional", dim: "data" },
+      { text: "أفضل أحيانًا الأعمال المنظمة على الأعمال العشوائية أو المفتوحة.", track: "conventional", dim: "environment" },
+      { text: "أميل إلى حفظ السجلات أو متابعة الأمور بشكل مرتب.", track: "conventional", dim: "data" },
+      { text: "أشعر بالرضا عندما يكون كل شيء مرتبًا وواضحًا.", track: "conventional", dim: "environment" },
+      { text: "أتعامل جيدًا مع المهام التي تحتاج إلى متابعة دقيقة.", track: "conventional", dim: "data" },
+      { text: "أفضل التعلّم في بيئة منظمة بخطوات متسلسلة.", track: "conventional", dim: "learning" },
+      { text: "الوضوح والإجراءات المحددة تساعدني على الإنجاز بأفضل شكل.", track: "conventional", dim: "environment" }
+    ];
 
     const majorDatabase = {
       "ثالث ثانوي علوم عامة / رياضيات": [
-        { name: "الطب", codes: ["ISR","ISA","RIA","RIS"], weight: { I: 5, S: 3, R: 2 } },
-        { name: "طب الأسنان", codes: ["ISR","RIA","RIS"], weight: { I: 5, R: 3, S: 2 } },
-        { name: "الهندسة المدنية", codes: ["RIE","RIC","RCE"], weight: { R: 5, I: 3, C: 2 } },
-        { name: "الهندسة الميكانيكية", codes: ["RIE","RIC","RIA"], weight: { R: 5, I: 4, C: 1 } },
-        { name: "الهندسة الكهربائية", codes: ["RIE","IRC","RIC"], weight: { I: 4, R: 4, C: 2 } },
-        { name: "هندسة الكمبيوتر", codes: ["IRC","RIC","IEC"], weight: { I: 5, R: 2, C: 3 } },
-        { name: "علوم الحاسوب", codes: ["IRC","IAC","IEC"], weight: { I: 5, C: 3, A: 2 } },
-        { name: "الذكاء الاصطناعي / علم البيانات", codes: ["IRC","IAC","ICE"], weight: { I: 5, C: 3, A: 2 } },
-        { name: "الرياضيات", codes: ["IRC","ICE","IAC"], weight: { I: 5, C: 4, A: 1 } },
-        { name: "الفيزياء", codes: ["IRA","IRC","RIA"], weight: { I: 5, R: 2, A: 1 } },
-        { name: "الهندسة المعمارية", codes: ["ARI","AER","RIA"], weight: { A: 4, R: 3, I: 3 } },
-        { name: "التصميم الصناعي", codes: ["ARI","AER","RIA"], weight: { A: 4, R: 4, I: 2 } }
+        { name: "الطب", trackWeights: { I: 5, S: 3, R: 2 } },
+        { name: "طب الأسنان", trackWeights: { I: 5, R: 3, S: 2 } },
+        { name: "الهندسة المدنية", trackWeights: { R: 5, I: 3, C: 2 } },
+        { name: "الهندسة الميكانيكية", trackWeights: { R: 5, I: 4, C: 1 } },
+        { name: "الهندسة الكهربائية", trackWeights: { I: 4, R: 4, C: 2 } },
+        { name: "هندسة الكمبيوتر", trackWeights: { I: 5, C: 3, R: 2 } },
+        { name: "علوم الحاسوب", trackWeights: { I: 5, C: 3, A: 2 } },
+        { name: "الذكاء الاصطناعي / علم البيانات", trackWeights: { I: 5, C: 3, A: 2 } },
+        { name: "الرياضيات", trackWeights: { I: 5, C: 4, A: 1 } },
+        { name: "الفيزياء", trackWeights: { I: 5, R: 2, A: 1 } },
+        { name: "الهندسة المعمارية", trackWeights: { A: 4, R: 3, I: 3 } },
+        { name: "التصميم الصناعي", trackWeights: { A: 4, R: 4, I: 2 } }
       ],
       "ثالث ثانوي علوم حياة": [
-        { name: "الطب", codes: ["ISR","ISA","RIS"], weight: { I: 5, S: 3, R: 2 } },
-        { name: "الصيدلة", codes: ["IRC","ISR","RIS"], weight: { I: 5, C: 3, S: 2 } },
-        { name: "التمريض", codes: ["SIR","SRI","SEC"], weight: { S: 5, I: 2, R: 2 } },
-        { name: "العلاج الفيزيائي", codes: ["SRI","RIS","RSE"], weight: { R: 4, S: 4, I: 2 } },
-        { name: "علوم المختبرات الطبية", codes: ["IRC","RIS","RIC"], weight: { I: 5, R: 3, C: 2 } },
-        { name: "التغذية", codes: ["SIR","SIA","ISR"], weight: { S: 4, I: 4, A: 1 } },
-        { name: "البيولوجيا / العلوم الحياتية", codes: ["IRC","IRA","ISR"], weight: { I: 5, R: 2, S: 1 } },
-        { name: "علم النفس", codes: ["SIA","SIE","SIR"], weight: { S: 5, I: 3, A: 1 } },
-        { name: "العلاج الوظيفي", codes: ["SRI","SIA","RIS"], weight: { S: 4, R: 3, I: 2 } },
-        { name: "الصحة العامة", codes: ["SIE","SEC","SIC"], weight: { S: 4, I: 2, E: 2 } },
-        { name: "الطب البيطري", codes: ["RIS","RIE","SIR"], weight: { R: 3, I: 4, S: 2 } }
+        { name: "الطب", trackWeights: { I: 5, S: 3, R: 2 } },
+        { name: "الصيدلة", trackWeights: { I: 5, C: 3, S: 2 } },
+        { name: "التمريض", trackWeights: { S: 5, I: 2, R: 2 } },
+        { name: "العلاج الفيزيائي", trackWeights: { R: 4, S: 4, I: 2 } },
+        { name: "علوم المختبرات الطبية", trackWeights: { I: 5, R: 3, C: 2 } },
+        { name: "التغذية", trackWeights: { S: 4, I: 4, A: 1 } },
+        { name: "البيولوجيا / العلوم الحياتية", trackWeights: { I: 5, R: 2, S: 1 } },
+        { name: "علم النفس", trackWeights: { S: 5, I: 3, A: 1 } },
+        { name: "العلاج الوظيفي", trackWeights: { S: 4, R: 3, I: 2 } },
+        { name: "الصحة العامة", trackWeights: { S: 4, I: 2, E: 2 } },
+        { name: "الطب البيطري", trackWeights: { R: 3, I: 4, S: 2 } }
       ],
       "ثالث ثانوي اقتصاد واجتماع": [
-        { name: "إدارة الأعمال", codes: ["ECS","ESC","EIC"], weight: { E: 5, C: 3, S: 2 } },
-        { name: "المحاسبة", codes: ["CEI","CIE","CER"], weight: { C: 5, E: 2, I: 3 } },
-        { name: "التمويل والمصارف", codes: ["CEI","EIC","CIE"], weight: { C: 4, E: 3, I: 3 } },
-        { name: "الاقتصاد", codes: ["IEC","EIC","IRC"], weight: { I: 4, E: 3, C: 3 } },
-        { name: "التسويق", codes: ["EAS","ESA","ECS"], weight: { E: 4, A: 2, S: 3 } },
-        { name: "الإعلام", codes: ["ASE","AES","SAE"], weight: { A: 4, S: 3, E: 3 } },
-        { name: "العلاقات العامة", codes: ["ESA","SAE","EAS"], weight: { E: 3, S: 4, A: 2 } },
-        { name: "علم النفس", codes: ["SIA","SIE","SIR"], weight: { S: 5, I: 3, A: 1 } },
-        { name: "العمل الاجتماعي", codes: ["SCE","SIE","SEC"], weight: { S: 5, C: 2, E: 2 } },
-        { name: "إدارة الموارد البشرية", codes: ["SEC","ESC","SCE"], weight: { S: 3, E: 3, C: 4 } },
-        { name: "العلوم السياسية", codes: ["EIS","SIE","IEC"], weight: { E: 3, I: 4, S: 3 } },
-        { name: "القانون", codes: ["EIC","SEC","IEC"], weight: { E: 3, I: 4, C: 3 } }
+        { name: "إدارة الأعمال", trackWeights: { E: 5, C: 3, S: 2 } },
+        { name: "المحاسبة", trackWeights: { C: 5, I: 3, E: 2 } },
+        { name: "التمويل والمصارف", trackWeights: { C: 4, E: 3, I: 3 } },
+        { name: "الاقتصاد", trackWeights: { I: 4, E: 3, C: 3 } },
+        { name: "التسويق", trackWeights: { E: 4, S: 3, A: 2 } },
+        { name: "الإعلام", trackWeights: { A: 4, S: 3, E: 3 } },
+        { name: "العلاقات العامة", trackWeights: { S: 4, E: 3, A: 2 } },
+        { name: "علم النفس", trackWeights: { S: 5, I: 3, A: 1 } },
+        { name: "العمل الاجتماعي", trackWeights: { S: 5, C: 2, E: 2 } },
+        { name: "إدارة الموارد البشرية", trackWeights: { C: 4, E: 3, S: 3 } },
+        { name: "العلوم السياسية", trackWeights: { I: 4, E: 3, S: 3 } },
+        { name: "القانون", trackWeights: { I: 4, C: 3, E: 3 } }
       ]
     };
 
-    function codeMatchScore(top3Code, entryCodes) {
-      let best = 0;
-      entryCodes.forEach(code => {
-        let score = 0;
-        for (let i = 0; i < Math.min(3, code.length); i++) {
-          if (top3Code[i] === code[i]) {
-            score += (i === 0 ? 45 : i === 1 ? 25 : 15);
-          } else if (top3Code.includes(code[i])) {
-            score += 8;
-          }
-        }
-        if (score > best) best = score;
-      });
-      return best;
-    }
-
-    function weightedTrackScore(entryWeight, orderedTrackCodes) {
-      const lookup = {
-        [orderedTrackCodes[0]]: 100,
-        [orderedTrackCodes[1]]: 78,
-        [orderedTrackCodes[2]]: 60,
-        [orderedTrackCodes[3]]: 42,
-        [orderedTrackCodes[4]]: 25,
-        [orderedTrackCodes[5]]: 12
-      };
-
-      let total = 0;
-      let weightSum = 0;
-      Object.entries(entryWeight).forEach(([code, weight]) => {
-        total += (lookup[code] || 0) * weight;
-        weightSum += weight;
-      });
-      return weightSum ? total / weightSum : 0;
-    }
-
-    function finalMajorScore(entry, top3Code, orderedTrackCodes) {
-      const patternPart = codeMatchScore(top3Code, entry.codes);
-      const weightedPart = weightedTrackScore(entry.weight, orderedTrackCodes);
-      return Math.round((patternPart * 0.52) + (weightedPart * 0.48));
-    }
-
-    function getProfile(top3Code) {
-      return detailedProfiles[top3Code] || getFallbackProfile(top3Code);
-    }
-
-    function getNextStep(top3Code, gradeLevel, bestMajors) {
-      const lead = top3Code[0];
-      const tips = [];
-
-      if (lead === "I") {
-        tips.push("ركّز على المواد العلمية والتحليلية التي ترتبط باختصاصاتك الأعلى.");
-        tips.push("جرّب دورة قصيرة في البرمجة أو البحث أو مهارات التفكير العلمي.");
-      } else if (lead === "R") {
-        tips.push("ابحث عن أنشطة تطبيقية أو مختبرية أو تقنية لتختبر ميولك عمليًا.");
-        tips.push("حاول ربط الدراسة النظرية بالتجربة الواقعية أو المشاريع الصغيرة.");
-      } else if (lead === "A") {
-        tips.push("ابدأ ببناء ملف أعمال بسيط يضم نماذج من أعمالك أو أفكارك.");
-        tips.push("شارك في نشاط إبداعي أو إعلامي أو تصميمي داخل المدرسة.");
-      } else if (lead === "S") {
-        tips.push("جرّب أنشطة تتضمن مساعدة الآخرين أو التعليم أو العمل الجماعي.");
-        tips.push("طوّر مهارات التواصل والاستماع والإرشاد خطوة خطوة.");
-      } else if (lead === "E") {
-        tips.push("طوّر مهارات القيادة واتخاذ القرار من خلال مبادرة أو مشروع صغير.");
-        tips.push("جرّب أدوارًا تنظيمية أو تمثيلية أو تسويقية داخل النشاطات المدرسية.");
-      } else if (lead === "C") {
-        tips.push("درّب نفسك على التنظيم وإدارة الوقت والبيانات والعمل المنهجي.");
-        tips.push("استكشف اختصاصات تعتمد على الدقة والتحليل والترتيب.");
+    const compositeProfiles = {
+      RIA: {
+        desc: "يجمع هذا النمط بين التطبيق العملي والتفكير التحليلي ولمسة إبداعية، لذلك يميل صاحبه إلى المجالات التي تحتاج فهمًا عميقًا مع تنفيذ وابتكار.",
+        strengths: ["الفهم والتحليل", "التطبيق العملي", "حل المشكلات", "التجريب", "القدرة على الدمج بين الفكرة والتنفيذ"],
+        growth: ["توسيع الخبرة الميدانية", "تنظيم المشاريع طويلة المدى", "عرض الأفكار بشكل أوضح للآخرين"],
+        environment: "بيئة تجمع بين التفكير، التطبيق، والمشاريع أو المختبرات أو التصميم."
+      },
+      RIS: {
+        desc: "يميل هذا النمط إلى العلوم والتطبيق، مع حس إنساني في توظيف المعرفة. يناسبه المجال الذي يربط الدقة العلمية بخدمة الآخرين أو بنتائج ملموسة.",
+        strengths: ["الدقة", "التحليل", "الالتزام", "النظرة الواقعية", "الإفادة العملية"],
+        growth: ["تطوير مهارات التواصل", "زيادة المرونة", "تحويل التردد إلى قرار عملي أسرع"],
+        environment: "بيئة علمية تطبيقية، صحية، أو مخبرية منظمة."
+      },
+      ISE: {
+        desc: "يجمع هذا النمط بين الفهم العميق والبعد الإنساني والقدرة على المبادرة. يناسبه مجال يتطلب تحليلًا وتواصلًا وتأثيرًا.",
+        strengths: ["الفهم", "التواصل", "المبادرة", "الرؤية", "القدرة على التأثير"],
+        growth: ["زيادة التركيز على التفاصيل", "بناء خبرة واقعية", "تقوية التنظيم"],
+        environment: "بيئة تتطلب تفكيرًا، تفاعلًا، وقرارات مدروسة."
+      },
+      SAE: {
+        desc: "يميل هذا النمط إلى الإبداع والتواصل والقدرة على التأثير. يناسبه مجال يتطلب حضورًا، تعبيرًا، وعملًا مع الناس.",
+        strengths: ["التواصل", "الإبداع", "الحضور", "الإقناع", "المرونة"],
+        growth: ["التركيز على الاستمرارية", "تنظيم العمل", "تحويل الفكرة إلى خطة تنفيذية"],
+        environment: "بيئة مرنة، تفاعلية، وإبداعية."
       }
+    };
 
-      tips.push(`حدّد من النتائج اختصاصين أعلى توافقًا مثل: ${bestMajors.slice(0, 2).map(x => x.name).join(" و ")}.`);
-      tips.push(`ناقش هذه النتائج مع المرشد الأكاديمي ضمن فرع ${gradeLevel}.`);
-
-      return tips;
+    function fallbackProfile(code) {
+      const lead = code[0];
+      const map = {
+        R: {
+          desc: "يميل هذا النمط إلى التطبيق العملي والإنجاز الملموس، ويفضّل التعلم بالممارسة والنتائج الواضحة.",
+          strengths: ["العملية", "الإنجاز", "حب التطبيق", "فهم الأدوات والأنظمة"],
+          growth: ["التعمق النظري", "الصبر على المهام الطويلة", "الشرح اللفظي للأفكار"],
+          environment: "بيئة تطبيقية أو تقنية أو ميدانية."
+        },
+        I: {
+          desc: "يميل هذا النمط إلى التحليل والفهم والبحث، ويشعر بالارتياح في المجالات التي تتطلب تفكيرًا عميقًا.",
+          strengths: ["التفكير العلمي", "التحليل", "حب الفهم", "طرح الأسئلة", "التركيز"],
+          growth: ["الخبرة العملية", "العمل الجماعي", "تحويل الفهم إلى فعل"],
+          environment: "بيئة علمية أو بحثية أو أكاديمية منظمة."
+        },
+        A: {
+          desc: "يميل هذا النمط إلى الإبداع والابتكار والتعبير، وينجذب إلى المجالات التي تسمح له بأسلوبه الخاص.",
+          strengths: ["الإبداع", "الخيال", "التعبير", "التجديد", "المرونة"],
+          growth: ["الانضباط", "التخطيط", "إتمام المشاريع للنهاية"],
+          environment: "بيئة مرنة وإبداعية تسمح بالتعبير."
+        },
+        S: {
+          desc: "يميل هذا النمط إلى مساعدة الناس والتفاعل معهم، ويشعر بقيمة أكبر عندما يكون لعمله أثر إنساني.",
+          strengths: ["التواصل", "الاستماع", "الدعم", "التعاون", "الوعي الإنساني"],
+          growth: ["الحزم", "التعامل مع الضغط", "التحليل الرقمي"],
+          environment: "بيئة تعليمية أو صحية أو اجتماعية أو إرشادية."
+        },
+        E: {
+          desc: "يميل هذا النمط إلى القيادة والمبادرة والتأثير، ويبحث عن المجالات التي تمنحه مساحة للحركة وصنع القرار.",
+          strengths: ["القيادة", "المبادرة", "التأثير", "الثقة", "توجيه الجهود"],
+          growth: ["التفاصيل", "الاستمرارية", "التأني قبل الحسم"],
+          environment: "بيئة ريادية أو إدارية أو تنافسية."
+        },
+        C: {
+          desc: "يميل هذا النمط إلى التنظيم والدقة والوضوح، ويشعر بالارتياح في البيئات المرتبة والمنهجية.",
+          strengths: ["الترتيب", "الدقة", "الوضوح", "الالتزام", "إدارة التفاصيل"],
+          growth: ["المرونة", "المبادرة", "التفكير خارج القالب"],
+          environment: "بيئة منظمة وإدارية وبيانية."
+        }
+      };
+      return map[lead];
     }
 
-    function getScientificSummary(top3Code, profile) {
-      return `يعتمد هذا التحليل على ترتيب أعلى ثلاثة أنماط لديك وفق نموذج RIASEC (${top3Code})، ثم مطابقة هذا الترتيب مع متطلبات اختصاصات الفرع المختار. لذلك فالنتيجة لا تعتمد على ميل واحد فقط، بل على البنية العامة لميولك المهنية وطريقة تفاعلها مع مسارات الدراسة المحتملة. ${profile.description}`;
+    function getProfile(code) {
+      return compositeProfiles[code] || fallbackProfile(code);
     }
 
     function renderTrackCards() {
@@ -1211,6 +1118,132 @@
       };
     }
 
+    function calcDimensionProfile(answers) {
+      const dims = { people: 0, data: 0, ideas: 0, things: 0, action: 0, learning: 0, environment: 0 };
+      Object.keys(dims).forEach(k => dims[k] = { total: 0, count: 0 });
+
+      questions.forEach((q, i) => {
+        dims[q.dim].total += answers[i];
+        dims[q.dim].count += 1;
+      });
+
+      const final = {};
+      Object.keys(dims).forEach(k => {
+        final[k] = +(dims[k].total / dims[k].count).toFixed(2);
+      });
+      return final;
+    }
+
+    function scoreMajor(entry, orderedCodes, dimProfile) {
+      const lookup = {
+        [orderedCodes[0]]: 100,
+        [orderedCodes[1]]: 82,
+        [orderedCodes[2]]: 66,
+        [orderedCodes[3]]: 44,
+        [orderedCodes[4]]: 26,
+        [orderedCodes[5]]: 12
+      };
+
+      let weighted = 0;
+      let totalWeight = 0;
+      Object.entries(entry.trackWeights).forEach(([code, w]) => {
+        weighted += (lookup[code] || 0) * w;
+        totalWeight += w;
+      });
+
+      let dimBonus = 0;
+      if (entry.name.includes("الطب") || entry.name.includes("الصيدلة") || entry.name.includes("المختبرات") || entry.name.includes("التمريض") || entry.name.includes("العلاج") || entry.name.includes("التغذية")) {
+        dimBonus = (dimProfile.data * 4) + (dimProfile.people * 3) + (dimProfile.learning * 2);
+      } else if (entry.name.includes("الهندسة") || entry.name.includes("الحاسوب") || entry.name.includes("الذكاء الاصطناعي") || entry.name.includes("الرياضيات") || entry.name.includes("الفيزياء")) {
+        dimBonus = (dimProfile.data * 5) + (dimProfile.ideas * 3) + (dimProfile.things * 2);
+      } else if (entry.name.includes("إدارة") || entry.name.includes("التسويق") || entry.name.includes("المحاسبة") || entry.name.includes("التمويل") || entry.name.includes("القانون")) {
+        dimBonus = (dimProfile.data * 3) + (dimProfile.people * 3) + (dimProfile.environment * 2) + (dimProfile.action * 2);
+      } else if (entry.name.includes("الإعلام") || entry.name.includes("التصميم") || entry.name.includes("المعمارية")) {
+        dimBonus = (dimProfile.ideas * 5) + (dimProfile.people * 2) + (dimProfile.environment * 2);
+      } else {
+        dimBonus = (dimProfile.ideas * 3) + (dimProfile.people * 3) + (dimProfile.data * 2);
+      }
+
+      const baseScore = totalWeight ? (weighted / totalWeight) : 0;
+      const dimScore = dimBonus * 5;
+      return Math.round((baseScore * 0.7) + (dimScore * 0.3));
+    }
+
+    function getEnvironmentSummary(dimProfile) {
+      const parts = [];
+      if (dimProfile.people >= 3.6) parts.push("التفاعل مع الناس");
+      if (dimProfile.data >= 3.6) parts.push("التعامل مع المعلومات والتحليل");
+      if (dimProfile.ideas >= 3.6) parts.push("التفكير والأفكار الجديدة");
+      if (dimProfile.things >= 3.6) parts.push("التطبيق والأدوات والجانب العملي");
+      if (!parts.length) parts.push("بيئة متوازنة وواضحة");
+      return `تميل غالبًا إلى بيئة تتضمن ${parts.join("، ")}.`;
+    }
+
+    function getLearningSummary(dimProfile) {
+      const styles = [];
+      if (dimProfile.learning >= 3.7) styles.push("التعلّم بالممارسة والتدرج");
+      if (dimProfile.data >= 3.7) styles.push("الفهم المنطقي والتحليلي");
+      if (dimProfile.people >= 3.7) styles.push("الحوار والتفاعل");
+      if (dimProfile.ideas >= 3.7) styles.push("الاستكشاف وصناعة الأفكار");
+      return styles.length ? styles.join(" + ") : "التعلّم المنظم مع أمثلة تطبيقية";
+    }
+
+    function getNextStep(bestMajors, gradeLevel) {
+      const names = bestMajors.map(x => x.name);
+      const text = names.join("، ");
+
+      const isHealth = names.some(n => ["الطب","الصيدلة","التمريض","العلاج","المختبرات","التغذية","الصحة","البيولوجيا","الطب البيطري"].some(k => n.includes(k)));
+      const isEngineering = names.some(n => ["الهندسة","الحاسوب","الذكاء الاصطناعي","الرياضيات","الفيزياء"].some(k => n.includes(k)));
+      const isBusiness = names.some(n => ["إدارة","المحاسبة","التمويل","المصارف","الاقتصاد","التسويق","القانون"].some(k => n.includes(k)));
+      const isCreative = names.some(n => ["الإعلام","التصميم","المعمارية"].some(k => n.includes(k)));
+      const isHuman = names.some(n => ["علم النفس","العمل الاجتماعي","العلاقات العامة","الموارد البشرية","التعليم"].some(k => n.includes(k)));
+
+      let tips = [];
+
+      if (isHealth) {
+        tips = [
+          "ركّز على الأحياء والكيمياء والمواد العلمية المرتبطة بالمجال الصحي.",
+          "اقرأ متطلبات الكليات الصحية والمواد الأساسية فيها.",
+          "حاول المشاركة في نشاط علمي أو صحي أو مخبري إن أمكن."
+        ];
+      } else if (isEngineering) {
+        tips = [
+          "قوِّ مهاراتك في الرياضيات والمنطق وحل المشكلات.",
+          "جرّب مشروعًا صغيرًا أو نشاطًا تقنيًا أو برمجيًا أو تصميميًا بحسب المجال.",
+          "اطلع على طبيعة الدراسة التطبيقية في التخصصات الهندسية والتقنية."
+        ];
+      } else if (isBusiness) {
+        tips = [
+          "طوّر مهارات التنظيم والتواصل واتخاذ القرار.",
+          "اقرأ عن الفروقات بين الإدارة، المحاسبة، الاقتصاد، والتسويق.",
+          "جرّب نشاطًا طلابيًا فيه تنظيم أو قيادة أو تخطيط."
+        ];
+      } else if (isCreative) {
+        tips = [
+          "ابدأ ببناء ملف أعمال بسيط يضم أفكارك أو نماذج من أعمالك.",
+          "طوّر ذوقك ومهارات العرض والتعبير البصري أو الإعلامي.",
+          "اطلع على طبيعة الدراسة العملية في التخصصات الإبداعية."
+        ];
+      } else if (isHuman) {
+        tips = [
+          "طوّر مهارات الاستماع والتواصل والعمل الجماعي.",
+          "اقرأ عن طبيعة المجالات الإنسانية والاجتماعية ومتطلبات كل منها.",
+          "اختر نشاطًا يتيح لك التفاعل مع الناس بشكل منظم."
+        ];
+      } else {
+        tips = [
+          "اقرأ عن أعلى اختصاصين أو ثلاثة في نتيجتك.",
+          "قارن بين المواد المطلوبة وطبيعة الدراسة في كل اختصاص.",
+          "ناقش النتيجة مع مرشدك ضمن فرعك الدراسي."
+        ];
+      }
+
+      tips.push(`ركّز مبدئيًا على هذه الاختصاصات: ${text}.`);
+      tips.push(`ناقش هذه النتائج مع المرشد الأكاديمي ضمن فرع ${gradeLevel}.`);
+
+      return tips;
+    }
+
     function calculateResults() {
       const studentName = document.getElementById("studentName").value.trim() || "—";
       const gradeLevel = document.getElementById("gradeLevel").value;
@@ -1218,7 +1251,7 @@
       const advisorName = document.getElementById("advisorName").value.trim() || "—";
 
       if (!gradeLevel) {
-        alert("يرجى اختيار الفرع أولاً.");
+        alert("يرجى اختيار الفرع أولًا.");
         return;
       }
 
@@ -1231,38 +1264,44 @@
         conventional: 0
       };
 
+      const answers = [];
+
       for (let i = 0; i < questions.length; i++) {
         const selected = document.querySelector(`input[name="q${i}"]:checked`);
         if (!selected) {
-          alert(`يرجى الإجابة عن السؤال رقم ${i + 1} قبل إظهار النتيجة.`);
+          alert(`يرجى الإجابة عن السؤال رقم ${i + 1}.`);
           return;
         }
-        scores[questions[i].track] += Number(selected.value);
+        const val = Number(selected.value);
+        answers.push(val);
+        scores[questions[i].track] += val;
       }
 
       const ordered = Object.entries(scores)
         .map(([key, value]) => ({ key, value, ...tracks[key] }))
         .sort((a, b) => b.value - a.value);
 
-      const orderedTrackCodes = ordered.map(item => item.code);
       const top3 = ordered.slice(0, 3);
-      const top3Code = top3.map(item => item.code).join("");
-      const maxScorePerTrack = (questions.length / 6) * 5;
+      const orderedCodes = ordered.map(x => x.code);
+      const top3Code = top3.map(x => x.code).join("");
+      const maxScorePerTrack = 12 * 5;
 
+      const dimProfile = calcDimensionProfile(answers);
       const profile = getProfile(top3Code);
-      const scientificSummary = getScientificSummary(top3Code, profile);
 
-      const matchedMajors = majorDatabase[gradeLevel]
+      const matched = majorDatabase[gradeLevel]
         .map(entry => ({
           ...entry,
-          score: finalMajorScore(entry, top3Code, orderedTrackCodes)
+          score: scoreMajor(entry, orderedCodes, dimProfile)
         }))
         .sort((a, b) => b.score - a.score);
 
-      const bestMajors = matchedMajors.filter(m => m.score >= 78).slice(0, 5);
-      const possibleMajors = matchedMajors.filter(m => m.score >= 60 && m.score < 78).slice(0, 6);
+      const bestMajors = matched.slice(0, 5);
+      const possibleMajors = matched.slice(5, 10);
 
-      const nextSteps = getNextStep(top3Code, gradeLevel, matchedMajors.slice(0, 3));
+      const learningStyle = getLearningSummary(dimProfile);
+      const environmentSummary = getEnvironmentSummary(dimProfile);
+      const nextSteps = getNextStep(bestMajors.slice(0,3), gradeLevel);
 
       const resultContent = document.getElementById("resultContent");
       const resultsSection = document.getElementById("resultsSection");
@@ -1274,13 +1313,17 @@
             <p><strong>الطالب / الطالبة:</strong> ${studentName}</p>
             <p><strong>الفرع:</strong> ${gradeLevel}${sectionName !== "—" ? ` | <strong>الشعبة:</strong> ${sectionName}` : ""}</p>
             <p><strong>المرشد / المسؤول:</strong> ${advisorName}</p>
-            <div class="code-badge">الكود المهني الأعلى: ${top3Code}</div>
-            <p style="margin-top:12px;">أعلى الأنماط لديك بالترتيب هي: <strong>${top3[0].title}</strong> ثم <strong>${top3[1].title}</strong> ثم <strong>${top3[2].title}</strong>.</p>
+            <div class="code-badge">الكود الأعلى: ${top3Code}</div>
+            <p style="margin-top:12px;">أعلى الأنماط لديك هي: <strong>${top3[0].title}</strong> ثم <strong>${top3[1].title}</strong> ثم <strong>${top3[2].title}</strong>.</p>
           </div>
 
           <div class="result-card" style="margin-bottom:16px;">
-            <h3>ملخص تحليلي</h3>
-            <p>${scientificSummary}</p>
+            <h3>قراءة تحليلية مختصرة</h3>
+            <p>
+              تعتمد هذه النتيجة على تحليل 72 عبارة موزعة على ستة أنماط مهنية،
+              ثم قراءة أعلى ثلاثة أنماط لديك مع مطابقة إضافية لأسلوب التعلّم وبيئة العمل المناسبة،
+              وبعد ذلك ربط النتائج بقاعدة اختصاصات خاصة بالفرع الدراسي المختار.
+            </p>
           </div>
 
           <div class="top3-grid" style="margin-bottom:16px;">
@@ -1312,28 +1355,47 @@
           <div class="analysis-grid" style="margin-bottom:16px;">
             <div class="analysis-card">
               <h3>وصف الشخصية المهنية</h3>
-              <p>${profile.description}</p>
+              <p>${profile.desc}</p>
             </div>
+
             <div class="analysis-card">
-              <h3>بيئة التعلّم / العمل الأنسب</h3>
-              <p>${profile.environment}</p>
+              <h3>أسلوب التعلّم الأنسب</h3>
+              <p>${learningStyle}</p>
             </div>
+
             <div class="analysis-card">
               <h3>نقاط القوة المتوقعة</h3>
-              <ul>${profile.strengths.map(item => `<li>${item}</li>`).join("")}</ul>
+              <ul>${profile.strengths.map(x => `<li>${x}</li>`).join("")}</ul>
             </div>
+
             <div class="analysis-card">
               <h3>جوانب تحتاج تطوير</h3>
-              <ul>${profile.development.map(item => `<li>${item}</li>`).join("")}</ul>
+              <ul>${profile.growth.map(x => `<li>${x}</li>`).join("")}</ul>
+            </div>
+
+            <div class="analysis-card">
+              <h3>بيئة الدراسة / العمل المناسبة</h3>
+              <p>${profile.environment}</p>
+              <p style="margin-top:8px;">${environmentSummary}</p>
+            </div>
+
+            <div class="analysis-card">
+              <h3>مؤشرات إضافية</h3>
+              <ul>
+                <li>التعامل مع الناس: ${dimProfile.people}/5</li>
+                <li>التحليل والبيانات: ${dimProfile.data}/5</li>
+                <li>الأفكار والإبداع: ${dimProfile.ideas}/5</li>
+                <li>التطبيق والأدوات: ${dimProfile.things}/5</li>
+              </ul>
             </div>
           </div>
 
           <div class="career-grid" style="margin-bottom:16px;">
             <div class="career-card">
-              <h3>أفضل الاختصاصات لك</h3>
-              <p>هذه الاختصاصات حققت أعلى نسب توافق بحسب ترتيب ميولك وفرعك الدراسي.</p>
+              <h3>أفضل الاختصاصات</h3>
+              <p>هذه أعلى الاختصاصات توافقًا مع نتيجتك الحالية ضمن الفرع المختار.</p>
               <ul>
-                ${(bestMajors.length ? bestMajors : matchedMajors.slice(0, 5)).map(item => `
+                ${bestMajors.map(item => `
                   <li>
                     <strong>${item.name}</strong>
                     <div class="match-badge">${item.score}% توافق</div>
@@ -1343,10 +1405,10 @@
             </div>
 
             <div class="career-card">
-              <h3>اختصاصات ممكنة أيضًا</h3>
-              <p>هذه الاختصاصات ما زالت مناسبة بدرجة جيدة، لكنها تأتي بعد الخيارات الأعلى توافقًا.</p>
+              <h3>اختصاصات مناسبة أيضًا</h3>
+              <p>هذه اختصاصات جيدة أيضًا، لكنها تأتي بعد الخيارات الأعلى توافقًا.</p>
               <ul>
-                ${(possibleMajors.length ? possibleMajors : matchedMajors.slice(5, 10)).map(item => `
+                ${possibleMajors.map(item => `
                   <li>
                     <strong>${item.name}</strong>
                     <div class="match-badge" style="background:#7ba892;">${item.score}% توافق</div>
@@ -1358,21 +1420,30 @@
 
           <div class="result-grid" style="margin-bottom:16px;">
             <div class="result-card">
-              <h3>أولوية الاختيار الأكاديمي</h3>
-              <p>ابدأ بالتركيز على أعلى اختصاصين أو ثلاثة من النتائج، ثم قارن بينها من حيث المواد المطلوبة، أسلوب الدراسة، وفرصك الفعلية فيها.</p>
+              <h3>لماذا هذه النتائج؟</h3>
+              <p>
+                لأن النمط الأعلى لديك لا يعمل وحده، بل يتفاعل مع النمطين التاليين،
+                ومع طريقة تعلّمك وتفضيلاتك في الناس أو البيانات أو التطبيق أو الأفكار.
+              </p>
             </div>
+
             <div class="result-card">
-              <h3>قراءة النتيجة بشكل صحيح</h3>
-              <p>هذه النتيجة لا تعني أن الطالب “محصور” في اختصاص واحد، بل تساعده على ترتيب الأولويات وتحديد المجالات الأكثر انسجامًا مع شخصيته وميوله الحالية.</p>
+              <h3>كيف تُقرأ هذه النتيجة؟</h3>
+              <p>
+                هذه النتيجة لا تفرض اختصاصًا واحدًا، لكنها ترتّب الاحتمالات الأقرب لشخصيتك الحالية
+                وتساعدك على اتخاذ قرار أكثر وعيًا.
+              </p>
             </div>
+
             <div class="result-card">
               <h3>الخطوة التالية</h3>
-              <ul>${nextSteps.map(item => `<li>${item}</li>`).join("")}</ul>
+              <ul>${nextSteps.map(x => `<li>${x}</li>`).join("")}</ul>
             </div>
           </div>
 
           <div class="footer-note">
-            هذا التحليل هو أداة إرشادية مدرسية متقدمة، ويُفضّل استخدامه إلى جانب مقابلة إرشادية، مراجعة الأداء الأكاديمي، والاهتمامات الواقعية للطالب قبل اتخاذ القرار النهائي.
+            هذه النسخة تقدم تحليلًا إرشاديًا أعمق من النسخ المدرسية البسيطة، لكنها تبقى أداة دعم لاتخاذ القرار،
+            والأفضل أن تُستكمل بمقابلة إرشادية ومراجعة الأداء الأكاديمي واهتمامات الطالب الواقعية.
           </div>
         </div>
       `;
@@ -1395,10 +1466,9 @@
     function downloadPDF() {
       const element = document.getElementById("pdfArea");
       if (!element) {
-        alert("يرجى إظهار النتيجة أولاً.");
+        alert("يرجى إظهار النتيجة أولًا.");
         return;
       }
-
       const studentName = document.getElementById("studentName").value.trim() || "student";
       html2pdf().set({
         margin: 0.5,

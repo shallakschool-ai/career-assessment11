@@ -1,1315 +1,166 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>منصة اكتشاف الميول المهنية | المرحلة الثانوية</title>
-
-  <style>
-    :root{
-      --primary:#138f63;
-      --primary-dark:#0f6f4f;
-      --primary-deep:#0b5a40;
-      --secondary:#1aa06f;
-      --gold:#d7c97a;
-      --gold-soft:#efe6b0;
-      --bg:#f3fbf7;
-      --card:rgba(255,255,255,.96);
-      --text:#14392d;
-      --muted:#5d786d;
-      --border:rgba(19,143,99,.14);
-      --danger:#b3261e;
-      --success:#157347;
-      --shadow:0 18px 42px rgba(15,111,79,.12);
-      --radius-xl:28px;
-      --radius-lg:20px;
-      --radius-md:14px;
-
-      --realistic:#138f63;
-      --investigative:#17795f;
-      --artistic:#c8923f;
-      --social:#0f7c73;
-      --enterprising:#b9892a;
-      --conventional:#4c7f6a;
-    }
-
-    *{box-sizing:border-box}
-    html{scroll-behavior:smooth}
-    body{
-      margin:0;
-      font-family:"Cairo","Tahoma","Segoe UI",Arial,sans-serif;
-      color:var(--text);
-      background:
-        radial-gradient(circle at top right, rgba(26,160,111,.12), transparent 24%),
-        radial-gradient(circle at top left, rgba(215,201,122,.16), transparent 20%),
-        linear-gradient(180deg,#eef9f4 0%,#f7fcf9 52%,#eef8f3 100%);
-      overflow-x:hidden;
-    }
-
-    .container{
-      width:min(1180px, calc(100% - 32px));
-      margin:0 auto;
-      padding:22px 0 48px;
-    }
-
-    .glass{
-      background:var(--card);
-      border:1px solid rgba(255,255,255,.65);
-      backdrop-filter:blur(12px);
-      box-shadow:var(--shadow);
-      border-radius:var(--radius-xl);
-    }
-
-    .hero{
-      position:relative;
-      overflow:hidden;
-      padding:30px;
-      background:linear-gradient(135deg, rgba(11,90,64,.97) 0%, rgba(19,143,99,.95) 48%, rgba(26,160,111,.92) 100%);
-      color:#fff;
-      box-shadow:0 24px 55px rgba(11,90,64,.18);
-      border-radius:30px;
-      margin-bottom:22px;
-      isolation:isolate;
-    }
-
-    .hero::before,.hero::after{
-      content:"";
-      position:absolute;
-      border-radius:50%;
-      opacity:.16;
-      pointer-events:none;
-      animation:floatOrb 10s ease-in-out infinite;
-    }
-
-    .hero::before{
-      width:320px;height:320px;background:#fff;top:-130px;left:-100px;
-    }
-    .hero::after{
-      width:240px;height:240px;background:var(--gold);bottom:-110px;right:-60px;animation-delay:-4s;
-    }
-
-    .hero-pattern{
-      position:absolute;
-      inset:0;
-      background-image:
-        linear-gradient(rgba(255,255,255,.035) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255,255,255,.035) 1px, transparent 1px);
-      background-size:26px 26px;
-      mask-image:linear-gradient(180deg, rgba(0,0,0,.9), transparent 92%);
-      z-index:0;
-    }
-
-    .hero-grid{
-      position:relative;
-      z-index:1;
-      display:grid;
-      grid-template-columns:1.35fr .95fr;
-      gap:22px;
-      align-items:stretch;
-    }
-
-    .brand{
-      display:flex;
-      align-items:center;
-      gap:16px;
-      margin-bottom:16px;
-      flex-wrap:wrap;
-    }
-
-    .logo-box{
-      width:92px;
-      height:92px;
-      flex:0 0 92px;
-      border-radius:26px;
-      background:rgba(255,255,255,.16);
-      border:1px solid rgba(255,255,255,.22);
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      overflow:hidden;
-      box-shadow:inset 0 0 0 1px rgba(255,255,255,.12), 0 8px 20px rgba(0,0,0,.08);
-      animation:pulseSoft 4.5s ease-in-out infinite;
-    }
-
-    .logo-box img{
-      max-width:100%;
-      max-height:100%;
-      object-fit:contain;
-      display:block;
-      transform:scale(1.03);
-    }
-
-    .logo-fallback{
-      font-size:13px;
-      text-align:center;
-      line-height:1.6;
-      padding:8px;
-      color:rgba(255,255,255,.92);
-      font-weight:700;
-    }
-
-    .hidden{display:none !important}
-
-    .brand-meta small{
-      display:inline-block;
-      padding:7px 12px;
-      border-radius:999px;
-      background:rgba(255,255,255,.12);
-      border:1px solid rgba(255,255,255,.14);
-      font-size:12px;
-      margin-bottom:10px;
-      backdrop-filter:blur(4px);
-    }
-
-    .brand-meta h1{
-      margin:0;
-      font-size:clamp(27px,4vw,40px);
-      line-height:1.25;
-      letter-spacing:-.3px;
-    }
-
-    .brand-meta p{
-      margin:12px 0 0;
-      line-height:1.95;
-      font-size:16px;
-      color:rgba(255,255,255,.94);
-      max-width:760px;
-    }
-
-    .hero-side{
-      background:rgba(255,255,255,.11);
-      border:1px solid rgba(255,255,255,.14);
-      border-radius:26px;
-      padding:22px;
-      display:grid;
-      gap:14px;
-      align-content:start;
-      backdrop-filter:blur(8px);
-    }
-
-    .hero-side h3{
-      margin:0;
-      font-size:19px;
-      color:var(--gold-soft);
-    }
-
-    .hero-side ul{
-      margin:0;
-      padding-inline-start:18px;
-      line-height:1.9;
-      color:rgba(255,255,255,.96);
-    }
-
-    .chip-list{
-      display:flex;
-      gap:10px;
-      flex-wrap:wrap;
-    }
-
-    .chip{
-      padding:8px 12px;
-      border-radius:999px;
-      background:rgba(255,255,255,.12);
-      border:1px solid rgba(255,255,255,.14);
-      font-size:13px;
-      font-weight:700;
-      transition:transform .25s ease, background .25s ease;
-    }
-
-    .chip:hover{
-      transform:translateY(-2px);
-      background:rgba(255,255,255,.18);
-    }
-
-    .section{
-      margin-bottom:20px;
-      padding:24px;
-    }
-
-    .section-title{
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:16px;
-      flex-wrap:wrap;
-      margin-bottom:18px;
-    }
-
-    .section-title h2{
-      margin:0;
-      color:var(--primary-dark);
-      font-size:24px;
-    }
-
-    .section-title p{
-      margin:0;
-      color:var(--muted);
-      line-height:1.8;
-      font-size:14px;
-    }
-
-    .meta-grid,
-    .helper-box,
-    .riasec-grid,
-    .question-grid,
-    .stats-grid,
-    .top3-grid,
-    .career-grid{
-      display:grid;
-      gap:16px;
-    }
-
-    .meta-grid{grid-template-columns:repeat(4, minmax(0,1fr))}
-    .helper-box{grid-template-columns:1.2fr .8fr}
-    .riasec-grid{grid-template-columns:repeat(3, minmax(0,1fr))}
-    .question-grid{grid-template-columns:1fr}
-    .stats-grid{grid-template-columns:repeat(3, minmax(0,1fr))}
-    .top3-grid{grid-template-columns:repeat(3, minmax(0,1fr))}
-    .career-grid{grid-template-columns:repeat(3, minmax(0,1fr))}
-
-    .field label{
-      display:block;
-      margin-bottom:8px;
-      color:var(--primary-dark);
-      font-weight:800;
-      font-size:14px;
-    }
-
-    .field input,
-    .field select{
-      width:100%;
-      border:1px solid rgba(19,143,99,.16);
-      outline:none;
-      border-radius:16px;
-      padding:14px 15px;
-      background:#fff;
-      font-size:15px;
-      color:var(--text);
-      transition:border-color .2s ease, box-shadow .2s ease, transform .2s ease;
-    }
-
-    .field input:focus,
-    .field select:focus{
-      border-color:var(--secondary);
-      box-shadow:0 0 0 4px rgba(26,160,111,.12);
-      transform:translateY(-1px);
-    }
-
-    .info-box,
-    .mini-box,
-    .track-card,
-    .question-card,
-    .stat-card,
-    .top3-card,
-    .career-card,
-    .result-card{
-      border:1px solid var(--border);
-      background:rgba(255,255,255,.98);
-      border-radius:22px;
-      box-shadow:0 12px 28px rgba(15,111,79,.05);
-      padding:18px;
-    }
-
-    .info-box h3,
-    .mini-box h3,
-    .track-card h3,
-    .result-card h3,
-    .career-card h3,
-    .top3-card h3{
-      margin-top:0;
-      margin-bottom:10px;
-      color:var(--primary-dark);
-      font-size:18px;
-    }
-
-    .info-box p,
-    .mini-box p,
-    .track-card p,
-    .result-card p,
-    .career-card p,
-    .top3-card p,
-    .stat-card p{
-      margin:0;
-      color:var(--muted);
-      line-height:1.9;
-      font-size:14px;
-    }
-
-    .mini-box ul,
-    .result-card ul,
-    .career-card ul{
-      margin:10px 0 0;
-      padding-inline-start:18px;
-      color:var(--muted);
-      line-height:1.9;
-      font-size:14px;
-    }
-
-    .track-card{
-      position:relative;
-      overflow:hidden;
-      transition:transform .28s ease, box-shadow .28s ease;
-    }
-
-    .track-card:hover{
-      transform:translateY(-4px);
-      box-shadow:0 18px 32px rgba(15,111,79,.09);
-    }
-
-    .track-card::before{
-      content:"";
-      position:absolute;
-      inset-inline-start:0;
-      top:0;
-      bottom:0;
-      width:6px;
-      border-radius:0 10px 10px 0;
-      background:var(--accent-color, var(--primary));
-    }
-
-    .track-card .abbr{
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      min-width:42px;
-      height:42px;
-      border-radius:14px;
-      font-weight:900;
-      color:#fff;
-      background:var(--accent-color, var(--primary));
-      margin-bottom:12px;
-      box-shadow:0 10px 18px rgba(15,111,79,.15);
-    }
-
-    .actions{
-      display:flex;
-      flex-wrap:wrap;
-      gap:12px;
-      margin-top:18px;
-    }
-
-    button{
-      border:0;
-      cursor:pointer;
-      border-radius:16px;
-      padding:14px 20px;
-      font-family:inherit;
-      font-size:15px;
-      font-weight:800;
-      transition:transform .2s ease, box-shadow .2s ease, opacity .2s ease;
-    }
-
-    button:hover{transform:translateY(-2px)}
-
-    .btn-primary{
-      color:#fff;
-      background:linear-gradient(135deg, var(--primary-deep) 0%, var(--primary) 60%, var(--secondary) 100%);
-      box-shadow:0 14px 24px rgba(15,111,79,.18);
-    }
-
-    .btn-secondary{
-      color:var(--primary-dark);
-      background:#eff9f4;
-      border:1px solid rgba(19,143,99,.12);
-    }
-
-    .btn-ghost{
-      color:var(--primary-dark);
-      background:transparent;
-      border:1px dashed rgba(19,143,99,.24);
-    }
-
-    .timer-box{
-      margin-top:10px;
-      font-weight:800;
-      color:var(--danger);
-    }
-
-    .question-card{
-      transition:transform .18s ease, box-shadow .18s ease;
-    }
-
-    .question-card:hover{
-      transform:translateY(-2px);
-      box-shadow:0 14px 28px rgba(15,111,79,.08);
-    }
-
-    .question-head{
-      display:flex;
-      align-items:start;
-      justify-content:space-between;
-      gap:16px;
-      margin-bottom:14px;
-    }
-
-    .question-number{
-      min-width:44px;
-      height:44px;
-      border-radius:14px;
-      background:linear-gradient(135deg, #edf9f3, #ffffff);
-      color:var(--primary-dark);
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      font-weight:900;
-      border:1px solid rgba(19,143,99,.12);
-      box-shadow:inset 0 1px 0 rgba(255,255,255,.85);
-    }
-
-    .question-card h3{
-      margin:0;
-      font-size:18px;
-      line-height:1.8;
-      flex:1;
-    }
-
-    .tag{
-      display:inline-flex;
-      align-items:center;
-      gap:6px;
-      padding:7px 10px;
-      border-radius:999px;
-      font-size:12px;
-      font-weight:800;
-      color:#fff;
-      background:var(--tag-color, var(--primary));
-      white-space:nowrap;
-      box-shadow:0 6px 14px rgba(15,111,79,.12);
-    }
-
-    .options{
-      display:grid;
-      grid-template-columns:repeat(5, minmax(0,1fr));
-      gap:10px;
-    }
-
-    .option{
-      position:relative;
-    }
-
-    .option input{
-      position:absolute;
-      opacity:0;
-      pointer-events:none;
-    }
-
-    .option label{
-      display:flex;
-      flex-direction:column;
-      align-items:center;
-      justify-content:center;
-      gap:4px;
-      min-height:68px;
-      border-radius:18px;
-      border:1px solid rgba(19,143,99,.12);
-      background:linear-gradient(180deg, #ffffff, #f8fcfa);
-      text-align:center;
-      cursor:pointer;
-      transition:all .2s ease;
-      padding:10px;
-      color:var(--text);
-      font-weight:800;
-    }
-
-    .option small{
-      color:var(--muted);
-      font-size:11px;
-      font-weight:700;
-    }
-
-    .option input:checked + label{
-      border-color:var(--secondary);
-      background:linear-gradient(180deg, #e9f8f0, #ffffff);
-      box-shadow:0 0 0 4px rgba(26,160,111,.12);
-      transform:translateY(-1px);
-      color:var(--primary-dark);
-    }
-
-    .result-hero{
-      padding:24px;
-      border-radius:26px;
-      background:linear-gradient(135deg, rgba(19,143,99,.08), rgba(215,201,122,.18));
-      border:1px solid rgba(19,143,99,.10);
-      margin-bottom:18px;
-    }
-
-    .result-hero h2{
-      margin:0 0 8px;
-      font-size:28px;
-      color:var(--primary-dark);
-    }
-
-    .result-hero p{
-      margin:6px 0;
-      line-height:1.9;
-    }
-
-    .code-badge{
-      display:inline-flex;
-      align-items:center;
-      gap:8px;
-      padding:10px 14px;
-      border-radius:999px;
-      background:#fff;
-      border:1px solid rgba(19,143,99,.12);
-      font-weight:900;
-      color:var(--primary-dark);
-      margin-top:10px;
-      box-shadow:0 8px 18px rgba(15,111,79,.08);
-    }
-
-    .bar-list{
-      display:grid;
-      gap:12px;
-      margin-top:12px;
-    }
-
-    .bar-card{
-      border:1px solid var(--border);
-      border-radius:18px;
-      padding:14px;
-      background:#fff;
-    }
-
-    .bar-head{
-      display:flex;
-      justify-content:space-between;
-      gap:14px;
-      margin-bottom:8px;
-      font-weight:800;
-      flex-wrap:wrap;
-    }
-
-    .bar-track{
-      width:100%;
-      height:12px;
-      border-radius:999px;
-      background:#ebf3ef;
-      overflow:hidden;
-      margin-bottom:8px;
-    }
-
-    .bar-fill{
-      height:100%;
-      width:0;
-      border-radius:999px;
-      transition:width .75s cubic-bezier(.22,1,.36,1);
-      background:var(--fill-color, var(--primary));
-      box-shadow:0 4px 12px rgba(15,111,79,.16);
-    }
-
-    .top-pill{
-      display:inline-flex;
-      padding:8px 12px;
-      border-radius:999px;
-      font-size:12px;
-      font-weight:900;
-      color:#fff;
-      background:var(--fill-color, var(--primary));
-    }
-
-    .stat-card h3{
-      margin:0 0 6px;
-      font-size:28px;
-      color:var(--primary-dark);
-    }
-
-    .footer-note{
-      margin-top:14px;
-      color:var(--muted);
-      font-size:13px;
-      line-height:1.9;
-    }
-
-    .reveal{
-      opacity:0;
-      transform:translateY(18px);
-      transition:opacity .7s ease, transform .7s ease;
-    }
-
-    .reveal.visible{
-      opacity:1;
-      transform:translateY(0);
-    }
-
-    @keyframes floatOrb{
-      0%,100%{transform:translateY(0) translateX(0) scale(1)}
-      50%{transform:translateY(12px) translateX(8px) scale(1.04)}
-    }
-
-    @keyframes pulseSoft{
-      0%,100%{transform:scale(1)}
-      50%{transform:scale(1.03)}
-    }
-
-    @media (max-width:1080px){
-      .hero-grid,
-      .helper-box,
-      .meta-grid,
-      .riasec-grid,
-      .stats-grid,
-      .top3-grid,
-      .career-grid{
-        grid-template-columns:1fr 1fr;
-      }
-    }
-
-    @media (max-width:768px){
-      .container{
-        width:calc(100% - 16px);
-        margin:0 auto;
-        padding:12px 0 28px;
-      }
-
-      .hero,.section{
-        padding:16px;
-        border-radius:18px;
-        margin-bottom:14px;
-      }
-
-      .hero-grid,
-      .helper-box,
-      .meta-grid,
-      .riasec-grid,
-      .stats-grid,
-      .top3-grid,
-      .career-grid{
-        grid-template-columns:1fr !important;
-        gap:12px;
-      }
-
-      .brand{
-        align-items:center;
-        gap:12px;
-        margin-bottom:12px;
-      }
-
-      .logo-box{
-        width:64px;
-        height:64px;
-        flex:0 0 64px;
-        border-radius:18px;
-      }
-
-      .brand-meta small{
-        font-size:11px;
-        padding:6px 10px;
-      }
-
-      .brand-meta h1{
-        font-size:22px;
-        line-height:1.5;
-      }
-
-      .brand-meta p,
-      .section-title p,
-      .info-box p,
-      .mini-box p,
-      .track-card p,
-      .result-card p,
-      .career-card p,
-      .top3-card p,
-      .stat-card p{
-        font-size:14px;
-        line-height:1.8;
-      }
-
-      .hero-side{
-        padding:16px;
-        border-radius:18px;
-      }
-
-      .hero-side h3,
-      .section-title h2{
-        font-size:20px;
-      }
-
-      .chip-list{
-        gap:8px;
-      }
-
-      .chip{
-        font-size:12px;
-        padding:7px 10px;
-      }
-
-      .field input,
-      .field select{
-        font-size:16px;
-        padding:12px 14px;
-        border-radius:14px;
-      }
-
-      .info-box,
-      .mini-box,
-      .track-card,
-      .question-card,
-      .stat-card,
-      .top3-card,
-      .career-card,
-      .result-card{
-        padding:14px;
-        border-radius:16px;
-      }
-
-      .question-head{
-        flex-direction:column;
-        align-items:stretch;
-        gap:10px;
-      }
-
-      .question-number{
-        min-width:40px;
-        width:40px;
-        height:40px;
-        border-radius:12px;
-      }
-
-      .question-card h3{
-        font-size:15px;
-        line-height:1.7;
-      }
-
-      .tag{
-        align-self:flex-start;
-        font-size:11px;
-        padding:6px 10px;
-      }
-
-      .options{
-        grid-template-columns:repeat(2, minmax(0,1fr)) !important;
-        gap:8px;
-      }
-
-      .option label{
-        min-height:60px;
-        border-radius:14px;
-        padding:8px;
-        font-size:14px;
-      }
-
-      .option small{
-        font-size:10px;
-      }
-
-      button{
-        width:100%;
-        padding:13px 16px;
-        font-size:15px;
-      }
-
-      .actions{
-        flex-direction:column;
-      }
-
-      .result-hero{
-        padding:16px;
-        border-radius:18px;
-      }
-
-      .result-hero h2{
-        font-size:22px;
-        line-height:1.5;
-      }
-
-      .code-badge{
-        font-size:12px;
-        padding:8px 12px;
-      }
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>اختبار الميول المهنية</title>
+
+<style>
+body {
+  font-family: Arial;
+  margin: 0;
+  background: #f5f5f5;
+}
+
+.container {
+  max-width: 900px;
+  margin: auto;
+  padding: 15px;
+}
+
+h1 {
+  text-align: center;
+  color: #138f63;
+}
+
+.card {
+  background: white;
+  padding: 15px;
+  margin-bottom: 12px;
+  border-radius: 10px;
+}
+
+.question {
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.options {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 5px;
+}
+
+.options label {
+  background: #eee;
+  padding: 10px;
+  text-align: center;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.options input {
+  display: none;
+}
+
+.options input:checked + label {
+  background: #138f63;
+  color: white;
+}
+
+button {
+  width: 100%;
+  padding: 15px;
+  background: #138f63;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-size: 16px;
+  margin-top: 15px;
+}
+
+.result {
+  background: #fff;
+  padding: 20px;
+  margin-top: 20px;
+  border-radius: 10px;
+}
+
+/* 📱 تحسين الهاتف */
+@media (max-width: 600px) {
+  .options {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+</style>
 </head>
+
 <body>
-  <div class="container">
 
-    <section class="hero reveal visible">
-      <div class="hero-pattern"></div>
+<div class="container">
 
-      <div class="hero-grid">
+<h1>اختبار الميول المهنية</h1>
+
+<div id="questions"></div>
+
+<button onclick="calculate()">عرض النتيجة</button>
+
+<div id="result" class="result" style="display:none;"></div>
+
+</div>
+
+<script>
+const questions = [
+  {text:"أحب العمل اليدوي واستخدام الأدوات", type:"R"},
+  {text:"أحب التفكير والتحليل", type:"I"},
+  {text:"أحب الرسم والإبداع", type:"A"},
+  {text:"أحب مساعدة الآخرين", type:"S"},
+  {text:"أحب القيادة والتأثير", type:"E"},
+  {text:"أحب التنظيم والترتيب", type:"C"},
+
+  {text:"أفضل العمل الميداني", type:"R"},
+  {text:"أحب حل المشاكل المعقدة", type:"I"},
+  {text:"أحب كتابة أفكار جديدة", type:"A"},
+  {text:"أحب العمل مع الناس", type:"S"},
+  {text:"أحب إدارة المشاريع", type:"E"},
+  {text:"أحب الجداول والنظام", type:"C"}
+];
+
+const container = document.getElementById("questions");
+
+questions.forEach((q,i)=>{
+  let html = `
+  <div class="card">
+    <div class="question">${i+1}. ${q.text}</div>
+    <div class="options">
+      ${[1,2,3,4,5].map(v=>`
         <div>
-          <div class="brand">
-            <div class="logo-box">
-              <img id="schoolLogo" src="logo.png" alt="شعار المدرسة">
-              <div id="logoFallback" class="logo-fallback hidden">شعار<br>المدرسة</div>
-            </div>
-
-            <div class="brand-meta">
-              <small>منصة حديثة للتوجيه المهني المدرسي</small>
-              <h1>اكتشاف الميول المهنية لطلاب المرحلة الثانوية</h1>
-              <p>
-                أداة مدرسية احترافية مبنية على نموذج RIASEC المستخدم على نطاق واسع في منصات التوجيه المهني الحديثة.
-                تساعد طلاب الصف الأول الثانوي والثاني الثانوي والثالث الثانوي على تكوين صورة أولية عن ميولهم، ثم ربطها بمسارات جامعية ومهنية مناسبة داخل المدرسة وخارجها.
-              </p>
-            </div>
-          </div>
-
-          <div class="chip-list">
-            <span class="chip">الأول الثانوي</span>
-            <span class="chip">الثاني الثانوي</span>
-            <span class="chip">الثالث الثانوي</span>
-            <span class="chip">RIASEC</span>
-            <span class="chip">قابل للدمج في موقع المدرسة</span>
-          </div>
+          <input type="radio" name="q${i}" id="q${i}_${v}" value="${v}">
+          <label for="q${i}_${v}">${v}</label>
         </div>
-
-        <div class="hero-side">
-          <h3>ماذا يقدم هذا التقييم؟</h3>
-          <ul>
-            <li>نتيجة فورية مع أعلى 3 ميول مهنية لدى الطالب.</li>
-            <li>عرض كود مهني مختصر مثل: ISA أو SEC.</li>
-            <li>ربط كل ميل بأمثلة تخصصات ومجالات مستقبلية.</li>
-            <li>تصميم حديث مناسب لموقع المدرسة الرسمي.</li>
-          </ul>
-        </div>
-      </div>
-    </section>
-
-    <section class="section glass reveal visible">
-      <div class="section-title">
-        <div>
-          <h2>بيانات الطالب وإعدادات التقييم</h2>
-          <p>يمكن تخصيص هذه البيانات أو ربطها لاحقًا بنظام المدرسة أو قاعدة بيانات خارجية.</p>
-        </div>
-      </div>
-
-      <div class="meta-grid">
-        <div class="field">
-          <label for="studentName">اسم الطالب / الطالبة</label>
-          <input id="studentName" type="text" placeholder="أدخل الاسم الكامل">
-        </div>
-
-        <div class="field">
-          <label for="gradeLevel">الصف</label>
-          <select id="gradeLevel">
-            <option value="">اختر الصف</option>
-            <option value="الأول الثانوي">الأول الثانوي</option>
-            <option value="الثاني الثانوي">الثاني الثانوي</option>
-            <option value="الثالث الثانوي">الثالث الثانوي</option>
-          </select>
-        </div>
-
-        <div class="field">
-          <label for="sectionName">الشعبة / القسم</label>
-          <input id="sectionName" type="text" placeholder="مثال: 11-A">
-        </div>
-
-        <div class="field">
-          <label for="advisorName">المرشد / المسؤول</label>
-          <input id="advisorName" type="text" placeholder="اختياري">
-        </div>
-      </div>
-
-      <div class="helper-box" style="margin-top:16px;">
-        <div class="info-box">
-          <h3>طريقة الإجابة</h3>
-          <p>
-            اقرأ كل عبارة وحدد إلى أي درجة تعبّر عنك. استخدم المقياس من 1 إلى 5 حيث:
-            <strong>1 = لا تنطبق علي أبدًا</strong>، و<strong>5 = تنطبق علي بدرجة كبيرة جدًا</strong>.
-            حاول الإجابة بصدق وبشكل تلقائي دون التفكير بما يتوقعه الآخرون منك.
-          </p>
-        </div>
-
-        <div class="mini-box">
-          <h3>المقياس</h3>
-          <ul>
-            <li>1 = لا تنطبق</li>
-            <li>2 = تنطبق قليلًا</li>
-            <li>3 = تنطبق بدرجة متوسطة</li>
-            <li>4 = تنطبق كثيرًا</li>
-            <li>5 = تنطبق جدًا</li>
-          </ul>
-        </div>
-      </div>
-    </section>
-
-    <section class="section glass reveal">
-      <div class="section-title">
-        <div>
-          <h2>أنماط الميول المهنية المعتمدة</h2>
-          <p>يعتمد هذا النموذج على ستة أنماط اهتمام مهني مستخدمة في أدوات التوجيه المهني الحديثة.</p>
-        </div>
-      </div>
-
-      <div class="riasec-grid" id="riasecCards"></div>
-    </section>
-
-    <section class="section glass reveal">
-      <div class="section-title">
-        <div>
-          <h2>الاستبيان المهني</h2>
-          <div class="timer-box">⏳ الوقت المتبقي: <span id="timer">15:00</span></div>
-          <p>أجب عن جميع العبارات للحصول على تقرير فوري قابل للاستخدام في جلسات الإرشاد المهني.</p>
-        </div>
-      </div>
-
-      <div id="questionsContainer" class="question-grid"></div>
-
-      <div class="actions">
-        <button class="btn-primary" onclick="calculateResults()">إظهار النتيجة</button>
-        <button class="btn-secondary" onclick="resetForm()">إعادة التعيين</button>
-      </div>
-    </section>
-
-    <section id="resultsSection" class="section glass hidden">
-      <div id="resultContent"></div>
-    </section>
-
+      `).join("")}
+    </div>
   </div>
+  `;
+  container.innerHTML += html;
+});
 
-  <script>
-    const schoolLogoPath = "logo.png";
-    const timerMinutes = 15;
+function calculate(){
+  let scores = {R:0,I:0,A:0,S:0,E:0,C:0};
 
-    const tracks = {
-      realistic: {
-        code: "R",
-        title: "العملي / التطبيقي",
-        english: "Realistic",
-        short: "يفضل الأنشطة العملية، التطبيق، الأدوات، التنفيذ، والإنجاز الملموس.",
-        color: "var(--realistic)",
-        careers: ["الهندسة التطبيقية", "الصيانة التقنية", "الميكانيك", "الروبوتات", "التدريب المهني", "المختبرات التطبيقية"]
-      },
-      investigative: {
-        code: "I",
-        title: "البحثي / التحليلي",
-        english: "Investigative",
-        short: "يفضل التفكير، التحليل، الاكتشاف، الفهم، وحل المشكلات المعقدة.",
-        color: "var(--investigative)",
-        careers: ["الطب", "الصيدلة", "العلوم", "تحليل البيانات", "البرمجة", "البحث العلمي"]
-      },
-      artistic: {
-        code: "A",
-        title: "الإبداعي / الفني",
-        english: "Artistic",
-        short: "يفضل التعبير، التصميم، الابتكار، والحرية في إنتاج الأفكار.",
-        color: "var(--artistic)",
-        careers: ["التصميم الجرافيكي", "الإعلام", "الفنون", "صناعة المحتوى", "الإخراج", "الكتابة الإبداعية"]
-      },
-      social: {
-        code: "S",
-        title: "الاجتماعي / الإنساني",
-        english: "Social",
-        short: "يفضل مساعدة الناس، التعليم، التواصل، والإرشاد والدعم.",
-        color: "var(--social)",
-        careers: ["التعليم", "الإرشاد النفسي", "العمل الاجتماعي", "التمريض", "التدريب", "العلاقات الإنسانية"]
-      },
-      enterprising: {
-        code: "E",
-        title: "القيادي / الريادي",
-        english: "Enterprising",
-        short: "يفضل المبادرة، القيادة، الإقناع، واتخاذ القرار وإدارة المشاريع.",
-        color: "var(--enterprising)",
-        careers: ["إدارة الأعمال", "ريادة الأعمال", "التسويق", "المبيعات", "إدارة المشاريع", "القيادة المؤسسية"]
-      },
-      conventional: {
-        code: "C",
-        title: "التنظيمي / الإداري",
-        english: "Conventional",
-        short: "يفضل النظام، التفاصيل، الدقة، البيانات، والإجراءات الواضحة.",
-        color: "var(--conventional)",
-        careers: ["المحاسبة", "الإدارة المكتبية", "إدارة البيانات", "الأعمال الإدارية", "السكرتاريا", "العمليات"]
-      }
-    };
-
-    const questions = [
-      { text: "أحب تنفيذ الأعمال العملية واستخدام الأدوات أو الأجهزة في حل المهام.", track: "realistic" },
-      { text: "أشعر بالمتعة عند البحث عن أسباب المشكلات وتحليلها بدقة.", track: "investigative" },
-      { text: "أحب ابتكار أفكار جديدة والتعبير عنها بطريقة فنية أو مختلفة.", track: "artistic" },
-      { text: "أرتاح عندما أساعد الآخرين أو أشرح لهم شيئًا يحتاجونه.", track: "social" },
-      { text: "أحب قيادة الأنشطة أو التأثير في الناس وإقناعهم بفكرة ما.", track: "enterprising" },
-      { text: "أفضل العمل المنظم الذي يعتمد على خطوات واضحة ودقيقة.", track: "conventional" },
-
-      { text: "أفضل المهام التي تتطلب حركة وإنجازًا ملموسًا أكثر من الجلوس الطويل.", track: "realistic" },
-      { text: "أستمتع بحل المسائل العلمية أو المنطقية أو الرقمية المعقدة.", track: "investigative" },
-      { text: "أميل إلى الرسم أو التصميم أو الكتابة أو صناعة المحتوى الإبداعي.", track: "artistic" },
-      { text: "أحب العمل مع الناس أكثر من العمل المنفرد لفترات طويلة.", track: "social" },
-      { text: "أفكر أحيانًا في إنشاء مشروع خاص أو نشاط ريادي مستقبلاً.", track: "enterprising" },
-      { text: "أهتم بترتيب الملفات أو المعلومات أو البيانات بطريقة دقيقة ومنظمة.", track: "conventional" },
-
-      { text: "أفضل التعلم من خلال التطبيق العملي والتجربة المباشرة.", track: "realistic" },
-      { text: "أحب الاكتشاف العلمي وطرح الأسئلة والبحث عن إجاباتها.", track: "investigative" },
-      { text: "أشعر أن الخيال والإبداع من أقوى جوانب شخصيتي.", track: "artistic" },
-      { text: "يسعدني أن يكون لعملي أثر إيجابي على حياة الآخرين.", track: "social" },
-      { text: "أميل إلى المبادرة واتخاذ القرار وتحمل المسؤولية.", track: "enterprising" },
-      { text: "أفضل البيئات التي فيها وضوح ونظام وتعليمات محددة.", track: "conventional" },
-
-      { text: "أحب مجالات مثل التقنيات والآلات والروبوتات أو الأعمال الميدانية.", track: "realistic" },
-      { text: "أشعر أن التحليل والاستنتاج والتفكير العميق يناسبني.", track: "investigative" },
-      { text: "أفضل أن يكون لي أسلوب خاص ومختلف في إنجاز الأعمال.", track: "artistic" },
-      { text: "أحب الاستماع للناس ودعمهم ومساندتهم.", track: "social" },
-      { text: "أحب التفاوض والإقناع وقيادة الفرق أو المبادرات.", track: "enterprising" },
-      { text: "أحب الجداول والترتيب وإدارة المعلومات بطريقة واضحة.", track: "conventional" }
-    ];
-
-    const scoreLabels = {
-      1: "لا تنطبق",
-      2: "قليلًا",
-      3: "متوسطة",
-      4: "كثيرًا",
-      5: "جدًا"
-    };
-
-    const riasecCards = document.getElementById("riasecCards");
-    const questionsContainer = document.getElementById("questionsContainer");
-    const logoImg = document.getElementById("schoolLogo");
-    const logoFallback = document.getElementById("logoFallback");
-    const resultSection = document.getElementById("resultsSection");
-    const resultContent = document.getElementById("resultContent");
-
-    let timerInterval = null;
-
-    function initLogo() {
-      if (schoolLogoPath && schoolLogoPath.trim() !== "") {
-        logoImg.src = schoolLogoPath;
-        logoImg.onerror = () => {
-          logoImg.classList.add("hidden");
-          logoFallback.classList.remove("hidden");
-        };
-        logoImg.onload = () => {
-          logoImg.classList.remove("hidden");
-          logoFallback.classList.add("hidden");
-        };
-      } else {
-        logoImg.classList.add("hidden");
-        logoFallback.classList.remove("hidden");
-      }
+  for(let i=0;i<questions.length;i++){
+    let selected = document.querySelector(`input[name="q${i}"]:checked`);
+    if(!selected){
+      alert("جاوب على كل الأسئلة");
+      return;
     }
+    scores[questions[i].type] += parseInt(selected.value);
+  }
 
-    function renderTrackCards() {
-      riasecCards.innerHTML = Object.entries(tracks).map(([key, item], index) => `
-        <div class="track-card reveal" style="--accent-color:${item.color}; transition-delay:${index * 70}ms;">
-          <div class="abbr">${item.code}</div>
-          <h3>${item.title}</h3>
-          <p><strong>${item.english}</strong></p>
-          <p style="margin-top:8px;">${item.short}</p>
-        </div>
-      `).join("");
-    }
+  let sorted = Object.entries(scores).sort((a,b)=>b[1]-a[1]);
 
-    function renderQuestions() {
-      questionsContainer.innerHTML = questions.map((q, index) => {
-        const item = tracks[q.track];
-        return `
-          <div class="question-card reveal" style="transition-delay:${Math.min(index * 18, 240)}ms;">
-            <div class="question-head">
-              <div class="question-number">${index + 1}</div>
-              <h3>${q.text}</h3>
-              <span class="tag" style="--tag-color:${item.color}">${item.code} · ${item.title}</span>
-            </div>
-            <div class="options">
-              ${[1,2,3,4,5].map(value => `
-                <div class="option">
-                  <input type="radio" name="q${index}" id="q${index}_${value}" value="${value}">
-                  <label for="q${index}_${value}">
-                    <span>${value}</span>
-                    <small>${scoreLabels[value]}</small>
-                  </label>
-                </div>
-              `).join("")}
-            </div>
-          </div>
-        `;
-      }).join("");
+  document.getElementById("result").style.display = "block";
+  document.getElementById("result").innerHTML = `
+    <h2>النتيجة</h2>
+    <p>أعلى ميول لديك:</p>
+    <ul>
+      <li>${sorted[0][0]}</li>
+      <li>${sorted[1][0]}</li>
+      <li>${sorted[2][0]}</li>
+    </ul>
+  `;
+}
+</script>
 
-      setupRevealAnimation();
-    }
-
-    function getInterpretation(code) {
-      const meanings = {
-        R: "يميل إلى التطبيق العملي والإنجاز الملموس والتعامل مع الأدوات والمجالات التقنية.",
-        I: "يميل إلى التحليل، الفهم، البحث، والاستنتاج العلمي والمنطقي.",
-        A: "يميل إلى الإبداع، التعبير، الابتكار، والعمل الحر في إنتاج الأفكار.",
-        S: "يميل إلى خدمة الآخرين، التعليم، الدعم، والعمل الإنساني التفاعلي.",
-        E: "يميل إلى القيادة، المبادرة، التأثير، وإدارة المشاريع أو الأنشطة.",
-        C: "يميل إلى النظام، الترتيب، التفاصيل، والإجراءات الدقيقة والمنظمة."
-      };
-      return meanings[code] || "";
-    }
-
-    function calculateResults() {
-      const studentName = document.getElementById("studentName").value.trim() || "—";
-      const gradeLevel = document.getElementById("gradeLevel").value || "—";
-      const sectionName = document.getElementById("sectionName").value.trim() || "—";
-      const advisorName = document.getElementById("advisorName").value.trim() || "—";
-
-      const scores = {
-        realistic: 0,
-        investigative: 0,
-        artistic: 0,
-        social: 0,
-        enterprising: 0,
-        conventional: 0
-      };
-
-      for (let i = 0; i < questions.length; i++) {
-        const selected = document.querySelector(`input[name="q${i}"]:checked`);
-        if (!selected) {
-          alert(`يرجى الإجابة عن السؤال رقم ${i + 1} قبل إظهار النتيجة.`);
-          return;
-        }
-        scores[questions[i].track] += Number(selected.value);
-      }
-
-      const ordered = Object.entries(scores)
-        .map(([key, value]) => ({ key, value, ...tracks[key] }))
-        .sort((a, b) => b.value - a.value);
-
-      const top3 = ordered.slice(0, 3);
-      const code = top3.map(item => item.code).join("");
-      const maxScorePerTrack = (questions.length / 6) * 5;
-
-      resultSection.classList.remove("hidden");
-      resultContent.innerHTML = `
-        <div class="result-hero reveal visible">
-          <h2>النتيجة النهائية</h2>
-          <p><strong>الطالب / الطالبة:</strong> ${studentName}</p>
-          <p><strong>الصف:</strong> ${gradeLevel} ${sectionName !== "—" ? `| <strong>الشعبة:</strong> ${sectionName}` : ""}</p>
-          <p><strong>المرشد / المسؤول:</strong> ${advisorName}</p>
-          <div class="code-badge">الكود المهني الأقرب: ${code}</div>
-          <p style="margin-top:12px;">
-            هذا الكود يشير إلى أن أقوى ثلاثة أنماط لديك هي:
-            <strong>${top3[0].title}</strong> ثم
-            <strong>${top3[1].title}</strong> ثم
-            <strong>${top3[2].title}</strong>.
-          </p>
-        </div>
-
-        <div class="stats-grid">
-          <div class="stat-card reveal visible">
-            <h3>${top3[0].code}</h3>
-            <p><strong>${top3[0].title}</strong></p>
-            <p>${getInterpretation(top3[0].code)}</p>
-          </div>
-
-          <div class="stat-card reveal visible">
-            <h3>${top3[1].code}</h3>
-            <p><strong>${top3[1].title}</strong></p>
-            <p>${getInterpretation(top3[1].code)}</p>
-          </div>
-
-          <div class="stat-card reveal visible">
-            <h3>${top3[2].code}</h3>
-            <p><strong>${top3[2].title}</strong></p>
-            <p>${getInterpretation(top3[2].code)}</p>
-          </div>
-        </div>
-
-        <div class="result-card reveal visible" style="margin-top:16px;">
-          <h3>درجات الأنماط الستة</h3>
-          <div class="bar-list">
-            ${ordered.map(item => `
-              <div class="bar-card">
-                <div class="bar-head">
-                  <span>${item.code} · ${item.title}</span>
-                  <span>${item.value} / ${maxScorePerTrack}</span>
-                </div>
-                <div class="bar-track">
-                  <div class="bar-fill" style="--fill-color:${item.color}" data-width="${(item.value / maxScorePerTrack) * 100}%"></div>
-                </div>
-                <span class="top-pill" style="--fill-color:${item.color}">${Math.round((item.value / maxScorePerTrack) * 100)}%</span>
-              </div>
-            `).join("")}
-          </div>
-        </div>
-
-        <div class="top3-grid" style="margin-top:16px;">
-          ${top3.map(item => `
-            <div class="top3-card reveal visible">
-              <h3>${item.code} · ${item.title}</h3>
-              <p>${item.short}</p>
-            </div>
-          `).join("")}
-        </div>
-
-        <div class="career-grid" style="margin-top:16px;">
-          ${top3.map(item => `
-            <div class="career-card reveal visible">
-              <h3>مجالات مقترحة لـ ${item.title}</h3>
-              <p>أمثلة أولية لمسارات قد تنسجم مع هذا النمط:</p>
-              <ul>
-                ${item.careers.map(career => `<li>${career}</li>`).join("")}
-              </ul>
-            </div>
-          `).join("")}
-        </div>
-
-        <div class="result-card reveal visible" style="margin-top:16px;">
-          <h3>ملاحظة إرشادية</h3>
-          <p>
-            هذه النتيجة هي أداة توجيه أولي وليست حكمًا نهائيًا على مستقبل الطالب.
-            الأفضل أن تُستخدم ضمن جلسة إرشاد مهني مع مناقشة المواد المفضلة، نقاط القوة، الإنجاز الأكاديمي، والأنشطة التي يستمتع بها الطالب.
-          </p>
-          <div class="footer-note">
-            يمكن لاحقًا ربط هذه الصفحة مع Google Sheets أو قاعدة بيانات المدرسة لحفظ النتائج تلقائيًا.
-          </div>
-        </div>
-      `;
-
-      animateBars();
-      resultSection.scrollIntoView({ behavior: "smooth", block: "start" });
-    }
-
-    function animateBars() {
-      document.querySelectorAll(".bar-fill").forEach((bar, index) => {
-        const targetWidth = bar.dataset.width || "0%";
-        setTimeout(() => {
-          bar.style.width = targetWidth;
-        }, 120 + index * 90);
-      });
-    }
-
-    function setupRevealAnimation() {
-      const elements = document.querySelectorAll(".reveal");
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("visible");
-          }
-        });
-      }, { threshold: 0.12 });
-
-      elements.forEach(el => observer.observe(el));
-    }
-
-    function startTimer(durationSeconds) {
-      let time = durationSeconds;
-      const timerDisplay = document.getElementById("timer");
-
-      if (timerInterval) clearInterval(timerInterval);
-
-      timerInterval = setInterval(() => {
-        const minutes = Math.floor(time / 60);
-        const seconds = time % 60;
-
-        timerDisplay.textContent = `${minutes.toString().padStart(2,"0")}:${seconds.toString().padStart(2,"0")}`;
-
-        if (time <= 0) {
-          clearInterval(timerInterval);
-          alert("انتهى الوقت! سيتم عرض النتيجة تلقائيًا إذا كانت جميع الأسئلة مجابة.");
-          calculateResults();
-        }
-
-        time--;
-      }, 1000);
-    }
-
-    function resetForm() {
-      document.getElementById("studentName").value = "";
-      document.getElementById("gradeLevel").value = "";
-      document.getElementById("sectionName").value = "";
-      document.getElementById("advisorName").value = "";
-      document.querySelectorAll('input[type="radio"]').forEach(input => input.checked = false);
-      resultSection.classList.add("hidden");
-      resultContent.innerHTML = "";
-      window.scrollTo({ top: 0, behavior: "smooth" });
-      startTimer(timerMinutes * 60);
-    }
-
-    initLogo();
-    renderTrackCards();
-    renderQuestions();
-    setupRevealAnimation();
-    startTimer(timerMinutes * 60);
-  </script>
 </body>
 </html>

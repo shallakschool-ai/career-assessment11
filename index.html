@@ -1397,6 +1397,56 @@
             <p style="margin-top:12px;">أعلى الأنماط لديك هي: <strong>${top3[0].title}</strong> ثم <strong>${top3[1].title}</strong> ثم <strong>${top3[2].title}</strong>.</p>
           </div>
 
+          <div class="career-grid" style="margin-bottom:16px;">
+            <div class="career-card">
+              <h3>أفضل الاختصاصات</h3>
+              <p>هذه أعلى الاختصاصات توافقًا مع نتيجتك الحالية ضمن الفرع المختار.</p>
+              <ul>
+                ${bestMajors.map(item => `
+                  <li>
+                    <strong>${item.name}</strong>
+                    <div class="match-badge">${item.score}% توافق</div>
+                  </li>
+                `).join("")}
+              </ul>
+            </div>
+
+            <div class="career-card">
+              <h3>اختصاصات مناسبة أيضًا</h3>
+              <p>هذه اختصاصات جيدة أيضًا، لكنها تأتي بعد الخيارات الأعلى توافقًا.</p>
+              <ul>
+                ${possibleMajors.map(item => `
+                  <li>
+                    <strong>${item.name}</strong>
+                    <div class="match-badge" style="background:#7ba892;">${item.score}% توافق</div>
+                  </li>
+                `).join("")}
+              </ul>
+            </div>
+          </div>
+
+          <div class="detail-grid" style="margin-bottom:16px;">
+            <div class="major-detail-card">
+              <h3>تفصيل أفضل الاختصاصات</h3>
+              <p>هنا يظهر السبب وراء ترشيح كل اختصاص وما الذي يحتاجه منك.</p>
+              <div style="display:grid; gap:14px; margin-top:14px;">
+                ${bestMajors.map(item => `
+                  <div style="border:1px solid var(--border); border-radius:18px; padding:16px; background:#fff;">
+                    <div class="detail-badge">${item.score}% توافق</div>
+                    <h3 style="margin-top:0;">${item.name}</h3>
+                    <p><strong>لماذا يناسبك؟</strong> ${item.why}</p>
+                    <p style="margin-top:8px;"><strong>ما الذي قد يشكّل تحديًا؟</strong> ${item.challenge}</p>
+                    <p style="margin-top:8px;"><strong>طبيعة الدراسة / المجال:</strong> ${item.nature}</p>
+                    <div style="margin-top:8px;">
+                      <strong style="color:var(--primary-dark);">المهارات التي تفيدك فيه:</strong>
+                      <ul>${item.skills.map(s => `<li>${s}</li>`).join("")}</ul>
+                    </div>
+                  </div>
+                `).join("")}
+              </div>
+            </div>
+          </div>
+
           <div class="card" style="margin-bottom:16px;">
             <h3>قراءة تحليلية مختصرة</h3>
             <p>
@@ -1467,56 +1517,6 @@
                 <li>الأفكار والإبداع: ${dimProfile.ideas}/5</li>
                 <li>التطبيق والأدوات: ${dimProfile.things}/5</li>
               </ul>
-            </div>
-          </div>
-
-          <div class="career-grid" style="margin-bottom:16px;">
-            <div class="career-card">
-              <h3>أفضل الاختصاصات</h3>
-              <p>هذه أعلى الاختصاصات توافقًا مع نتيجتك الحالية ضمن الفرع المختار.</p>
-              <ul>
-                ${bestMajors.map(item => `
-                  <li>
-                    <strong>${item.name}</strong>
-                    <div class="match-badge">${item.score}% توافق</div>
-                  </li>
-                `).join("")}
-              </ul>
-            </div>
-
-            <div class="career-card">
-              <h3>اختصاصات مناسبة أيضًا</h3>
-              <p>هذه اختصاصات جيدة أيضًا، لكنها تأتي بعد الخيارات الأعلى توافقًا.</p>
-              <ul>
-                ${possibleMajors.map(item => `
-                  <li>
-                    <strong>${item.name}</strong>
-                    <div class="match-badge" style="background:#7ba892;">${item.score}% توافق</div>
-                  </li>
-                `).join("")}
-              </ul>
-            </div>
-          </div>
-
-          <div class="detail-grid" style="margin-bottom:16px;">
-            <div class="major-detail-card">
-              <h3>تفصيل أفضل الاختصاصات</h3>
-              <p>هنا يظهر السبب وراء ترشيح كل اختصاص وما الذي يحتاجه منك.</p>
-              <div style="display:grid; gap:14px; margin-top:14px;">
-                ${bestMajors.map(item => `
-                  <div style="border:1px solid var(--border); border-radius:18px; padding:16px; background:#fff;">
-                    <div class="detail-badge">${item.score}% توافق</div>
-                    <h3 style="margin-top:0;">${item.name}</h3>
-                    <p><strong>لماذا يناسبك؟</strong> ${item.why}</p>
-                    <p style="margin-top:8px;"><strong>ما الذي قد يشكّل تحديًا؟</strong> ${item.challenge}</p>
-                    <p style="margin-top:8px;"><strong>طبيعة الدراسة / المجال:</strong> ${item.nature}</p>
-                    <div style="margin-top:8px;">
-                      <strong style="color:var(--primary-dark);">المهارات التي تفيدك فيه:</strong>
-                      <ul>${item.skills.map(s => `<li>${s}</li>`).join("")}</ul>
-                    </div>
-                  </div>
-                `).join("")}
-              </div>
             </div>
           </div>
 

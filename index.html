@@ -3,8 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>منصة اكتشاف الميول المهنية | النسخة الاحترافية</title>
-
+  <title>منصة اكتشاف الميول المهنية | النسخة الاحترافية الكاملة</title>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
 
   <style>
@@ -16,15 +15,11 @@
       --gold: #d7c97a;
       --gold-soft: #efe6b0;
       --bg: #f3fbf7;
-      --card: rgba(255,255,255,0.96);
+      --card: rgba(255,255,255,0.97);
       --text: #14392d;
       --muted: #5d786d;
       --border: rgba(19,143,99,.14);
       --shadow: 0 18px 42px rgba(15,111,79,.12);
-      --radius-xl: 28px;
-      --radius-lg: 20px;
-      --radius-md: 14px;
-
       --realistic: #138f63;
       --investigative: #17795f;
       --artistic: #c8923f;
@@ -38,7 +33,7 @@
 
     body {
       margin: 0;
-      font-family: "Cairo","Tahoma","Segoe UI",Arial,sans-serif;
+      font-family: "Cairo", "Tahoma", Arial, sans-serif;
       color: var(--text);
       background:
         radial-gradient(circle at top right, rgba(26,160,111,.12), transparent 24%),
@@ -48,9 +43,9 @@
     }
 
     .container {
-      width: min(1180px, calc(100% - 32px));
+      width: min(1150px, calc(100% - 28px));
       margin: 0 auto;
-      padding: 22px 0 48px;
+      padding: 20px 0 40px;
     }
 
     .glass {
@@ -58,18 +53,17 @@
       border: 1px solid rgba(255,255,255,.65);
       backdrop-filter: blur(12px);
       box-shadow: var(--shadow);
-      border-radius: var(--radius-xl);
+      border-radius: 28px;
     }
 
     .hero {
       position: relative;
       overflow: hidden;
-      padding: 30px;
-      background: linear-gradient(135deg, rgba(11,90,64,.97) 0%, rgba(19,143,99,.95) 48%, rgba(26,160,111,.92) 100%);
-      color: #fff;
-      box-shadow: 0 24px 55px rgba(11,90,64,.18);
+      padding: 28px;
       border-radius: 30px;
-      margin-bottom: 22px;
+      color: white;
+      background: linear-gradient(135deg, rgba(11,90,64,.98) 0%, rgba(19,143,99,.96) 55%, rgba(26,160,111,.94) 100%);
+      margin-bottom: 18px;
       isolation: isolate;
     }
 
@@ -78,37 +72,24 @@
       content: "";
       position: absolute;
       border-radius: 50%;
-      opacity: .16;
+      opacity: .15;
       pointer-events: none;
-      animation: floatOrb 10s ease-in-out infinite;
     }
 
     .hero::before {
-      width: 320px;
-      height: 320px;
-      background: #fff;
-      top: -130px;
-      left: -100px;
+      width: 300px;
+      height: 300px;
+      background: white;
+      top: -120px;
+      left: -90px;
     }
 
     .hero::after {
-      width: 240px;
-      height: 240px;
+      width: 220px;
+      height: 220px;
       background: var(--gold);
-      bottom: -110px;
-      right: -60px;
-      animation-delay: -4s;
-    }
-
-    .hero-pattern {
-      position: absolute;
-      inset: 0;
-      background-image:
-        linear-gradient(rgba(255,255,255,.035) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255,255,255,.035) 1px, transparent 1px);
-      background-size: 26px 26px;
-      mask-image: linear-gradient(180deg, rgba(0,0,0,.9), transparent 92%);
-      z-index: 0;
+      bottom: -100px;
+      right: -50px;
     }
 
     .hero-grid {
@@ -122,25 +103,23 @@
 
     .brand {
       display: flex;
-      align-items: center;
       gap: 16px;
-      margin-bottom: 16px;
       flex-wrap: wrap;
+      align-items: center;
+      margin-bottom: 14px;
     }
 
     .logo-box {
-      width: 92px;
-      height: 92px;
-      flex: 0 0 92px;
-      border-radius: 26px;
-      background: rgba(255,255,255,.16);
-      border: 1px solid rgba(255,255,255,.22);
+      width: 90px;
+      height: 90px;
+      border-radius: 24px;
+      background: rgba(255,255,255,.14);
+      border: 1px solid rgba(255,255,255,.2);
       display: flex;
       align-items: center;
       justify-content: center;
       overflow: hidden;
-      box-shadow: inset 0 0 0 1px rgba(255,255,255,.12), 0 8px 20px rgba(0,0,0,.08);
-      animation: pulseSoft 4.5s ease-in-out infinite;
+      flex: 0 0 90px;
     }
 
     .logo-box img {
@@ -148,16 +127,15 @@
       max-height: 100%;
       object-fit: contain;
       display: block;
-      transform: scale(1.03);
     }
 
     .logo-fallback {
       font-size: 13px;
-      text-align: center;
       line-height: 1.6;
-      padding: 8px;
-      color: rgba(255,255,255,.92);
+      text-align: center;
+      color: rgba(255,255,255,.95);
       font-weight: 700;
+      padding: 8px;
     }
 
     .hidden { display: none !important; }
@@ -170,33 +148,30 @@
       border: 1px solid rgba(255,255,255,.14);
       font-size: 12px;
       margin-bottom: 10px;
-      backdrop-filter: blur(4px);
     }
 
     .brand-meta h1 {
       margin: 0;
-      font-size: clamp(27px, 4vw, 40px);
+      font-size: clamp(26px, 4vw, 40px);
       line-height: 1.25;
-      letter-spacing: -.3px;
     }
 
     .brand-meta p {
       margin: 12px 0 0;
+      font-size: 15px;
       line-height: 1.95;
-      font-size: 16px;
-      color: rgba(255,255,255,.94);
+      color: rgba(255,255,255,.95);
       max-width: 760px;
     }
 
     .hero-side {
       background: rgba(255,255,255,.11);
       border: 1px solid rgba(255,255,255,.14);
-      border-radius: 26px;
-      padding: 22px;
+      border-radius: 24px;
+      padding: 20px;
       display: grid;
-      gap: 14px;
+      gap: 12px;
       align-content: start;
-      backdrop-filter: blur(8px);
     }
 
     .hero-side h3 {
@@ -209,13 +184,12 @@
       margin: 0;
       padding-inline-start: 18px;
       line-height: 1.9;
-      color: rgba(255,255,255,.96);
     }
 
     .chip-list {
       display: flex;
-      gap: 10px;
       flex-wrap: wrap;
+      gap: 10px;
     }
 
     .chip {
@@ -223,22 +197,22 @@
       border-radius: 999px;
       background: rgba(255,255,255,.12);
       border: 1px solid rgba(255,255,255,.14);
-      font-size: 13px;
+      font-size: 12px;
       font-weight: 700;
     }
 
     .section {
-      margin-bottom: 20px;
-      padding: 24px;
+      padding: 22px;
+      margin-bottom: 18px;
     }
 
     .section-title {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 16px;
+      gap: 14px;
       flex-wrap: wrap;
-      margin-bottom: 18px;
+      margin-bottom: 16px;
     }
 
     .section-title h2 {
@@ -250,35 +224,35 @@
     .section-title p {
       margin: 0;
       color: var(--muted);
-      line-height: 1.8;
       font-size: 14px;
+      line-height: 1.8;
     }
 
     .meta-grid,
     .riasec-grid,
-    .question-grid,
+    .summary-grid,
     .analysis-grid,
     .career-grid,
     .top3-grid,
-    .result-grid {
+    .detail-grid {
       display: grid;
       gap: 16px;
     }
 
     .meta-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
     .riasec-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
-    .question-grid { grid-template-columns: 1fr; }
+    .summary-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
     .analysis-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
     .career-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
     .top3-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
-    .result-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .detail-grid { grid-template-columns: 1fr; }
 
     .field label {
       display: block;
       margin-bottom: 8px;
-      color: var(--primary-dark);
-      font-weight: 800;
       font-size: 14px;
+      font-weight: 800;
+      color: var(--primary-dark);
     }
 
     .field input,
@@ -291,61 +265,64 @@
       background: #fff;
       font-size: 15px;
       color: var(--text);
-      transition: border-color .2s ease, box-shadow .2s ease, transform .2s ease;
+      transition: border-color .2s ease, box-shadow .2s ease;
     }
 
     .field input:focus,
     .field select:focus {
       border-color: var(--secondary);
       box-shadow: 0 0 0 4px rgba(26,160,111,.12);
-      transform: translateY(-1px);
     }
 
-    .info-box,
+    .card,
     .track-card,
-    .question-card,
     .result-card,
     .analysis-card,
     .career-card,
-    .top3-card {
+    .top3-card,
+    .question-shell,
+    .major-detail-card {
       border: 1px solid var(--border);
-      background: rgba(255,255,255,.97);
+      background: rgba(255,255,255,.98);
       border-radius: 22px;
       box-shadow: 0 12px 28px rgba(15,111,79,.05);
       padding: 18px;
     }
 
-    .info-box h3,
+    .card h3,
     .track-card h3,
     .result-card h3,
     .analysis-card h3,
     .career-card h3,
-    .top3-card h3 {
+    .top3-card h3,
+    .major-detail-card h3 {
       margin-top: 0;
       margin-bottom: 10px;
       color: var(--primary-dark);
       font-size: 18px;
     }
 
-    .info-box p,
+    .card p,
     .track-card p,
     .result-card p,
     .analysis-card p,
     .career-card p,
-    .top3-card p {
+    .top3-card p,
+    .major-detail-card p {
       margin: 0;
       color: var(--muted);
-      line-height: 1.9;
       font-size: 14px;
+      line-height: 1.9;
     }
 
+    .result-card ul,
     .analysis-card ul,
     .career-card ul,
-    .result-card ul {
+    .major-detail-card ul {
       margin: 10px 0 0;
       padding-inline-start: 18px;
-      line-height: 1.9;
       color: var(--muted);
+      line-height: 1.9;
       font-size: 14px;
     }
 
@@ -361,8 +338,8 @@
       top: 0;
       bottom: 0;
       width: 6px;
-      border-radius: 0 10px 10px 0;
       background: var(--accent-color, var(--primary));
+      border-radius: 0 10px 10px 0;
     }
 
     .track-card .abbr {
@@ -372,15 +349,66 @@
       min-width: 42px;
       height: 42px;
       border-radius: 14px;
-      font-weight: 900;
-      color: #fff;
       background: var(--accent-color, var(--primary));
+      color: white;
+      font-weight: 900;
       margin-bottom: 12px;
-      box-shadow: 0 10px 18px rgba(15,111,79,.15);
     }
 
-    .question-card {
-      padding: 20px;
+    .wizard-wrap {
+      display: grid;
+      gap: 16px;
+    }
+
+    .progress-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .progress-head h3 {
+      margin: 0;
+      color: var(--primary-dark);
+      font-size: 21px;
+    }
+
+    .progress-head p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .progress-track {
+      width: 100%;
+      height: 12px;
+      background: #e8f3ee;
+      border-radius: 999px;
+      overflow: hidden;
+    }
+
+    .progress-fill {
+      height: 100%;
+      width: 0%;
+      background: linear-gradient(135deg, var(--primary-dark), var(--secondary));
+      border-radius: 999px;
+      transition: width .35s ease;
+    }
+
+    .step-indicator {
+      display: inline-flex;
+      padding: 8px 12px;
+      background: #fff;
+      border: 1px solid rgba(19,143,99,.12);
+      border-radius: 999px;
+      color: var(--primary-dark);
+      font-weight: 800;
+      font-size: 13px;
+    }
+
+    .question-shell {
+      padding: 22px;
     }
 
     .question-head {
@@ -388,27 +416,28 @@
       align-items: start;
       justify-content: space-between;
       gap: 16px;
-      margin-bottom: 14px;
+      margin-bottom: 16px;
     }
 
     .question-number {
-      min-width: 44px;
-      height: 44px;
+      min-width: 46px;
+      height: 46px;
       border-radius: 14px;
-      background: linear-gradient(135deg,#edf9f3,#ffffff);
+      background: linear-gradient(135deg,#edf9f3,#fff);
+      border: 1px solid rgba(19,143,99,.12);
       color: var(--primary-dark);
       display: inline-flex;
       align-items: center;
       justify-content: center;
       font-weight: 900;
-      border: 1px solid rgba(19,143,99,.12);
     }
 
-    .question-card h3 {
+    .question-shell h3 {
       margin: 0;
-      font-size: 18px;
+      font-size: 22px;
       line-height: 1.8;
       flex: 1;
+      color: var(--text);
     }
 
     .tag {
@@ -428,9 +457,12 @@
       display: grid;
       grid-template-columns: repeat(5, minmax(0, 1fr));
       gap: 10px;
+      margin-top: 8px;
     }
 
-    .option { position: relative; }
+    .option {
+      position: relative;
+    }
 
     .option input {
       position: absolute;
@@ -444,7 +476,7 @@
       align-items: center;
       justify-content: center;
       gap: 4px;
-      min-height: 68px;
+      min-height: 84px;
       border-radius: 18px;
       border: 1px solid rgba(19,143,99,.12);
       background: linear-gradient(180deg,#ffffff,#f8fcfa);
@@ -454,6 +486,7 @@
       padding: 10px;
       color: var(--text);
       font-weight: 800;
+      font-size: 15px;
     }
 
     .option small {
@@ -470,11 +503,19 @@
       color: var(--primary-dark);
     }
 
-    .actions {
+    .wizard-actions {
       display: flex;
-      flex-wrap: wrap;
       gap: 12px;
-      margin-top: 18px;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .actions-left,
+    .actions-right {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
     }
 
     button {
@@ -500,6 +541,12 @@
       color: var(--primary-dark);
       background: #eff9f4;
       border: 1px solid rgba(19,143,99,.12);
+    }
+
+    .btn-ghost {
+      color: var(--primary-dark);
+      background: transparent;
+      border: 1px dashed rgba(19,143,99,.24);
     }
 
     .result-hero {
@@ -532,7 +579,6 @@
       font-weight: 900;
       color: var(--primary-dark);
       margin-top: 10px;
-      box-shadow: 0 8px 18px rgba(15,111,79,.08);
     }
 
     .bar-list {
@@ -563,7 +609,6 @@
       border-radius: 999px;
       background: #ebf3ef;
       overflow: hidden;
-      margin-bottom: 8px;
     }
 
     .bar-fill {
@@ -585,6 +630,18 @@
       margin-top: 8px;
     }
 
+    .detail-badge {
+      display: inline-flex;
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: #eef9f4;
+      color: var(--primary-dark);
+      font-weight: 800;
+      font-size: 12px;
+      border: 1px solid rgba(19,143,99,.12);
+      margin-bottom: 8px;
+    }
+
     .footer-note {
       margin-top: 14px;
       color: var(--muted);
@@ -592,24 +649,14 @@
       line-height: 1.9;
     }
 
-    @keyframes floatOrb {
-      0%,100% { transform: translateY(0) translateX(0) scale(1); }
-      50% { transform: translateY(12px) translateX(8px) scale(1.04); }
-    }
-
-    @keyframes pulseSoft {
-      0%,100% { transform: scale(1); }
-      50% { transform: scale(1.03); }
-    }
-
     @media (max-width: 1080px) {
       .hero-grid,
       .meta-grid,
       .riasec-grid,
+      .summary-grid,
       .analysis-grid,
       .career-grid,
-      .top3-grid,
-      .result-grid {
+      .top3-grid {
         grid-template-columns: 1fr 1fr;
       }
     }
@@ -624,16 +671,15 @@
       .section {
         padding: 16px;
         border-radius: 18px;
-        margin-bottom: 14px;
       }
 
       .hero-grid,
       .meta-grid,
       .riasec-grid,
+      .summary-grid,
       .analysis-grid,
       .career-grid,
-      .top3-grid,
-      .result-grid {
+      .top3-grid {
         grid-template-columns: 1fr !important;
         gap: 12px;
       }
@@ -642,7 +688,6 @@
         width: 64px;
         height: 64px;
         flex: 0 0 64px;
-        border-radius: 18px;
       }
 
       .brand-meta h1 {
@@ -662,9 +707,8 @@
         gap: 10px;
       }
 
-      .question-card h3 {
-        font-size: 15px;
-        line-height: 1.7;
+      .question-shell h3 {
+        font-size: 18px;
       }
 
       .tag {
@@ -674,20 +718,21 @@
 
       .options {
         grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
-        gap: 8px;
       }
 
       .option label {
-        min-height: 60px;
-        font-size: 14px;
+        min-height: 70px;
+      }
+
+      .wizard-actions,
+      .actions-left,
+      .actions-right {
+        flex-direction: column;
+        width: 100%;
       }
 
       button {
         width: 100%;
-      }
-
-      .actions {
-        flex-direction: column;
       }
     }
   </style>
@@ -695,7 +740,6 @@
 <body>
   <div class="container">
     <section class="hero">
-      <div class="hero-pattern"></div>
       <div class="hero-grid">
         <div>
           <div class="brand">
@@ -704,31 +748,31 @@
               <div id="logoFallback" class="logo-fallback hidden">شعار<br>المدرسة</div>
             </div>
             <div class="brand-meta">
-              <small>منصة حديثة للتوجيه المهني المدرسي</small>
-              <h1>اكتشاف الميول المهنية لطلاب المرحلة الثانوية</h1>
+              <small>نسخة احترافية مطوّرة</small>
+              <h1>منصة اكتشاف الميول المهنية</h1>
               <p>
-                نسخة أكثر تطورًا من اختبار الميول المهنية، مستوحاة من منطق المنصات الشهيرة:
-                تحليل أوسع، أسئلة أكثر، ونتائج تربط بين شخصية الطالب وبيئة التعلّم والاختصاصات الأنسب ضمن الفرع المدرسي.
+                نسخة احترافية موسّعة تركز على تحليل الميول والاختصاصات فقط، بدون أي ذكر لجامعات.
+                النتيجة تعطي فهمًا أعمق للاختصاصات المناسبة ولماذا تناسب الطالب وما الذي يحتاجه للاقتراب منها.
               </p>
             </div>
           </div>
 
           <div class="chip-list">
             <span class="chip">72 سؤالًا</span>
-            <span class="chip">RIASEC</span>
-            <span class="chip">تحليل شامل</span>
-            <span class="chip">مطابقة اختصاصات</span>
+            <span class="chip">واجهة خطوة بخطوة</span>
+            <span class="chip">تحليل اختصاصات</span>
+            <span class="chip">بدون جامعات</span>
             <span class="chip">PDF</span>
           </div>
         </div>
 
         <div class="hero-side">
-          <h3>ما الجديد في هذه النسخة؟</h3>
+          <h3>ما الذي تعطيه هذه النسخة؟</h3>
           <ul>
-            <li>عدد أسئلة أكبر لرفع دقة القراءة.</li>
-            <li>تحليل أعلى 3 أنماط بدل الاعتماد على ميل واحد فقط.</li>
-            <li>ربط بين الميول، أسلوب التعلم، بيئة العمل، والاختصاصات.</li>
-            <li>نتيجة أقرب لتجربة المواقع المهنية الحديثة.</li>
+            <li>تحليل أعلى 3 أنماط مهنية.</li>
+            <li>قراءة لأسلوب التعلّم وبيئة العمل المناسبة.</li>
+            <li>مطابقة اختصاصات أوسع.</li>
+            <li>شرح لكل اختصاص: لماذا يناسبك وماذا يحتاج منك.</li>
           </ul>
         </div>
       </div>
@@ -738,7 +782,7 @@
       <div class="section-title">
         <div>
           <h2>بيانات الطالب</h2>
-          <p>أدخل البيانات الأساسية ثم أجب عن العبارات التالية باستخدام المقياس من 1 إلى 5.</p>
+          <p>أدخل البيانات الأساسية، ثم ابدأ التقييم خطوة بخطوة.</p>
         </div>
       </div>
 
@@ -769,11 +813,13 @@
         </div>
       </div>
 
-      <div class="info-box" style="margin-top:16px;">
+      <div class="card" style="margin-top:16px;">
         <h3>طريقة الإجابة</h3>
         <p>
-          1 = لا تنطبق علي أبدًا، 5 = تنطبق علي بدرجة كبيرة جدًا.
-          أجب كما أنت فعلًا، لا كما تظن أنه “أفضل” أكاديميًا أو اجتماعيًا.
+          استخدم المقياس من 1 إلى 5:
+          1 = لا تنطبق علي أبدًا،
+          5 = تنطبق علي بدرجة كبيرة جدًا.
+          أجب كما أنت فعلًا، لا كما يبدو لك “أفضل” فقط.
         </p>
       </div>
     </section>
@@ -782,80 +828,59 @@
       <div class="section-title">
         <div>
           <h2>الأنماط المهنية الأساسية</h2>
-          <p>يعتمد هذا النموذج على ستة أنماط تستخدم على نطاق واسع في التوجيه المهني الحديث.</p>
+          <p>يعتمد التحليل على ستة أنماط رئيسية مستخدمة في الإرشاد المهني الحديث.</p>
         </div>
       </div>
       <div class="riasec-grid" id="riasecCards"></div>
     </section>
 
     <section class="section glass">
-      <div class="section-title">
-        <div>
-          <h2>الاستبيان المهني المتقدم</h2>
-          <p>كلما كانت الإجابات صادقة أكثر، كانت النتيجة أقرب إلى واقع الطالب.</p>
+      <div class="wizard-wrap">
+        <div class="progress-head">
+          <div>
+            <h3>الاستبيان المهني المتقدم</h3>
+            <p>أجب عن كل عبارة ثم انتقل إلى التالية.</p>
+          </div>
+          <div class="step-indicator" id="stepIndicator">السؤال 1 من 72</div>
         </div>
-      </div>
 
-      <div id="questionsContainer" class="question-grid"></div>
+        <div class="progress-track">
+          <div class="progress-fill" id="progressFill"></div>
+        </div>
 
-      <div class="actions">
-        <button class="btn-primary" onclick="calculateResults()">إظهار التحليل</button>
-        <button class="btn-secondary" onclick="resetForm()">إعادة التعيين</button>
+        <div id="questionStage"></div>
+
+        <div class="wizard-actions">
+          <div class="actions-left">
+            <button class="btn-secondary" onclick="prevQuestion()">السابق</button>
+            <button class="btn-secondary" onclick="nextQuestion()">التالي</button>
+          </div>
+          <div class="actions-right">
+            <button class="btn-ghost" onclick="resetForm()">إعادة التعيين</button>
+            <button class="btn-primary" onclick="calculateResults()">إظهار التحليل</button>
+          </div>
+        </div>
       </div>
     </section>
 
     <section id="resultsSection" class="section glass hidden">
       <div id="resultContent"></div>
-      <div class="actions" style="margin-top:16px;">
-        <button class="btn-primary" onclick="downloadPDF()">حفظ النتيجة PDF</button>
+      <div class="wizard-actions" style="margin-top:16px;">
+        <div class="actions-right">
+          <button class="btn-primary" onclick="downloadPDF()">حفظ النتيجة PDF</button>
+        </div>
       </div>
     </section>
   </div>
 
   <script>
     const tracks = {
-      realistic: {
-        code: "R",
-        title: "العملي / التطبيقي",
-        english: "Realistic",
-        short: "يفضل التطبيق، الأدوات، الإنجاز الملموس، والعمل الميداني أو التقني.",
-        color: "var(--realistic)"
-      },
-      investigative: {
-        code: "I",
-        title: "البحثي / التحليلي",
-        english: "Investigative",
-        short: "يفضل التحليل، الاكتشاف، الفهم، المنطق، وحل المشكلات المعقدة.",
-        color: "var(--investigative)"
-      },
-      artistic: {
-        code: "A",
-        title: "الإبداعي / الفني",
-        english: "Artistic",
-        short: "يفضل الابتكار، التعبير، التصميم، والأفكار الجديدة.",
-        color: "var(--artistic)"
-      },
-      social: {
-        code: "S",
-        title: "الاجتماعي / الإنساني",
-        english: "Social",
-        short: "يفضل التواصل، التعليم، الدعم، ومساعدة الآخرين.",
-        color: "var(--social)"
-      },
-      enterprising: {
-        code: "E",
-        title: "القيادي / الريادي",
-        english: "Enterprising",
-        short: "يفضل المبادرة، التأثير، القيادة، واتخاذ القرار.",
-        color: "var(--enterprising)"
-      },
-      conventional: {
-        code: "C",
-        title: "التنظيمي / الإداري",
-        english: "Conventional",
-        short: "يفضل النظام، الدقة، البيانات، والوضوح في الإجراءات.",
-        color: "var(--conventional)"
-      }
+      realistic: { code: "R", title: "العملي / التطبيقي", english: "Realistic", short: "يميل إلى التطبيق والأدوات والإنجاز الملموس والعمل الميداني.", color: "var(--realistic)" },
+      investigative: { code: "I", title: "البحثي / التحليلي", english: "Investigative", short: "يميل إلى الفهم والتحليل والبحث والاستنتاج.", color: "var(--investigative)" },
+      artistic: { code: "A", title: "الإبداعي / الفني", english: "Artistic", short: "يميل إلى الابتكار والتعبير والتصميم والأفكار الجديدة.", color: "var(--artistic)" },
+      social: { code: "S", title: "الاجتماعي / الإنساني", english: "Social", short: "يميل إلى التعليم والمساندة والتفاعل مع الناس.", color: "var(--social)" },
+      enterprising: { code: "E", title: "القيادي / الريادي", english: "Enterprising", short: "يميل إلى القيادة والتأثير والمبادرة واتخاذ القرار.", color: "var(--enterprising)" },
+      conventional: { code: "C", title: "التنظيمي / الإداري", english: "Conventional", short: "يميل إلى الدقة والترتيب والبيانات والوضوح.", color: "var(--conventional)" }
     };
 
     const scoreLabels = {
@@ -867,7 +892,6 @@
     };
 
     const questions = [
-      // R
       { text: "أحب تنفيذ الأعمال العملية واستخدام الأدوات أو الأجهزة في حل المهام.", track: "realistic", dim: "things" },
       { text: "أفضل المهام التي تتطلب حركة وإنجازًا ملموسًا أكثر من الجلوس الطويل.", track: "realistic", dim: "action" },
       { text: "أفضل التعلم من خلال التطبيق العملي والتجربة المباشرة.", track: "realistic", dim: "learning" },
@@ -881,7 +905,6 @@
       { text: "أفضّل أن أتعلم عبر الممارسة أكثر من القراءة وحدها.", track: "realistic", dim: "learning" },
       { text: "أشعر أن لدي ميلًا طبيعيًا لفهم كيف تعمل الأشياء عمليًا.", track: "realistic", dim: "things" },
 
-      // I
       { text: "أشعر بالمتعة عند البحث عن أسباب المشكلات وتحليلها بدقة.", track: "investigative", dim: "ideas" },
       { text: "أستمتع بحل المسائل العلمية أو المنطقية أو الرقمية المعقدة.", track: "investigative", dim: "data" },
       { text: "أحب الاكتشاف العلمي وطرح الأسئلة والبحث عن إجاباتها.", track: "investigative", dim: "ideas" },
@@ -895,7 +918,6 @@
       { text: "حل المشكلات العقلية يشعرني بالرضا.", track: "investigative", dim: "ideas" },
       { text: "أفضّل التخصصات التي تحتاج إلى فهم وتحليل وتفكير مستمر.", track: "investigative", dim: "environment" },
 
-      // A
       { text: "أحب ابتكار أفكار جديدة والتعبير عنها بطريقة فنية أو مختلفة.", track: "artistic", dim: "ideas" },
       { text: "أميل إلى الرسم أو التصميم أو الكتابة أو صناعة المحتوى الإبداعي.", track: "artistic", dim: "ideas" },
       { text: "أشعر أن الخيال والإبداع من أقوى جوانب شخصيتي.", track: "artistic", dim: "ideas" },
@@ -909,7 +931,6 @@
       { text: "أحيانًا أشعر أنني أملّ من التكرار وأبحث عن التجديد.", track: "artistic", dim: "environment" },
       { text: "أفضّل المجالات التي تسمح بإنتاج أفكار أو أعمال أصلية.", track: "artistic", dim: "learning" },
 
-      // S
       { text: "أرتاح عندما أساعد الآخرين أو أشرح لهم شيئًا يحتاجونه.", track: "social", dim: "people" },
       { text: "أحب العمل مع الناس أكثر من العمل المنفرد لفترات طويلة.", track: "social", dim: "people" },
       { text: "يسعدني أن يكون لعملي أثر إيجابي على حياة الآخرين.", track: "social", dim: "people" },
@@ -923,7 +944,6 @@
       { text: "التواصل الجيد مع الناس مهم بالنسبة لي في أي دراسة أو عمل.", track: "social", dim: "people" },
       { text: "أشعر أنني أتعلم جيدًا عبر الحوار والتفاعل.", track: "social", dim: "learning" },
 
-      // E
       { text: "أحب قيادة الأنشطة أو التأثير في الناس وإقناعهم بفكرة ما.", track: "enterprising", dim: "people" },
       { text: "أفكر أحيانًا في إنشاء مشروع خاص أو نشاط ريادي مستقبلاً.", track: "enterprising", dim: "action" },
       { text: "أميل إلى المبادرة واتخاذ القرار وتحمل المسؤولية.", track: "enterprising", dim: "action" },
@@ -937,7 +957,6 @@
       { text: "أهتم بالأهداف والإنجاز والنتائج الواضحة.", track: "enterprising", dim: "action" },
       { text: "أستمتع أحيانًا بإقناع الآخرين بوجهة نظري.", track: "enterprising", dim: "people" },
 
-      // C
       { text: "أفضل العمل المنظم الذي يعتمد على خطوات واضحة ودقيقة.", track: "conventional", dim: "data" },
       { text: "أهتم بترتيب الملفات أو المعلومات أو البيانات بطريقة دقيقة ومنظمة.", track: "conventional", dim: "data" },
       { text: "أفضل البيئات التي فيها وضوح ونظام وتعليمات محددة.", track: "conventional", dim: "environment" },
@@ -952,62 +971,18 @@
       { text: "الوضوح والإجراءات المحددة تساعدني على الإنجاز بأفضل شكل.", track: "conventional", dim: "environment" }
     ];
 
-    const majorDatabase = {
-      "ثالث ثانوي علوم عامة / رياضيات": [
-        { name: "الطب", trackWeights: { I: 5, S: 3, R: 2 } },
-        { name: "طب الأسنان", trackWeights: { I: 5, R: 3, S: 2 } },
-        { name: "الهندسة المدنية", trackWeights: { R: 5, I: 3, C: 2 } },
-        { name: "الهندسة الميكانيكية", trackWeights: { R: 5, I: 4, C: 1 } },
-        { name: "الهندسة الكهربائية", trackWeights: { I: 4, R: 4, C: 2 } },
-        { name: "هندسة الكمبيوتر", trackWeights: { I: 5, C: 3, R: 2 } },
-        { name: "علوم الحاسوب", trackWeights: { I: 5, C: 3, A: 2 } },
-        { name: "الذكاء الاصطناعي / علم البيانات", trackWeights: { I: 5, C: 3, A: 2 } },
-        { name: "الرياضيات", trackWeights: { I: 5, C: 4, A: 1 } },
-        { name: "الفيزياء", trackWeights: { I: 5, R: 2, A: 1 } },
-        { name: "الهندسة المعمارية", trackWeights: { A: 4, R: 3, I: 3 } },
-        { name: "التصميم الصناعي", trackWeights: { A: 4, R: 4, I: 2 } }
-      ],
-      "ثالث ثانوي علوم حياة": [
-        { name: "الطب", trackWeights: { I: 5, S: 3, R: 2 } },
-        { name: "الصيدلة", trackWeights: { I: 5, C: 3, S: 2 } },
-        { name: "التمريض", trackWeights: { S: 5, I: 2, R: 2 } },
-        { name: "العلاج الفيزيائي", trackWeights: { R: 4, S: 4, I: 2 } },
-        { name: "علوم المختبرات الطبية", trackWeights: { I: 5, R: 3, C: 2 } },
-        { name: "التغذية", trackWeights: { S: 4, I: 4, A: 1 } },
-        { name: "البيولوجيا / العلوم الحياتية", trackWeights: { I: 5, R: 2, S: 1 } },
-        { name: "علم النفس", trackWeights: { S: 5, I: 3, A: 1 } },
-        { name: "العلاج الوظيفي", trackWeights: { S: 4, R: 3, I: 2 } },
-        { name: "الصحة العامة", trackWeights: { S: 4, I: 2, E: 2 } },
-        { name: "الطب البيطري", trackWeights: { R: 3, I: 4, S: 2 } }
-      ],
-      "ثالث ثانوي اقتصاد واجتماع": [
-        { name: "إدارة الأعمال", trackWeights: { E: 5, C: 3, S: 2 } },
-        { name: "المحاسبة", trackWeights: { C: 5, I: 3, E: 2 } },
-        { name: "التمويل والمصارف", trackWeights: { C: 4, E: 3, I: 3 } },
-        { name: "الاقتصاد", trackWeights: { I: 4, E: 3, C: 3 } },
-        { name: "التسويق", trackWeights: { E: 4, S: 3, A: 2 } },
-        { name: "الإعلام", trackWeights: { A: 4, S: 3, E: 3 } },
-        { name: "العلاقات العامة", trackWeights: { S: 4, E: 3, A: 2 } },
-        { name: "علم النفس", trackWeights: { S: 5, I: 3, A: 1 } },
-        { name: "العمل الاجتماعي", trackWeights: { S: 5, C: 2, E: 2 } },
-        { name: "إدارة الموارد البشرية", trackWeights: { C: 4, E: 3, S: 3 } },
-        { name: "العلوم السياسية", trackWeights: { I: 4, E: 3, S: 3 } },
-        { name: "القانون", trackWeights: { I: 4, C: 3, E: 3 } }
-      ]
-    };
-
     const compositeProfiles = {
       RIA: {
         desc: "يجمع هذا النمط بين التطبيق العملي والتفكير التحليلي ولمسة إبداعية، لذلك يميل صاحبه إلى المجالات التي تحتاج فهمًا عميقًا مع تنفيذ وابتكار.",
-        strengths: ["الفهم والتحليل", "التطبيق العملي", "حل المشكلات", "التجريب", "القدرة على الدمج بين الفكرة والتنفيذ"],
-        growth: ["توسيع الخبرة الميدانية", "تنظيم المشاريع طويلة المدى", "عرض الأفكار بشكل أوضح للآخرين"],
+        strengths: ["الفهم والتحليل", "حل المشكلات", "التطبيق العملي", "القدرة على الدمج بين الفكرة والتنفيذ", "التجريب"],
+        growth: ["تنظيم المشاريع طويلة المدى", "عرض الأفكار بشكل أوضح", "توسيع الخبرة الواقعية"],
         environment: "بيئة تجمع بين التفكير، التطبيق، والمشاريع أو المختبرات أو التصميم."
       },
       RIS: {
-        desc: "يميل هذا النمط إلى العلوم والتطبيق، مع حس إنساني في توظيف المعرفة. يناسبه المجال الذي يربط الدقة العلمية بخدمة الآخرين أو بنتائج ملموسة.",
-        strengths: ["الدقة", "التحليل", "الالتزام", "النظرة الواقعية", "الإفادة العملية"],
-        growth: ["تطوير مهارات التواصل", "زيادة المرونة", "تحويل التردد إلى قرار عملي أسرع"],
-        environment: "بيئة علمية تطبيقية، صحية، أو مخبرية منظمة."
+        desc: "يميل هذا النمط إلى العلوم والتطبيق، مع حس إنساني في توظيف المعرفة. يناسبه المجال الذي يربط الدقة العلمية بنتائج ملموسة.",
+        strengths: ["الدقة", "التحليل", "الالتزام", "النظرة الواقعية", "الفائدة العملية"],
+        growth: ["تطوير مهارات التواصل", "زيادة المرونة", "التحول من التردد إلى قرار أسرع"],
+        environment: "بيئة علمية تطبيقية أو صحية أو مخبرية منظمة."
       },
       ISE: {
         desc: "يجمع هذا النمط بين الفهم العميق والبعد الإنساني والقدرة على المبادرة. يناسبه مجال يتطلب تحليلًا وتواصلًا وتأثيرًا.",
@@ -1018,7 +993,7 @@
       SAE: {
         desc: "يميل هذا النمط إلى الإبداع والتواصل والقدرة على التأثير. يناسبه مجال يتطلب حضورًا، تعبيرًا، وعملًا مع الناس.",
         strengths: ["التواصل", "الإبداع", "الحضور", "الإقناع", "المرونة"],
-        growth: ["التركيز على الاستمرارية", "تنظيم العمل", "تحويل الفكرة إلى خطة تنفيذية"],
+        growth: ["الاستمرارية", "تنظيم العمل", "تحويل الفكرة إلى خطة تنفيذية"],
         environment: "بيئة مرنة، تفاعلية، وإبداعية."
       }
     };
@@ -1041,7 +1016,7 @@
         A: {
           desc: "يميل هذا النمط إلى الإبداع والابتكار والتعبير، وينجذب إلى المجالات التي تسمح له بأسلوبه الخاص.",
           strengths: ["الإبداع", "الخيال", "التعبير", "التجديد", "المرونة"],
-          growth: ["الانضباط", "التخطيط", "إتمام المشاريع للنهاية"],
+          growth: ["الانضباط", "التخطيط", "إتمام المشاريع"],
           environment: "بيئة مرنة وإبداعية تسمح بالتعبير."
         },
         S: {
@@ -1066,6 +1041,64 @@
       return map[lead];
     }
 
+    const majorDatabase = {
+      "ثالث ثانوي علوم عامة / رياضيات": [
+        { name: "الطب", trackWeights: { I: 5, S: 3, R: 2 }, why: "لأنه يحتاج تفكيرًا تحليليًا عاليًا، دقة علمية، وقدرة على التعامل مع الناس والمسؤولية.", challenge: "طول المسار الدراسي وكثافة المواد العلمية والانضباط العالي.", skills: ["التركيز", "الصبر", "فهم العلوم", "التواصل الإنساني"], nature: "دراسة علمية عميقة، كثيفة، ومستمرة." },
+        { name: "طب الأسنان", trackWeights: { I: 5, R: 3, S: 2 }, why: "يجمع بين الفهم العلمي والعمل الدقيق والتعامل المباشر مع الناس.", challenge: "الدقة العالية والعمل العملي المتكرر والانتباه للتفاصيل.", skills: ["الدقة", "الثبات", "المهارة اليدوية", "التواصل"], nature: "دراسة علمية مع جانب تطبيقي دقيق." },
+        { name: "الهندسة المدنية", trackWeights: { R: 5, I: 3, C: 2 }, why: "تلائم من يجمع بين التحليل والتطبيق وفهم الأنظمة والعمل المنظم.", challenge: "الحاجة إلى رياضيات جيدة والانضباط في التفاصيل الفنية.", skills: ["الرياضيات", "التخطيط", "حل المشكلات", "التنظيم"], nature: "دراسة تحليلية تطبيقية مرتبطة بالمشاريع والتنفيذ." },
+        { name: "الهندسة الميكانيكية", trackWeights: { R: 5, I: 4, C: 1 }, why: "تلائم من يحب الأنظمة والأدوات والفهم العملي العميق.", challenge: "تحتاج صبرًا على الفهم التقني والتحليل الدقيق.", skills: ["الفهم التقني", "التحليل", "التركيز", "التطبيق"], nature: "دراسة تقنية تطبيقية ذات بعد تحليلي." },
+        { name: "الهندسة الكهربائية", trackWeights: { I: 4, R: 4, C: 2 }, why: "تناسب من يميل للتحليل العلمي مع فهم الأنظمة والعمل التقني.", challenge: "تحتاج إلى قوة في الرياضيات والمنطق والتركيز.", skills: ["الرياضيات", "المنطق", "الدقة", "حل المشكلات"], nature: "دراسة نظرية تطبيقية متقدمة." },
+        { name: "هندسة الكمبيوتر", trackWeights: { I: 5, C: 3, R: 2 }, why: "تلائم من يجمع بين التحليل والمنطق والتنظيم وفهم الأنظمة.", challenge: "تحتاج إلى انضباط واستمرارية في التعلم العملي.", skills: ["المنطق", "التحليل", "الترتيب", "حل المشكلات"], nature: "دراسة تحليلية وتقنية تعتمد على البناء والفهم." },
+        { name: "علوم الحاسوب", trackWeights: { I: 5, C: 3, A: 2 }, why: "تناسب من يحب التفكير المنطقي وحل المشكلات وبناء حلول جديدة.", challenge: "تحتاج إلى صبر واستمرارية وممارسة متكررة.", skills: ["التحليل", "التفكير المنطقي", "التجريب", "التعلم الذاتي"], nature: "دراسة تحليلية مرنة تعتمد على الفهم والتطبيق." },
+        { name: "الذكاء الاصطناعي / علم البيانات", trackWeights: { I: 5, C: 3, A: 2 }, why: "تناسب من يميل إلى التحليل العميق والبيانات والأفكار الجديدة.", challenge: "تحتاج إلى قاعدة قوية في التفكير الكمي والمنطقي.", skills: ["التحليل", "البيانات", "المنطق", "الاستكشاف"], nature: "دراسة تحليلية حديثة متقدمة." },
+        { name: "الأمن السيبراني", trackWeights: { I: 5, C: 3, R: 2 }, why: "يناسب من يحب التحليل وحل المشكلات والأنظمة الدقيقة.", challenge: "يتطلب صبرًا ومتابعة مستمرة وتعلمًا دائمًا.", skills: ["التحليل", "التركيز", "المنطق", "الالتزام"], nature: "دراسة تقنية تحليلية مستمرة التطور." },
+        { name: "هندسة البرمجيات", trackWeights: { I: 5, C: 3, A: 2 }, why: "تلائم من يجمع بين التحليل وبناء الحلول والعمل المنظم.", challenge: "تحتاج إلى صبر ومثابرة وانتباه للتفاصيل.", skills: ["التحليل", "التنظيم", "حل المشكلات", "الصبر"], nature: "دراسة تقنية عملية ومنهجية." },
+        { name: "الرياضيات", trackWeights: { I: 5, C: 4, A: 1 }, why: "تلائم من يستمتع بالبنية المنطقية والوضوح والتحليل المجرد.", challenge: "تتطلب صبرًا ذهنيًا عاليًا على التجريد.", skills: ["التركيز", "التحليل", "التجريد", "الانضباط"], nature: "دراسة تحليلية خالصة." },
+        { name: "الإحصاء", trackWeights: { I: 5, C: 4, E: 1 }, why: "يناسب من يحب تحليل البيانات وفهم الأنماط والأرقام.", challenge: "يحتاج إلى دقة وصبر وفهم للمفاهيم الكمية.", skills: ["الأرقام", "التحليل", "الترتيب", "التفسير"], nature: "دراسة كمية تحليلية." },
+        { name: "الفيزياء", trackWeights: { I: 5, R: 2, A: 1 }, why: "تناسب من يحب فهم الظواهر وتحليلها بشكل علمي عميق.", challenge: "تحتاج إلى فهم نظري جيد وربط المفهوم بالتطبيق.", skills: ["التحليل", "التفسير", "المنطق", "الصبر"], nature: "دراسة علمية نظرية وعملية." },
+        { name: "الكيمياء", trackWeights: { I: 5, R: 2, C: 2 }, why: "تلائم من يحب تفسير المادة والتجريب والعمل العلمي المنظم.", challenge: "تحتاج إلى دقة عالية وفهم متسلسل.", skills: ["التحليل", "الدقة", "الملاحظة", "الصبر"], nature: "دراسة علمية دقيقة." },
+        { name: "الهندسة المعمارية", trackWeights: { A: 4, R: 3, I: 3 }, why: "تلائم من يجمع بين الإبداع والفهم العملي والتصور الهندسي.", challenge: "تحتاج إلى توازن بين الذوق والالتزام والتنفيذ.", skills: ["التصور", "الإبداع", "الدقة", "تنظيم الوقت"], nature: "دراسة تصميمية تقنية." },
+        { name: "التصميم الصناعي", trackWeights: { A: 4, R: 4, I: 2 }, why: "يناسب من يحب تصميم الأشياء بطريقة عملية وجمالية معًا.", challenge: "يتطلب دمج الفكرة بالشكل والوظيفة.", skills: ["الإبداع", "فهم المستخدم", "التطبيق", "التعديل المستمر"], nature: "دراسة إبداعية تطبيقية." },
+        { name: "التكنولوجيا الحيوية", trackWeights: { I: 5, R: 2, A: 1 }, why: "تلائم من يحب العلوم الحديثة وتحليل التطبيقات العلمية المتقدمة.", challenge: "تحتاج إلى فهم علمي جيد واستمرارية.", skills: ["التحليل", "الفضول العلمي", "الدقة", "الصبر"], nature: "دراسة علمية حديثة ومتعددة التخصصات." }
+      ],
+
+      "ثالث ثانوي علوم حياة": [
+        { name: "الطب", trackWeights: { I: 5, S: 3, R: 2 }, why: "لأنه يحتاج تحليلاً علميًا عاليًا مع حس مسؤولية وقدرة على التعامل مع الناس.", challenge: "المسار طويل ويحتاج التزامًا وصبرًا كبيرين.", skills: ["فهم العلوم", "الصبر", "التركيز", "التواصل"], nature: "دراسة علمية عميقة وطويلة." },
+        { name: "الصيدلة", trackWeights: { I: 5, C: 3, S: 2 }, why: "تلائم من يحب الدقة العلمية والنظام وفهم المواد بشكل تفصيلي.", challenge: "تحتاج إلى تركيز عالٍ على التفاصيل العلمية.", skills: ["الدقة", "الفهم العلمي", "الترتيب", "المتابعة"], nature: "دراسة علمية دقيقة ومنظمة." },
+        { name: "التمريض", trackWeights: { S: 5, I: 2, R: 2 }, why: "يناسب من يحب خدمة الناس والعمل الإنساني المباشر.", challenge: "يتطلب تحمل الضغط والانضباط والمسؤولية.", skills: ["التواصل", "الصبر", "الالتزام", "الاستجابة"], nature: "دراسة إنسانية تطبيقية." },
+        { name: "العلاج الفيزيائي", trackWeights: { R: 4, S: 4, I: 2 }, why: "يجمع بين الجانب العملي والتفاعل الإنساني وفهم الحركة والجسم.", challenge: "يتطلب صبرًا ومهارة تطبيقية مستمرة.", skills: ["الملاحظة", "التفاعل", "التطبيق", "الالتزام"], nature: "دراسة تطبيقية مرتبطة بالناس." },
+        { name: "علوم المختبرات الطبية", trackWeights: { I: 5, R: 3, C: 2 }, why: "تلائم من يحب الدقة والتحليل والعمل العلمي المنظم.", challenge: "تحتاج إلى دقة عالية واهتمام كبير بالتفاصيل.", skills: ["الدقة", "التحليل", "التركيز", "الانضباط"], nature: "دراسة علمية تطبيقية دقيقة." },
+        { name: "التغذية", trackWeights: { S: 4, I: 4, A: 1 }, why: "تناسب من يجمع بين الفهم العلمي والاهتمام بالناس ونمط الحياة.", challenge: "تحتاج إلى متابعة علمية مع تواصل فعّال.", skills: ["التواصل", "الفهم العلمي", "الإقناع", "المتابعة"], nature: "دراسة علمية إنسانية." },
+        { name: "البيولوجيا / العلوم الحياتية", trackWeights: { I: 5, R: 2, S: 1 }, why: "تناسب من يحب فهم الحياة والظواهر البيولوجية بشكل تحليلي.", challenge: "تحتاج إلى صبر على الفهم العلمي النظري.", skills: ["التحليل", "الفضول", "التركيز", "الاستكشاف"], nature: "دراسة علمية تحليلية." },
+        { name: "علم النفس", trackWeights: { S: 5, I: 3, A: 1 }, why: "يناسب من يحب فهم الناس والتفاعل معهم وتحليل السلوك.", challenge: "يحتاج نضجًا وصبرًا وفهمًا عميقًا.", skills: ["الاستماع", "الفهم", "التواصل", "التحليل"], nature: "دراسة إنسانية تحليلية." },
+        { name: "العلاج الوظيفي", trackWeights: { S: 4, R: 3, I: 2 }, why: "يلائم من يحب مساعدة الناس من خلال تدخل عملي منظم.", challenge: "يتطلب صبرًا ومهارة في المتابعة.", skills: ["التفاعل", "الملاحظة", "التطبيق", "التنظيم"], nature: "دراسة إنسانية تطبيقية." },
+        { name: "الصحة العامة", trackWeights: { S: 4, I: 2, E: 2 }, why: "تناسب من يهتم بالأثر المجتمعي والتنظيم الصحي والوعي العام.", challenge: "تحتاج إلى رؤية مجتمعية وتنظيم جيد.", skills: ["التواصل", "التخطيط", "المتابعة", "الفهم العام"], nature: "دراسة إنسانية تنظيمية." },
+        { name: "الطب البيطري", trackWeights: { R: 3, I: 4, S: 2 }, why: "يلائم من يجمع بين الفهم العلمي والرغبة في الرعاية والعمل التطبيقي.", challenge: "يتطلب صبرًا وتحمّلًا ومسؤولية.", skills: ["التحليل", "الملاحظة", "التعامل العملي", "الاهتمام"], nature: "دراسة علمية تطبيقية." },
+        { name: "علوم الأشعة", trackWeights: { I: 4, R: 3, C: 2 }, why: "تلائم من يحب الفهم العلمي والعمل الدقيق المرتبط بالتقنيات.", challenge: "تحتاج إلى دقة عالية وانتباه للمسؤولية المهنية.", skills: ["الدقة", "التقنيات", "الملاحظة", "الالتزام"], nature: "دراسة علمية تقنية." },
+        { name: "القبالة", trackWeights: { S: 5, R: 2, I: 2 }, why: "تناسب من يحب الرعاية والعمل الإنساني المباشر في مواقف حساسة.", challenge: "تحتاج إلى هدوء وتحمل ومسؤولية.", skills: ["الصبر", "الرعاية", "التواصل", "الاستجابة"], nature: "دراسة إنسانية تطبيقية." },
+        { name: "العلاج التنفسي", trackWeights: { R: 3, S: 4, I: 2 }, why: "يلائم من يجمع بين الجانب التطبيقي والرغبة في مساعدة الناس.", challenge: "يتطلب دقة وسرعة استجابة وانضباطًا.", skills: ["الهدوء", "الملاحظة", "التطبيق", "المسؤولية"], nature: "دراسة صحية تطبيقية." },
+        { name: "الصحة البيئية", trackWeights: { I: 4, S: 2, C: 2 }, why: "تناسب من يهتم بالعوامل العلمية المؤثرة على المجتمع والبيئة.", challenge: "تحتاج إلى فهم علمي وتنظيم ومتابعة.", skills: ["التحليل", "التنظيم", "المتابعة", "الفهم العام"], nature: "دراسة علمية تنظيمية." }
+      ],
+
+      "ثالث ثانوي اقتصاد واجتماع": [
+        { name: "إدارة الأعمال", trackWeights: { E: 5, C: 3, S: 2 }, why: "تناسب من لديه ميل للقيادة والتخطيط واتخاذ القرار والعمل مع الناس.", challenge: "تحتاج إلى مبادرة حقيقية وانضباط في التنفيذ.", skills: ["القيادة", "التنظيم", "التواصل", "اتخاذ القرار"], nature: "دراسة إدارية عملية." },
+        { name: "المحاسبة", trackWeights: { C: 5, I: 3, E: 2 }, why: "تلائم من يحب الدقة والأرقام والنظام والوضوح.", challenge: "تتطلب تركيزًا على التفاصيل وثباتًا في المتابعة.", skills: ["الدقة", "الترتيب", "الأرقام", "الالتزام"], nature: "دراسة منظمة وبيانية." },
+        { name: "التمويل والمصارف", trackWeights: { C: 4, E: 3, I: 3 }, why: "تناسب من يجمع بين التنظيم والتحليل والرغبة في فهم القرارات المالية.", challenge: "تحتاج إلى انضباط وفهم رقمي جيد.", skills: ["التحليل", "التنظيم", "الأرقام", "الوضوح"], nature: "دراسة تحليلية تنظيمية." },
+        { name: "الاقتصاد", trackWeights: { I: 4, E: 3, C: 3 }, why: "يلائم من يحب فهم الأنظمة والتحليل واتخاذ الرأي المبني على منطق.", challenge: "يتطلب صبرًا على المفاهيم والتحليل المستمر.", skills: ["التحليل", "الفهم", "المنطق", "الربط"], nature: "دراسة تحليلية فكرية." },
+        { name: "التسويق", trackWeights: { E: 4, S: 3, A: 2 }, why: "يناسب من يجمع بين التأثير والتواصل وفهم الناس مع لمسة إبداعية.", challenge: "يتطلب مرونة ومتابعة وقدرة على الإقناع.", skills: ["التواصل", "الإقناع", "الابتكار", "المتابعة"], nature: "دراسة عملية تفاعلية." },
+        { name: "الإعلام", trackWeights: { A: 4, S: 3, E: 3 }, why: "يلائم من يحب التعبير والتواصل وصناعة الرسالة والتأثير.", challenge: "يحتاج إلى حضور واستمرارية وتنمية المهارة.", skills: ["التعبير", "التواصل", "الحضور", "الابتكار"], nature: "دراسة تفاعلية إبداعية." },
+        { name: "العلاقات العامة", trackWeights: { S: 4, E: 3, A: 2 }, why: "تناسب من يفهم الناس ويحب تمثيل الصورة والتواصل المؤثر.", challenge: "تتطلب توازنًا بين اللباقة والتنظيم.", skills: ["التواصل", "المرونة", "التمثيل", "تنظيم الرسائل"], nature: "دراسة إنسانية تنظيمية." },
+        { name: "علم النفس", trackWeights: { S: 5, I: 3, A: 1 }, why: "يناسب من يحب فهم الإنسان والسلوك والتفاعل الإنساني.", challenge: "يتطلب صبرًا ونضجًا وقدرة على الاستماع والتحليل.", skills: ["الاستماع", "الفهم", "التحليل", "الهدوء"], nature: "دراسة إنسانية تحليلية." },
+        { name: "العمل الاجتماعي", trackWeights: { S: 5, C: 2, E: 2 }, why: "يلائم من يهتم بالأثر الاجتماعي ومساعدة الآخرين بطريقة منظمة.", challenge: "يتطلب صبرًا وتحملًا وارتباطًا بالواقع.", skills: ["التفاعل", "المساندة", "التنظيم", "المتابعة"], nature: "دراسة إنسانية ميدانية." },
+        { name: "إدارة الموارد البشرية", trackWeights: { C: 4, E: 3, S: 3 }, why: "تناسب من يجمع بين التنظيم وفهم الناس والتعامل المؤسسي.", challenge: "تحتاج إلى توازن بين الحزم والمرونة.", skills: ["التواصل", "التنظيم", "المتابعة", "اتخاذ الموقف"], nature: "دراسة إدارية إنسانية." },
+        { name: "العلوم السياسية", trackWeights: { I: 4, E: 3, S: 3 }, why: "تلائم من يحب التحليل والقضايا العامة والتأثير وفهم الواقع.", challenge: "تحتاج إلى قراءة مستمرة وتكوين رأي واعٍ.", skills: ["التحليل", "الفهم", "التعبير", "المتابعة"], nature: "دراسة فكرية تحليلية." },
+        { name: "القانون", trackWeights: { I: 4, C: 3, E: 3 }, why: "يناسب من يجمع بين التحليل والدقة والقدرة على بناء موقف واضح.", challenge: "يتطلب صبرًا على القراءة والفهم والحجة.", skills: ["التحليل", "الترتيب", "الإقناع", "اللغة"], nature: "دراسة تحليلية تنظيمية." },
+        { name: "الإعلان الرقمي", trackWeights: { A: 3, E: 4, S: 2 }, why: "يلائم من يحب التأثير والرسائل الإبداعية وفهم الجمهور.", challenge: "يحتاج إلى مرونة ومتابعة وتطوير مستمر.", skills: ["الإبداع", "التواصل", "التحليل", "التجديد"], nature: "دراسة عملية حديثة." },
+        { name: "إدارة الضيافة", trackWeights: { S: 4, E: 3, C: 2 }, why: "تناسب من يحب التعامل مع الناس والتنظيم والخدمة الراقية.", challenge: "تحتاج إلى تحمل الضغط واللباقة والانضباط.", skills: ["اللباقة", "التواصل", "التنظيم", "الخدمة"], nature: "دراسة تطبيقية تفاعلية." },
+        { name: "التجارة الدولية", trackWeights: { E: 4, I: 2, C: 3 }, why: "تلائم من يحب الحركة الاقتصادية والتخطيط والتعامل مع الأسواق.", challenge: "تحتاج إلى فهم جيد للمتغيرات والتنظيم.", skills: ["التخطيط", "التحليل", "التواصل", "المتابعة"], nature: "دراسة عملية تحليلية." }
+      ]
+    };
+
     function getProfile(code) {
       return compositeProfiles[code] || fallbackProfile(code);
     }
@@ -1082,33 +1115,6 @@
       `).join("");
     }
 
-    function renderQuestions() {
-      const questionsContainer = document.getElementById("questionsContainer");
-      questionsContainer.innerHTML = questions.map((q, index) => {
-        const item = tracks[q.track];
-        return `
-          <div class="question-card">
-            <div class="question-head">
-              <div class="question-number">${index + 1}</div>
-              <h3>${q.text}</h3>
-              <span class="tag" style="--tag-color:${item.color}">${item.code} · ${item.title}</span>
-            </div>
-            <div class="options">
-              ${[1,2,3,4,5].map(value => `
-                <div class="option">
-                  <input type="radio" name="q${index}" id="q${index}_${value}" value="${value}">
-                  <label for="q${index}_${value}">
-                    <span>${value}</span>
-                    <small>${scoreLabels[value]}</small>
-                  </label>
-                </div>
-              `).join("")}
-            </div>
-          </div>
-        `;
-      }).join("");
-    }
-
     function initLogo() {
       const logoImg = document.getElementById("schoolLogo");
       const logoFallback = document.getElementById("logoFallback");
@@ -1118,9 +1124,81 @@
       };
     }
 
-    function calcDimensionProfile(answers) {
-      const dims = { people: 0, data: 0, ideas: 0, things: 0, action: 0, learning: 0, environment: 0 };
-      Object.keys(dims).forEach(k => dims[k] = { total: 0, count: 0 });
+    let currentQuestion = 0;
+    const answers = new Array(questions.length).fill(null);
+
+    function renderCurrentQuestion() {
+      const q = questions[currentQuestion];
+      const t = tracks[q.track];
+      const stage = document.getElementById("questionStage");
+      const selected = answers[currentQuestion];
+
+      stage.innerHTML = `
+        <div class="question-shell">
+          <div class="question-head">
+            <div class="question-number">${currentQuestion + 1}</div>
+            <h3>${q.text}</h3>
+            <span class="tag" style="--tag-color:${t.color}">${t.code} · ${t.title}</span>
+          </div>
+
+          <div class="options">
+            ${[1,2,3,4,5].map(value => `
+              <div class="option">
+                <input type="radio" name="currentQ" id="currentQ_${value}" value="${value}" ${selected === value ? "checked" : ""}>
+                <label for="currentQ_${value}">
+                  <span>${value}</span>
+                  <small>${scoreLabels[value]}</small>
+                </label>
+              </div>
+            `).join("")}
+          </div>
+        </div>
+      `;
+
+      document.querySelectorAll('input[name="currentQ"]').forEach(input => {
+        input.addEventListener("change", (e) => {
+          answers[currentQuestion] = Number(e.target.value);
+          updateProgress();
+        });
+      });
+
+      updateProgress();
+    }
+
+    function updateProgress() {
+      const answeredCount = answers.filter(v => v !== null).length;
+      document.getElementById("stepIndicator").textContent = `السؤال ${currentQuestion + 1} من ${questions.length}`;
+      document.getElementById("progressFill").style.width = `${(answeredCount / questions.length) * 100}%`;
+    }
+
+    function nextQuestion() {
+      if (answers[currentQuestion] === null) {
+        alert("يرجى اختيار إجابة أولًا.");
+        return;
+      }
+      if (currentQuestion < questions.length - 1) {
+        currentQuestion++;
+        renderCurrentQuestion();
+      }
+    }
+
+    function prevQuestion() {
+      if (currentQuestion > 0) {
+        currentQuestion--;
+        renderCurrentQuestion();
+      }
+    }
+
+    function calcDimensionProfile() {
+      const dims = {
+        people: { total: 0, count: 0 },
+        data: { total: 0, count: 0 },
+        ideas: { total: 0, count: 0 },
+        things: { total: 0, count: 0 },
+        action: { total: 0, count: 0 },
+        learning: { total: 0, count: 0 },
+        environment: { total: 0, count: 0 }
+      };
 
       questions.forEach((q, i) => {
         dims[q.dim].total += answers[i];
@@ -1146,102 +1224,108 @@
 
       let weighted = 0;
       let totalWeight = 0;
+
       Object.entries(entry.trackWeights).forEach(([code, w]) => {
         weighted += (lookup[code] || 0) * w;
         totalWeight += w;
       });
 
-      let dimBonus = 0;
-      if (entry.name.includes("الطب") || entry.name.includes("الصيدلة") || entry.name.includes("المختبرات") || entry.name.includes("التمريض") || entry.name.includes("العلاج") || entry.name.includes("التغذية")) {
-        dimBonus = (dimProfile.data * 4) + (dimProfile.people * 3) + (dimProfile.learning * 2);
-      } else if (entry.name.includes("الهندسة") || entry.name.includes("الحاسوب") || entry.name.includes("الذكاء الاصطناعي") || entry.name.includes("الرياضيات") || entry.name.includes("الفيزياء")) {
-        dimBonus = (dimProfile.data * 5) + (dimProfile.ideas * 3) + (dimProfile.things * 2);
-      } else if (entry.name.includes("إدارة") || entry.name.includes("التسويق") || entry.name.includes("المحاسبة") || entry.name.includes("التمويل") || entry.name.includes("القانون")) {
-        dimBonus = (dimProfile.data * 3) + (dimProfile.people * 3) + (dimProfile.environment * 2) + (dimProfile.action * 2);
-      } else if (entry.name.includes("الإعلام") || entry.name.includes("التصميم") || entry.name.includes("المعمارية")) {
-        dimBonus = (dimProfile.ideas * 5) + (dimProfile.people * 2) + (dimProfile.environment * 2);
+      const baseScore = totalWeight ? (weighted / totalWeight) : 0;
+
+      let dimRaw = 0;
+      let dimMax = 0;
+
+      const addDim = (value, weight) => {
+        dimRaw += value * weight;
+        dimMax += 5 * weight;
+      };
+
+      if (
+        entry.name.includes("الطب") ||
+        entry.name.includes("الصيدلة") ||
+        entry.name.includes("المختبرات") ||
+        entry.name.includes("التمريض") ||
+        entry.name.includes("العلاج") ||
+        entry.name.includes("التغذية") ||
+        entry.name.includes("الصحة") ||
+        entry.name.includes("البيولوجيا")
+      ) {
+        addDim(dimProfile.data, 4);
+        addDim(dimProfile.people, 3);
+        addDim(dimProfile.learning, 2);
+      } else if (
+        entry.name.includes("الهندسة") ||
+        entry.name.includes("الحاسوب") ||
+        entry.name.includes("الذكاء الاصطناعي") ||
+        entry.name.includes("الرياضيات") ||
+        entry.name.includes("الفيزياء")
+      ) {
+        addDim(dimProfile.data, 5);
+        addDim(dimProfile.ideas, 3);
+        addDim(dimProfile.things, 2);
+      } else if (
+        entry.name.includes("إدارة") ||
+        entry.name.includes("المحاسبة") ||
+        entry.name.includes("التمويل") ||
+        entry.name.includes("المصارف") ||
+        entry.name.includes("الاقتصاد") ||
+        entry.name.includes("التسويق") ||
+        entry.name.includes("القانون")
+      ) {
+        addDim(dimProfile.data, 3);
+        addDim(dimProfile.people, 3);
+        addDim(dimProfile.environment, 2);
+        addDim(dimProfile.action, 2);
+      } else if (
+        entry.name.includes("الإعلام") ||
+        entry.name.includes("التصميم") ||
+        entry.name.includes("المعمارية")
+      ) {
+        addDim(dimProfile.ideas, 5);
+        addDim(dimProfile.people, 2);
+        addDim(dimProfile.environment, 2);
       } else {
-        dimBonus = (dimProfile.ideas * 3) + (dimProfile.people * 3) + (dimProfile.data * 2);
+        addDim(dimProfile.ideas, 3);
+        addDim(dimProfile.people, 3);
+        addDim(dimProfile.data, 2);
       }
 
-      const baseScore = totalWeight ? (weighted / totalWeight) : 0;
-      const dimScore = dimBonus * 5;
-      return Math.round((baseScore * 0.7) + (dimScore * 0.3));
+      const dimScore = dimMax ? (dimRaw / dimMax) * 100 : 0;
+      let finalScore = Math.round((baseScore * 0.7) + (dimScore * 0.3));
+
+      if (finalScore > 100) finalScore = 100;
+      if (finalScore < 0) finalScore = 0;
+
+      return finalScore;
     }
 
     function getEnvironmentSummary(dimProfile) {
       const parts = [];
       if (dimProfile.people >= 3.6) parts.push("التفاعل مع الناس");
-      if (dimProfile.data >= 3.6) parts.push("التعامل مع المعلومات والتحليل");
-      if (dimProfile.ideas >= 3.6) parts.push("التفكير والأفكار الجديدة");
-      if (dimProfile.things >= 3.6) parts.push("التطبيق والأدوات والجانب العملي");
-      if (!parts.length) parts.push("بيئة متوازنة وواضحة");
-      return `تميل غالبًا إلى بيئة تتضمن ${parts.join("، ")}.`;
+      if (dimProfile.data >= 3.6) parts.push("التحليل والمعلومات");
+      if (dimProfile.ideas >= 3.6) parts.push("الأفكار والابتكار");
+      if (dimProfile.things >= 3.6) parts.push("التطبيق والأدوات");
+      return parts.length ? `تميل غالبًا إلى بيئة تتضمن ${parts.join("، ")}.` : "تميل إلى بيئة متوازنة وواضحة.";
     }
 
     function getLearningSummary(dimProfile) {
       const styles = [];
-      if (dimProfile.learning >= 3.7) styles.push("التعلّم بالممارسة والتدرج");
-      if (dimProfile.data >= 3.7) styles.push("الفهم المنطقي والتحليلي");
+      if (dimProfile.learning >= 3.7) styles.push("التعلّم بالممارسة");
+      if (dimProfile.data >= 3.7) styles.push("الفهم التحليلي");
       if (dimProfile.people >= 3.7) styles.push("الحوار والتفاعل");
       if (dimProfile.ideas >= 3.7) styles.push("الاستكشاف وصناعة الأفكار");
-      return styles.length ? styles.join(" + ") : "التعلّم المنظم مع أمثلة تطبيقية";
+      return styles.length ? styles.join(" + ") : "التعلّم المنظم مع أمثلة واضحة";
     }
 
     function getNextStep(bestMajors, gradeLevel) {
       const names = bestMajors.map(x => x.name);
-      const text = names.join("، ");
-
-      const isHealth = names.some(n => ["الطب","الصيدلة","التمريض","العلاج","المختبرات","التغذية","الصحة","البيولوجيا","الطب البيطري"].some(k => n.includes(k)));
-      const isEngineering = names.some(n => ["الهندسة","الحاسوب","الذكاء الاصطناعي","الرياضيات","الفيزياء"].some(k => n.includes(k)));
-      const isBusiness = names.some(n => ["إدارة","المحاسبة","التمويل","المصارف","الاقتصاد","التسويق","القانون"].some(k => n.includes(k)));
-      const isCreative = names.some(n => ["الإعلام","التصميم","المعمارية"].some(k => n.includes(k)));
-      const isHuman = names.some(n => ["علم النفس","العمل الاجتماعي","العلاقات العامة","الموارد البشرية","التعليم"].some(k => n.includes(k)));
-
-      let tips = [];
-
-      if (isHealth) {
-        tips = [
-          "ركّز على الأحياء والكيمياء والمواد العلمية المرتبطة بالمجال الصحي.",
-          "اقرأ متطلبات الكليات الصحية والمواد الأساسية فيها.",
-          "حاول المشاركة في نشاط علمي أو صحي أو مخبري إن أمكن."
-        ];
-      } else if (isEngineering) {
-        tips = [
-          "قوِّ مهاراتك في الرياضيات والمنطق وحل المشكلات.",
-          "جرّب مشروعًا صغيرًا أو نشاطًا تقنيًا أو برمجيًا أو تصميميًا بحسب المجال.",
-          "اطلع على طبيعة الدراسة التطبيقية في التخصصات الهندسية والتقنية."
-        ];
-      } else if (isBusiness) {
-        tips = [
-          "طوّر مهارات التنظيم والتواصل واتخاذ القرار.",
-          "اقرأ عن الفروقات بين الإدارة، المحاسبة، الاقتصاد، والتسويق.",
-          "جرّب نشاطًا طلابيًا فيه تنظيم أو قيادة أو تخطيط."
-        ];
-      } else if (isCreative) {
-        tips = [
-          "ابدأ ببناء ملف أعمال بسيط يضم أفكارك أو نماذج من أعمالك.",
-          "طوّر ذوقك ومهارات العرض والتعبير البصري أو الإعلامي.",
-          "اطلع على طبيعة الدراسة العملية في التخصصات الإبداعية."
-        ];
-      } else if (isHuman) {
-        tips = [
-          "طوّر مهارات الاستماع والتواصل والعمل الجماعي.",
-          "اقرأ عن طبيعة المجالات الإنسانية والاجتماعية ومتطلبات كل منها.",
-          "اختر نشاطًا يتيح لك التفاعل مع الناس بشكل منظم."
-        ];
-      } else {
-        tips = [
-          "اقرأ عن أعلى اختصاصين أو ثلاثة في نتيجتك.",
-          "قارن بين المواد المطلوبة وطبيعة الدراسة في كل اختصاص.",
-          "ناقش النتيجة مع مرشدك ضمن فرعك الدراسي."
-        ];
-      }
-
-      tips.push(`ركّز مبدئيًا على هذه الاختصاصات: ${text}.`);
-      tips.push(`ناقش هذه النتائج مع المرشد الأكاديمي ضمن فرع ${gradeLevel}.`);
-
-      return tips;
+      return [
+        `ابدأ بالتركيز على هذه الاختصاصات: ${names.slice(0, 3).join("، ")}.`,
+        "اقرأ وصف كل اختصاص وحدّد أيها تشعر أنه الأقرب لك فعليًا.",
+        "قارن بين نقاط القوة لديك وبين ما يحتاجه كل اختصاص.",
+        "اختر اختصاصين كأولوية أولى، ثم اختصاصًا ثالثًا كخيار بديل قوي.",
+        `ناقش هذه النتائج مع المرشد الأكاديمي ضمن فرع ${gradeLevel}.`
+      ];
     }
 
     function calculateResults() {
@@ -1255,6 +1339,11 @@
         return;
       }
 
+      if (answers.some(v => v === null)) {
+        alert("يرجى الإجابة عن جميع الأسئلة قبل إظهار التحليل.");
+        return;
+      }
+
       const scores = {
         realistic: 0,
         investigative: 0,
@@ -1264,29 +1353,20 @@
         conventional: 0
       };
 
-      const answers = [];
-
-      for (let i = 0; i < questions.length; i++) {
-        const selected = document.querySelector(`input[name="q${i}"]:checked`);
-        if (!selected) {
-          alert(`يرجى الإجابة عن السؤال رقم ${i + 1}.`);
-          return;
-        }
-        const val = Number(selected.value);
-        answers.push(val);
-        scores[questions[i].track] += val;
-      }
+      questions.forEach((q, i) => {
+        scores[q.track] += answers[i];
+      });
 
       const ordered = Object.entries(scores)
         .map(([key, value]) => ({ key, value, ...tracks[key] }))
         .sort((a, b) => b.value - a.value);
 
-      const top3 = ordered.slice(0, 3);
       const orderedCodes = ordered.map(x => x.code);
+      const top3 = ordered.slice(0, 3);
       const top3Code = top3.map(x => x.code).join("");
       const maxScorePerTrack = 12 * 5;
 
-      const dimProfile = calcDimensionProfile(answers);
+      const dimProfile = calcDimensionProfile();
       const profile = getProfile(top3Code);
 
       const matched = majorDatabase[gradeLevel]
@@ -1296,12 +1376,12 @@
         }))
         .sort((a, b) => b.score - a.score);
 
-      const bestMajors = matched.slice(0, 5);
-      const possibleMajors = matched.slice(5, 10);
+      const bestMajors = matched.slice(0, 7);
+      const possibleMajors = matched.slice(7, 14);
 
       const learningStyle = getLearningSummary(dimProfile);
       const environmentSummary = getEnvironmentSummary(dimProfile);
-      const nextSteps = getNextStep(bestMajors.slice(0,3), gradeLevel);
+      const nextSteps = getNextStep(bestMajors.slice(0, 3), gradeLevel);
 
       const resultContent = document.getElementById("resultContent");
       const resultsSection = document.getElementById("resultsSection");
@@ -1317,12 +1397,10 @@
             <p style="margin-top:12px;">أعلى الأنماط لديك هي: <strong>${top3[0].title}</strong> ثم <strong>${top3[1].title}</strong> ثم <strong>${top3[2].title}</strong>.</p>
           </div>
 
-          <div class="result-card" style="margin-bottom:16px;">
+          <div class="card" style="margin-bottom:16px;">
             <h3>قراءة تحليلية مختصرة</h3>
             <p>
-              تعتمد هذه النتيجة على تحليل 72 عبارة موزعة على ستة أنماط مهنية،
-              ثم قراءة أعلى ثلاثة أنماط لديك مع مطابقة إضافية لأسلوب التعلّم وبيئة العمل المناسبة،
-              وبعد ذلك ربط النتائج بقاعدة اختصاصات خاصة بالفرع الدراسي المختار.
+              تعتمد هذه النتيجة على تحليل 72 عبارة موزعة على ستة أنماط مهنية، ثم قراءة أعلى ثلاثة أنماط لديك مع مطابقة إضافية لأسلوب التعلّم وبيئة العمل المناسبة، وبعد ذلك ربط النتائج بقاعدة اختصاصات خاصة بالفرع المختار، مع تفسير مباشر لكل اختصاص.
             </p>
           </div>
 
@@ -1335,7 +1413,7 @@
             `).join("")}
           </div>
 
-          <div class="result-card" style="margin-bottom:16px;">
+          <div class="card" style="margin-bottom:16px;">
             <h3>درجات الأنماط الستة</h3>
             <div class="bar-list">
               ${ordered.map(item => `
@@ -1352,35 +1430,37 @@
             </div>
           </div>
 
+          <div class="summary-grid" style="margin-bottom:16px;">
+            <div class="result-card">
+              <h3>أسلوب التعلّم الأنسب</h3>
+              <p>${learningStyle}</p>
+            </div>
+            <div class="result-card">
+              <h3>بيئة الدراسة / العمل</h3>
+              <p>${profile.environment}</p>
+              <p style="margin-top:8px;">${environmentSummary}</p>
+            </div>
+            <div class="result-card">
+              <h3>المؤشر العام</h3>
+              <p>هذه النتيجة مبنية على الميول الأساسية + الأبعاد المساندة + طبيعة الاختصاص نفسه.</p>
+            </div>
+          </div>
+
           <div class="analysis-grid" style="margin-bottom:16px;">
             <div class="analysis-card">
               <h3>وصف الشخصية المهنية</h3>
               <p>${profile.desc}</p>
             </div>
-
-            <div class="analysis-card">
-              <h3>أسلوب التعلّم الأنسب</h3>
-              <p>${learningStyle}</p>
-            </div>
-
             <div class="analysis-card">
               <h3>نقاط القوة المتوقعة</h3>
               <ul>${profile.strengths.map(x => `<li>${x}</li>`).join("")}</ul>
             </div>
-
             <div class="analysis-card">
               <h3>جوانب تحتاج تطوير</h3>
               <ul>${profile.growth.map(x => `<li>${x}</li>`).join("")}</ul>
             </div>
-
             <div class="analysis-card">
-              <h3>بيئة الدراسة / العمل المناسبة</h3>
-              <p>${profile.environment}</p>
-              <p style="margin-top:8px;">${environmentSummary}</p>
-            </div>
-
-            <div class="analysis-card">
-              <h3>مؤشرات إضافية</h3>
+              <h3>أبعادك المساندة</h3>
               <ul>
                 <li>التعامل مع الناس: ${dimProfile.people}/5</li>
                 <li>التحليل والبيانات: ${dimProfile.data}/5</li>
@@ -1418,23 +1498,35 @@
             </div>
           </div>
 
-          <div class="result-grid" style="margin-bottom:16px;">
+          <div class="detail-grid" style="margin-bottom:16px;">
+            <div class="major-detail-card">
+              <h3>تفصيل أفضل الاختصاصات</h3>
+              <p>هنا يظهر السبب وراء ترشيح كل اختصاص وما الذي يحتاجه منك.</p>
+              <div style="display:grid; gap:14px; margin-top:14px;">
+                ${bestMajors.map(item => `
+                  <div style="border:1px solid var(--border); border-radius:18px; padding:16px; background:#fff;">
+                    <div class="detail-badge">${item.score}% توافق</div>
+                    <h3 style="margin-top:0;">${item.name}</h3>
+                    <p><strong>لماذا يناسبك؟</strong> ${item.why}</p>
+                    <p style="margin-top:8px;"><strong>ما الذي قد يشكّل تحديًا؟</strong> ${item.challenge}</p>
+                    <p style="margin-top:8px;"><strong>طبيعة الدراسة / المجال:</strong> ${item.nature}</p>
+                    <div style="margin-top:8px;">
+                      <strong style="color:var(--primary-dark);">المهارات التي تفيدك فيه:</strong>
+                      <ul>${item.skills.map(s => `<li>${s}</li>`).join("")}</ul>
+                    </div>
+                  </div>
+                `).join("")}
+              </div>
+            </div>
+          </div>
+
+          <div class="analysis-grid" style="margin-bottom:16px;">
             <div class="result-card">
               <h3>لماذا هذه النتائج؟</h3>
               <p>
-                لأن النمط الأعلى لديك لا يعمل وحده، بل يتفاعل مع النمطين التاليين،
-                ومع طريقة تعلّمك وتفضيلاتك في الناس أو البيانات أو التطبيق أو الأفكار.
+                لأن النمط الأعلى لديك لا يعمل وحده، بل يتفاعل مع النمطين التاليين، ومع طريقة تعلّمك وتفضيلاتك في الناس أو البيانات أو التطبيق أو الأفكار. لذلك قد يتقدّم اختصاص على آخر حتى لو اشتركا في نفس المجال العام.
               </p>
             </div>
-
-            <div class="result-card">
-              <h3>كيف تُقرأ هذه النتيجة؟</h3>
-              <p>
-                هذه النتيجة لا تفرض اختصاصًا واحدًا، لكنها ترتّب الاحتمالات الأقرب لشخصيتك الحالية
-                وتساعدك على اتخاذ قرار أكثر وعيًا.
-              </p>
-            </div>
-
             <div class="result-card">
               <h3>الخطوة التالية</h3>
               <ul>${nextSteps.map(x => `<li>${x}</li>`).join("")}</ul>
@@ -1442,8 +1534,7 @@
           </div>
 
           <div class="footer-note">
-            هذه النسخة تقدم تحليلًا إرشاديًا أعمق من النسخ المدرسية البسيطة، لكنها تبقى أداة دعم لاتخاذ القرار،
-            والأفضل أن تُستكمل بمقابلة إرشادية ومراجعة الأداء الأكاديمي واهتمامات الطالب الواقعية.
+            هذه النسخة تقدم تحليلًا أعمق للاختصاصات نفسها، بدون أي توجيه إلى جامعات محددة. الهدف هو مساعدة الطالب على فهم المسار الأقرب لشخصيته وقدراته وميوله الحالية.
           </div>
         </div>
       `;
@@ -1457,9 +1548,11 @@
       document.getElementById("gradeLevel").value = "";
       document.getElementById("sectionName").value = "";
       document.getElementById("advisorName").value = "";
-      document.querySelectorAll('input[type="radio"]').forEach(input => input.checked = false);
+      for (let i = 0; i < answers.length; i++) answers[i] = null;
+      currentQuestion = 0;
       document.getElementById("resultsSection").classList.add("hidden");
       document.getElementById("resultContent").innerHTML = "";
+      renderCurrentQuestion();
       window.scrollTo({ top: 0, behavior: "smooth" });
     }
 
@@ -1480,8 +1573,8 @@
     }
 
     renderTrackCards();
-    renderQuestions();
     initLogo();
+    renderCurrentQuestion();
   </script>
 </body>
 </html>

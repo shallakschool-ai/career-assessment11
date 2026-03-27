@@ -1,1769 +1,1208 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>اختبار الميول المهنية | ثانوية الجنان</title>
-  <style>
-    :root {
-      --bg: #f3f6f4;
-      --panel: rgba(255,255,255,.82);
-      --text: #10271d;
-      --muted: #64756b;
-      --line: rgba(16,39,29,.08);
-      --green-950: #0a2419;
-      --green-900: #0e3829;
-      --green-800: #14543d;
-      --green-700: #1a6f4f;
-      --green-600: #22885f;
-      --green-500: #2ea06f;
-      --shadow-xl: 0 30px 80px rgba(11, 35, 24, .12);
-      --shadow-lg: 0 18px 40px rgba(11, 35, 24, .08);
-      --shadow-md: 0 10px 24px rgba(11, 35, 24, .06);
-      --radius-2xl: 32px;
-      --radius-xl: 24px;
-      --radius-lg: 18px;
-      --transition: 260ms cubic-bezier(.22,1,.36,1);
-    }
-
-    * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
-    body {
-      margin: 0;
-      font-family: Inter, "Segoe UI", Tahoma, Arial, sans-serif;
-      background:
-        radial-gradient(circle at 10% 10%, rgba(46,160,111,.10), transparent 22%),
-        radial-gradient(circle at 90% 0%, rgba(202,162,92,.10), transparent 20%),
-        radial-gradient(circle at 80% 90%, rgba(20,84,61,.07), transparent 18%),
-        linear-gradient(180deg, #f8fbf9 0%, #eef5f0 100%);
-      color: var(--text);
-      min-height: 100vh;
-      -webkit-font-smoothing: antialiased;
-      text-rendering: optimizeLegibility;
-    }
-
-    .page {
-      width: min(1240px, calc(100% - 28px));
-      margin: 20px auto 56px;
-    }
-
-    .card {
-      background: var(--panel);
-      backdrop-filter: blur(18px);
-      -webkit-backdrop-filter: blur(18px);
-      border: 1px solid rgba(255,255,255,.55);
-      border-radius: var(--radius-2xl);
-      box-shadow: var(--shadow-xl);
-    }
-
-    .hero {
-      overflow: hidden;
-      position: relative;
-      background: linear-gradient(135deg, rgba(255,255,255,.96), rgba(244,250,246,.95) 52%, rgba(232,245,238,.96));
-      color: var(--text);
-      padding: 38px;
-      isolation: isolate;
-      border: 1px solid rgba(20,84,61,.06);
-      box-shadow: 0 22px 60px rgba(11, 35, 24, .07);
-    }
-
-    .hero::before,
-    .hero::after {
-      content: "";
-      position: absolute;
-      border-radius: 999px;
-      z-index: -1;
-      opacity: .55;
-    }
-    .hero::before {
-      width: 320px;
-      height: 320px;
-      top: -120px;
-      inset-inline-start: -50px;
-      background: radial-gradient(circle, rgba(46,160,111,.12), rgba(46,160,111,0));
-    }
-    .hero::after {
-      width: 280px;
-      height: 280px;
-      bottom: -120px;
-      inset-inline-end: -50px;
-      background: radial-gradient(circle, rgba(202,162,92,.14), rgba(202,162,92,0));
-    }
-
-    .hero-grid {
-      display: grid;
-      grid-template-columns: 1.4fr .8fr;
-      gap: 32px;
-      align-items: center;
-    }
-
-    .eyebrow {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      padding: 9px 15px;
-      background: rgba(255,255,255,.86);
-      border: 1px solid rgba(20,84,61,.10);
-      border-radius: 999px;
-      font-size: 13px;
-      letter-spacing: .2px;
-      margin-bottom: 18px;
-      color: var(--green-800);
-      box-shadow: 0 10px 22px rgba(11,35,24,.05);
-    }
-
-    h1, h2, h3, h4, p { margin: 0; }
-    .hero h1 {
-      font-size: clamp(32px, 5vw, 50px);
-      line-height: 1.10;
-      margin-bottom: 14px;
-      letter-spacing: -.03em;
-      max-width: 12ch;
-      color: var(--green-950);
-      text-wrap: balance;
-    }
-    .hero p {
-      color: #4e6559;
-      line-height: 1.95;
-      font-size: 15px;
-      max-width: 760px;
-    }
-
-    .hero-badges {
-      display: flex;
-      gap: 10px;
-      flex-wrap: wrap;
-      margin-top: 22px;
-    }
-
-    .pill {
-      border: 1px solid rgba(20,84,61,.10);
-      background: rgba(255,255,255,.88);
-      color: var(--green-800);
-      padding: 9px 13px;
-      border-radius: 999px;
-      font-size: 12px;
-      letter-spacing: .2px;
-      box-shadow: 0 8px 18px rgba(11,35,24,.04);
-    }
-
-    .stats {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 14px;
-    }
-
-    .stat-box {
-      background: linear-gradient(180deg, rgba(255,255,255,.92), rgba(249,252,250,.92));
-      border: 1px solid rgba(20,84,61,.08);
-      border-radius: 24px;
-      padding: 18px;
-      min-height: 112px;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      box-shadow: 0 16px 26px rgba(11,35,24,.05);
-    }
-
-    .stat-box strong {
-      font-size: 30px;
-      line-height: 1;
-      display: block;
-      margin-bottom: 8px;
-      letter-spacing: -.02em;
-      color: var(--green-900);
-    }
-    .stat-box span {
-      color: #5a6f63;
-      font-size: 13px;
-      line-height: 1.7;
-    }
-
-    .grid-2 {
-      display: grid;
-      grid-template-columns: 1.12fr .88fr;
-      gap: 22px;
-      margin-top: 22px;
-    }
-
-    .panel { padding: 28px; }
-    .section-title {
-      font-size: 28px;
-      letter-spacing: -.02em;
-      margin-bottom: 8px;
-    }
-    .section-desc { color: var(--muted); line-height: 1.9; margin-bottom: 18px; font-size: 15px; }
-
-    .fields {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 14px;
-      margin-top: 14px;
-    }
-
-    .field, .field-full { display: flex; flex-direction: column; gap: 8px; }
-    .field-full { grid-column: 1 / -1; }
-    label { font-size: 14px; font-weight: 700; color: #294637; }
-
-    input, select {
-      width: 100%;
-      border: 1px solid var(--line);
-      border-radius: 18px;
-      padding: 15px 16px;
-      background: rgba(255,255,255,.95);
-      color: var(--text);
-      font-size: 15px;
-      outline: none;
-      transition: var(--transition);
-      box-shadow: inset 0 1px 0 rgba(255,255,255,.8);
-    }
-
-    input:focus, select:focus {
-      border-color: rgba(35,136,95,.45);
-      box-shadow: 0 0 0 4px rgba(47,160,111,.10), 0 10px 24px rgba(35,136,95,.06);
-      transform: translateY(-1px);
-    }
-
-    .note {
-      background: linear-gradient(180deg, #f9fcfa, #eff8f2);
-      border: 1px solid #deeee5;
-      border-radius: 22px;
-      padding: 18px;
-      line-height: 1.9;
-      color: #335a46;
-      font-size: 14px;
-      margin-top: 16px;
-    }
-
-    .note h4 { margin-bottom: 10px; font-size: 15px; color: var(--green-800); }
-    .note ul { margin: 0; padding-right: 18px; }
-    .note li { margin-bottom: 4px; }
-
-    .consent {
-      display: flex;
-      align-items: flex-start;
-      gap: 12px;
-      padding: 16px;
-      border-radius: 20px;
-      border: 1px solid var(--line);
-      margin-top: 16px;
-      background: rgba(255,255,255,.75);
-      line-height: 1.9;
-      font-size: 14px;
-      color: #466150;
-    }
-
-    .consent input { width: 18px; height: 18px; margin-top: 5px; }
-
-    .btn {
-      appearance: none;
-      border: none;
-      border-radius: 18px;
-      padding: 14px 18px;
-      font-size: 14px;
-      font-weight: 800;
-      cursor: pointer;
-      transition: transform .18s ease, opacity .18s ease, background .18s ease, box-shadow .18s ease, border-color .18s ease;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-      text-decoration: none;
-      letter-spacing: .2px;
-    }
-
-    .btn:hover { transform: translateY(-1px); }
-    .btn:active { transform: translateY(0); }
-    .btn:disabled { cursor: not-allowed; opacity: .55; transform: none; }
-    .btn-primary {
-      width: 100%;
-      background: linear-gradient(135deg, var(--green-900), var(--green-700));
-      color: #fff;
-      box-shadow: 0 16px 28px rgba(23,114,78,.20);
-      margin-top: 16px;
-    }
-    .btn-secondary {
-      background: linear-gradient(180deg, #f8faf8, #edf4ef);
-      color: var(--green-900);
-      border: 1px solid #dbe9e0;
-    }
-    .btn-outline {
-      background: rgba(255,255,255,.96);
-      color: var(--green-900);
-      border: 1px solid var(--line);
-    }
-
-    .feature-list { display: grid; gap: 14px; }
-    .feature-item {
-      display: grid;
-      grid-template-columns: 50px 1fr;
-      gap: 14px;
-      align-items: start;
-      padding: 16px;
-      border-radius: 20px;
-      border: 1px solid rgba(20,60,40,.08);
-      background: linear-gradient(180deg, rgba(255,255,255,.95), rgba(248,251,249,.94));
-      box-shadow: var(--shadow-md);
-    }
-    .feature-icon {
-      width: 50px; height: 50px; border-radius: 16px;
-      display: grid; place-items: center;
-      background: linear-gradient(180deg, #eff8f2, #e6f4eb);
-      color: var(--green-800); font-size: 20px;
-      box-shadow: inset 0 1px 0 rgba(255,255,255,.9);
-    }
-    .feature-item h4 { margin-bottom: 6px; font-size: 16px; }
-    .feature-item p { color: var(--muted); line-height: 1.8; font-size: 14px; }
-
-    .hidden { display: none !important; }
-
-    .assessment-layout {
-      display: grid;
-      grid-template-columns: minmax(0, 1fr) 330px;
-      gap: 22px;
-      margin-top: 22px;
-      align-items: start;
-    }
-
-    .question-card { padding: 28px; }
-
-    .mini-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      border-radius: 999px;
-      padding: 8px 12px;
-      font-size: 12px;
-      font-weight: 700;
-      background: #edf7f1;
-      color: var(--green-800);
-      margin-bottom: 16px;
-      border: 1px solid #d6ebde;
-      letter-spacing: .2px;
-    }
-
-    .question-id {
-      background: #f5f7f6;
-      padding: 8px 11px;
-      border-radius: 999px;
-      font-size: 12px;
-      color: var(--muted);
-      border: 1px solid #e7efea;
-      font-weight: 700;
-    }
-
-    .question-top {
-      display: flex; justify-content: space-between; gap: 10px; align-items: center; margin-bottom: 14px;
-    }
-
-    .question-text {
-      font-size: clamp(24px, 3.2vw, 34px);
-      line-height: 1.55;
-      margin-bottom: 24px;
-      min-height: 124px;
-      letter-spacing: -.02em;
-    }
-
-    .option-list { display: grid; gap: 12px; }
-
-    .option-btn {
-      width: 100%;
-      text-align: right;
-      padding: 15px 16px;
-      border-radius: 20px;
-      border: 1px solid var(--line);
-      background: linear-gradient(180deg, #fff, #fcfdfc);
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 12px;
-      cursor: pointer;
-      transition: var(--transition);
-      font-size: 15px;
-      box-shadow: 0 6px 16px rgba(16,39,29,.03);
-    }
-
-    .option-btn:hover { background: #fafdfb; transform: translateY(-1px); box-shadow: 0 12px 22px rgba(16,39,29,.06); }
-    .option-btn.active {
-      border-color: rgba(35,136,95,.42);
-      background: linear-gradient(180deg, #f7fdf9, #edf8f1);
-      box-shadow: 0 14px 24px rgba(35,136,95,.08);
-    }
-
-    .option-score {
-      min-width: 36px; height: 36px; border-radius: 50%; display: grid; place-items: center;
-      background: #eef2ef; color: var(--muted); font-weight: 800;
-      transition: var(--transition);
-      box-shadow: inset 0 1px 0 rgba(255,255,255,.8);
-    }
-    .option-btn.active .option-score { background: linear-gradient(180deg, var(--green-700), var(--green-600)); color: #fff; }
-
-    .question-footer {
-      margin-top: 24px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 12px;
-      flex-wrap: wrap;
-    }
-
-    .question-footer small { color: var(--muted); line-height: 1.8; }
-
-    .progress-card {
-      padding: 22px;
-      position: sticky;
-      top: 18px;
-      box-shadow: var(--shadow-lg);
-    }
-    .progress-header { margin-bottom: 14px; }
-    .progress-header h3 { font-size: 24px; margin-bottom: 6px; letter-spacing: -.02em; }
-    .progress-header p { color: var(--muted); line-height: 1.8; font-size: 14px; }
-
-    .progress-track {
-      width: 100%; height: 12px; background: #e9f1ec; border-radius: 999px; overflow: hidden; margin: 12px 0 10px;
-      box-shadow: inset 0 1px 1px rgba(16,39,29,.04);
-    }
-    .progress-fill {
-      height: 100%; width: 0%;
-      background: linear-gradient(90deg, var(--green-800), var(--green-500));
-      border-radius: inherit;
-      transition: width 320ms ease;
-      box-shadow: 0 4px 10px rgba(35,136,95,.18);
-    }
-    .progress-value {
-      font-size: 32px; font-weight: 900; color: var(--green-800); text-align: center; margin-bottom: 12px; letter-spacing: -.03em;
-    }
-
-    .toggle-row {
-      display: flex; align-items: center; gap: 10px; padding: 12px; border-radius: 16px; border: 1px solid var(--line); margin-bottom: 14px; font-size: 14px;
-      background: linear-gradient(180deg, #fff, #fafcfb);
-    }
-
-    .nav-grid {
-      display: grid; grid-template-columns: repeat(5, 1fr); gap: 8px;
-      max-height: 380px; overflow: auto; padding-left: 4px;
-    }
-
-    .nav-btn {
-      border: 1px solid var(--line);
-      background: linear-gradient(180deg, #fff, #fbfcfb); color: var(--muted); border-radius: 14px; height: 42px; font-weight: 800; cursor: pointer; transition: var(--transition);
-    }
-    .nav-btn:hover { background: #f8fbf9; }
-    .nav-btn.answered { background: #edf7f1; color: var(--green-800); border-color: #d4eadc; }
-    .nav-btn.current { background: linear-gradient(180deg, var(--green-700), var(--green-600)); color: #fff; border-color: var(--green-700); box-shadow: 0 8px 16px rgba(23,114,78,.18); }
-
-    .result-grid {
-      display: grid; grid-template-columns: 1.02fr .98fr; gap: 22px; margin-top: 22px;
-    }
-    .stack { display: grid; gap: 22px; }
-    .result-card { padding: 28px; }
-
-    .profile-codes { display: flex; flex-wrap: wrap; gap: 12px; margin: 18px 0 18px; }
-    .profile-chip {
-      display: inline-flex; align-items: center; gap: 10px; padding: 12px 14px; background: linear-gradient(180deg, #f8fcf9, #f1f8f4); border: 1px solid #dceee4; border-radius: 20px;
-      box-shadow: var(--shadow-md);
-    }
-    .profile-chip strong { display: block; font-size: 18px; }
-    .profile-chip span { color: var(--muted); font-size: 13px; }
-
-    .sub-grid { display: grid; gap: 14px; grid-template-columns: repeat(2, 1fr); }
-
-    .sub-box {
-      border: 1px solid #e4eee8; border-radius: 20px; padding: 16px; background: linear-gradient(180deg, #fff, #fbfdfc);
-      box-shadow: var(--shadow-md);
-    }
-    .sub-box h4 { margin-bottom: 8px; font-size: 18px; }
-    .sub-box p { color: var(--muted); line-height: 1.8; font-size: 14px; margin-bottom: 12px; }
-
-    .label-badge {
-      display: inline-flex; align-items: center; justify-content: center; border-radius: 999px; padding: 8px 12px; font-size: 12px; font-weight: 800;
-      border: 1px solid transparent; letter-spacing: .2px;
-    }
-    .lvl-excellent2 { background: #eaf8ef; color: #157347; border-color: #cdebd8; }
-    .lvl-excellent { background: #eef9ef; color: #23804e; border-color: #d5eddc; }
-    .lvl-verygood { background: #eef5fd; color: #295f9f; border-color: #d7e6f8; }
-    .lvl-good { background: #fff5e9; color: #a56810; border-color: #f4e1bd; }
-    .lvl-acceptable { background: #f3f4f6; color: #55606b; border-color: #e3e6eb; }
-
-    .major-item {
-      border: 1px solid #dfeae4;
-      border-radius: 26px;
-      padding: 20px;
-      background: linear-gradient(180deg, #ffffff, #fbfdfc);
-      transition: var(--transition);
-      position: relative;
-      overflow: hidden;
-      box-shadow: var(--shadow-md);
-    }
-    .major-item::before {
-      content: "";
-      position: absolute;
-      inset-inline-start: 0;
-      top: 0;
-      width: 6px;
-      height: 100%;
-      background: linear-gradient(180deg, var(--green-700), var(--green-500));
-      opacity: .95;
-    }
-    .major-item:hover { transform: translateY(-2px); box-shadow: 0 22px 34px rgba(15,61,46,.08); }
-
-    .branch-banner {
-      margin-top: 14px;
-      border-radius: 18px;
-      padding: 14px 16px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 12px;
-      flex-wrap: wrap;
-      border: 1px solid #dce9e2;
-      background: linear-gradient(180deg, #f8fbf9, #f2f8f4);
-    }
-
-    .branch-banner.good {
-      background: linear-gradient(180deg, #eef9f1, #e5f5ea);
-      border-color: #cfe9d6;
-    }
-
-    .branch-banner.warn {
-      background: linear-gradient(180deg, #fff8ef, #fff2df);
-      border-color: #f0ddbb;
-    }
-
-    .branch-banner strong {
-      display: block;
-      margin-bottom: 4px;
-      color: var(--green-900);
-      font-size: 14px;
-    }
-
-    .branch-banner span {
-      color: #52655a;
-      font-size: 13px;
-      line-height: 1.8;
-    }
-
-    .branch-state {
-      min-width: 132px;
-      text-align: center;
-      border-radius: 999px;
-      padding: 10px 12px;
-      font-size: 12px;
-      font-weight: 800;
-      border: 1px solid transparent;
-      letter-spacing: .2px;
-    }
-
-    .branch-state.good { background: #e7f7ec; color: #1b7a49; border-color: #cce8d4; }
-    .branch-state.warn { background: #fff3df; color: #9b640f; border-color: #efd7aa; }
-
-    .majors-heading {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 14px;
-      flex-wrap: wrap;
-      margin-bottom: 14px;
-    }
-
-    .stage-chip {
-      border-radius: 999px;
-      padding: 8px 12px;
-      background: #eef7f2;
-      border: 1px solid #d9ebe0;
-      color: var(--green-800);
-      font-size: 12px;
-      font-weight: 800;
-      letter-spacing: .2px;
-    }
-
-    .major-list { display: grid; gap: 16px; }
-    .major-head {
-      display: flex; justify-content: space-between; align-items: flex-start; gap: 14px; margin-bottom: 12px;
-    }
-    .major-head h4 { font-size: 21px; margin-bottom: 6px; letter-spacing: -.01em; }
-    .major-head p { color: var(--muted); line-height: 1.8; font-size: 14px; }
-
-    .chip-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-top: 12px; }
-    .chip-box {
-      border-radius: 18px; padding: 12px; background: linear-gradient(180deg, #f9fbfa, #f3f7f5); border: 1px solid #e7efea;
-    }
-    .chip-box strong { display: block; margin-bottom: 6px; font-size: 13px; color: var(--green-800); }
-    .chip-box span { font-size: 13px; color: var(--muted); line-height: 1.7; }
-
-    .examples {
-      margin-top: 12px; display: flex; flex-wrap: wrap; gap: 8px;
-    }
-    .examples span {
-      background: #f1f6f3; border: 1px solid #e1ebe6; border-radius: 999px; padding: 8px 10px; font-size: 12px; color: #466150;
-    }
-
-    .analysis-list { display: grid; gap: 12px; }
-    .analysis-item {
-      border: 1px solid #e4eee8; border-radius: 18px; padding: 14px; background: linear-gradient(180deg, #fff, #fbfdfc); box-shadow: var(--shadow-md);
-    }
-    .analysis-item .top {
-      display: flex; align-items: center; justify-content: space-between; gap: 10px; margin-bottom: 10px;
-    }
-    .bar { height: 8px; background: #e9f1ec; border-radius: 999px; overflow: hidden; }
-    .bar > span {
-      display: block; height: 100%; border-radius: inherit; background: linear-gradient(90deg, var(--green-800), var(--green-500)); width: 0;
-      transition: width 620ms ease;
-      box-shadow: 0 4px 10px rgba(35,136,95,.16);
-    }
-
-    .alert {
-      border-radius: 20px; padding: 16px; line-height: 1.9; font-size: 14px; border: 1px solid #ddeae2; background: #f8fbf9;
-      box-shadow: var(--shadow-md);
-    }
-    .alert.good { background: #eef9f1; border-color: #d5ecd9; }
-    .alert.warn { background: #fff8ef; border-color: #f2e4cb; }
-
-    .fade-in {
-      opacity: 0;
-      transform: translateY(12px);
-      animation: fadeUp .5s ease forwards;
-    }
-    @keyframes fadeUp {
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    .slide {
-      animation: slideCard .35s ease;
-    }
-    @keyframes slideCard {
-      from { opacity: .25; transform: translateY(10px) scale(.995); }
-      to { opacity: 1; transform: translateY(0) scale(1); }
-    }
-
-    .shake {
-      animation: shake .32s linear;
-    }
-    @keyframes shake {
-      0%,100% { transform: translateX(0); }
-      20% { transform: translateX(4px); }
-      40% { transform: translateX(-4px); }
-      60% { transform: translateX(3px); }
-      80% { transform: translateX(-3px); }
-    }
-
-    .footer-note {
-      color: var(--muted); font-size: 14px; line-height: 1.95;
-    }
-
-    @media (max-width: 1080px) {
-      .hero-grid, .grid-2, .assessment-layout, .result-grid { grid-template-columns: 1fr; }
-      .progress-card { position: static; }
-      .hero h1 { max-width: none; }
-    }
-
-    @media (max-width: 720px) {
-      .page { width: min(100% - 16px, 100%); }
-      .hero, .panel, .question-card, .progress-card, .result-card { padding: 18px; }
-      .fields, .sub-grid, .chip-grid { grid-template-columns: 1fr; }
-      .stats { grid-template-columns: 1fr 1fr; }
-      .question-text { min-height: auto; font-size: 24px; }
-      .major-head, .question-top, .question-footer { flex-direction: column; align-items: stretch; }
-      .nav-grid { grid-template-columns: repeat(5, 1fr); }
-      .hero { padding: 24px; }
-      .section-title { font-size: 24px; }
-    }
-  </style>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>اختبار الميول المهنية | ثانوية الجنان</title>
+<style>
+:root {
+--bg: #f3f6f4;
+--panel: rgba(255,255,255,.82);
+--panel-strong: #ffffff;
+--text: #10271d;
+--muted: #64756b;
+--line: rgba(16,39,29,.08);
+--green-950: #0a2419;
+--green-900: #0e3829;
+--green-800: #14543d;
+--green-700: #1a6f4f;
+--green-600: #22885f;
+--green-500: #2ea06f;
+--green-100: #ebf8f0;
+--gold: #caa25c;
+--amber: #c58b2b;
+--blue: #2c6fb0;
+--red: #c04d4d;
+--shadow-xl: 0 30px 80px rgba(11, 35, 24, .12);
+--shadow-lg: 0 18px 40px rgba(11, 35, 24, .08);
+--shadow-md: 0 10px 24px rgba(11, 35, 24, .06);
+--radius-2xl: 32px;
+--radius-xl: 24px;
+--radius-lg: 18px;
+--radius-md: 14px;
+--transition: 260ms cubic-bezier(.22,1,.36,1);
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+margin: 0;
+font-family: Inter, "Segoe UI", Tahoma, Arial, sans-serif;
+background:
+radial-gradient(circle at 10% 10%, rgba(46,160,111,.10), transparent 22%),
+radial-gradient(circle at 90% 0%, rgba(202,162,92,.10), transparent 20%),
+radial-gradient(circle at 80% 90%, rgba(20,84,61,.07), transparent 18%),
+linear-gradient(180deg, #f8fbf9 0%, #eef5f0 100%);
+color: var(--text);
+min-height: 100vh;
+-webkit-font-smoothing: antialiased;
+text-rendering: optimizeLegibility;
+}
+
+.page {
+width: min(1240px, calc(100% - 28px));
+margin: 20px auto 56px;
+}
+
+.card {
+background: var(--panel);
+backdrop-filter: blur(18px);
+-webkit-backdrop-filter: blur(18px);
+border: 1px solid rgba(255,255,255,.55);
+border-radius: var(--radius-2xl);
+box-shadow: var(--shadow-xl);
+}
+
+.hero {
+overflow: hidden;
+position: relative;
+background:
+linear-gradient(135deg, rgba(255,255,255,.96), rgba(244,250,246,.95) 52%, rgba(232,245,238,.96));
+color: var(--text);
+padding: 38px;
+isolation: isolate;
+border: 1px solid rgba(20,84,61,.06);
+box-shadow: 0 22px 60px rgba(11, 35, 24, .07);
+}
+
+.hero::before,
+.hero::after {
+content: "";
+position: absolute;
+border-radius: 999px;
+z-index: -1;
+filter: blur(0);
+opacity: .55;
+}
+.hero::before {
+width: 280px;
+height: 280px;
+top: -110px;
+inset-inline-start: -40px;
+background: radial-gradient(circle, rgba(46,160,111,.10), rgba(46,160,111,0));
+}
+.hero::after {
+width: 240px;
+height: 240px;
+bottom: -110px;
+inset-inline-end: -40px;
+background: radial-gradient(circle, rgba(202,162,92,.10), rgba(202,162,92,0));
+}
+.hero::before {
+width: 360px;
+height: 360px;
+top: -130px;
+inset-inline-start: -60px;
+background: radial-gradient(circle, rgba(255,255,255,.14), rgba(255,255,255,0));
+}
+.hero::after {
+width: 320px;
+height: 320px;
+bottom: -140px;
+inset-inline-end: -70px;
+background: radial-gradient(circle, rgba(202,162,92,.25), rgba(202,162,92,0));
+}
+
+.hero-grid {
+display: grid;
+grid-template-columns: 1.4fr .8fr;
+gap: 32px;
+align-items: center;
+}
+
+.eyebrow {
+display: inline-flex;
+align-items: center;
+gap: 10px;
+padding: 9px 15px;
+background: rgba(255,255,255,.86);
+border: 1px solid rgba(20,84,61,.10);
+border-radius: 999px;
+font-size: 13px;
+letter-spacing: .2px;
+margin-bottom: 18px;
+color: var(--green-800);
+box-shadow: 0 10px 22px rgba(11,35,24,.05);
+}
+
+h1, h2, h3, h4, p { margin: 0; }
+.hero h1 {
+font-size: clamp(32px, 5vw, 50px);
+line-height: 1.10;
+margin-bottom: 14px;
+letter-spacing: -.03em;
+max-width: 12ch;
+color: var(--green-950);
+text-wrap: balance;
+}
+.hero p {
+color: #4e6559;
+line-height: 1.95;
+font-size: 15px;
+max-width: 760px;
+}
+
+.hero-badges {
+display: flex;
+gap: 10px;
+flex-wrap: wrap;
+margin-top: 22px;
+}
+
+.pill {
+border: 1px solid rgba(20,84,61,.10);
+background: rgba(255,255,255,.88);
+color: var(--green-800);
+padding: 9px 13px;
+border-radius: 999px;
+font-size: 12px;
+letter-spacing: .2px;
+box-shadow: 0 8px 18px rgba(11,35,24,.04);
+}
+
+.stats {
+display: grid;
+grid-template-columns: repeat(2, 1fr);
+gap: 14px;
+}
+
+.stat-box {
+background: linear-gradient(180deg, rgba(255,255,255,.92), rgba(249,252,250,.92));
+border: 1px solid rgba(20,84,61,.08);
+border-radius: 24px;
+padding: 18px;
+min-height: 112px;
+display: flex;
+flex-direction: column;
+justify-content: center;
+box-shadow: 0 16px 26px rgba(11,35,24,.05);
+}
+
+.stat-box strong {
+font-size: 30px;
+line-height: 1;
+display: block;
+margin-bottom: 8px;
+letter-spacing: -.02em;
+color: var(--green-900);
+}
+.stat-box span {
+color: #5a6f63;
+font-size: 13px;
+line-height: 1.7;
+}
+
+.grid-2 {
+display: grid;
+grid-template-columns: 1.12fr .88fr;
+gap: 22px;
+margin-top: 22px;
+}
+
+.panel { padding: 28px; }
+.section-title {
+font-size: 28px;
+letter-spacing: -.02em;
+margin-bottom: 8px;
+}
+.section-desc { color: var(--muted); line-height: 1.9; margin-bottom: 18px; font-size: 15px; }
+
+.fields {
+display: grid;
+grid-template-columns: repeat(2, 1fr);
+gap: 14px;
+margin-top: 14px;
+}
+
+.field, .field-full { display: flex; flex-direction: column; gap: 8px; }
+.field-full { grid-column: 1 / -1; }
+label { font-size: 14px; font-weight: 700; color: #294637; }
+
+input, select {
+width: 100%;
+border: 1px solid var(--line);
+border-radius: 18px;
+padding: 15px 16px;
+background: rgba(255,255,255,.95);
+color: var(--text);
+font-size: 15px;
+outline: none;
+transition: var(--transition);
+box-shadow: inset 0 1px 0 rgba(255,255,255,.8);
+}
+
+input:focus, select:focus {
+border-color: rgba(35,136,95,.45);
+box-shadow: 0 0 0 4px rgba(47,160,111,.10), 0 10px 24px rgba(35,136,95,.06);
+transform: translateY(-1px);
+}
+
+.note {
+background: linear-gradient(180deg, #f9fcfa, #eff8f2);
+border: 1px solid #deeee5;
+border-radius: 22px;
+padding: 18px;
+line-height: 1.9;
+color: #335a46;
+font-size: 14px;
+margin-top: 16px;
+}
+
+.note h4 { margin-bottom: 10px; font-size: 15px; color: var(--green-800); }
+.note ul { margin: 0; padding-right: 18px; }
+.note li { margin-bottom: 4px; }
+
+.consent {
+display: flex;
+align-items: flex-start;
+gap: 12px;
+padding: 16px;
+border-radius: 20px;
+border: 1px solid var(--line);
+margin-top: 16px;
+background: rgba(255,255,255,.75);
+line-height: 1.9;
+font-size: 14px;
+color: #466150;
+}
+
+.consent input { width: 18px; height: 18px; margin-top: 5px; }
+
+.btn {
+appearance: none;
+border: none;
+border-radius: 18px;
+padding: 14px 18px;
+font-size: 14px;
+font-weight: 800;
+cursor: pointer;
+transition: transform .18s ease, opacity .18s ease, background .18s ease, box-shadow .18s ease, border-color .18s ease;
+display: inline-flex;
+align-items: center;
+justify-content: center;
+gap: 8px;
+text-decoration: none;
+letter-spacing: .2px;
+}
+
+.btn:hover { transform: translateY(-1px); }
+.btn:active { transform: translateY(0); }
+.btn:disabled { cursor: not-allowed; opacity: .55; transform: none; }
+.btn-primary {
+width: 100%;
+background: linear-gradient(135deg, var(--green-900), var(--green-700));
+color: #fff;
+box-shadow: 0 16px 28px rgba(23,114,78,.20);
+margin-top: 16px;
+}
+.btn-secondary {
+background: linear-gradient(180deg, #f8faf8, #edf4ef);
+color: var(--green-900);
+border: 1px solid #dbe9e0;
+}
+.btn-outline {
+background: rgba(255,255,255,.96);
+color: var(--green-900);
+border: 1px solid var(--line);
+}
+
+.feature-list { display: grid; gap: 14px; }
+.feature-item {
+display: grid;
+grid-template-columns: 50px 1fr;
+gap: 14px;
+align-items: start;
+padding: 16px;
+border-radius: 20px;
+border: 1px solid rgba(20,60,40,.08);
+background: linear-gradient(180deg, rgba(255,255,255,.95), rgba(248,251,249,.94));
+box-shadow: var(--shadow-md);
+}
+.feature-icon {
+width: 50px; height: 50px; border-radius: 16px;
+display: grid; place-items: center;
+background: linear-gradient(180deg, #eff8f2, #e6f4eb);
+color: var(--green-800); font-size: 20px;
+box-shadow: inset 0 1px 0 rgba(255,255,255,.9);
+}
+.feature-item h4 { margin-bottom: 6px; font-size: 16px; }
+.feature-item p { color: var(--muted); line-height: 1.8; font-size: 14px; }
+
+.hidden { display: none !important; }
+
+.assessment-layout {
+display: grid;
+grid-template-columns: minmax(0, 1fr) 330px;
+gap: 22px;
+margin-top: 22px;
+align-items: start;
+}
+
+.question-card { padding: 28px; }
+
+.mini-badge {
+display: inline-flex;
+align-items: center;
+gap: 8px;
+border-radius: 999px;
+padding: 8px 12px;
+font-size: 12px;
+font-weight: 700;
+background: #edf7f1;
+color: var(--green-800);
+margin-bottom: 16px;
+border: 1px solid #d6ebde;
+letter-spacing: .2px;
+}
+
+.question-id {
+background: #f5f7f6;
+padding: 8px 11px;
+border-radius: 999px;
+font-size: 12px;
+color: var(--muted);
+border: 1px solid #e7efea;
+font-weight: 700;
+}
+
+.question-top {
+display: flex; justify-content: space-between; gap: 10px; align-items: center; margin-bottom: 14px;
+}
+
+.question-text {
+font-size: clamp(24px, 3.2vw, 34px);
+line-height: 1.55;
+margin-bottom: 24px;
+min-height: 124px;
+letter-spacing: -.02em;
+}
+
+.option-list { display: grid; gap: 12px; }
+
+.option-btn {
+width: 100%;
+text-align: right;
+padding: 15px 16px;
+border-radius: 20px;
+border: 1px solid var(--line);
+background: linear-gradient(180deg, #fff, #fcfdfc);
+display: flex;
+justify-content: space-between;
+align-items: center;
+gap: 12px;
+cursor: pointer;
+transition: var(--transition);
+font-size: 15px;
+box-shadow: 0 6px 16px rgba(16,39,29,.03);
+}
+
+.option-btn:hover { background: #fafdfb; transform: translateY(-1px); box-shadow: 0 12px 22px rgba(16,39,29,.06); }
+.option-btn.active {
+border-color: rgba(35,136,95,.42);
+background: linear-gradient(180deg, #f7fdf9, #edf8f1);
+box-shadow: 0 14px 24px rgba(35,136,95,.08);
+}
+
+.option-score {
+min-width: 36px; height: 36px; border-radius: 50%; display: grid; place-items: center;
+background: #eef2ef; color: var(--muted); font-weight: 800;
+transition: var(--transition);
+box-shadow: inset 0 1px 0 rgba(255,255,255,.8);
+}
+.option-btn.active .option-score { background: linear-gradient(180deg, var(--green-700), var(--green-600)); color: #fff; }
+
+.question-footer {
+margin-top: 24px;
+display: flex;
+justify-content: space-between;
+align-items: center;
+gap: 12px;
+flex-wrap: wrap;
+}
+
+.question-footer small { color: var(--muted); line-height: 1.8; }
+
+.progress-card {
+padding: 22px;
+position: sticky;
+top: 18px;
+box-shadow: var(--shadow-lg);
+}
+.progress-header { margin-bottom: 14px; }
+.progress-header h3 { font-size: 24px; margin-bottom: 6px; letter-spacing: -.02em; }
+.progress-header p { color: var(--muted); line-height: 1.8; font-size: 14px; }
+
+.progress-track {
+width: 100%; height: 12px; background: #e9f1ec; border-radius: 999px; overflow: hidden; margin: 12px 0 10px;
+box-shadow: inset 0 1px 1px rgba(16,39,29,.04);
+}
+.progress-fill {
+height: 100%; width: 0%;
+background: linear-gradient(90deg, var(--green-800), var(--green-500));
+border-radius: inherit;
+transition: width 320ms ease;
+box-shadow: 0 4px 10px rgba(35,136,95,.18);
+}
+.progress-value {
+font-size: 32px; font-weight: 900; color: var(--green-800); text-align: center; margin-bottom: 12px; letter-spacing: -.03em;
+}
+
+.toggle-row {
+display: flex; align-items: center; gap: 10px; padding: 12px; border-radius: 16px; border: 1px solid var(--line); margin-bottom: 14px; font-size: 14px;
+background: linear-gradient(180deg, #fff, #fafcfb);
+}
+
+.nav-grid {
+display: grid; grid-template-columns: repeat(5, 1fr); gap: 8px;
+max-height: 380px; overflow: auto; padding-left: 4px;
+}
+
+.nav-btn {
+border: 1px solid var(--line);
+background: linear-gradient(180deg, #fff, #fbfcfb); color: var(--muted); border-radius: 14px; height: 42px; font-weight: 800; cursor: pointer; transition: var(--transition);
+}
+.nav-btn:hover { background: #f8fbf9; }
+.nav-btn.answered { background: #edf7f1; color: var(--green-800); border-color: #d4eadc; }
+.nav-btn.current { background: linear-gradient(180deg, var(--green-700), var(--green-600)); color: #fff; border-color: var(--green-700); box-shadow: 0 8px 16px rgba(23,114,78,.18); }
+
+.result-grid {
+display: grid; grid-template-columns: 1.02fr .98fr; gap: 22px; margin-top: 22px;
+}
+.stack { display: grid; gap: 22px; }
+.result-card { padding: 28px; }
+
+.profile-codes { display: flex; flex-wrap: wrap; gap: 12px; margin: 18px 0 18px; }
+.profile-chip {
+display: inline-flex; align-items: center; gap: 10px; padding: 12px 14px; background: linear-gradient(180deg, #f8fcf9, #f1f8f4); border: 1px solid #dceee4; border-radius: 20px;
+box-shadow: var(--shadow-md);
+}
+.profile-chip strong { display: block; font-size: 18px; }
+.profile-chip span { color: var(--muted); font-size: 13px; }
+
+.sub-grid { display: grid; gap: 14px; grid-template-columns: repeat(2, 1fr); }
+
+.sub-box {
+border: 1px solid #e4eee8; border-radius: 20px; padding: 16px; background: linear-gradient(180deg, #fff, #fbfdfc);
+box-shadow: var(--shadow-md);
+}
+.sub-box h4 { margin-bottom: 8px; font-size: 18px; }
+.sub-box p { color: var(--muted); line-height: 1.8; font-size: 14px; margin-bottom: 12px; }
+
+.label-badge {
+display: inline-flex; align-items: center; justify-content: center; border-radius: 999px; padding: 8px 12px; font-size: 12px; font-weight: 800;
+border: 1px solid transparent; letter-spacing: .2px;
+}
+.lvl-excellent2 { background: #eaf8ef; color: #157347; border-color: #cdebd8; }
+.lvl-excellent { background: #eef9ef; color: #23804e; border-color: #d5eddc; }
+.lvl-verygood { background: #eef5fd; color: #295f9f; border-color: #d7e6f8; }
+.lvl-good { background: #fff5e9; color: #a56810; border-color: #f4e1bd; }
+.lvl-acceptable { background: #f3f4f6; color: #55606b; border-color: #e3e6eb; }
+
+.major-item {
+border: 1px solid #dfeae4;
+border-radius: 26px;
+padding: 20px;
+background: linear-gradient(180deg, #ffffff, #fbfdfc);
+transition: var(--transition);
+position: relative;
+overflow: hidden;
+box-shadow: var(--shadow-md);
+}
+.major-item::before {
+content: "";
+position: absolute;
+inset-inline-start: 0;
+top: 0;
+width: 6px;
+height: 100%;
+background: linear-gradient(180deg, var(--green-700), var(--green-500));
+opacity: .95;
+}
+.major-item:hover { transform: translateY(-2px); box-shadow: 0 22px 34px rgba(15,61,46,.08); }
+
+.branch-banner {
+margin-top: 14px;
+border-radius: 18px;
+padding: 14px 16px;
+display: flex;
+align-items: center;
+justify-content: space-between;
+gap: 12px;
+flex-wrap: wrap;
+border: 1px solid #dce9e2;
+background: linear-gradient(180deg, #f8fbf9, #f2f8f4);
+}
+
+.branch-banner.good {
+background: linear-gradient(180deg, #eef9f1, #e5f5ea);
+border-color: #cfe9d6;
+}
+
+.branch-banner.warn {
+background: linear-gradient(180deg, #fff8ef, #fff2df);
+border-color: #f0ddbb;
+}
+
+.branch-banner strong {
+display: block;
+margin-bottom: 4px;
+color: var(--green-900);
+font-size: 14px;
+}
+
+.branch-banner span {
+color: #52655a;
+font-size: 13px;
+line-height: 1.8;
+}
+
+.branch-state {
+min-width: 132px;
+text-align: center;
+border-radius: 999px;
+padding: 10px 12px;
+font-size: 12px;
+font-weight: 800;
+border: 1px solid transparent;
+letter-spacing: .2px;
+}
+
+.branch-state.good { background: #e7f7ec; color: #1b7a49; border-color: #cce8d4; }
+.branch-state.warn { background: #fff3df; color: #9b640f; border-color: #efd7aa; }
+
+.majors-heading {
+display: flex;
+align-items: center;
+justify-content: space-between;
+gap: 14px;
+flex-wrap: wrap;
+margin-bottom: 14px;
+}
+
+.stage-chip {
+border-radius: 999px;
+padding: 8px 12px;
+background: #eef7f2;
+border: 1px solid #d9ebe0;
+color: var(--green-800);
+font-size: 12px;
+font-weight: 800;
+letter-spacing: .2px;
+}
+
+.major-list { display: grid; gap: 16px; }
+.major-head {
+display: flex; justify-content: space-between; align-items: flex-start; gap: 14px; margin-bottom: 12px;
+}
+.major-head h4 { font-size: 21px; margin-bottom: 6px; letter-spacing: -.01em; }
+.major-head p { color: var(--muted); line-height: 1.8; font-size: 14px; }
+
+.chip-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-top: 12px; }
+.chip-box {
+border-radius: 18px; padding: 12px; background: linear-gradient(180deg, #f9fbfa, #f3f7f5); border: 1px solid #e7efea;
+}
+.chip-box strong { display: block; margin-bottom: 6px; font-size: 13px; color: var(--green-800); }
+.chip-box span { font-size: 13px; color: var(--muted); line-height: 1.7; }
+
+.examples {
+margin-top: 12px; display: flex; flex-wrap: wrap; gap: 8px;
+}
+.examples span {
+background: #f1f6f3; border: 1px solid #e1ebe6; border-radius: 999px; padding: 8px 10px; font-size: 12px; color: #466150;
+}
+
+.analysis-list { display: grid; gap: 12px; }
+.analysis-item {
+border: 1px solid #e4eee8; border-radius: 18px; padding: 14px; background: linear-gradient(180deg, #fff, #fbfdfc); box-shadow: var(--shadow-md);
+}
+.analysis-item .top {
+display: flex; align-items: center; justify-content: space-between; gap: 10px; margin-bottom: 10px;
+}
+.analysis-item p { color: var(--muted); line-height: 1.8; font-size: 14px; margin-bottom: 10px; }
+.bar { height: 8px; background: #e9f1ec; border-radius: 999px; overflow: hidden; }
+.bar > span {
+display: block; height: 100%; border-radius: inherit; background: linear-gradient(90deg, var(--green-800), var(--green-500)); width: 0;
+transition: width 620ms ease;
+box-shadow: 0 4px 10px rgba(35,136,95,.16);
+}
+
+.alert {
+border-radius: 20px; padding: 16px; line-height: 1.9; font-size: 14px; border: 1px solid #ddeae2; background: #f8fbf9;
+box-shadow: var(--shadow-md);
+}
+.alert.good { background: #eef9f1; border-color: #d5ecd9; }
+.alert.warn { background: #fff8ef; border-color: #f2e4cb; }
+
+.toolbar {
+display: flex; flex-wrap: wrap; gap: 10px; margin-top: 16px;
+}
+
+.fade-in {
+opacity: 0;
+transform: translateY(12px);
+animation: fadeUp .5s ease forwards;
+}
+@keyframes fadeUp {
+to { opacity: 1; transform: translateY(0); }
+}
+
+.slide {
+animation: slideCard .35s ease;
+}
+@keyframes slideCard {
+from { opacity: .25; transform: translateY(10px) scale(.995); }
+to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+.shake {
+animation: shake .32s linear;
+}
+@keyframes shake {
+0%,100% { transform: translateX(0); }
+20% { transform: translateX(4px); }
+40% { transform: translateX(-4px); }
+60% { transform: translateX(3px); }
+80% { transform: translateX(-3px); }
+}
+
+.footer-note {
+color: var(--muted); font-size: 14px; line-height: 1.95;
+}
+
+@media (max-width: 1080px) {
+.hero-grid, .grid-2, .assessment-layout, .result-grid { grid-template-columns: 1fr; }
+.progress-card { position: static; }
+.hero h1 { max-width: none; }
+}
+
+@media (max-width: 720px) {
+.page { width: min(100% - 16px, 100%); }
+.hero, .panel, .question-card, .progress-card, .result-card { padding: 18px; }
+.fields, .sub-grid, .chip-grid { grid-template-columns: 1fr; }
+.stats { grid-template-columns: 1fr 1fr; }
+.question-text { min-height: auto; font-size: 24px; }
+.major-head, .question-top, .question-footer { flex-direction: column; align-items: stretch; }
+.nav-grid { grid-template-columns: repeat(5, 1fr); }
+.hero { padding: 24px; }
+.section-title { font-size: 24px; }
+}
+</style>
 </head>
 <body>
-  <div class="page">
-    <section id="start-screen" class="fade-in">
-      <div class="card hero">
-        <div class="hero-grid">
-          <div>
-            <div class="eyebrow">🎓 نظام التوجيه المهني المدمج | ثانوية الجنان</div>
-            <h1>اختبار الميول المهنية والشخصية</h1>
-            <p>
-              مبنية على الدمج بين RIASEC والسمات الشخصية وأسلوب العمل، مع نتائج تحليلية واضحة وتوصيات مرتبطة بسوق العمل الحديث بدل الاكتفاء بنسب مضللة.
-            </p>
-            <div class="hero-badges">
-              <span class="pill">150 سؤالاً</span>
-              <span class="pill">Hybrid Model</span>
-              <span class="pill">Top 4 عند التقارب</span>
-              <span class="pill">تحليل وصفي</span>
-            </div>
-          </div>
-          <div class="stats">
-            <div class="stat-box"><strong>90</strong><span>أسئلة الميول المهنية RIASEC</span></div>
-            <div class="stat-box"><strong>30</strong><span>أسئلة السمات الشخصية</span></div>
-            <div class="stat-box"><strong>30</strong><span>أسئلة أسلوب العمل</span></div>
-            <div class="stat-box"><strong>Top 4</strong><span>يُعتمد الحرف الرابع عند تقارب النتيجة</span></div>
-          </div>
-        </div>
-      </div>
-
-      <div class="grid-2">
-        <div class="card panel fade-in" style="animation-delay:.08s">
-          <h2 class="section-title">بيانات الطالب</h2>
-          <p class="section-desc">أدخل المعلومات الأساسية ثم ابدأ الاختبار. يفضّل الإجابة بهدوء وصدق للحصول على ملف مهني أكثر دقة.</p>
-
-          <div class="fields">
-            <div class="field">
-              <label for="studentName">الاسم الكامل</label>
-              <input id="studentName" type="text" placeholder="اكتب اسم الطالب" />
-            </div>
-            <div class="field">
-              <label for="studentGrade">الصف</label>
-              <select id="studentGrade">
-                <option value="">اختر الصف</option>
-                <option>أول ثانوي</option>
-                <option>ثاني ثانوي</option>
-                <option>ثالث ثانوي</option>
-              </select>
-            </div>
-            <div class="field-full">
-              <label for="studentSection">الشعبة / القسم</label>
-              <select id="studentSection">
-                <option value="">اختر الشعبة / القسم</option>
-                <option value="غير محدد بعد">غير محدد بعد</option>
-                <option value="علوم حياة">علوم حياة</option>
-                <option value="علوم عامة (رياضيات)">علوم عامة (رياضيات)</option>
-                <option value="اقتصاد واجتماع">اقتصاد واجتماع</option>
-              </select>
-            </div>
-          </div>
-
-          <div class="note">
-            <h4>إرشادات مهمة قبل البدء</h4>
-            <ul>
-              <li>أجب بحسب ما يشبهك عادةً، لا بحسب الصورة المثالية التي تتمنى إظهارها.</li>
-              <li>لا توجد إجابة صحيحة أو خاطئة، والهدف من الاختبار هو الإرشاد المهني الأولي.</li>
-              <li>بعض الأسئلة متقاربة للتأكد من اتساق الإجابات وتحسين دقة التحليل.</li>
-              <li>النتيجة تساعد على التوجيه، لكنها لا تُغني عن مناقشة المرشد التربوي أو الأسرة.</li>
-            </ul>
-          </div>
-
-          <div class="consent">
-            <input id="consent" type="checkbox" />
-            <div>
-              أتعهد بأن أجيب بصدق وهدوء، وأفهم أن نتيجة الاختبار تمثل توجيهًا مهنيًا أوليًا يساعدني على فهم ميولي،
-              ولا تُعد وحدها القرار النهائي لاختيار التخصص أو المهنة.
-            </div>
-          </div>
-
-          <button id="startBtn" class="btn btn-primary">ابدأ الاختبار</button>
-        </div>
-
-        <div class="card panel fade-in" style="animation-delay:.14s">
-          <h2 class="section-title">ما الذي يميز هذه النسخة؟</h2>
-          <p class="section-desc">تم تصميمها لتكون عملية، أنيقة، وسهلة النشر، مع الحفاظ على قوة المنطق والتحليل.</p>
-          <div class="feature-list">
-            <div class="feature-item">
-              <div class="feature-icon">🧠</div>
-              <div><h4>نظام هجين</h4><p>يجمع بين الميول المهنية والسمات الشخصية وأسلوب العمل للحصول على صورة أعمق.</p></div>
-            </div>
-            <div class="feature-item">
-              <div class="feature-icon">📊</div>
-              <div><h4>نتائج تحليلية لا نسبية</h4><p>يعرض مدى ملاءمة التخصص بصيغة ممتاز جداً / ممتاز / جيد جداً… بدل نسب قد تكون مضللة.</p></div>
-            </div>
-            <div class="feature-item">
-              <div class="feature-icon">🧭</div>
-              <div><h4>Top 4 عند الحاجة</h4><p>لا يهمل الحرف الرابع إذا كان قريبًا من الثالث، ما يعطي ملفًا مهنيًا أدق.</p></div>
-            </div>
-            <div class="feature-item">
-              <div class="feature-icon">💼</div>
-              <div><h4>ربط بسوق العمل</h4><p>التوصيات لا تعتمد على الميول فقط، بل تأخذ بعين الاعتبار وضع التخصص في سوق العمل الحديث.</p></div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="assessment-screen" class="hidden">
-      <div class="card hero">
-        <div class="hero-grid">
-          <div>
-            <div class="eyebrow">📝 الاختبار قيد التنفيذ</div>
-            <h1 id="heroQuestionTitle">أجب بهدوء وصدق</h1>
-            <p>كل إجابة تساعد في بناء ملف مهني أكثر واقعية. يمكنك العودة وتعديل الإجابات قبل الانتهاء.</p>
-          </div>
-          <div class="stats">
-            <div class="stat-box"><strong id="heroAnswered">0</strong><span>إجابات مكتملة</span></div>
-            <div class="stat-box"><strong id="heroRemaining">150</strong><span>أسئلة متبقية</span></div>
-            <div class="stat-box"><strong id="heroProgress">0%</strong><span>نسبة التقدم</span></div>
-            <div class="stat-box"><strong id="heroCounter">1/150</strong><span>السؤال الحالي</span></div>
-          </div>
-        </div>
-      </div>
-
-      <div class="assessment-layout">
-        <div class="card question-card slide" id="questionCard">
-          <div class="question-top">
-            <div class="mini-badge" id="sectionBadge">الميول المهنية</div>
-            <div class="question-id" id="questionId">Q1</div>
-          </div>
-          <h2 class="question-text" id="questionText"></h2>
-          <div id="optionsContainer" class="option-list"></div>
-          <div class="question-footer">
-            <small>اختر الدرجة التي تعبّر عنك بشكل أقرب في العادة، وليس في حالات نادرة فقط.</small>
-            <div style="display:flex; gap:10px; flex-wrap:wrap">
-              <button id="prevBtn" class="btn btn-outline">السابق</button>
-              <button id="nextBtn" class="btn btn-secondary">التالي</button>
-            </div>
-          </div>
-        </div>
-
-        <div class="card progress-card">
-          <div class="progress-header">
-            <h3>التقدم العام</h3>
-            <p id="progressText">0 من 150 تمت الإجابة عنها</p>
-          </div>
-          <div class="progress-track"><div id="progressFill" class="progress-fill"></div></div>
-          <div id="progressValue" class="progress-value">0%</div>
-
-          <div class="toggle-row">
-            <input id="unansweredOnly" type="checkbox" />
-            <label for="unansweredOnly" style="font-weight:500; cursor:pointer">إظهار الأسئلة غير المجاب عنها فقط</label>
-          </div>
-
-          <div id="navGrid" class="nav-grid"></div>
-          <div class="footer-note" style="margin-top:12px" id="remainingText">عدد الأسئلة المتبقية: 150</div>
-        </div>
-      </div>
-    </section>
-
-    <section id="result-screen" class="hidden">
-      <div class="card hero">
-        <div class="hero-grid">
-          <div>
-            <div class="eyebrow">🏆 تم إنشاء الملف المهني بنجاح</div>
-            <h1 id="resultStudentName">نتيجة الطالب</h1>
-            <p>
-              هذه النتيجة تقدّم قراءة أولية لميول الطالب المهنية وسماته الشخصية وأسلوب العمل الأنسب له،
-              مع توصيات تخصصية مرتبطة بمدى الملاءمة وبمؤشرات سوق العمل الحديث.
-            </p>
-            <div class="hero-badges">
-              <span class="pill" id="profileCodePill">رمز الملف: ---</span>
-              <span class="pill" id="consistencyPill">اتساق الإجابات: ---</span>
-            </div>
-          </div>
-          <div class="stats">
-            <button class="btn btn-secondary" id="downloadJsonBtn">تصدير JSON</button>
-            <button class="btn btn-secondary" id="downloadCsvBtn">تصدير CSV</button>
-            <button class="btn btn-outline" id="printBtn">طباعة / حفظ PDF</button>
-            <button class="btn btn-outline" id="restartBtn">اختبار جديد</button>
-          </div>
-        </div>
-      </div>
-
-      <div class="result-grid">
-        <div class="stack">
-          <div class="card result-card fade-in">
-            <h2 class="section-title">ملفك المهني المختصر</h2>
-            <p class="section-desc">يعتمد هذا الملف على أعلى الميول المهنية مع إدخال الحرف الرابع عند تقارب النتائج.</p>
-            <div id="profileCodes" class="profile-codes"></div>
-            <div id="topRiasecGrid" class="sub-grid"></div>
-          </div>
-
-          <div class="card result-card fade-in" style="animation-delay:.08s">
-            <div class="majors-heading">
-              <div>
-                <h2 class="section-title">أفضل التخصصات المقترحة</h2>
-                <p class="section-desc" id="majorsSectionDesc">تم ترتيب التخصصات بحسب التوافق مع الميول والسمات وأسلوب العمل، مع مراعاة واقع سوق العمل الحديث.</p>
-              </div>
-              <div id="stageChip" class="stage-chip">مرحلة التوجيه</div>
-            </div>
-            <div id="majorList" class="major-list"></div>
-          </div>
-        </div>
-
-        <div class="stack">
-          <div class="card result-card fade-in" style="animation-delay:.04s">
-            <h2 class="section-title">تحليل الشخصية وأسلوب العمل</h2>
-            <div id="big5List" class="analysis-list" style="margin-bottom:16px"></div>
-            <div id="workList" class="analysis-list"></div>
-          </div>
-
-          <div class="card result-card fade-in" style="animation-delay:.10s">
-            <h2 class="section-title">جودة الإجابات</h2>
-            <div id="consistencyAlert" class="alert"></div>
-          </div>
-
-          <div class="card result-card fade-in" style="animation-delay:.14s">
-            <h2 class="section-title">قراءة إرشادية مختصرة</h2>
-            <div id="summaryText" class="footer-note"></div>
-          </div>
-        </div>
-      </div>
-    </section>
-  </div>
-
-  <script>
-    const SCHOOL = {
-      nameAr: 'ثانوية الجنان',
-      nameEn: 'Al Jinan High School'
-    };
-
-    const LIKERT = [
-      { value: 1, label: 'لا ينطبق علي أبداً' },
-      { value: 2, label: 'ينطبق علي قليلاً' },
-      { value: 3, label: 'ينطبق علي أحياناً' },
-      { value: 4, label: 'ينطبق علي كثيراً' },
-      { value: 5, label: 'ينطبق علي تماماً' }
-    ];
-
-    const SECTION_META = {
-      RIASEC: { title: 'الميول المهنية', emoji: '🧭' },
-      BIG5: { title: 'السمات الشخصية', emoji: '🧠' },
-      WORK: { title: 'أسلوب العمل', emoji: '⚙️' }
-    };
-
-    const RIASEC_DESCRIPTIONS = {
-      R: { title: 'عملي', description: 'يفضّل التطبيق، الأدوات، الإنجاز الملموس، والمهام العملية.', emoji: '🛠️' },
-      I: { title: 'تحليلي', description: 'يميل إلى الفهم العميق، البحث، حل المشكلات، والعلوم.', emoji: '🔬' },
-      A: { title: 'إبداعي', description: 'يحب الابتكار، التعبير، الخيال، وإيجاد أفكار جديدة.', emoji: '🎨' },
-      S: { title: 'اجتماعي', description: 'يستمتع بمساعدة الآخرين، التعليم، الدعم، والعمل الإنساني.', emoji: '🤝' },
-      E: { title: 'قيادي', description: 'يميل إلى الإقناع، المبادرة، القيادة، وإدارة المشاريع.', emoji: '🚀' },
-      C: { title: 'تنظيمي', description: 'يفضّل النظام، الدقة، الإجراءات الواضحة، والمتابعة.', emoji: '📋' }
-    };
-
-    const BIG5_DESCRIPTIONS = {
-      O: 'الانفتاح على الخبرة: الميل للأفكار الجديدة والتجارب المتنوعة.',
-      C: 'الضمير المهني: الانضباط، الجدية، وتحمل المسؤولية.',
-      E: 'التفاعل: الراحة في التواصل والمبادرة الاجتماعية.',
-      A: 'التوافق: التعاون، المرونة، وحسن التعامل مع الآخرين.',
-      N: 'الحساسية للضغط: التأثر بالتوتر والضغط النفسي.'
-    };
-
-    const WORK_DESCRIPTIONS = {
-      PRACTICAL: 'يفضّل التعلم والعمل بالممارسة والتطبيق المباشر.',
-      THEORETICAL: 'يميل إلى الفهم النظري والتحليل قبل التنفيذ.',
-      TEAM: 'يفضّل العمل ضمن فريق وتبادل الأدوار مع الآخرين.',
-      INDEPENDENT: 'يرتاح أكثر عند العمل الفردي والمساحة الشخصية.',
-      LEAD: 'يميل إلى المبادرة وقيادة الآخرين وتحمل القرار.',
-      EXECUTE: 'يفضّل تنفيذ المهام بوضوح وثبات ضمن إطار محدد.'
-    };
-
-    function generateQuestions() {
-      const questions = [];
-      let id = 1;
-      const add = (section, domain, text, reverse = false) => questions.push({ id: `Q${id++}`, section, domain, text, reverse });
-
-      const riasec = {
-        R: [
-          'أستمتع بإصلاح الأشياء أو تركيبها بنفسي عندما تتعطل.', 'أفضل الأنشطة التي تتطلب حركة واستخدام أدوات على الجلوس الطويل.',
-          'أشعر بالرضا عندما أرى نتيجة ملموسة لعملي أمامي.', 'أحب التعلم من خلال التطبيق العملي أكثر من الشرح النظري فقط.',
-          'أهتم بكيفية عمل الأجهزة أو الآلات من الداخل.', 'أفضل المشاريع التي تتضمن بناء شيء أو تشغيله أو صيانته.',
-          'أرتاح للمهام التي تتطلب خطوات واضحة وتنفيذًا عمليًا.', 'أفضّل تعلم مهارة عملية جديدة على قراءة معلومات عامة عنها فقط.',
-          'أحب المشاركة في أنشطة تتعلق بالتجهيز، التركيب، أو التشغيل.', 'أجد نفسي منجذبًا للأعمال التي تحتاج إلى دقة يدوية أو فنية.',
-          'لا أمانع العمل في بيئات نشيطة تتطلب حركة أو متابعة ميدانية.', 'أشعر أنني أتعلم أسرع عندما أستخدم يديّ أو أدوات حقيقية.',
-          'أفضل المهام التي تنتهي بمنتج أو خدمة واضحة أكثر من الأفكار المجردة.', 'أحب معرفة كيفية استخدام المعدات أو الأنظمة بشكل صحيح.',
-          'عندما أواجه مشكلة عملية، أميل إلى التجربة والإصلاح المباشر.'
-        ],
-        I: [
-          'أستمتع بتحليل الأسباب الحقيقية وراء المشكلات.', 'أحب فهم كيفية عمل الأشياء بدقة وليس فقط استخدامها.',
-          'أميل إلى طرح أسئلة كثيرة عندما أتعلم موضوعًا جديدًا.', 'أشعر بالمتعة عند حل مسألة صعبة تحتاج إلى تفكير عميق.',
-          'أفضل الوصول إلى الإجابة من خلال الأدلة والمنطق.', 'أحب المقارنة بين الاحتمالات قبل اتخاذ قرار مهم.',
-          'أستمتع بالبحث عن معلومات موثوقة لفهم قضية ما.', 'العلوم والرياضيات أو التحليل المنهجي تجذبني.',
-          'أرتاح للأنشطة التي تتطلب ملاحظة وتفسيرًا دقيقًا.', 'أميل إلى التفكير في الأسباب والنتائج قبل البدء بالفعل.',
-          'أحب قراءة أو مشاهدة محتوى يشرح كيف ولماذا يحدث الشيء.', 'عندما أواجه مشكلة، أبحث عن نمط أو قاعدة تساعدني على حلها.',
-          'أفضّل المهام التي تحتاج إلى تركيز وتحليل بدل السرعة فقط.', 'أحب اختبار أكثر من فرضية قبل اعتماد تفسير معين.',
-          'أشعر بالرضا عندما أصل إلى استنتاج صحيح بعد تحليل.'
-        ],
-        A: [
-          'أحب التعبير عن أفكاري بطرق غير تقليدية.', 'أستمتع بتخيل حلول جديدة للمشكلات المعتادة.',
-          'أميل إلى إضافة لمسة خاصة أو مبتكرة على ما أعمله.', 'أرتاح عندما أملك مساحة للتجربة والابتكار.',
-          'أستمتع بالأنشطة التي تتضمن كتابة أو تصميمًا أو إبداعًا بصريًا.', 'لا أحب أن تكون كل المهام متشابهة أو جامدة جدًا.',
-          'أحب توليد أفكار كثيرة قبل اختيار الأفضل.', 'أستمتع بإنتاج أعمال تعبّر عن ذوقي أو رؤيتي الخاصة.',
-          'أفضل البيئات التي تشجّع على الابتكار بدل التقيّد الصارم فقط.', 'يمكنني رؤية أكثر من طريقة لحل المشكلة نفسها.',
-          'أحب بناء أفكار جديدة انطلاقًا من أفكار موجودة.', 'أستمتع بتنسيق المحتوى أو الشكل بطريقة جذابة.',
-          'أشعر بالحماس عندما أُطلب لتقديم فكرة أصلية.', 'أحب الأنشطة التي تتضمن خيالاً أو تعبيرًا شخصيًا.',
-          'أفضّل أن يكون لي دور في صنع الأفكار وليس تنفيذها فقط.'
-        ],
-        S: [
-          'أشعر بالرضا عندما أساعد شخصًا على حل مشكلة.', 'أحب الاستماع للآخرين وفهم ما يحتاجونه.',
-          'أستمتع بالأنشطة التي تتضمن تعليمًا أو شرحًا للآخرين.', 'أميل إلى دعم من حولي عندما يمرّون بصعوبة.',
-          'أفضّل الأعمال التي يكون لها أثر إيجابي على الناس.', 'أرتاح عند العمل الذي يتطلب تواصلًا إنسانيًا مباشرًا.',
-          'أحب أن أكون شخصًا يعتمد عليه الآخرون عند الحاجة.', 'يسعدني أن أشرح فكرة حتى يفهمها الشخص الآخر بوضوح.',
-          'أهتم بمشاعر الآخرين وأحاول مراعاتها أثناء التعامل.', 'أشعر بالحماس في الأنشطة التي تتضمن تعاونًا وخدمةً للآخرين.',
-          'أحب المشاركة في مبادرات لها فائدة اجتماعية أو تربوية.', 'أميل إلى تشجيع الآخرين عندما يحتاجون إلى دعم أو ثقة.',
-          'أستمتع بتقديم المساعدة أكثر من المنافسة الشديدة.', 'أشعر أن نجاحي يكون أجمل عندما يفيد غيري أيضًا.',
-          'أرتاح عندما أعمل في بيئة فيها تفاعل إنساني إيجابي.'
-        ],
-        E: [
-          'أحب أن أبادر عندما يحتاج الفريق إلى من يقود العمل.', 'أشعر بالراحة عند التحدث أمام الآخرين إذا كان لدي هدف واضح.',
-          'أستمتع بإقناع الناس بفكرة أؤمن بها.', 'أميل إلى تحمّل مسؤولية تنظيم العمل عند الحاجة.',
-          'أحب البيئات التي فيها تحدٍّ وفرصة للتقدّم والإنجاز.', 'أستمتع عندما أشارك في اتخاذ القرار وليس فقط التنفيذ.',
-          'أفكر عادةً في كيف يمكن تطوير العمل أو توسيعه.', 'أحب أن يكون لي دور واضح في توجيه المجموعة نحو هدف معين.',
-          'أشعر بالحماس تجاه المشاريع التي تتطلب مبادرة وجرأة.', 'أستمتع بالتفاوض أو عرض الأفكار بشكل مقنع.',
-          'أميل إلى متابعة الفرص الجديدة بدل انتظارها.', 'أرتاح في الأدوار التي فيها تأثير وتحمل مسؤولية.',
-          'أفضل الأهداف الواضحة التي يمكن السعي لتحقيقها بخطة.', 'يمكنني تحفيز الآخرين عندما يكون هناك هدف مشترك.',
-          'أحب أن أرى نتائج عملي مرتبطة بالتأثير أو الإنجاز أو النمو.'
-        ],
-        C: [
-          'أفضل العمل ضمن خطوات واضحة ومنظمة.', 'أهتم بدقة التفاصيل وعدم ترك الأمور للصدفة.',
-          'أحب ترتيب المهام والملفات والمعلومات بطريقة تسهّل الرجوع إليها.', 'أرتاح عندما أعرف المطلوب بالضبط ومتى يجب إنجازه.',
-          'ألتزم عادةً بالمواعيد والتعليمات إذا كانت واضحة ومنطقية.', 'أفضل الأعمال التي تحتاج إلى تنظيم ومتابعة منتظمة.',
-          'أراجع ما أنجزته للتأكد من الدقة قبل التسليم.', 'أشعر بالارتياح عندما يكون لكل شيء مكان وخطوات واضحة.',
-          'أميل إلى تدوين الملاحظات أو تنظيم المعلومات أثناء العمل.', 'أفضل أن يكون سير العمل مرتبًا بدل العشوائية.',
-          'أهتم بالتفاصيل الصغيرة التي قد تؤثر على جودة النتيجة.', 'أستمتع بإعداد الجداول أو القوائم أو الترتيب المنهجي.',
-          'أحب المهام التي تتطلب اتساقًا وانضباطًا في الأداء.', 'أشعر بالثقة عندما أعمل وفق نظام معروف وواضح.',
-          'أفضل إنهاء كل خطوة بشكل صحيح قبل الانتقال إلى التالية.'
-        ]
-      };
-
-      const big5 = {
-        O: [
-          ['أحب تجربة أفكار أو أساليب جديدة حتى لو لم أعتدها من قبل.', false],
-          ['أشعر بالفضول تجاه الموضوعات غير المألوفة.', false],
-          ['أفضل الروتين الثابت وأتجنب أي تغيير جديد.', true],
-          ['أستمتع باستكشاف مجالات مختلفة بدل الاكتفاء بما أعرفه فقط.', false],
-          ['أحب الربط بين أفكار من مجالات متعددة.', false]
-        ],
-        C: [
-          ['أكمل المهام حتى النهاية حتى لو احتاجت وقتًا إضافيًا.', false],
-          ['أحافظ غالبًا على ترتيب وقتي وأولوياتي.', false],
-          ['أؤجل أعمالي كثيرًا ثم أستعجلها في اللحظة الأخيرة.', true],
-          ['أهتم بأن يكون عملي دقيقًا ومنظمًا.', false],
-          ['ألتزم بما أتعهد به قدر الإمكان.', false]
-        ],
-        E: [
-          ['أشعر بالراحة في بدء الحديث مع أشخاص جدد عند الحاجة.', false],
-          ['أستمد طاقة من المشاركة والتفاعل مع الآخرين.', false],
-          ['أفضل غالبًا البقاء صامتًا حتى لو كانت لدي فكرة مفيدة.', true],
-          ['أرتاح في المواقف التي تتطلب حضورًا وتواصلاً مباشرًا.', false],
-          ['أفضل الأدوار التي تسمح لي بالتفاعل بدل العزلة التامة.', false]
-        ],
-        A: [
-          ['أحاول مراعاة الآخرين حتى عند الاختلاف معهم.', false],
-          ['أتعاون بسهولة عندما يكون الهدف مشتركًا.', false],
-          ['أفضل فرض رأيي حتى لو سبب ذلك توترًا مع الآخرين.', true],
-          ['أحرص على أن يكون أسلوبي محترمًا ومتزنًا في التعامل.', false],
-          ['أميل إلى تفهم وجهات النظر المختلفة قبل الرد.', false]
-        ],
-        N: [
-          ['أشعر بالتوتر بسرعة عند ضغط الدراسة أو العمل.', false],
-          ['أقلق أحيانًا من الوقوع في الخطأ حتى لو كنت مستعدًا.', false],
-          ['أتعامل عادةً مع الضغوط بهدوء وثبات.', true],
-          ['قد يؤثر التوتر في تركيزي أكثر مما أحب.', false],
-          ['أستعيد هدوئي بسرعة بعد المواقف الضاغطة.', true]
-        ]
-      };
-
-      const work = {
-        PRACTICAL: [
-          ['أتعلم أسرع عندما أطبق بيدي أو أجرّب مباشرة.', false], ['أفضل التدريب العملي على الشرح النظري الطويل.', false],
-          ['أشعر أن التطبيق الحقيقي يثبت الفهم أكثر من القراءة فقط.', false], ['أفضل المشاريع التي تنتج مخرجات واضحة يمكن تنفيذها.', false],
-          ['أرتاح للمهام التي أراها تتحول إلى نتيجة عملية.', false]
-        ],
-        THEORETICAL: [
-          ['أفضل فهم الأساس النظري قبل البدء بالتنفيذ.', false], ['أستمتع بتكوين صورة فكرية واضحة قبل العمل.', false],
-          ['أحتاج عادةً إلى تفسير منطقي قبل أن أقتنع بالطريقة.', false], ['أحب قراءة الخلفية العلمية أو المفاهيم قبل التطبيق.', false],
-          ['أفضل الاستيعاب الذهني أولاً ثم الانتقال للتنفيذ.', false]
-        ],
-        TEAM: [
-          ['أشعر أنني أعمل بشكل أفضل عندما أتبادل الأفكار مع فريق.', false], ['أحب أن يكون العمل فيه تنسيق وتوزيع أدوار مع الآخرين.', false],
-          ['العمل الجماعي الجيد يزيد دافعيتي للإنجاز.', false], ['أستفيد من النقاش والتعاون في تحسين جودة العمل.', false],
-          ['أفضل المشاريع التي تتضمن تفاعلاً وتنسيقًا مع فريق.', false]
-        ],
-        INDEPENDENT: [
-          ['أركز أكثر عندما أعمل وحدي دون مقاطعات كثيرة.', false], ['أحب أن أملك مساحة شخصية واضحة أثناء العمل.', false],
-          ['أفضّل الاعتماد على نفسي في إنجاز جزء كبير من المهمة.', false], ['العمل الفردي يمنحني هدوءًا أكبر وإنتاجية أعلى.', false],
-          ['أرتاح عندما أتحكم بإيقاع عملي الشخصي.', false]
-        ],
-        LEAD: [
-          ['أميل إلى تنظيم الفريق عندما لا يكون المسار واضحًا.', false], ['أشعر بالارتياح عند تحمل مسؤولية القرار في المشروع.', false],
-          ['أستمتع بتوزيع الأدوار والمتابعة لتحقيق الهدف.', false], ['أحب أن يكون لي دور قيادي عند العمل الجماعي.', false],
-          ['أتحمس عندما أرى فرصة لتوجيه العمل نحو نتيجة أفضل.', false]
-        ],
-        EXECUTE: [
-          ['أفضل أن تكون المهمة واضحة ثم أركز على تنفيذها بإتقان.', false], ['أشعر أن قوتي تظهر عندما تكون الأهداف محددة ومباشرة.', false],
-          ['أفضل متابعة الخطة المرسومة بدقة بدل تغييرها كثيرًا.', false], ['أرتاح عندما تكون المسؤوليات واضحة ويمكن تنفيذها خطوة خطوة.', false],
-          ['أحب إنهاء المهام المطلوبة بجودة وثبات.', false]
-        ]
-      };
-
-      Object.entries(riasec).forEach(([domain, arr]) => arr.forEach(text => add('RIASEC', domain, text, false)));
-      Object.entries(big5).forEach(([domain, arr]) => arr.forEach(([text, rev]) => add('BIG5', domain, text, rev)));
-      Object.entries(work).forEach(([domain, arr]) => arr.forEach(([text, rev]) => add('WORK', domain, text, rev)));
-
-      const validations = [
-        ['BIG5','C','أعترف عادةً عندما أحتاج إلى تحسين أو تطوير في أدائي.', false],
-        ['BIG5','C','نادراً ما أرتكب أي خطأ في عملي أو دراستي.', true],
-        ['BIG5','A','أستطيع تقبل أنني لا أنجح في كل شيء من المرة الأولى.', false],
-        ['BIG5','A','أتوقع من نفسي أن أكون ممتازًا في كل موقف تقريبًا.', true],
-        ['WORK','INDEPENDENT','أحتاج أحيانًا إلى وقت هادئ لأفكر وحدي قبل المشاركة.', false],
-        ['WORK','TEAM','أستفيد أحيانًا من مراجعة الآخرين لأفكاري قبل اعتمادها.', false],
-        ['BIG5','N','قد أشعر بالتوتر أحيانًا في المواقف المهمة، وهذا أمر طبيعي.', false],
-        ['BIG5','N','أبقى هادئًا دائمًا مهما كانت الظروف.', true],
-        ['WORK','LEAD','أحب القيادة في بعض المواقف، لكن ليس بالضرورة في كل مرة.', false],
-        ['WORK','EXECUTE','أرتاح أحيانًا عندما تكون الأدوار واضحة ومحددة.', false],
-        ['BIG5','E','أكون اجتماعيًا في بعض المواقف، وأفضّل الهدوء في مواقف أخرى.', false],
-        ['BIG5','E','أحب أن أكون محور الاهتمام في كل الأوقات تقريبًا.', true],
-        ['BIG5','O','أحب الأفكار الجديدة، لكنني أفضّل أن أفهمها قبل اعتمادها.', false],
-        ['BIG5','O','أي تغيير جديد يكون ممتازًا دائمًا مهما كانت الظروف.', true],
-        ['BIG5','A','أختلف أحيانًا مع الآخرين لكنني أحافظ على الاحترام.', false],
-        ['BIG5','A','لا أختلف مع أحد أبدًا مهما كان الموضوع.', true],
-        ['BIG5','C','أحاول الالتزام، لكن قد أحتاج أحيانًا إلى إعادة تنظيم وقتي.', false],
-        ['BIG5','C','أنجز كل شيء دائمًا بلا أي تأخير أو تقصير.', true]
-      ];
-      validations.forEach(v => add(v[0], v[1], v[2], v[3]));
-
-      return questions.slice(0, 150);
-    }
-
-    const QUESTIONS = generateQuestions();
-
-    const MAJORS = [
-      { name:'الطب البشري', description:'مناسب للطلبة ذوي الميول التحليلية والاجتماعية العالية مع انضباط قوي وقدرة على تحمّل الدراسة الطويلة.', requiredRiasec:['I','S'], optionalRiasec:['C'], bigFiveFit:['C','A'], workStyleFit:['THEORETICAL','EXECUTE'], marketStatus:'Strong', marketLabelAr:'مطلوب بقوة', futureReadiness:'مرتفع', note:'خيار ممتاز لمن يجمع بين التفكير العلمي وخدمة الناس والانضباط العالي.', examples:['طبيب عام','طبيب اختصاص','باحث سريري'], branches:['علوم حياة'] },
-      { name:'طب الأسنان', description:'يجمع بين الدقة العملية والتعامل الإنساني والانضباط المهني.', requiredRiasec:['S','R'], optionalRiasec:['C','I'], bigFiveFit:['C','A'], workStyleFit:['PRACTICAL','EXECUTE'], marketStatus:'Competitive', marketLabelAr:'تنافسي', futureReadiness:'متوسط', note:'جيد لمن يملك دقة عملية وتعاملاً جيدًا مع الناس.', examples:['طبيب أسنان','تقويم أسنان','ترميمات سنية'], branches:['علوم حياة'] },
-      { name:'الصيدلة', description:'يناسب الشخصية التحليلية المنظمة، خصوصًا مع دقة عالية واهتمام بالتفاصيل.', requiredRiasec:['I','C'], optionalRiasec:['S'], bigFiveFit:['C'], workStyleFit:['THEORETICAL','EXECUTE'], marketStatus:'Competitive', marketLabelAr:'تنافسي', futureReadiness:'متوسط', note:'مناسب لمن يفضّل العلوم الدقيقة والعمل المنظم.', examples:['صيدلي سريري','صيدلي مجتمع','تصنيع دوائي'], branches:['علوم حياة'] },
-      { name:'التمريض', description:'يتطلب حسًا إنسانيًا، مسؤولية، وقدرة على المتابعة والتعامل مع الناس تحت الضغط.', requiredRiasec:['S'], optionalRiasec:['I','C'], bigFiveFit:['A','C'], workStyleFit:['TEAM','EXECUTE'], marketStatus:'Strong', marketLabelAr:'مطلوب بقوة', futureReadiness:'مرتفع', note:'قوي جدًا لمن يفضّل الأثر الإنساني المباشر والعمل المنظم.', examples:['ممرض سريري','تمريض عناية','إدارة تمريض'], branches:['علوم حياة'] },
-      { name:'الهندسة المدنية', description:'مناسب للميول العملية والتنظيمية مع قدرة على التفكير الفني والمتابعة الميدانية.', requiredRiasec:['R','C'], optionalRiasec:['I','E'], bigFiveFit:['C'], workStyleFit:['PRACTICAL','EXECUTE'], marketStatus:'Stable', marketLabelAr:'مستقر', futureReadiness:'متوسط', note:'مناسب لمن يحب البناء والتنفيذ والمتابعة الميدانية الدقيقة.', examples:['مهندس موقع','إدارة مشاريع','تصميم إنشائي'], branches:['علوم عامة (رياضيات)'] },
-      { name:'الهندسة المعمارية', description:'تجمع بين الحس الإبداعي والمنهجية والتطبيق العملي.', requiredRiasec:['A','R'], optionalRiasec:['C','I'], bigFiveFit:['O','C'], workStyleFit:['PRACTICAL','THEORETICAL'], marketStatus:'Competitive', marketLabelAr:'تنافسي', futureReadiness:'متوسط', note:'قوي لمن يجمع بين الإبداع والانضباط والقدرة على تطوير حلول تصميمية.', examples:['معماري','تصميم داخلي','نمذجة معمارية'], branches:['علوم عامة (رياضيات)'] },
-      { name:'الهندسة الكهربائية / الميكاترونكس', description:'تخصص تحليلي عملي يناسب من يحب الأنظمة والأجهزة والتطبيقات التقنية.', requiredRiasec:['I','R'], optionalRiasec:['C'], bigFiveFit:['C','O'], workStyleFit:['PRACTICAL','THEORETICAL'], marketStatus:'Growing', marketLabelAr:'نامٍ', futureReadiness:'مرتفع', note:'خيار ممتاز للتقنيين التحليليين الذين يحبون العمل على الأنظمة والأجهزة.', examples:['تحكم وأتمتة','صيانة أنظمة','هندسة روبوتية'], branches:['علوم عامة (رياضيات)'] },
-      { name:'هندسة البرمجيات / علوم الحاسوب', description:'يتطلب ميولاً تحليلية قوية مع صبر على حل المشكلات وبناء الأنظمة.', requiredRiasec:['I'], optionalRiasec:['C','A'], bigFiveFit:['C','O'], workStyleFit:['THEORETICAL','INDEPENDENT'], marketStatus:'Strong', marketLabelAr:'مطلوب بقوة', futureReadiness:'مرتفع', note:'من أفضل الخيارات الحديثة لمن يحب التفكير المنطقي والتقني.', examples:['مطور برمجيات','مهندس نظم','اختبار برمجيات'], branches:['علوم عامة (رياضيات)'] },
-      { name:'تحليل البيانات / علم البيانات', description:'يناسب الشخصية التحليلية الدقيقة التي تستمتع بالأنماط والأرقام والاستنتاج.', requiredRiasec:['I','C'], optionalRiasec:['A'], bigFiveFit:['C','O'], workStyleFit:['THEORETICAL','INDEPENDENT'], marketStatus:'Strong', marketLabelAr:'مطلوب بقوة', futureReadiness:'مرتفع', note:'من أقوى المسارات الحديثة للطلبة ذوي الميول التحليلية والتنظيمية.', examples:['محلل بيانات','عالم بيانات','ذكاء أعمال'], branches:['علوم عامة (رياضيات)','اقتصاد واجتماع'] },
-      { name:'الأمن السيبراني', description:'مناسب للشخصيات التحليلية المنهجية التي تحب الاستقصاء والأنظمة التقنية.', requiredRiasec:['I','C'], optionalRiasec:['R'], bigFiveFit:['C'], workStyleFit:['INDEPENDENT','THEORETICAL'], marketStatus:'Growing', marketLabelAr:'نامٍ', futureReadiness:'مرتفع', note:'خيار حديث وقوي لمن ينجذب للتحليل وحل المشكلات الرقمية المعقدة.', examples:['محلل أمن','اختبار اختراق','حوكمة أمن معلومات'], branches:['علوم عامة (رياضيات)'] },
-      { name:'الذكاء الاصطناعي وتعلّم الآلة', description:'يتطلب قوة تحليلية عالية، فضولاً معرفيًا، وصبرًا على النماذج والبيانات.', requiredRiasec:['I'], optionalRiasec:['A','C'], bigFiveFit:['O','C'], workStyleFit:['THEORETICAL','INDEPENDENT'], marketStatus:'Growing', marketLabelAr:'نامٍ', futureReadiness:'مرتفع', note:'ممتاز للطلبة الذين يستمتعون بالرياضيات والتحليل والابتكار التقني.', examples:['مهندس تعلم آلة','باحث ذكاء اصطناعي','مهندس نماذج'], branches:['علوم عامة (رياضيات)'] },
-      { name:'التصميم الجرافيكي والوسائط الرقمية', description:'مناسب للإبداع البصري مع حس جمالي وقدرة على تحويل الأفكار إلى مخرجات.', requiredRiasec:['A'], optionalRiasec:['E','C'], bigFiveFit:['O'], workStyleFit:['INDEPENDENT','PRACTICAL'], marketStatus:'Competitive', marketLabelAr:'تنافسي', futureReadiness:'واعد', note:'جيد جدًا لمن يملك حسًا بصريًا وإبداعيًا ويطوّر ملف أعمال قوي.', examples:['مصمم جرافيك','مصمم محتوى بصري','موشن جرافيك'], branches:['اقتصاد واجتماع'] },
-      { name:'الإعلام الرقمي وصناعة المحتوى', description:'يناسب الشخص الإبداعي والاجتماعي والقيادي الذي يجيد التأثير والتعبير.', requiredRiasec:['A','E'], optionalRiasec:['S'], bigFiveFit:['O','E'], workStyleFit:['TEAM','LEAD'], marketStatus:'Growing', marketLabelAr:'نامٍ', futureReadiness:'مرتفع', note:'قوي لمن يملك تواصلاً جيدًا وابتكارًا ورغبة في بناء حضور وتأثير.', examples:['صانع محتوى','منتج رقمي','إدارة إعلام'], branches:['اقتصاد واجتماع'] },
-      { name:'إدارة الأعمال', description:'يجمع بين القيادة والتنظيم وفهم القرارات والفرص.', requiredRiasec:['E','C'], optionalRiasec:['S'], bigFiveFit:['E','C'], workStyleFit:['LEAD','TEAM'], marketStatus:'Stable', marketLabelAr:'مستقر', futureReadiness:'متوسط', note:'مناسب لمن يحب الإدارة والتنظيم واتخاذ القرار ضمن بيئات متغيرة.', examples:['إدارة عمليات','إدارة شركات','تطوير أعمال'], branches:['اقتصاد واجتماع'] },
-      { name:'المحاسبة والتمويل', description:'يتطلب دقة، التزامًا، وتنظيمًا عاليًا مع راحة في التعامل مع الأرقام.', requiredRiasec:['C'], optionalRiasec:['I','E'], bigFiveFit:['C'], workStyleFit:['EXECUTE','THEORETICAL'], marketStatus:'Stable', marketLabelAr:'مستقر', futureReadiness:'متوسط', note:'خيار جيد لمن يحب الدقة والنظام والمسؤولية المالية.', examples:['محاسب','محلل مالي','تدقيق'], branches:['اقتصاد واجتماع'] },
-      { name:'التسويق الرقمي', description:'يجمع بين التواصل، التحليل، والإبداع مع حس تجاري واضح.', requiredRiasec:['E','A'], optionalRiasec:['S','I'], bigFiveFit:['E','O'], workStyleFit:['TEAM','LEAD'], marketStatus:'Growing', marketLabelAr:'نامٍ', futureReadiness:'مرتفع', note:'مناسب لمن يجمع بين الإقناع وفهم الجمهور والإبداع العملي.', examples:['مسوق رقمي','إعلانات أداء','استراتيجية محتوى'], branches:['اقتصاد واجتماع'] },
-      { name:'التربية / الإرشاد التربوي', description:'مناسب للميول الاجتماعية مع صبر وقدرة على التوجيه والمتابعة.', requiredRiasec:['S'], optionalRiasec:['A','C'], bigFiveFit:['A','C'], workStyleFit:['TEAM','EXECUTE'], marketStatus:'Stable', marketLabelAr:'مستقر', futureReadiness:'متوسط', note:'خيار مناسب لمن يجد قيمة في التعليم والتأثير الإنساني المباشر.', examples:['معلم','مرشد تربوي','تصميم تعلم'], branches:['اقتصاد واجتماع'] },
-      { name:'الحقوق', description:'يناسب الشخصية التحليلية والقيادية القادرة على الفهم والحجة والتنظيم.', requiredRiasec:['I','E'], optionalRiasec:['C','S'], bigFiveFit:['E','C'], workStyleFit:['THEORETICAL','LEAD'], marketStatus:'Competitive', marketLabelAr:'تنافسي', futureReadiness:'متوسط', note:'مناسب لمن يجيد التحليل والحجة والالتزام المهني.', examples:['محامٍ','مستشار قانوني','شؤون امتثال'], branches:['اقتصاد واجتماع'] },
-      { name:'العلاج الفيزيائي', description:'يجمع بين خدمة الناس والتطبيق العملي والمتابعة الدقيقة.', requiredRiasec:['S','R'], optionalRiasec:['C'], bigFiveFit:['A','C'], workStyleFit:['PRACTICAL','TEAM'], marketStatus:'Growing', marketLabelAr:'نامٍ', futureReadiness:'مرتفع', note:'ممتاز لمن يفضّل الأثر الإنساني مع التطبيق العملي المباشر.', examples:['علاج فيزيائي','تأهيل حركي','إعادة تأهيل'], branches:['علوم حياة'] },
-      { name:'إدارة سلاسل الإمداد واللوجستيات', description:'مناسب لمن يحب التنظيم والمتابعة واتخاذ القرار ضمن أنظمة تشغيلية.', requiredRiasec:['C','E'], optionalRiasec:['R'], bigFiveFit:['C'], workStyleFit:['EXECUTE','LEAD'], marketStatus:'Growing', marketLabelAr:'نامٍ', futureReadiness:'مرتفع', note:'قوي لمن يملك مهارة تنظيمية ويميل لإدارة العمليات بكفاءة.', examples:['إدارة لوجستيات','سلاسل إمداد','تخطيط عمليات'], branches:['اقتصاد واجتماع'] }
-    ];
-
-    const EXPLORATION_PATHS = [
-      {
-        name:'المسار الصحي والعلوم الطبية',
-        summary:'مناسب للطلبة الذين يظهرون ميولاً تحليلية واجتماعية مع قدر جيد من الانضباط والمسؤولية.',
-        matchRiasec:['I','S'],
-        optionalRiasec:['C','R'],
-        bigFiveFit:['C','A'],
-        workStyleFit:['THEORETICAL','EXECUTE'],
-        examples:['الطب','التمريض','الصيدلة','العلاج الفيزيائي','المختبرات الطبية'],
-        note:'هذا المسار مناسب للاستكشاف المبكر، ويحتاج لاحقًا إلى متابعة المواد العلمية والأداء الأكاديمي.'
-      },
-      {
-        name:'المسار الهندسي والتقني',
-        summary:'مناسب لمن يجمع بين التحليل والتطبيق العملي والاهتمام بالأنظمة والأجهزة أو البناء والتصميم.',
-        matchRiasec:['I','R'],
-        optionalRiasec:['C','A'],
-        bigFiveFit:['C','O'],
-        workStyleFit:['PRACTICAL','THEORETICAL'],
-        examples:['الهندسة','الميكاترونكس','البرمجيات','الأمن السيبراني','الذكاء الاصطناعي'],
-        note:'مسار قوي للطلبة الذين يستمتعون بحل المشكلات التقنية وفهم كيف تعمل الأشياء.'
-      },
-      {
-        name:'المسار الإداري والريادي',
-        summary:'يناسب من لديهم ميول قيادية وتنظيمية مع رغبة في التأثير واتخاذ القرار وتطوير المبادرات.',
-        matchRiasec:['E','C'],
-        optionalRiasec:['S','A'],
-        bigFiveFit:['E','C'],
-        workStyleFit:['LEAD','TEAM'],
-        examples:['إدارة أعمال','تسويق','ريادة أعمال','موارد بشرية','لوجستيات'],
-        note:'يناسب من يفضّلون المبادرة والتخطيط والعمل ضمن أهداف واضحة ونتائج عملية.'
-      },
-      {
-        name:'المسار الإبداعي والإعلامي',
-        summary:'مناسب للطلبة الذين يميلون إلى التعبير والابتكار وصناعة الأفكار والمحتوى.',
-        matchRiasec:['A'],
-        optionalRiasec:['E','S'],
-        bigFiveFit:['O'],
-        workStyleFit:['INDEPENDENT','TEAM'],
-        examples:['تصميم','إعلام رقمي','صناعة محتوى','عمارة','فنون تطبيقية'],
-        note:'هذا المسار يحتاج غالبًا إلى ملف أعمال ومهارات عملية متراكمة مع الوقت.'
-      },
-      {
-        name:'المسار الإنساني والتربوي والاجتماعي',
-        summary:'يلائم من يحبون مساعدة الناس والتعليم والإرشاد والتفاعل الإنساني المباشر.',
-        matchRiasec:['S'],
-        optionalRiasec:['A','E','C'],
-        bigFiveFit:['A','C'],
-        workStyleFit:['TEAM','EXECUTE'],
-        examples:['تربية','إرشاد','خدمة اجتماعية','تنمية مجتمعية','قانون'],
-        note:'مناسب للطلبة الذين يشعرون بقيمة كبيرة في الأثر الإنساني والتواصل مع الآخرين.'
-      }
-    ];
-
-    const state = {
-      student: { name: '', grade: '', section: '' },
-      answers: {},
-      currentIndex: 0,
-      result: null
-    };
-
-    const el = {
-      startScreen: document.getElementById('start-screen'),
-      assessScreen: document.getElementById('assessment-screen'),
-      resultScreen: document.getElementById('result-screen'),
-      name: document.getElementById('studentName'),
-      grade: document.getElementById('studentGrade'),
-      section: document.getElementById('studentSection'),
-      consent: document.getElementById('consent'),
-      startBtn: document.getElementById('startBtn'),
-      questionCard: document.getElementById('questionCard'),
-      sectionBadge: document.getElementById('sectionBadge'),
-      questionId: document.getElementById('questionId'),
-      questionText: document.getElementById('questionText'),
-      optionsContainer: document.getElementById('optionsContainer'),
-      prevBtn: document.getElementById('prevBtn'),
-      nextBtn: document.getElementById('nextBtn'),
-      navGrid: document.getElementById('navGrid'),
-      progressText: document.getElementById('progressText'),
-      progressFill: document.getElementById('progressFill'),
-      progressValue: document.getElementById('progressValue'),
-      unansweredOnly: document.getElementById('unansweredOnly'),
-      remainingText: document.getElementById('remainingText'),
-      heroAnswered: document.getElementById('heroAnswered'),
-      heroRemaining: document.getElementById('heroRemaining'),
-      heroProgress: document.getElementById('heroProgress'),
-      heroCounter: document.getElementById('heroCounter'),
-      resultStudentName: document.getElementById('resultStudentName'),
-      stageChip: document.getElementById('stageChip'),
-      profileCodePill: document.getElementById('profileCodePill'),
-      consistencyPill: document.getElementById('consistencyPill'),
-      profileCodes: document.getElementById('profileCodes'),
-      topRiasecGrid: document.getElementById('topRiasecGrid'),
-      majorList: document.getElementById('majorList'),
-      majorsSectionDesc: document.getElementById('majorsSectionDesc'),
-      big5List: document.getElementById('big5List'),
-      workList: document.getElementById('workList'),
-      consistencyAlert: document.getElementById('consistencyAlert'),
-      summaryText: document.getElementById('summaryText'),
-      downloadJsonBtn: document.getElementById('downloadJsonBtn'),
-      downloadCsvBtn: document.getElementById('downloadCsvBtn'),
-      printBtn: document.getElementById('printBtn'),
-      restartBtn: document.getElementById('restartBtn')
-    };
-
-    function normalizeScore(value, itemsCount) {
-      const min = itemsCount * 1;
-      const max = itemsCount * 5;
-      return ((value - min) / (max - min)) * 100;
-    }
-
-    function descriptiveLevel(score) {
-      if (score >= 82) return 'ممتاز جداً';
-      if (score >= 70) return 'ممتاز';
-      if (score >= 58) return 'جيد جداً';
-      if (score >= 46) return 'جيد';
-      return 'مقبول';
-    }
-
-    function levelClass(label) {
-      if (label === 'ممتاز جداً') return 'lvl-excellent2';
-      if (label === 'ممتاز') return 'lvl-excellent';
-      if (label === 'جيد جداً') return 'lvl-verygood';
-      if (label === 'جيد') return 'lvl-good';
-      return 'lvl-acceptable';
-    }
-
-    function consistencyLabel(score) {
-      if (score >= 85) return 'اتساق مرتفع';
-      if (score >= 70) return 'اتساق جيد';
-      if (score >= 55) return 'اتساق متوسط';
-      return 'اتساق منخفض';
-    }
-
-    function computeResults() {
-      const riasecRaw = { R:0, I:0, A:0, S:0, E:0, C:0 };
-      const riasecCount = { R:0, I:0, A:0, S:0, E:0, C:0 };
-      const bigRaw = { O:0, C:0, E:0, A:0, N:0 };
-      const bigCount = { O:0, C:0, E:0, A:0, N:0 };
-      const workRaw = { PRACTICAL:0, THEORETICAL:0, TEAM:0, INDEPENDENT:0, LEAD:0, EXECUTE:0 };
-      const workCount = { PRACTICAL:0, THEORETICAL:0, TEAM:0, INDEPENDENT:0, LEAD:0, EXECUTE:0 };
-
-      QUESTIONS.forEach(q => {
-        const raw = state.answers[q.id] || 3;
-        const v = q.reverse ? 6 - raw : raw;
-        if (q.section === 'RIASEC') {
-          riasecRaw[q.domain] += v;
-          riasecCount[q.domain] += 1;
-        } else if (q.section === 'BIG5') {
-          bigRaw[q.domain] += v;
-          bigCount[q.domain] += 1;
-        } else {
-          workRaw[q.domain] += v;
-          workCount[q.domain] += 1;
-        }
-      });
-
-      const riasecScores = {};
-      Object.keys(riasecRaw).forEach(k => riasecScores[k] = normalizeScore(riasecRaw[k], riasecCount[k]));
-
-      const bigScores = {};
-      Object.keys(bigRaw).forEach(k => bigScores[k] = normalizeScore(bigRaw[k], bigCount[k]));
-
-      const workScores = {};
-      Object.keys(workRaw).forEach(k => workScores[k] = normalizeScore(workRaw[k], workCount[k]));
-
-      const sortedProfile = Object.entries(riasecScores).sort((a, b) => b[1] - a[1]);
-      const profile = [sortedProfile[0][0], sortedProfile[1][0], sortedProfile[2][0]];
-      if (sortedProfile[2][1] - sortedProfile[3][1] <= 6) profile.push(sortedProfile[3][0]);
-
-      const checks = [['Q121','Q122'],['Q123','Q124'],['Q127','Q128'],['Q131','Q132'],['Q135','Q136'],['Q137','Q138']];
-      let consistency = 100;
-      const notes = [];
-
-      checks.forEach((pair, i) => {
-        const a = state.answers[pair[0]] || 3;
-        const b = state.answers[pair[1]] || 3;
-        if (Math.abs(a - b) >= 3) {
-          consistency -= 8;
-          notes.push(`يوجد تباين ملحوظ في بعض الإجابات المتقابلة (مؤشر ${i + 1}).`);
-        }
-      });
-
-      const avg = Object.values(state.answers).reduce((a, b) => a + b, 0) / QUESTIONS.length;
-      if (avg > 4.45) {
-        consistency -= 10;
-        notes.push('يوجد ميل عام لاختيار أعلى الدرجات كثيرًا، وقد يشير ذلك إلى رغبة في تقديم صورة مثالية أكثر من الواقع.');
-      }
-      if (avg < 1.55) {
-        consistency -= 8;
-        notes.push('يوجد ميل عام لاختيار أدنى الدرجات بكثرة، وقد يؤثر ذلك في دقة الملف المهني.');
-      }
-
-      consistency = Math.max(35, Math.min(100, consistency));
-      if (!notes.length) {
-        notes.push('الإجابات متوازنة نسبيًا ويمكن الاستفادة منها في بناء توصيات مهنية أولية جيدة.');
-      }
-
-      const marketBonus = { Strong:14, Growing:12, Stable:8, Competitive:4, Limited:1 };
-      let selectedBranch = state.student.section;
-      if (selectedBranch === 'علوم عامة' || selectedBranch === 'رياضيات') {
-        selectedBranch = 'علوم عامة (رياضيات)';
-      }
-
-      const allMajorsScored = MAJORS.map(m => {
-        let score = 0;
-
-        m.requiredRiasec.forEach((code, idx) => {
-          const rank = profile.indexOf(code);
-          if (rank !== -1) score += 28 - rank * 4;
-          score += riasecScores[code] * (idx === 0 ? 0.28 : 0.24);
-        });
-
-        (m.optionalRiasec || []).forEach(code => {
-          if (profile.includes(code)) score += 8;
-          score += riasecScores[code] * 0.08;
-        });
-
-        (m.bigFiveFit || []).forEach(code => {
-          score += bigScores[code] * 0.10;
-        });
-
-        (m.workStyleFit || []).forEach(code => {
-          score += workScores[code] * 0.08;
-        });
-
-        score += marketBonus[m.marketStatus] || 0;
-
-        const branchMatch = !selectedBranch || selectedBranch === 'غير محدد بعد' || (m.branches || []).includes(selectedBranch);
-        const branchStatus = branchMatch ? 'متوافق مع الفرع' : 'يتطلب مسارًا مختلفًا';
-        const branchNote = branchMatch
-          ? `ينسجم مع فرع ${selectedBranch}.`
-          : `لا ينسجم مباشرة مع فرع ${selectedBranch} وقد يحتاج تغيير مسار.`;
-
-        if (selectedBranch && selectedBranch !== 'غير محدد بعد') {
-          score += branchMatch ? 16 : -14;
-        }
-
-        let suitability = 'مقبول';
-        if (score >= 115) suitability = 'ممتاز جداً';
-        else if (score >= 98) suitability = 'ممتاز';
-        else if (score >= 84) suitability = 'جيد جداً';
-        else if (score >= 70) suitability = 'جيد';
-
-        return { ...m, score, suitability, branchStatus, branchNote, branchMatch };
-      }).sort((a, b) => b.score - a.score);
-
-      const majorsWithinBranch = allMajorsScored.filter(m => m.branchMatch).slice(0, 6);
-      const majorsOutsideBranch = allMajorsScored.filter(m => !m.branchMatch).slice(0, 4);
-
-      const paths = EXPLORATION_PATHS.map(p => {
-        let score = 0;
-
-        p.matchRiasec.forEach((code, idx) => {
-          const rank = profile.indexOf(code);
-          if (rank !== -1) score += 26 - rank * 4;
-          score += riasecScores[code] * (idx === 0 ? 0.28 : 0.22);
-        });
-
-        (p.optionalRiasec || []).forEach(code => {
-          if (profile.includes(code)) score += 7;
-          score += riasecScores[code] * 0.08;
-        });
-
-        (p.bigFiveFit || []).forEach(code => {
-          score += bigScores[code] * 0.08;
-        });
-
-        (p.workStyleFit || []).forEach(code => {
-          score += workScores[code] * 0.08;
-        });
-
-        let suitability = 'مقبول';
-        if (score >= 108) suitability = 'ممتاز جداً';
-        else if (score >= 93) suitability = 'ممتاز';
-        else if (score >= 79) suitability = 'جيد جداً';
-        else if (score >= 66) suitability = 'جيد';
-
-        return { ...p, score, suitability };
-      }).sort((a, b) => b.score - a.score).slice(0, 6);
-
-      return {
-        riasecScores,
-        bigScores,
-        workScores,
-        sortedProfile,
-        profile,
-        majorsWithinBranch,
-        majorsOutsideBranch,
-        paths,
-        consistency,
-        consistencyText: consistencyLabel(consistency),
-        notes,
-        isExplorationStage: state.student.grade === 'أول ثانوي' || state.student.grade === 'ثاني ثانوي'
-      };
-    }
-
-    function renderQuestion() {
-      const q = QUESTIONS[state.currentIndex];
-      el.questionCard.classList.remove('slide');
-      void el.questionCard.offsetWidth;
-      el.questionCard.classList.add('slide');
-
-      el.sectionBadge.textContent = `${SECTION_META[q.section].emoji} ${SECTION_META[q.section].title}`;
-      el.questionId.textContent = q.id;
-      el.questionText.textContent = q.text;
-      el.optionsContainer.innerHTML = '';
-
-      LIKERT.forEach(option => {
-        const btn = document.createElement('button');
-        btn.className = 'option-btn' + (state.answers[q.id] === option.value ? ' active' : '');
-        btn.innerHTML = `<span>${option.label}</span><span class="option-score">${option.value}</span>`;
-        btn.addEventListener('click', () => {
-          state.answers[q.id] = option.value;
-          renderQuestion();
-          renderProgress();
-          if (Object.keys(state.answers).length === QUESTIONS.length) {
-            setTimeout(finishAssessment, 180);
-          }
-        });
-        el.optionsContainer.appendChild(btn);
-      });
-
-      el.prevBtn.disabled = state.currentIndex === 0;
-      el.nextBtn.disabled = state.currentIndex === QUESTIONS.length - 1;
-      renderProgress();
-    }
-
-    function getVisibleIndices() {
-      if (!el.unansweredOnly.checked) return QUESTIONS.map((_, i) => i);
-      return QUESTIONS.map((q, i) => !state.answers[q.id] ? i : null).filter(v => v !== null);
-    }
-
-    function renderNav() {
-      const visible = getVisibleIndices();
-      el.navGrid.innerHTML = '';
-      visible.forEach(idx => {
-        const q = QUESTIONS[idx];
-        const btn = document.createElement('button');
-        btn.className = 'nav-btn';
-        if (state.answers[q.id]) btn.classList.add('answered');
-        if (idx === state.currentIndex) btn.classList.add('current');
-        btn.textContent = idx + 1;
-        btn.addEventListener('click', () => {
-          state.currentIndex = idx;
-          renderQuestion();
-          renderNav();
-          window.scrollTo({ top: 0, behavior: 'smooth' });
-        });
-        el.navGrid.appendChild(btn);
-      });
-    }
-
-    function renderProgress() {
-      const answered = Object.keys(state.answers).length;
-      const remaining = QUESTIONS.length - answered;
-      const pct = Math.round((answered / QUESTIONS.length) * 100);
-      el.progressText.textContent = `${answered} من ${QUESTIONS.length} تمت الإجابة عنها`;
-      el.progressFill.style.width = `${pct}%`;
-      el.progressValue.textContent = `${pct}%`;
-      el.remainingText.textContent = `عدد الأسئلة المتبقية: ${remaining}`;
-
-      el.heroAnswered.textContent = answered;
-      el.heroRemaining.textContent = remaining;
-      el.heroProgress.textContent = `${pct}%`;
-      el.heroCounter.textContent = `${state.currentIndex + 1}/${QUESTIONS.length}`;
-      renderNav();
-    }
-
-    function startAssessment() {
-      state.student.name = el.name.value.trim();
-      state.student.grade = el.grade.value.trim();
-      state.student.section = el.section.value.trim();
-
-      if (!state.student.name || !state.student.grade || !state.student.section || !el.consent.checked) {
-        const box = document.querySelector('.panel');
-        if (box) {
-          box.classList.remove('shake');
-          void box.offsetWidth;
-          box.classList.add('shake');
-        }
-        alert('يرجى تعبئة البيانات كاملة والموافقة على الإقرار قبل البدء.');
-        return;
-      }
-
-      state.answers = {};
-      state.result = null;
-      state.currentIndex = 0;
-
-      el.startScreen.classList.add('hidden');
-      el.resultScreen.classList.add('hidden');
-      el.assessScreen.classList.remove('hidden');
-      el.unansweredOnly.checked = false;
-
-      renderQuestion();
-      renderProgress();
-      renderNav();
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    }
-
-    function finishAssessment() {
-      state.result = computeResults();
-      el.assessScreen.classList.add('hidden');
-      el.resultScreen.classList.remove('hidden');
-      renderResults();
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    }
-
-    function badge(label) {
-      return `<span class="label-badge ${levelClass(label)}">${label}</span>`;
-    }
-
-    function renderResults() {
-      const r = state.result;
-      const isExplorationStage = r.isExplorationStage;
-      el.resultStudentName.textContent = `نتيجة ${state.student.name}`;
-      el.profileCodePill.textContent = `رمز الملف: ${r.profile.join('')}`;
-      el.consistencyPill.textContent = `اتساق الإجابات: ${r.consistencyText}`;
-
-      el.profileCodes.innerHTML = r.profile.map(code => {
-        const info = RIASEC_DESCRIPTIONS[code];
-        return `<div class="profile-chip"><div style="font-size:22px">${info.emoji}</div><div><strong>${info.title}</strong><span>${code}</span></div></div>`;
-      }).join('');
-
-      el.topRiasecGrid.innerHTML = r.sortedProfile.slice(0, 4).map(([code, score]) => {
-        const info = RIASEC_DESCRIPTIONS[code];
-        return `<div class="sub-box"><h4>${info.emoji} ${info.title}</h4><p>${info.description}</p>${badge(descriptiveLevel(score))}</div>`;
-      }).join('');
-
-      if (isExplorationStage) {
-        el.stageChip.textContent = 'مرحلة الاستكشاف';
-        el.majorsSectionDesc.textContent = 'بحسب النظام العالمي، طلاب أول وثاني ثانوي يحصلون على مجالات ومسارات استكشافية عامة بدل تخصصات نهائية دقيقة.';
-        el.majorList.innerHTML = r.paths.map(p => `
-          <div class="major-item">
-            <div class="major-head">
-              <div>
-                <h4>${p.name}</h4>
-                <p>${p.summary}</p>
-              </div>
-              ${badge(p.suitability)}
-            </div>
-            <div class="chip-grid">
-              <div class="chip-box"><strong>نوع المخرج</strong><span>مسار استكشافي عام</span></div>
-              <div class="chip-box"><strong>الغرض</strong><span>استكشاف الاتجاه قبل اختيار نهائي</span></div>
-              <div class="chip-box"><strong>ملاحظة</strong><span>${p.note}</span></div>
-            </div>
-            <div class="examples">${p.examples.map(ex => `<span>${ex}</span>`).join('')}</div>
-          </div>
-        `).join('');
-      } else {
-        el.stageChip.textContent = 'مرحلة التوجيه المرتبطة بالفرع';
-        el.majorsSectionDesc.textContent = 'تم ترتيب التخصصات بحسب التوافق مع الميول والسمات وأسلوب العمل، مع مراعاة واقع سوق العمل الحديث وتوافق التخصص مع الفرع الحالي.';
-
-        const within = r.majorsWithinBranch.map(m => `
-          <div class="major-item">
-            <div class="major-head">
-              <div>
-                <h4>${m.name}</h4>
-                <p>${m.description}</p>
-              </div>
-              ${badge(m.suitability)}
-            </div>
-            <div class="chip-grid">
-              <div class="chip-box"><strong>سوق العمل</strong><span>${m.marketLabelAr}</span></div>
-              <div class="chip-box"><strong>الجاهزية المستقبلية</strong><span>${m.futureReadiness}</span></div>
-              <div class="chip-box"><strong>سبب الترشيح</strong><span>${m.note}</span></div>
-            </div>
-            <div class="branch-banner good">
-              <div>
-                <strong>ضمن الفرع الحالي</strong>
-                <span>${m.branchNote}</span>
-              </div>
-              <div class="branch-state good">${m.branchStatus}</div>
-            </div>
-            <div class="examples">${m.examples.map(ex => `<span>${ex}</span>`).join('')}</div>
-          </div>
-        `).join('');
-
-        const outsideHeader = r.majorsOutsideBranch.length ? `
-          <div style="margin-top:22px; margin-bottom:10px; font-weight:800; color:#8a5a12">
-            خيارات أخرى قوية لكن تتطلب مسارًا مختلفًا
-          </div>` : '';
-
-        const outside = r.majorsOutsideBranch.map(m => {
-          const suggestedBranch = (m.branches && m.branches[0]) || 'مسار مختلف';
-          return `
-          <div class="major-item" style="opacity:.92">
-            <div class="major-head">
-              <div>
-                <h4>${m.name}</h4>
-                <p>${m.description}</p>
-              </div>
-              ${badge(m.suitability)}
-            </div>
-            <div class="branch-banner warn">
-              <div>
-                <strong>خارج الفرع الحالي</strong>
-                <span>${m.branchNote}</span>
-              </div>
-              <div class="branch-state warn">${m.branchStatus}</div>
-            </div>
-            <div class="chip-grid" style="margin-top:10px">
-              <div class="chip-box"><strong>توصية ذكية</strong><span>يمكنك دراسة هذا التخصص إذا انتقلت إلى فرع: ${suggestedBranch}</span></div>
-              <div class="chip-box"><strong>نصيحة</strong><span>فكّر بقدراتك الدراسية واستعد لمتطلبات هذا المسار قبل اتخاذ القرار.</span></div>
-            </div>
-            <div class="examples">${m.examples.map(ex => `<span>${ex}</span>`).join('')}</div>
-          </div>
-        `}).join('');
-
-        el.majorList.innerHTML = within + outsideHeader + outside;
-      }
-
-      const sortedBig = Object.entries(r.bigScores).sort((a,b) => b[1] - a[1]);
-      el.big5List.innerHTML = sortedBig.map(([code, score]) => `
-        <div class="analysis-item">
-          <div class="top"><strong>${BIG5_DESCRIPTIONS[code]}</strong>${badge(descriptiveLevel(score))}</div>
-          <div class="bar"><span style="width:${score}%"></span></div>
-        </div>
-      `).join('');
-
-      const sortedWork = Object.entries(r.workScores).sort((a,b) => b[1] - a[1]);
-      el.workList.innerHTML = sortedWork.map(([code, score]) => `
-        <div class="analysis-item">
-          <div class="top"><strong>${WORK_DESCRIPTIONS[code]}</strong>${badge(descriptiveLevel(score))}</div>
-          <div class="bar"><span style="width:${score}%"></span></div>
-        </div>
-      `).join('');
-
-      el.consistencyAlert.className = 'alert ' + (r.consistency >= 70 ? 'good' : 'warn');
-      el.consistencyAlert.innerHTML = `<strong style="display:block; margin-bottom:8px">${r.consistencyText}</strong>${r.notes.join(' ')}`;
-
-      const titles = r.profile.map(c => RIASEC_DESCRIPTIONS[c].title).join('، ');
-      if (isExplorationStage) {
-        el.summaryText.innerHTML = `
-          <p style="margin-bottom:12px">يظهر ملف الطالب المهني الأقرب إلى <strong style="color:var(--green-800)">${r.profile.join(' - ')}</strong>، وهذا يعني ميلاً بارزًا نحو: <strong>${titles}</strong>.</p>
-          <p style="margin-bottom:12px">وبحسب الممارسة العالمية في التوجيه المهني، فإن طلاب <strong>${state.student.grade}</strong> لا تُعرض لهم تخصصات نهائية دقيقة، بل مسارات ومجالات عامة تساعدهم على الاستكشاف التدريجي قبل القرار النهائي.</p>
-          <p>لذلك، يُنصح في هذه المرحلة بالتركيز على تنمية المهارات، ومتابعة الأداء الدراسي، وتجربة الأنشطة والمواد المرتبطة بالمسارات المقترحة قبل تثبيت أي اختيار تخصصي.</p>
-        `;
-      } else {
-        el.summaryText.innerHTML = `
-          <p style="margin-bottom:12px">يظهر ملف الطالب المهني الأقرب إلى <strong style="color:var(--green-800)">${r.profile.join(' - ')}</strong>، وهذا يعني ميلاً بارزًا نحو: <strong>${titles}</strong>.</p>
-          <p style="margin-bottom:12px">أعلى التخصصات المقترحة لم تُبنَ على الميول فقط، بل على دمج الميول الأساسية مع السمات الشخصية وطريقة العمل المفضلة، ثم تعديلها وفق وضع سوق العمل الحديث وأولوية المسارات الواعدة.</p>
-          <p>يُفضّل استخدام هذه النتيجة ضمن جلسة إرشاد قصيرة، مع مراجعة الأداء الأكاديمي الحقيقي والمواد التي يبرع فيها الطالب، قبل اعتماد قرار نهائي بشأن التخصص الجامعي أو المسار المهني.</p>
-        `;
-      }
-    }
-
-    function exportJSON() {
-      const payload = {
-        school: SCHOOL,
-        student: state.student,
-        generatedAt: new Date().toISOString(),
-        totalQuestions: QUESTIONS.length,
-        answers: state.answers,
-        result: state.result
-      };
-      const blob = new Blob([JSON.stringify(payload, null, 2)], { type: 'application/json;charset=utf-8' });
-      const a = document.createElement('a');
-      a.href = URL.createObjectURL(blob);
-      a.download = `${state.student.name || 'student'}-career-profile.json`;
-      a.click();
-      URL.revokeObjectURL(a.href);
-    }
-
-    function exportCSV() {
-      const primaryRows = state.result.isExplorationStage
-        ? state.result.paths.map(m => [m.name, m.suitability, 'مسار استكشافي', 'مرحلة استكشاف'])
-        : state.result.majorsWithinBranch.map(m => [m.name, m.suitability, m.marketLabelAr, m.futureReadiness]);
-
-      const rows = [
-        ['الاسم', state.student.name],
-        ['الصف', state.student.grade],
-        ['الشعبة', state.student.section],
-        ['رمز الملف المهني', state.result.profile.join('')],
-        ['اتساق الإجابات', state.result.consistencyText],
-        [''],
-        [state.result.isExplorationStage ? 'أفضل المسارات' : 'أفضل التخصصات ضمن الفرع'],
-        ['العنصر', 'درجة الملاءمة', 'سوق العمل/النوع', 'الجاهزية المستقبلية'],
-        ...primaryRows
-      ];
-
-      if (!state.result.isExplorationStage && state.result.majorsOutsideBranch.length) {
-        rows.push(['']);
-        rows.push(['خيارات أخرى تتطلب مسارًا مختلفًا']);
-        rows.push(['التخصص', 'درجة الملاءمة', 'التوافق', 'الفرع المقترح']);
-        state.result.majorsOutsideBranch.forEach(m => {
-          rows.push([m.name, m.suitability, m.branchStatus, (m.branches && m.branches[0]) || 'مسار مختلف']);
-        });
-      }
-
-      const csv = rows.map(row => row.map(item => `"${String(item || '')}"`).join(',')).join('
-');
-      const blob = new Blob([csv], { type: 'text/csv;charset=utf-8' });
-      const a = document.createElement('a');
-      a.href = URL.createObjectURL(blob);
-      a.download = `${state.student.name || 'student'}-career-summary.csv`;
-      a.click();
-      URL.revokeObjectURL(a.href);
-    }
-
-    function restart() {
-      state.answers = {};
-      state.currentIndex = 0;
-      state.result = null;
-      el.assessScreen.classList.add('hidden');
-      el.resultScreen.classList.add('hidden');
-      el.startScreen.classList.remove('hidden');
-      el.unansweredOnly.checked = false;
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    }
-
-    el.startBtn.addEventListener('click', startAssessment);
-    el.name.addEventListener('keydown', (e) => { if (e.key === 'Enter') startAssessment(); });
-    el.section.addEventListener('keydown', (e) => { if (e.key === 'Enter') startAssessment(); });
-    el.prevBtn.addEventListener('click', () => {
-      if (state.currentIndex > 0) {
-        state.currentIndex--;
-        renderQuestion();
-        renderNav();
-      }
-    });
-    el.nextBtn.addEventListener('click', () => {
-      if (state.currentIndex < QUESTIONS.length - 1) {
-        state.currentIndex++;
-        renderQuestion();
-        renderNav();
-      }
-    });
-    el.unansweredOnly.addEventListener('change', renderNav);
-    el.downloadJsonBtn.addEventListener('click', exportJSON);
-    el.downloadCsvBtn.addEventListener('click', exportCSV);
-    el.restartBtn.addEventListener('click', restart);
-    el.printBtn.addEventListener('click', () => window.print());
-  </script>
-</body>
-</html>
+<div class="page">
+<section id="start-screen" class="fade-in">
+<div class="card hero">
+<div class="hero-grid">
+<div>
+<div class="eyebrow">🎓 نظام التوجيه المهني الهجين | ثانوية الجنان</div>
+<h1>اختبار الميول المهنية والشخصية</h1>
+<p>
+نسخة احترافية تعمل مباشرة على GitHub Pages، مبنية على الدمج بين RIASEC والسمات الشخصية وأسلوب العمل،
+مع نتائج تحليلية واضحة وتوصيات مرتبطة بسوق العمل الحديث بدل الاكتفاء بنسب مضللة.
+</p>
+<div class="hero-badges">
+<span class="pill">150 سؤالاً</span>
+<span class="pill">Hybrid Model</span>
+<span class="pill">Top 4 عند التقارب</span>
+<span class="pill">تحليل وصفي</span>
+</div>
+</div>
+<div class="stats">
+<div class="stat-box"><strong>90</strong><span>أسئلة الميول المهنية RIASEC</span></div>
+<div class="stat-box"><strong>30</strong><span>أسئلة السمات الشخصية</span></div>
+<div class="stat-box"><strong>30</strong><span>أسئلة أسلوب العمل</span></div>
+<div class="stat-box"><strong>Top 4</strong><span>يُعتمد الحرف الرابع عند تقارب النتيجة</span></div>
+</div>
+</div>
+</div>
+
+<div class="grid-2">
+<div class="card panel fade-in" style="animation-delay:.08s">
+<h2 class="section-title">بيانات الطالب</h2>
+<p class="section-desc">أدخل المعلومات الأساسية ثم ابدأ الاختبار. يفضّل الإجابة بهدوء وصدق للحصول على ملف مهني أكثر دقة.</p>
+
+<div class="fields">
+<div class="field">
+<label for="studentName">الاسم الكامل</label>
+<input id="studentName" type="text" placeholder="اكتب اسم الطالب" />
+</div>
+<div class="field">
+<label for="studentGrade">الصف</label>
+<select id="studentGrade">
+<option value="">اختر الصف</option>
+<option>أول ثانوي</option>
+<option>ثاني ثانوي</option>
+<option>ثالث ثانوي</option>
+</select>
+</div>
+<div class="field-full">
+<label for="studentSection">الشعبة / القسم</label>
+<select id="studentSection">
+<option value="">اختر الشعبة / القسم</option>
+<option value="غير محدد بعد">غير محدد بعد</option>
+<option value="علوم حياة">علوم حياة</option>
+<option value="علوم عامة (رياضيات)">علوم عامة (رياضيات)</option>
+<option value="اقتصاد واجتماع">اقتصاد واجتماع</option>
+</select>
+</div>
+</div>
+
+<div class="note">
+<h4>إرشادات مهمة قبل البدء</h4>
+<ul>
+<li>أجب بحسب ما يشبهك عادةً، لا بحسب الصورة المثالية التي تتمنى إظهارها.</li>
+<li>لا توجد إجابة صحيحة أو خاطئة، والهدف من الاختبار هو الإرشاد المهني الأولي.</li>
+<li>بعض الأسئلة متقاربة للتأكد من اتساق الإجابات وتحسين دقة التحليل.</li>
+<li>النتيجة تساعد على التوجيه، لكنها لا تُغني عن مناقشة المرشد التربوي أو الأسرة.</li>
+</ul>
+</div>
+
+<div class="consent">
+<input id="consent" type="checkbox" />
+<div>
+أتعهد بأن أجيب بصدق وهدوء، وأفهم أن نتيجة الاختبار تمثل توجيهًا مهنيًا أوليًا يساعدني على فهم ميولي،
+ولا تُعد وحدها القرار النهائي لاختيار التخصص أو المهنة.
+</div>
+</div>
+
+<button id="startBtn" class="btn btn-primary">ابدأ الاختبار</button>
+</div>
+
+<div class="card panel fade-in" style="animation-delay:.14s">
+<h2 class="section-title">ما الذي يميز هذه النسخة؟</h2>
+<p class="section-desc">تم تصميمها لتكون عملية، أنيقة، وسهلة النشر، مع الحفاظ على قوة المنطق والتحليل.</p>
+<div class="feature-list">
+<div class="feature-item">
+<div class="feature-icon">🧠</div>
+<div><h4>نظام هجين</h4><p>يجمع بين الميول المهنية والسمات الشخصية وأسلوب العمل للحصول على صورة أعمق.</p></div>
+</div>
+<div class="feature-item">
+<div class="feature-icon">📊</div>
+<div><h4>نتائج تحليلية لا نسبية</h4><p>يعرض مدى ملاءمة التخصص بصيغة ممتاز جداً / ممتاز / جيد جداً… بدل نسب قد تكون مضللة.</p></div>
+</div>
+<div class="feature-item">
+<div class="feature-icon">🧭</div>
+<div><h4>Top 4 عند الحاجة</h4><p>لا يهمل الحرف الرابع إذا كان قريبًا من الثالث، ما يعطي ملفًا مهنيًا أدق.</p></div>
+</div>
+<div class="feature-item">
+<div class="feature-icon">💼</div>
+<div><h4>ربط بسوق العمل</h4><p>التوصيات لا تعتمد على الميول فقط، بل تأخذ بعين الاعتبار وضع التخصص في سوق العمل الحديث.</p></div>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<section id="assessment-screen" class="hidden">
+<div class="card hero">
+<div class="hero-grid">
+<div>
+<div class="eyebrow">📝 الاختبار قيد التنفيذ</div>
+<h1 id="heroQuestionTitle">أجب بهدوء وصدق</h1>
+<p>كل إجابة تساعد في بناء ملف مهني أكثر واقعية. يمكنك العودة وتعديل الإجابات قبل الانتهاء.</p>
+</div>
+<div class="stats">
+<div class="stat-box"><strong id="heroAnswered">0</strong><span>إجابات مكتملة</span></div>
+<div class="stat-box"><strong id="heroRemaining">150</strong><span>أسئلة متبقية</span></div>
+<div class="stat-box"><strong id="heroProgress">0%</strong><span>نسبة التقدم</span></div>
+<div class="stat-box"><strong id="heroCounter">1/150</strong><span>السؤال الحالي</span></div>
+</div>
+</div>
+</div>
+
+<div class="assessment-layout">
+<div class="card question-card slide" id="questionCard">
+<div class="question-top">
+<div class="mini-badge" id="sectionBadge">الميول المهنية</div>
+<div class="question-id" id="questionId">Q1</div>
+</div>
+<h2 class="question-text" id="questionText"></h2>
+<div id="optionsContainer" class="option-list"></div>
+<div class="question-footer">
+<small>اختر الدرجة التي تعبّر عنك بشكل أقرب في العادة، وليس في حالات نادرة فقط.</small>
+<div style="display:flex; gap:10px; flex-wrap:wrap">
+<button id="prevBtn" class="btn btn-outline">السابق</button>
+<button id="nextBtn" class="btn btn-secondary">التالي</button>
+</div>
+</div>
+</div>
+
+<div class="card progress-card">
+<div class="progress-header">
+<h3>التقدم العام</h3>
+<p id="progressText">0 من 150 تمت الإجابة عنها</p>
+</div>
+<div class="progress-track"><div id="progressFill" class="progress-fill"></div></div>
+<div id="progressValue" class="progress-value">0%</div>
+
+<div class="toggle-row">
+<input id="unansweredOnly" type="checkbox" />
+<label for="unansweredOnly" style="font-weight:500; cursor:pointer">إظهار الأسئلة غير المجاب عنها فقط</label>
+</div>
+
+<div id="navGrid" class="nav-grid"></div>
+<div class="footer-note" style="margin-top:12px" id="remainingText">عدد الأسئلة المتبقية: 150</div>
+</div>
+</div>
+</section>
+
+<section id="result-screen" class="hidden">
+<div class="card hero">
+<div class="hero-grid">
+<div>
+<div class="eyebrow">🏆 تم إنشاء الملف المهني بنجاح</div>
+<h1 id="resultStudentName">نتيجة الطالب</h1>
+<p>
+هذه النتيجة تقدّم قراءة أولية لميول الطالب المهنية وسماته الشخصية وأسلوب العمل الأنسب له،
+مع توصيات تخصصية مرتبطة بمدى الملاءمة وبمؤشرات سوق العمل الحديث.
+</p>
+<div class="hero-badges">
+<span class="pill" id="profileCodePill">رمز الملف: ---</span>
+<span class="pill" id="consistencyPill">اتساق الإجابات: ---</span>
+</div>
+</div>
+<div class="stats">
+<button class="btn btn-secondary" id="downloadJsonBtn">تصدير JSON</button>
+<button class="btn btn-secondary" id="downloadCsvBtn">تصدير CSV</button>
+<button class="btn btn-outline" id="printBtn">طباعة / حفظ PDF</button>
+<button class="btn btn-outline" id="restartBtn">اختبار جديد</button>
+</div>
+</div>
+</div>
+
+<div class="result-grid">
+<div class="stack">
+<div class="card result-card fade-in">
+<h2 class="section-title">ملفك المهني المختصر</h2>
+<p class="section-desc">يعتمد هذا الملف على أعلى الميول المهنية مع إدخال الحرف الرابع عند تقارب النتائج.</p>
+<div id="profileCodes" class="profile-codes"></div>
+<div id="topRiasecGrid" class="sub-grid"></div>
+</div>
+
+<div class="card result-card fade-in" style="animation-delay:.08s">
+<div class="majors-heading">
+<div>
+<h2 class="section-title">أفضل التخصصات المقترحة</h2>
+<p class="section-desc">تم ترتيب التخصصات بحسب التوافق مع الميول والسمات وأسلوب العمل، مع مراعاة واقع سوق العمل الحديث.</p>
+</div>
+<div id="stageChip" class="stage-chip">مرحلة التوجيه</div>
+</div>
+<div id="majorList" class="major-list"></div>
+</div>
+</div>
+
+<div class="stack">
+<div class="card result-card fade-in" style="animation-delay:.04s">
+<h2 class="section-title">تحليل الشخصية وأسلوب العمل</h2>
+<div id="big5List" class="analysis-list" style="margin-bottom:16px"></div>
+<div id="workList" class="analysis-list"></div>
+</div>
+
+<div class="card result-card fade-in" style="animation-delay:.10s">
+<h2 class="section-title">جودة الإجابات</h2>
+<div id="consistencyAlert" class="alert"></div>
+</div>
+
+<div class="card result-card fade-in" style="animation-delay:.14s">
+<h2 class="section-title">قراءة إرشادية مختصرة</h2>
+<div id="summaryText" class="footer-note"></div>
+</div>
+</div>
+</div>
+</section>
+</div>
+
+<script>
+const SCHOOL = {
+nameAr: 'ثانوية الجنان',
+nameEn: 'Al Jinan High School'
+};
+
+const LIKERT = [
+{ value: 1, label: 'لا ينطبق علي أبداً' },
+{ value: 2, label: 'ينطبق علي قليلاً' },
+{ value: 3, label: 'ينطبق علي أحياناً' },
+{ value: 4, label: 'ينطبق علي كثيراً' },
+{ value: 5, label: 'ينطبق علي تماماً' }
+];
+
+const SECTION_META = {
+RIASEC: { title: 'الميول المهنية', emoji: '🧭' },
+BIG5: { title: 'السمات الشخصية', emoji: '🧠' },
+WORK: { title: 'أسلوب العمل', emoji: '⚙️' }
+};
+
+const RIASEC_DESCRIPTIONS = {
+R: { title: 'عملي', description: 'يفضّل التطبيق، الأدوات، الإنجاز الملموس، والمهام العملية.', emoji: '🛠️' },
+I: { title: 'تحليلي', description: 'يميل إلى الفهم العميق، البحث، حل المشكلات، والعلوم.', emoji: '🔬' },
+A: { title: 'إبداعي', description: 'يحب الابتكار، التعبير، الخيال، وإيجاد أفكار جديدة.', emoji: '🎨' },
+S: { title: 'اجتماعي', description: 'يستمتع بمساعدة الآخرين، التعليم، الدعم، والعمل الإنساني.', emoji: '🤝' },
+E: { title: 'قيادي', description: 'يميل إلى الإقناع، المبادرة، القيادة، وإدارة المشاريع.', emoji: '🚀' },
+C: { title: 'تنظيمي', description: 'يفضّل النظام، الدقة، الإجراءات الواضحة، والمتابعة.', emoji: '📋' }
+};
+
+const BIG5_DESCRIPTIONS = {
+O: 'الانفتاح على الخبرة: الميل للأفكار الجديدة والتجارب المتنوعة.',
+C: 'الضمير المهني: الانضباط، الجدية، وتحمل المسؤولية.',
+E: 'الانبساط: الراحة في التفاعل والمبادرة الاجتماعية.',
+A: 'التوافق: التعاون، المرونة، وحسن التعامل مع الآخرين.',
+N: 'الحساسية للضغط: التأثر بالتوتر والضغط النفسي.'
+};
+
+const WORK_DESCRIPTIONS = {
+PRACTICAL: 'يفضّل التعلم والعمل بالممارسة والتطبيق المباشر.',
+THEORETICAL: 'يميل إلى الفهم النظري والتحليل قبل التنفيذ.',
+TEAM: 'يفضّل العمل ضمن فريق وتبادل الأدوار مع الآخرين.',
+INDEPENDENT: 'يرتاح أكثر عند العمل الفردي والمساحة الشخصية.',
+LEAD: 'يميل إلى المبادرة وقيادة الآخرين وتحمل القرار.',
+EXECUTE: 'يفضّل تنفيذ المهام بوضوح وثبات ضمن إطار محدد.'
+};
+
+function generateQuestions() {
+const questions = [];
+let id = 1;
+const add = (section, domain, text, reverse = false) => questions.push({ id: `Q${id++}`, section, domain, text, reverse });
+
+const riasec = {
+R: [
+'أستمتع بإصلاح الأشياء أو تركيبها بنفسي عندما تتعطل.', 'أفضل الأنشطة التي تتطلب حركة واستخدام أدوات على الجلوس الطويل.',
+'أشعر بالرضا عندما أرى نتيجة ملموسة لعملي أمامي.', 'أحب التعلم من خلال التطبيق العملي أكثر من الشرح النظري فقط.',
+'أهتم بكيفية عمل الأجهزة أو الآلات من الداخل.', 'أفضل المشاريع التي تتضمن بناء شيء أو تشغيله أو صيانته.',
+'أرتاح للمهام التي تتطلب خطوات واضحة وتنفيذًا عمليًا.', 'أفضّل تعلم مهارة عملية جديدة على قراءة معلومات عامة عنها فقط.',
+'أحب المشاركة في أنشطة تتعلق بالتجهيز، التركيب، أو التشغيل.', 'أجد نفسي منجذبًا للأعمال التي تحتاج إلى دقة يدوية أو فنية.',
+'لا أمانع العمل في بيئات نشيطة تتطلب حركة أو متابعة ميدانية.', 'أشعر أنني أتعلم أسرع عندما أستخدم يديّ أو أدوات حقيقية.',
+'أفضل المهام التي تنتهي بمنتج أو خدمة واضحة أكثر من الأفكار المجردة.', 'أحب معرفة كيفية استخدام المعدات أو الأنظمة بشكل صحيح.',
+'عندما أواجه مشكلة عملية، أميل إلى التجربة والإصلاح المباشر.'
+],
+I: [
+'أستمتع بتحليل الأسباب الحقيقية وراء المشكلات.', 'أحب فهم كيفية عمل الأشياء بدقة وليس فقط استخدامها.',
+'أميل إلى طرح أسئلة كثيرة عندما أتعلم موضوعًا جديدًا.', 'أشعر بالمتعة عند حل مسألة صعبة تحتاج إلى تفكير عميق.',
+'أفضل الوصول إلى الإجابة من خلال الأدلة والمنطق.', 'أحب المقارنة بين الاحتمالات قبل اتخاذ قرار مهم.',
+'أستمتع بالبحث عن معلومات موثوقة لفهم قضية ما.', 'العلوم والرياضيات أو التحليل المنهجي تجذبني.',
+'أرتاح للأنشطة التي تتطلب ملاحظة وتفسيرًا دقيقًا.', 'أميل إلى التفكير في الأسباب والنتائج قبل البدء بالفعل.',
+'أحب قراءة أو مشاهدة محتوى يشرح كيف ولماذا يحدث الشيء.', 'عندما أواجه مشكلة، أبحث عن نمط أو قاعدة تساعدني على حلها.',
+'أفضّل المهام التي تحتاج إلى تركيز وتحليل بدل السرعة فقط.', 'أحب اختبار أكثر من فرضية قبل اعتماد تفسير معين.',
+'أشعر بالرضا عندما أصل إلى استنتاج صحيح بعد تحليل.'
+],
+A: [
+'أحب التعبير عن أفكاري بطرق غير تقليدية.', 'أستمتع بتخيل حلول جديدة للمشكلات المعتادة.',
+'أميل إلى إضافة لمسة خاصة أو مبتكرة على ما أعمله.', 'أرتاح عندما أملك مساحة للتجربة والابتكار.',
+'أستمتع بالأنشطة التي تتضمن كتابة أو تصميمًا أو إبداعًا بصريًا.', 'لا أحب أن تكون كل المهام متشابهة أو جامدة جدًا.',
+'أحب توليد أفكار كثيرة قبل اختيار الأفضل.', 'أستمتع بإنتاج أعمال تعبّر عن ذوقي أو رؤيتي الخاصة.',
+'أفضل البيئات التي تشجّع على الابتكار بدل التقيّد الصارم فقط.', 'يمكنني رؤية أكثر من طريقة لحل المشكلة نفسها.',
+'أحب بناء أفكار جديدة انطلاقًا من أفكار موجودة.', 'أستمتع بتنسيق المحتوى أو الشكل بطريقة جذابة.',
+'أشعر بالحماس عندما أُطلب لتقديم فكرة أصلية.', 'أحب الأنشطة التي تتضمن خيالاً أو تعبيرًا شخصيًا.',
+'أفضّل أن يكون لي دور في صنع الأفكار وليس تنفيذها فقط.'
+],
+S: [
+'أشعر بالرضا عندما أساعد شخصًا على حل مشكلة.', 'أحب الاستماع للآخرين وفهم ما يحتاجونه.',
+'أستمتع بالأنشطة التي تتضمن تعليمًا أو شرحًا للآخرين.', 'أميل إلى دعم من حولي عندما يمرّون بصعوبة.',
+'أفضّل الأعمال التي يكون لها أثر إيجابي على الناس.', 'أرتاح عند العمل الذي يتطلب تواصلًا إنسانيًا مباشرًا.',
+'أحب أن أكون شخصًا يعتمد عليه الآخرون عند الحاجة.', 'يسعدني أن أشرح فكرة حتى يفهمها الشخص الآخر بوضوح.',
+'أهتم بمشاعر الآخرين وأحاول مراعاتها أثناء التعامل.', 'أشعر بالحماس في الأنشطة التي تتضمن تعاونًا وخدمةً للآخرين.',
+'أحب المشاركة في مبادرات لها فائدة اجتماعية أو تربوية.', 'أميل إلى تشجيع الآخرين عندما يحتاجون إلى دعم أو ثقة.',
+'أستمتع بتقديم المساعدة أكثر من المنافسة الشديدة.', 'أشعر أن نجاحي يكون أجمل عندما يفيد غيري أيضًا.',
+'أرتاح عندما أعمل في بيئة فيها تفاعل إنساني إيجابي.'
+],
+E: [
+'أحب أن أبادر عندما يحتاج الفريق إلى من يقود العمل.', 'أشعر بالراحة عند التحدث أمام الآخرين إذا كان لدي هدف واضح.',
+'أستمتع بإقناع الناس بفكرة أؤمن بها.', 'أميل إلى تحمّل مسؤولية تنظيم العمل عند الحاجة.',
+'أحب البيئات التي فيها تحدٍّ وفرصة للتقدّم والإنجاز.', 'أستمتع عندما أشارك في اتخاذ القرار وليس فقط التنفيذ.',
+'أفكر عادةً في كيف يمكن تطوير العمل أو توسيعه.', 'أحب أن يكون لي دور واضح في توجيه المجموعة نحو هدف معين.',
+'أشعر بالحماس تجاه المشاريع التي تتطلب مبادرة وجرأة.', 'أستمتع بالتفاوض أو عرض الأفكار بشكل مقنع.',
+'أميل إلى متابعة الفرص الجديدة بدل انتظارها.', 'أرتاح في الأدوار التي فيها تأثير وتحمل مسؤولية.',
+'أفضل الأهداف الواضحة التي يمكن السعي لتحقيقها بخطة.', 'يمكنني تحفيز الآخرين عندما يكون هناك هدف مشترك.',
+'أحب أن أرى نتائج عملي مرتبطة بالتأثير أو الإنجاز أو النمو.'
+],
+C: [
+'أفضل العمل ضمن خطوات واضحة ومنظمة.', 'أهتم بدقة التفاصيل وعدم ترك الأمور للصدفة.',
+'أحب ترتيب المهام والملفات والمعلومات بطريقة تسهّل الرجوع إليها.', 'أرتاح عندما أعرف المطلوب بالضبط ومتى يجب إنجازه.',
+'ألتزم عادةً بالمواعيد والتعليمات إذا كانت واضحة ومنطقية.', 'أفضل الأعمال التي تحتاج إلى تنظيم ومتابعة منتظمة.',
+'أراجع ما أنجزته للتأكد من الدقة قبل التسليم.', 'أشعر بالارتياح عندما يكون لكل شيء مكان وخطوات واضحة.',
+'أميل إلى تدوين الملاحظات أو تنظيم المعلومات أثناء العمل.', 'أفضل أن يكون سير العمل مرتبًا بدل العشوائية.',
+'أهتم بالتفاصيل الصغيرة التي قد تؤثر على جودة النتيجة.', 'أستمتع بإعداد الجداول أو القوائم أو الترتيب المنهجي.',
+'أحب المهام التي تتطلب اتساقًا وانضباطًا في الأداء.', 'أشعر بالثقة عندما أعمل وفق نظام معروف وواضح.',
+'أفضل إنهاء كل خطوة بشكل صحيح قبل الانتقال إلى التالية.'
+]
+};
+
+const big5 = {
+O: [
+['أحب تجربة أفكار أو أساليب جديدة حتى لو لم أعتدها من قبل.', false],
+['أشعر بالفضول تجاه الموضوعات غير المألوفة.', false],
+['أفضل الروتين الثابت وأتجنب أي تغيير جديد.', true],
+['أستمتع باستكشاف مجالات مختلفة بدل الاكتفاء بما أعرفه فقط.', false],
+['أحب الربط بين أفكار من مجالات متعددة.', false],
+],
+C: [
+['أكمل المهام حتى النهاية حتى لو احتاجت وقتًا إضافيًا.', false],
+['أحافظ غالبًا على ترتيب وقتي وأولوياتي.', false],
+['أؤجل أعمالي كثيرًا ثم أستعجلها في اللحظة الأخيرة.', true],
+['أهتم بأن يكون عملي دقيقًا ومنظمًا.', false],
+['ألتزم بما أتعهد به قدر الإمكان.', false],
+],
+E: [
+['أشعر بالراحة في بدء الحديث مع أشخاص جدد عند الحاجة.', false],
+['أستمد طاقة من المشاركة والتفاعل مع الآخرين.', false],
+['أفضل غالبًا البقاء صامتًا حتى لو كانت لدي فكرة مفيدة.', true],
+['أرتاح في المواقف التي تتطلب حضورًا وتواصلاً مباشرًا.', false],
+['أفضل الأدوار التي تسمح لي بالتفاعل بدل العزلة التامة.', false],
+],
+A: [
+['أحاول مراعاة الآخرين حتى عند الاختلاف معهم.', false],
+['أتعاون بسهولة عندما يكون الهدف مشتركًا.', false],
+['أفضل فرض رأيي حتى لو سبب ذلك توترًا مع الآخرين.', true],
+['أحرص على أن يكون أسلوبي محترمًا ومتزنًا في التعامل.', false],
+['أميل إلى تفهم وجهات النظر المختلفة قبل الرد.', false],
+],
+N: [
+['أشعر بالتوتر بسرعة عند ضغط الدراسة أو العمل.', false],
+['أقلق أحيانًا من الوقوع في الخطأ حتى لو كنت مستعدًا.', false],
+['أتعامل عادةً مع الضغوط بهدوء وثبات.', true],
+['قد يؤثر التوتر في تركيزي أكثر مما أحب.', false],
+['أستعيد هدوئي بسرعة بعد المواقف الضاغطة.', true],
+]
+};
+
+const work = {
+PRACTICAL: [
+['أتعلم أسرع عندما أطبق بيدي أو أجرّب مباشرة.', false], ['أفضل التدريب العملي على الشرح النظري الطويل.', false],
+['أشعر أن التطبيق الحقيقي يثبت الفهم أكثر من القراءة فقط.', false], ['أفضل المشاريع التي تنتج مخرجات واضحة يمكن تنفيذها.', false],
+['أرتاح للمهام التي أراها تتحول إلى نتيجة عملية.', false]
+],
+THEORETICAL: [
+['أفضل فهم الأساس النظري قبل البدء بالتنفيذ.', false], ['أستمتع بتكوين صورة فكرية واضحة قبل العمل.', false],
+['أحتاج عادةً إلى تفسير منطقي قبل أن أقتنع بالطريقة.', false], ['أحب قراءة الخلفية العلمية أو المفاهيم قبل التطبيق.', false],
+['أفضل الاستيعاب الذهني أولاً ثم الانتقال للتنفيذ.', false]
+],
+TEAM: [
+['أشعر أنني أعمل بشكل أفضل عندما أتبادل الأفكار مع فريق.', false], ['أحب أن يكون العمل فيه تنسيق وتوزيع أدوار مع الآخرين.', false],
+['العمل الجماعي الجيد يزيد دافعيتي للإنجاز.', false], ['أستفيد من النقاش والتعاون في تحسين جودة العمل.', false],
+['أفضل المشاريع التي تتضمن تفاعلاً وتنسيقًا مع فريق.', false]
+],
+INDEPENDENT: [
+['أركز أكثر عندما أعمل وحدي دون مقاطعات كثيرة.', false], ['أحب أن أملك مساحة شخصية واضحة أثناء العمل.', false],
+['أفضّل الاعتماد على نفسي في إنجاز جزء كبير من المهمة.', false], ['العمل الفردي يمنحني هدوءًا أكبر وإنتاجية أعلى.', false],
+['أرتاح عندما أتحكم بإيقاع عملي الشخصي.', false]
+],
+LEAD: [
+['أميل إلى تنظيم الفريق عندما لا يكون المسار واضحًا.', false], ['أشعر بالارتياح عند تحمل مسؤولية القرار في المشروع.', false],
+['أستمتع بتوزيع الأدوار والمتابعة لتحقيق الهدف.', false], ['أحب أن يكون لي دور قيادي عند العمل الجماعي.', false],
+['أتحمس عندما أرى فرصة لتوجيه العمل نحو نتيجة أفضل.', false]
+],
+EXECUTE: [
+['أفضل أن تكون المهمة واضحة ثم أركز على تنفيذها بإتقان.', false], ['أشعر أن قوتي تظهر عندما تكون الأهداف محددة ومباشرة.', false],
+['أفضل متابعة الخطة المرسومة بدقة بدل تغييرها كثيرًا.', false], ['أرتاح عندما تكون المسؤوليات واضحة ويمكن تنفيذها خطوة خطوة.', false],
+['أحب إنهاء المهام المطلوبة بجودة وثبات.', false]
+]
+};
+
+Object.entries(riasec).forEach(([domain, arr]) => arr.forEach(text => add('RIASEC', domain, text, false)));
+Object.entries(big5).forEach(([domain, arr]) => arr.forEach(([text, rev]) => add('BIG5', domain, text, rev)));
+Object.entries(work).forEach(([domain, arr]) => arr.forEach(([text, rev]) => add('WORK', domain, text, rev)));
+
+const validations = [
+['BIG5','C','أعترف عادةً عندما أحتاج إلى تحسين أو تطوير في أدائي.', false],
+['BIG5','C','نادراً ما أرتكب أي خطأ في عملي أو دراستي.', true],
+['BIG5','A','أستطيع تقبل أنني لا أنجح في كل شيء من المرة الأولى.', false],
+['BIG5','A','أتوقع من نفسي أن أكون ممتازًا في كل موقف تقريبًا.', true],
+['WORK','INDEPENDENT','أحتاج أحيانًا إلى وقت هادئ لأفكر وحدي قبل المشاركة.', false],
+['WORK','TEAM','أستفيد أحيانًا من مراجعة الآخرين لأفكاري قبل اعتمادها.', false],
+['BIG5','N','قد أشعر بالتوتر أحيانًا في المواقف المهمة، وهذا أمر طبيعي.', false],
+['BIG5','N','أبقى هادئًا دائمًا مهما كانت الظروف.', true],
+['WORK','LEAD','أحب القيادة في بعض المواقف، لكن ليس بالضرورة في كل مرة.', false],
+['WORK','EXECUTE','أرتاح أحيانًا عندما تكون الأدوار واضحة ومحددة.', false],
+['BIG5','E','أكون اجتماعيًا في بعض المواقف، وأفضّل الهدوء في مواقف أخرى.', false],
+['BIG5','E','أحب أن أكون محور الاهتمام في كل الأوقات تقريبًا.', true],
+['BIG5','O','أحب الأفكار الجديدة، لكنني أفضّل أن أفهمها قبل اعتمادها.', false],
+['BIG5','O','أي تغيير جديد يكون ممتازًا دائمًا مهما كانت الظروف.', true],
+['BIG5','A','أختلف أحيانًا مع الآخرين لكنني أحافظ على الاحترام.', false],
+['BIG5','A','لا أختلف مع أحد أبدًا مهما كان الموضوع.', true],
+['BIG5','C','أحاول الالتزام، لكن قد أحتاج أحيانًا إلى إعادة تنظيم وقتي.', false],
+['BIG5','C','أنجز كل شيء دائمًا بلا أي تأخير أو تقصير.', true],
+];
+validations.forEach(v => add(v[0], v[1], v[2], v[3]));
+
+return questions.slice(0, 150);
+}
+
+const QUESTIONS = generateQuestions();
+
+const MAJORS = [
+{ name:'الطب البشري', description:'مناسب للطلبة ذوي الميول التحليلية والاجتماعية العالية مع انضباط قوي وقدرة على تحمّل الدراسة الطويلة.', requiredRiasec:['I','S'], optionalRiasec:['C'], bigFiveFit:['C','A'], workStyleFit:['THEORETICAL','EXECUTE'], marketStatus:'Strong', marketLabelAr:'مطلوب بقوة', futureReadiness:'مرتفع', note:'خيار ممتاز لمن يجمع بين التفكير العلمي وخدمة الناس والانضباط العالي.', examples:['طبيب عام','طبيب اختصاص','باحث سريري'], branches:['علوم حياة'] },
+{ name:'طب الأسنان', description:'يجمع بين الدقة العملية والتعامل الإنساني والانضباط المهني.', requiredRiasec:['S','R'], optionalRiasec:['C','I'], bigFiveFit:['C','A'], workStyleFit:['PRACTICAL','EXECUTE'], marketStatus:'Competitive', marketLabelAr:'تنافسي', futureReadiness:'متوسط', note:'جيد لمن يملك دقة عملية وتعاملاً جيدًا مع الناس.', examples:['طبيب أسنان','تقويم أسنان','ترميمات سنية'], branches:['علوم حياة'] },
+{ name:'الصيدلة', description:'يناسب الشخصية التحليلية المنظمة، خصوصًا مع دقة عالية واهتمام بالتفاصيل.', requiredRiasec:['I','C'], optionalRiasec:['S'], bigFiveFit:['C'], workStyleFit:['THEORETICAL','EXECUTE'], marketStatus:'Competitive', marketLabelAr:'تنافسي', futureReadiness:'متوسط', note:'مناسب لمن يفضّل العلوم الدقيقة والعمل المنظم.', examples:['صيدلي سريري','صيدلي مجتمع','تصنيع دوائي'], branches:['علوم حياة'] },
+{ name:'التمريض', description:'يتطلب حسًا إنسانيًا، مسؤولية، وقدرة على المتابعة والتعامل مع الناس تحت الضغط.', requiredRiasec:['S'], optionalRiasec:['I','C'], bigFiveFit:['A','C'], workStyleFit:['TEAM','EXECUTE'], marketStatus:'Strong', marketLabelAr:'مطلوب بقوة', futureReadiness:'مرتفع', note:'قوي جدًا لمن يفضّل الأثر الإنساني المباشر والعمل المنظم.', examples:['ممرض سريري','تمريض عناية','إدارة تمريض'], branches:['علوم حياة'] },
+{ name:'الهندسة المدنية', description:'مناسب للميول العملية والتنظيمية مع قدرة على التفكير الفني والمتابعة الميدانية.', requiredRiasec:['R','C'], optionalRiasec:['I','E'], bigFiveFit:['C'], workStyleFit:['PRACTICAL','EXECUTE'], marketStatus:'Stable', marketLabelAr:'مستقر', futureReadiness:'متوسط', note:'مناسب لمن يحب البناء والتنفيذ والمتابعة الميدانية الدقيقة.', examples:['مهندس موقع','إدارة مشاريع','تصميم إنشائي'], branches:['علوم عامة (رياضيات)'] },
+{ name:'الهندسة المعمارية', description:'تجمع بين الحس الإبداعي والمنهجية والتطبيق العملي.', requiredRiasec:['A','R'], optionalRiasec:['C','I'], bigFiveFit:['O','C'], workStyleFit:['PRACTICAL','THEORETICAL'], marketStatus:'Competitive', marketLabelAr:'تنافسي', futureReadiness:'متوسط', note:'قوي لمن يجمع بين الإبداع والانضباط والقدرة على تطوير حلول تصميمية.', examples:['معماري','تصميم داخلي','نمذجة معمارية'], branches:['علوم عامة (رياضيات)'] },
+{ name:'الهندسة الكهربائية / الميكاترونكس', description:'تخصص تحليلي عملي يناسب من يحب الأنظمة والأجهزة والتطبيقات التقنية.', requiredRiasec:['I','R'], optionalRiasec:['C'], bigFiveFit:['C','O'], workStyleFit:['PRACTICAL','THEORETICAL'], marketStatus:'Growing', marketLabelAr:'نامٍ', futureReadiness:'مرتفع', note:'خيار ممتاز للتقنيين التحليليين الذين يحبون العمل على الأنظمة والأجهزة.', examples:['تحكم وأتمتة','صيانة أنظمة','هندسة روبوتية'], branches:['علوم عامة (رياضيات)'] },
+{ name:'هندسة البرمجيات / علوم الحاسوب', description:'يتطلب ميولاً تحليلية قوية مع صبر على حل المشكلات وبناء الأنظمة.', requiredRiasec:['I'], optionalRiasec:['C','A'], bigFiveFit:['C','O'], workStyleFit:['THEORETICAL','INDEPENDENT'], marketStatus:'Strong', marketLabelAr:'مطلوب بقوة', futureReadiness:'مرتفع', note:'من أفضل الخيارات الحديثة لمن يحب التفكير المنطقي والتقني.', examples:['مطور برمجيات','مهندس نظم','اختبار برمجيات'], branches:['علوم عامة (رياضيات)'] },
+{ name:'تحليل البيانات / علم البيانات', description:'يناسب الشخصية التحليلية الدقيقة التي تستمتع بالأنماط والأرقام والاستنتاج.', requiredRiasec:['I','C'], optionalRiasec:['A'], bigFiveFit:['C','O'], workStyleFit:['THEORETICAL','INDEPENDENT'], marketStatus:'Strong', marketLabelAr:'مطلوب بقوة', futureReadiness:'مرتفع', note:'من أقوى المسارات الحديثة للطلبة ذوي الميول التحليلية والتنظيمية.', examples:['محلل بيانات','عالم بيانات','ذكاء أعمال'], branches:['علوم عامة (رياضيات)','اقتصاد واجتماع'] },
+{ name:'الأمن السيبراني', description:'مناسب للشخصيات التحليلية المنهجية التي تحب الاستقصاء والأنظمة التقنية.', requiredRiasec:['I','C'], optionalRiasec:['R'], bigFiveFit:['C'], workStyleFit:['INDEPENDENT','THEORETICAL'], marketStatus:'Growing', marketLabelAr:'نامٍ', futureReadiness:'مرتفع', note:'خيار حديث وقوي لمن ينجذب للتحليل وحل المشكلات الرقمية المعقدة.', examples:['محلل أمن','اختبار اختراق','حوكمة أمن معلومات'], branches:['علوم عامة (رياضيات)'] },
+{ name:'الذكاء الاصطناعي وتعلّم الآلة', description:'يتطلب قوة تحليلية عالية، فضولاً معرفيًا، وصبرًا على النماذج والبيانات.', requiredRiasec:['I'], optionalRiasec:['A','C'], bigFiveFit:['O','C'], workStyleFit:['THEORETICAL','INDEPENDENT'], marketStatus:'Growing', marketLabelAr:'نامٍ', futureReadiness:'مرتفع', note:'ممتاز للطلبة الذين يستمتعون بالرياضيات والتحليل والابتكار التقني.', examples:['مهندس تعلم آلة','باحث ذكاء اصطناعي','مهندس نماذج'], branches:['علوم عامة (رياضيات)'] },
+{ name:'التصميم الجرافيكي والوسائط الرقمية', description:'مناسب للإبداع البصري مع حس جمالي وقدرة على تحويل الأفكار إلى مخرجات.', requiredRiasec:['A'], optionalRiasec:['E','C'], bigFiveFit:['O'], workStyleFit:['INDEPENDENT','PRACTICAL'], marketStatus:'Competitive', marketLabelAr:'تنافسي', futureReadiness:'واعد', note:'جيد جدًا لمن يملك حسًا بصريًا وإبداعيًا ويطوّر ملف أعمال قوي.', examples:['مصمم جرافيك','مصمم محتوى بصري','موشن جرافيك'], branches:['اقتصاد واجتماع'] },
+{ name:'الإعلام الرقمي وصناعة المحتوى', description:'يناسب الشخص الإبداعي والاجتماعي والقيادي الذي يجيد التأثير والتعبير.', requiredRiasec:['A','E'], optionalRiasec:['S'], bigFiveFit:['O','E'], workStyleFit:['TEAM','LEAD'], marketStatus:'Growing', marketLabelAr:'نامٍ', futureReadiness:'مرتفع', note:'قوي لمن يملك تواصلاً جيدًا وابتكارًا ورغبة في بناء حضور وتأثير.', examples:['صانع محتوى','منتج رقمي','إدارة إعلام'], branches:['اقتصاد واجتماع'] },
+{ name:'إدارة الأعمال', description:'يجمع بين القيادة والتنظيم وفهم القرارات والفرص.', requiredRiasec:['E','C'], optionalRiasec:['S'], bigFiveFit:['E','C'], workStyleFit:['LEAD','TEAM'], marketStatus:'Stable', marketLabelAr:'مستقر', futureReadiness:'متوسط', note:'مناسب لمن يحب الإدارة والتنظيم واتخاذ القرار ضمن بيئات متغيرة.', examples:['إدارة عمليات','إدارة شركات','تطوير أعمال'], branches:['اقتصاد واجتماع'] },
+{ name:'المحاسبة والتمويل', description:'يتطلب دقة، التزامًا، وتنظيمًا عاليًا مع راحة في التعامل مع الأرقام.', requiredRiasec:['C'], optionalRiasec:['I','E'], bigFiveFit:['C'], workStyleFit:['EXECUTE','THEORETICAL'], marketStatus:'Stable', marketLabelAr:'مستقر', futureReadiness:'متوسط', note:'خيار جيد لمن يحب الدقة والنظام والمسؤولية المالية.', examples:['محاسب','محلل مالي','تدقيق'], branches:['اقتصاد واجتماع'] },
+{ name:'التسويق الرقمي', description:'يجمع بين التواصل، التحليل، والإبداع مع حس تجاري واضح.', requiredRiasec:['E','A'], optionalRiasec:['S','I'], bigFiveFit:['E','O'], workStyleFit:['TEAM','LEAD'], marketStatus:'Growing', marketLabelAr:'نامٍ', futureReadiness:'مرتفع', note:'مناسب لمن يجمع بين الإقناع وفهم الجمهور والإبداع العملي.', examples:['مسوق رقمي','إعلانات أداء','استراتيجية محتوى'], branches:['اقتصاد واجتماع'] },
+{ name:'التربية / الإرشاد التربوي', description:'مناسب للميول الاجتماعية مع صبر وقدرة على التوجيه والمتابعة.', requiredRiasec:['S'], optionalRiasec:['A','C'], bigFiveFit:['A','C'], workStyleFit:['TEAM','EXECUTE'], marketStatus:'Stable', marketLabelAr:'مستقر', futureReadiness:'متوسط', note:'خيار مناسب لمن يجد قيمة في التعليم والتأثير الإنساني المباشر.', examples:['معلم','مرشد تربوي','تصميم تعلم'], branches:['اقتصاد واجتماع'] },
+{ name:'الحقوق', description:'يناسب الشخصية التحليلية والقيادية القادرة على الفهم والحجة والتنظيم.', requiredRiasec:['I','E'], optionalRiasec:['C','S'], bigFiveFit:['E','C'], workStyleFit:['THEORETICAL','LEAD'], marketStatus:'Competitive', marketLabelAr:'تنافسي', futureReadiness:'متوسط', note:'مناسب لمن يجيد التحليل والحجة والالتزام المهني.', examples:['محامٍ','مستشار قانوني','شؤون امتثال'], branches:['اقتصاد واجتماع'] },
+{ name:'العلاج الفيزيائي', description:'يجمع بين خدمة الناس والتطبيق العملي والمتابعة الدقيقة.', requiredRiasec:['S','R'], optionalRiasec:['C'], bigFiveFit:['A','C'], workStyleFit:['PRACTICAL','TEAM'], marketStatus:'Growing', marketLabelAr:'نامٍ', futureReadiness:'مرتفع', note:'ممتاز لمن يفضّل الأثر الإنساني مع التطبيق العملي المباشر.', examples:['علاج فيزيائي','تأهيل حركي','إعادة تأهيل'], branches:['علوم حياة'] },
+{ name:'إدارة سلاسل الإمداد واللوجستيات', description:'مناسب لمن يحب التنظيم والمتابعة واتخاذ القرار ضمن أنظمة تشغيلية.', requiredRiasec:['C','E'], optionalRiasec:['R'], bigFiveFit:['C'], workStyleFit:['EXECUTE','LEAD'], marketStatus:'Growing', marketLabelAr:'نامٍ', futureReadiness:'مرتفع', note:'قوي لمن يملك مهارة تنظيمية ويميل لإدارة العمليات بكفاءة.', examples:['إدارة لوجستيات','سلاسل إمداد','تخطيط عمليات'], branches:['اقتصاد واجتماع'] }
+];
+
+const state = {
+student: { name: '', grade: '', section: '' },
+answers: {},
+currentIndex: 0,
+result: null
+};
+
+const EXPLORATION_PATHS = [
+{
+name:'المسار الصحي والعلوم الطبية',
+summary:'مناسب للطلبة الذين يظهرون ميولاً تحليلية واجتماعية مع قدر جيد من الانضباط والمسؤولية.',
+matchRiasec:['I','S'],
+optionalRiasec:['C','R'],
+bigFiveFit:['C','A'],
+workStyleFit:['THEORETICAL','EXECUTE'],
+examples:['الطب','التمريض','الصيدلة','العلاج الفيزيائي','المختبرات الطبية'],
+note:'هذا المسار مناسب للاستكشاف المبكر، ويحتاج لاحقًا إلى متابعة المواد العلمية والأداء الأكاديمي.'
+},
+{
+name:'المسار الهندسي والتقني',
+summary:'مناسب لمن يجمع بين التحليل والتطبيق العملي والاهتمام بالأنظمة والأجهزة أو البناء والتصميم.',
+matchRiasec:['I','R'],
+optionalRiasec:['C','A'],
+bigFiveFit:['C','O'],
+workStyleFit:['PRACTICAL','THEORETICAL'],
+examples:['الهندسة','الميكاترونكس','البرمجيات','الأمن السيبراني','الذكاء الاصطناعي'],
+note:'مسار قوي للطلبة الذين يستمتعون بحل المشكلات التقنية وفهم كيف تعمل الأشياء.'
+},
+{
+name:'المسار الإداري والريادي',
+summary:'يناسب من لديهم ميول قيادية وتنظيمية مع رغبة في التأثير واتخاذ القرار وتطوير المبادرات.',
+matchRiasec:['E','C'],
+optionalRiasec:['S','A'],
+bigFiveFit:['E','C'],
+workStyleFit:['LEAD','TEAM'],
+examples:['إدارة أعمال','تسويق','ريادة أعمال','موارد بشرية','لوجستيات'],
+note:'يناسب من يفضّلون المبادرة والتخطيط والعمل ضمن أهداف واضحة ونتائج عملية.'
+},
+{
+name:'المسار الإبداعي والإعلامي',
+summary:'مناسب للطلبة الذين يميلون إلى التعبير والابتكار وصناعة الأفكار والمحتوى.',
+matchRiasec:['A'],
+optionalRiasec:['E','S'],
+bigFiveF
+...

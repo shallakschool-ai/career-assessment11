@@ -676,8 +676,10 @@
       <div class="card hero">
         <div class="hero-grid">
           <div>
-            <div class="eyebrow">🎓 نظام التوجيه المهني  | ثانوية الجنان</div>
+            <div class="eyebrow">🎓 نظام التوجيه المهني المدمج | ثانوية الجنان</div>
             <h1>اختبار الميول المهنية والشخصية</h1>
+            <p>
+              مبنية على الدمج بين RIASEC والسمات الشخصية وأسلوب العمل، مع نتائج تحليلية واضحة وتوصيات مرتبطة بسوق العمل الحديث بدل الاكتفاء بنسب مضللة.
             </p>
             <div class="hero-badges">
               <span class="pill">150 سؤالاً</span>
@@ -753,7 +755,7 @@
           <div class="feature-list">
             <div class="feature-item">
               <div class="feature-icon">🧠</div>
-              <div><h4>نظام مدمج</h4><p>يجمع بين الميول المهنية والسمات الشخصية وأسلوب العمل للحصول على صورة أعمق.</p></div>
+              <div><h4>نظام هجين</h4><p>يجمع بين الميول المهنية والسمات الشخصية وأسلوب العمل للحصول على صورة أعمق.</p></div>
             </div>
             <div class="feature-item">
               <div class="feature-icon">📊</div>
@@ -923,7 +925,7 @@
     const BIG5_DESCRIPTIONS = {
       O: 'الانفتاح على الخبرة: الميل للأفكار الجديدة والتجارب المتنوعة.',
       C: 'الضمير المهني: الانضباط، الجدية، وتحمل المسؤولية.',
-      E: 'التفاعل: الراحة في التفاعل والمبادرة الاجتماعية.',
+      E: 'التفاعل: الراحة في التواصل والمبادرة الاجتماعية.',
       A: 'التوافق: التعاون، المرونة، وحسن التعامل مع الآخرين.',
       N: 'الحساسية للضغط: التأثر بالتوتر والضغط النفسي.'
     };
@@ -1505,19 +1507,27 @@
 
       if (!state.student.name || !state.student.grade || !state.student.section || !el.consent.checked) {
         const box = document.querySelector('.panel');
-        box.classList.remove('shake');
-        void box.offsetWidth;
-        box.classList.add('shake');
+        if (box) {
+          box.classList.remove('shake');
+          void box.offsetWidth;
+          box.classList.add('shake');
+        }
         alert('يرجى تعبئة البيانات كاملة والموافقة على الإقرار قبل البدء.');
         return;
       }
 
+      state.answers = {};
+      state.result = null;
+      state.currentIndex = 0;
+
       el.startScreen.classList.add('hidden');
       el.resultScreen.classList.add('hidden');
       el.assessScreen.classList.remove('hidden');
-      state.currentIndex = 0;
+      el.unansweredOnly.checked = false;
+
       renderQuestion();
       renderProgress();
+      renderNav();
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 
@@ -1733,6 +1743,8 @@
     }
 
     el.startBtn.addEventListener('click', startAssessment);
+    el.name.addEventListener('keydown', (e) => { if (e.key === 'Enter') startAssessment(); });
+    el.section.addEventListener('keydown', (e) => { if (e.key === 'Enter') startAssessment(); });
     el.prevBtn.addEventListener('click', () => {
       if (state.currentIndex > 0) {
         state.currentIndex--;

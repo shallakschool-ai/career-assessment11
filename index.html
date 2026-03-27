@@ -404,13 +404,93 @@
 
     .major-list { display: grid; gap: 16px; }
     .major-item {
-      border: 1px solid #e1ebe6;
-      border-radius: 24px;
-      padding: 18px;
-      background: linear-gradient(180deg, #fff, #fbfdfc);
+      border: 1px solid #dfeae4;
+      border-radius: 26px;
+      padding: 20px;
+      background: linear-gradient(180deg, #ffffff, #fbfdfc);
       transition: var(--transition);
+      position: relative;
+      overflow: hidden;
+    }
+    .major-item::before {
+      content: "";
+      position: absolute;
+      inset-inline-start: 0;
+      top: 0;
+      width: 6px;
+      height: 100%;
+      background: linear-gradient(180deg, var(--green-700), var(--green-500));
+      opacity: .95;
     }
     .major-item:hover { transform: translateY(-2px); box-shadow: 0 16px 24px rgba(15,61,46,.06); }
+
+    .branch-banner {
+      margin-top: 14px;
+      border-radius: 18px;
+      padding: 14px 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      flex-wrap: wrap;
+      border: 1px solid #dce9e2;
+      background: linear-gradient(180deg, #f8fbf9, #f2f8f4);
+    }
+
+    .branch-banner.good {
+      background: linear-gradient(180deg, #eef9f1, #e5f5ea);
+      border-color: #cfe9d6;
+    }
+
+    .branch-banner.warn {
+      background: linear-gradient(180deg, #fff8ef, #fff2df);
+      border-color: #f0ddbb;
+    }
+
+    .branch-banner strong {
+      display: block;
+      margin-bottom: 4px;
+      color: var(--green-900);
+      font-size: 14px;
+    }
+
+    .branch-banner span {
+      color: #52655a;
+      font-size: 13px;
+      line-height: 1.8;
+    }
+
+    .branch-state {
+      min-width: 120px;
+      text-align: center;
+      border-radius: 999px;
+      padding: 10px 12px;
+      font-size: 13px;
+      font-weight: 700;
+      border: 1px solid transparent;
+    }
+
+    .branch-state.good { background: #e7f7ec; color: #1b7a49; border-color: #cce8d4; }
+    .branch-state.warn { background: #fff3df; color: #9b640f; border-color: #efd7aa; }
+
+    .majors-heading {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      flex-wrap: wrap;
+      margin-bottom: 14px;
+    }
+
+    .stage-chip {
+      border-radius: 999px;
+      padding: 8px 12px;
+      background: #eef7f2;
+      border: 1px solid #d9ebe0;
+      color: var(--green-800);
+      font-size: 13px;
+      font-weight: 700;
+    }
 
     .major-head {
       display: flex; justify-content: space-between; align-items: flex-start; gap: 14px; margin-bottom: 12px;
@@ -697,8 +777,13 @@
           </div>
 
           <div class="card result-card fade-in" style="animation-delay:.08s">
-            <h2 class="section-title">أفضل التخصصات المقترحة</h2>
-            <p class="section-desc">تم ترتيب التخصصات بحسب التوافق مع الميول والسمات وأسلوب العمل، مع مراعاة واقع سوق العمل الحديث.</p>
+            <div class="majors-heading">
+              <div>
+                <h2 class="section-title">أفضل التخصصات المقترحة</h2>
+                <p class="section-desc">تم ترتيب التخصصات بحسب التوافق مع الميول والسمات وأسلوب العمل، مع مراعاة واقع سوق العمل الحديث.</p>
+              </div>
+              <div id="stageChip" class="stage-chip">مرحلة التوجيه</div>
+            </div>
             <div id="majorList" class="major-list"></div>
           </div>
         </div>
@@ -1050,6 +1135,7 @@
       heroProgress: document.getElementById('heroProgress'),
       heroCounter: document.getElementById('heroCounter'),
       resultStudentName: document.getElementById('resultStudentName'),
+      stageChip: document.getElementById('stageChip'),
       profileCodePill: document.getElementById('profileCodePill'),
       consistencyPill: document.getElementById('consistencyPill'),
       profileCodes: document.getElementById('profileCodes'),
@@ -1338,6 +1424,7 @@
       }).join('');
 
       if (isExplorationStage) {
+        el.stageChip.textContent = 'مرحلة الاستكشاف';
         document.querySelector('#result-screen .result-card:nth-child(2) .section-title').textContent = 'المسارات العامة المقترحة';
         document.querySelector('#result-screen .result-card:nth-child(2) .section-desc').textContent = 'بحسب النظام العالمي، طلاب أول وثاني ثانوي يحصلون على مجالات ومسارات استكشافية عامة بدل تخصصات نهائية دقيقة.';
         el.majorList.innerHTML = r.paths.map(p => `
@@ -1358,8 +1445,9 @@
           </div>
         `).join('');
       } else {
+        el.stageChip.textContent = 'مرحلة التوجيه المرتبطة بالفرع';
         document.querySelector('#result-screen .result-card:nth-child(2) .section-title').textContent = 'أفضل التخصصات المقترحة';
-        document.querySelector('#result-screen .result-card:nth-child(2) .section-desc').textContent = 'تم ترتيب التخصصات بحسب التوافق مع الميول والسمات وأسلوب العمل، مع مراعاة واقع سوق العمل الحديث.';
+        document.querySelector('#result-screen .result-card:nth-child(2) .section-desc').textContent = 'تم ترتيب التخصصات بحسب التوافق مع الميول والسمات وأسلوب العمل، مع مراعاة واقع سوق العمل الحديث وتوافق التخصص مع الفرع الحالي.';
         el.majorList.innerHTML = r.majors.map(m => `
           <div class="major-item">
             <div class="major-head">
@@ -1374,10 +1462,12 @@
               <div class="chip-box"><strong>الجاهزية المستقبلية</strong><span>${m.futureReadiness}</span></div>
               <div class="chip-box"><strong>سبب الترشيح</strong><span>${m.note}</span></div>
             </div>
-            <div class="chip-grid" style="margin-top:10px">
-              <div class="chip-box"><strong>الفرع الحالي</strong><span>${state.student.section || 'غير محدد بعد'}</span></div>
-              <div class="chip-box"><strong>حالة التوافق</strong><span>${m.branchStatus}</span></div>
-              <div class="chip-box"><strong>ملاحظة الفرع</strong><span>${m.branchNote}</span></div>
+            <div class="branch-banner ${m.branchMatch ? 'good' : 'warn'}">
+              <div>
+                <strong>مدى توافق التخصص مع الفرع الحالي</strong>
+                <span>الفرع المختار: ${state.student.section || 'غير محدد بعد'} — ${m.branchNote}</span>
+              </div>
+              <div class="branch-state ${m.branchMatch ? 'good' : 'warn'}">${m.branchStatus}</div>
             </div>
             <div class="examples">${m.examples.map(ex => `<span>${ex}</span>`).join('')}</div>
           </div>

@@ -1229,7 +1229,7 @@
 
       const marketBonus = { Strong:14, Growing:12, Stable:8, Competitive:4, Limited:1 };
       const selectedBranch = state.student.section;
-      const majors = MAJORS.map(m => {
+      const allMajorsScored = MAJORS.map(m => {
         let score = 0;
         m.requiredRiasec.forEach((code, idx) => {
           const rank = profile.indexOf(code);
@@ -1244,14 +1244,16 @@
         (m.workStyleFit || []).forEach(code => score += workScores[code] * .08);
         score += marketBonus[m.marketStatus] || 0;
 
+        const selectedBranch = state.student.section;
         const branchMatch = !selectedBranch || selectedBranch === 'غير محدد بعد' || (m.branches || []).includes(selectedBranch);
-        const branchStatus = branchMatch ? 'متوافق مع الفرع' : 'غير متوافق مباشرة مع الفرع';
+        const branchStatus = branchMatch ? 'متوافق مع الفرع' : 'يتطلب مسارًا مختلفًا';
         const branchNote = branchMatch
-          ? `هذا التخصص ينسجم مع فرع ${selectedBranch}.`
-          : `هذا التخصص لا ينسجم مباشرة مع فرع ${selectedBranch}، وقد يحتاج إلى تعديل مسار أو متطلبات إضافية.`;
+          ? `ينسجم مع فرع ${selectedBranch}.`
+          : `لا ينسجم مباشرة مع فرع ${selectedBranch} وقد يحتاج تغيير مسار.`;
 
+        // نعطي أولوية للتوافق لكن بدون إخفاء الخيارات الأخرى
         if (selectedBranch && selectedBranch !== 'غير محدد بعد') {
-          score += branchMatch ? 18 : -22;
+          score += branchMatch ? 16 : -14;
         }
 
         let suitability = 'مقبول';
@@ -1260,39 +1262,14 @@
         else if (score >= 84) suitability = 'جيد جداً';
         else if (score >= 70) suitability = 'جيد';
 
-        return { ...m, score, suitability, branchStatus, branchNote, branchMatch };
-      }).sort((a,b) => b.score - a.score).slice(0, 8);
-
-      const paths = EXPLORATION_PATHS.map(p => {
-        let score = 0;
-        p.matchRiasec.forEach((code, idx) => {
-          const rank = profile.indexOf(code);
-          if (rank !== -1) score += 26 - rank * 4;
-          score += riasecScores[code] * (idx === 0 ? .28 : .22);
-        });
-        (p.optionalRiasec || []).forEach(code => {
-          if (profile.includes(code)) score += 7;
-          score += riasecScores[code] * .08;
-        });
-        (p.bigFiveFit || []).forEach(code => score += bigScores[code] * .08);
-        (p.workStyleFit || []).forEach(code => score += workScores[code] * .08);
-
-        let suitability = 'مقبول';
-        if (score >= 108) suitability = 'ممتاز جداً';
-        else if (score >= 93) suitability = 'ممتاز';
-        else if (score >= 79) suitability = 'جيد جداً';
-        else if (score >= 66) suitability = 'جيد';
-
-        return { ...p, score, suitability };
-      }).sort((a,b) => b.score - a.score).slice(0, 6);
-
-      return {
+        return {
         riasecScores,
         bigScores,
         workScores,
         sortedProfile,
         profile,
-        majors,
+        majorsWithinBranch,
+        majorsOutsideBranch,
         paths,
         consistency,
         consistencyText: consistencyLabel(consistency),
@@ -1448,7 +1425,8 @@
         el.stageChip.textContent = 'مرحلة التوجيه المرتبطة بالفرع';
         document.querySelector('#result-screen .result-card:nth-child(2) .section-title').textContent = 'أفضل التخصصات المقترحة';
         document.querySelector('#result-screen .result-card:nth-child(2) .section-desc').textContent = 'تم ترتيب التخصصات بحسب التوافق مع الميول والسمات وأسلوب العمل، مع مراعاة واقع سوق العمل الحديث وتوافق التخصص مع الفرع الحالي.';
-        el.majorList.innerHTML = r.majors.map(m => `
+        // عرض ضمن الفرع أولاً
+        const within = r.majorsWithinBranch.map(m => `
           <div class="major-item">
             <div class="major-head">
               <div>
@@ -1462,16 +1440,52 @@
               <div class="chip-box"><strong>الجاهزية المستقبلية</strong><span>${m.futureReadiness}</span></div>
               <div class="chip-box"><strong>سبب الترشيح</strong><span>${m.note}</span></div>
             </div>
-            <div class="branch-banner ${m.branchMatch ? 'good' : 'warn'}">
+            <div class="branch-banner good">
               <div>
-                <strong>مدى توافق التخصص مع الفرع الحالي</strong>
-                <span>الفرع المختار: ${state.student.section || 'غير محدد بعد'} — ${m.branchNote}</span>
+                <strong>ضمن الفرع الحالي</strong>
+                <span>${m.branchNote}</span>
               </div>
-              <div class="branch-state ${m.branchMatch ? 'good' : 'warn'}">${m.branchStatus}</div>
+              <div class="branch-state good">${m.branchStatus}</div>
             </div>
             <div class="examples">${m.examples.map(ex => `<span>${ex}</span>`).join('')}</div>
           </div>
         `).join('');
+
+        // عرض خارج الفرع
+        const outsideHeader = r.majorsOutsideBranch.length ? `
+          <div style="margin-top:22px; margin-bottom:10px; font-weight:800; color:#8a5a12">
+            خيارات أخرى قوية لكن تتطلب مسارًا مختلفًا
+          </div>` : '';
+
+        const outside = r.majorsOutsideBranch.map(m => {
+          const suggestedBranch = (m.branches && m.branches[0]) || 'مسار مختلف';
+          return `
+          <div class="major-item" style="opacity:.92">
+            <div class="major-head">
+              <div>
+                <h4>${m.name}</h4>
+                <p>${m.description}</p>
+              </div>
+              ${badge(m.suitability)}
+            </div>
+            <div class="branch-banner warn">
+              <div>
+                <strong>خارج الفرع الحالي</strong>
+                <span>${m.branchNote}</span>
+              </div>
+              <div class="branch-state warn">${m.branchStatus}</div>
+            </div>
+
+            <div class="chip-grid" style="margin-top:10px">
+              <div class="chip-box"><strong>توصية ذكية</strong><span>يمكنك دراسة هذا التخصص إذا انتقلت إلى فرع: ${suggestedBranch}</span></div>
+              <div class="chip-box"><strong>نصيحة</strong><span>فكّر بقدراتك الدراسية واستعد لمتطلبات هذا المسار قبل اتخاذ القرار.</span></div>
+            </div>
+
+            <div class="examples">${m.examples.map(ex => `<span>${ex}</span>`).join('')}</div>
+          </div>
+        `}).join('');
+
+        el.majorList.innerHTML = within + outsideHeader + outside;
       }
 
       const sortedBig = Object.entries(r.bigScores).sort((a,b) => b[1] - a[1]);

@@ -553,7 +553,14 @@
             </div>
             <div class="field-full">
               <label for="studentSection">الشعبة / القسم</label>
-              <input id="studentSection" type="text" placeholder="مثال: علوم حياة / اجتماع واقتصاد" />
+              <select id="studentSection">
+                <option value="">اختر الشعبة / القسم</option>
+                <option value="غير محدد بعد">غير محدد بعد</option>
+                <option value="علوم حياة">علوم حياة</option>
+                <option value="علوم عامة">علوم عامة</option>
+                <option value="اجتماع واقتصاد">اجتماع واقتصاد</option>
+                <option value="آداب وإنسانيات">آداب وإنسانيات</option>
+              </select>
             </div>
           </div>
 
@@ -963,6 +970,59 @@
       result: null
     };
 
+    const EXPLORATION_PATHS = [
+      {
+        name:'المسار الصحي والعلوم الطبية',
+        summary:'مناسب للطلبة الذين يظهرون ميولاً تحليلية واجتماعية مع قدر جيد من الانضباط والمسؤولية.',
+        matchRiasec:['I','S'],
+        optionalRiasec:['C','R'],
+        bigFiveFit:['C','A'],
+        workStyleFit:['THEORETICAL','EXECUTE'],
+        examples:['الطب','التمريض','الصيدلة','العلاج الفيزيائي','المختبرات الطبية'],
+        note:'هذا المسار مناسب للاستكشاف المبكر، ويحتاج لاحقًا إلى متابعة المواد العلمية والأداء الأكاديمي.'
+      },
+      {
+        name:'المسار الهندسي والتقني',
+        summary:'مناسب لمن يجمع بين التحليل والتطبيق العملي والاهتمام بالأنظمة والأجهزة أو البناء والتصميم.',
+        matchRiasec:['I','R'],
+        optionalRiasec:['C','A'],
+        bigFiveFit:['C','O'],
+        workStyleFit:['PRACTICAL','THEORETICAL'],
+        examples:['الهندسة','الميكاترونكس','البرمجيات','الأمن السيبراني','الذكاء الاصطناعي'],
+        note:'مسار قوي للطلبة الذين يستمتعون بحل المشكلات التقنية وفهم كيف تعمل الأشياء.'
+      },
+      {
+        name:'المسار الإداري والريادي',
+        summary:'يناسب من لديهم ميول قيادية وتنظيمية مع رغبة في التأثير واتخاذ القرار وتطوير المبادرات.',
+        matchRiasec:['E','C'],
+        optionalRiasec:['S','A'],
+        bigFiveFit:['E','C'],
+        workStyleFit:['LEAD','TEAM'],
+        examples:['إدارة أعمال','تسويق','ريادة أعمال','موارد بشرية','لوجستيات'],
+        note:'يناسب من يفضّلون المبادرة والتخطيط والعمل ضمن أهداف واضحة ونتائج عملية.'
+      },
+      {
+        name:'المسار الإبداعي والإعلامي',
+        summary:'مناسب للطلبة الذين يميلون إلى التعبير والابتكار وصناعة الأفكار والمحتوى.',
+        matchRiasec:['A'],
+        optionalRiasec:['E','S'],
+        bigFiveFit:['O'],
+        workStyleFit:['INDEPENDENT','TEAM'],
+        examples:['تصميم','إعلام رقمي','صناعة محتوى','عمارة','فنون تطبيقية'],
+        note:'هذا المسار يحتاج غالبًا إلى ملف أعمال ومهارات عملية متراكمة مع الوقت.'
+      },
+      {
+        name:'المسار الإنساني والتربوي والاجتماعي',
+        summary:'يلائم من يحبون مساعدة الناس والتعليم والإرشاد والتفاعل الإنساني المباشر.',
+        matchRiasec:['S'],
+        optionalRiasec:['A','E','C'],
+        bigFiveFit:['A','C'],
+        workStyleFit:['TEAM','EXECUTE'],
+        examples:['تربية','إرشاد','خدمة اجتماعية','تنمية مجتمعية','قانون'],
+        note:'مناسب للطلبة الذين يشعرون بقيمة كبيرة في الأثر الإنساني والتواصل مع الآخرين.'
+      }
+    ];
+
     const el = {
       startScreen: document.getElementById('start-screen'),
       assessScreen: document.getElementById('assessment-screen'),
@@ -1106,6 +1166,29 @@
         return { ...m, score, suitability };
       }).sort((a,b) => b.score - a.score).slice(0, 8);
 
+      const paths = EXPLORATION_PATHS.map(p => {
+        let score = 0;
+        p.matchRiasec.forEach((code, idx) => {
+          const rank = profile.indexOf(code);
+          if (rank !== -1) score += 26 - rank * 4;
+          score += riasecScores[code] * (idx === 0 ? .28 : .22);
+        });
+        (p.optionalRiasec || []).forEach(code => {
+          if (profile.includes(code)) score += 7;
+          score += riasecScores[code] * .08;
+        });
+        (p.bigFiveFit || []).forEach(code => score += bigScores[code] * .08);
+        (p.workStyleFit || []).forEach(code => score += workScores[code] * .08);
+
+        let suitability = 'مقبول';
+        if (score >= 108) suitability = 'ممتاز جداً';
+        else if (score >= 93) suitability = 'ممتاز';
+        else if (score >= 79) suitability = 'جيد جداً';
+        else if (score >= 66) suitability = 'جيد';
+
+        return { ...p, score, suitability };
+      }).sort((a,b) => b.score - a.score).slice(0, 6);
+
       return {
         riasecScores,
         bigScores,
@@ -1113,9 +1196,11 @@
         sortedProfile,
         profile,
         majors,
+        paths,
         consistency,
         consistencyText: consistencyLabel(consistency),
-        notes
+        notes,
+        isExplorationStage: state.student.grade === 'أول ثانوي' || state.student.grade === 'ثاني ثانوي'
       };
     }
 
@@ -1226,6 +1311,7 @@
 
     function renderResults() {
       const r = state.result;
+      const isExplorationStage = r.isExplorationStage;
       el.resultStudentName.textContent = `نتيجة ${state.student.name}`;
       el.profileCodePill.textContent = `رمز الملف: ${r.profile.join('')}`;
       el.consistencyPill.textContent = `اتساق الإجابات: ${r.consistencyText}`;
@@ -1240,23 +1326,47 @@
         return `<div class="sub-box"><h4>${info.emoji} ${info.title}</h4><p>${info.description}</p>${badge(descriptiveLevel(score))}</div>`;
       }).join('');
 
-      el.majorList.innerHTML = r.majors.map(m => `
-        <div class="major-item">
-          <div class="major-head">
-            <div>
-              <h4>${m.name}</h4>
-              <p>${m.description}</p>
+      if (isExplorationStage) {
+        document.querySelector('#result-screen .result-card:nth-child(2) .section-title').textContent = 'المسارات العامة المقترحة';
+        document.querySelector('#result-screen .result-card:nth-child(2) .section-desc').textContent = 'بحسب النظام العالمي، طلاب أول وثاني ثانوي يحصلون على مجالات ومسارات استكشافية عامة بدل تخصصات نهائية دقيقة.';
+        el.majorList.innerHTML = r.paths.map(p => `
+          <div class="major-item">
+            <div class="major-head">
+              <div>
+                <h4>${p.name}</h4>
+                <p>${p.summary}</p>
+              </div>
+              ${badge(p.suitability)}
             </div>
-            ${badge(m.suitability)}
+            <div class="chip-grid">
+              <div class="chip-box"><strong>نوع المخرج</strong><span>مسار استكشافي عام</span></div>
+              <div class="chip-box"><strong>الغرض</strong><span>استكشاف الاتجاه قبل اختيار نهائي</span></div>
+              <div class="chip-box"><strong>ملاحظة</strong><span>${p.note}</span></div>
+            </div>
+            <div class="examples">${p.examples.map(ex => `<span>${ex}</span>`).join('')}</div>
           </div>
-          <div class="chip-grid">
-            <div class="chip-box"><strong>سوق العمل</strong><span>${m.marketLabelAr}</span></div>
-            <div class="chip-box"><strong>الجاهزية المستقبلية</strong><span>${m.futureReadiness}</span></div>
-            <div class="chip-box"><strong>سبب الترشيح</strong><span>${m.note}</span></div>
+        `).join('');
+      } else {
+        document.querySelector('#result-screen .result-card:nth-child(2) .section-title').textContent = 'أفضل التخصصات المقترحة';
+        document.querySelector('#result-screen .result-card:nth-child(2) .section-desc').textContent = 'تم ترتيب التخصصات بحسب التوافق مع الميول والسمات وأسلوب العمل، مع مراعاة واقع سوق العمل الحديث.';
+        el.majorList.innerHTML = r.majors.map(m => `
+          <div class="major-item">
+            <div class="major-head">
+              <div>
+                <h4>${m.name}</h4>
+                <p>${m.description}</p>
+              </div>
+              ${badge(m.suitability)}
+            </div>
+            <div class="chip-grid">
+              <div class="chip-box"><strong>سوق العمل</strong><span>${m.marketLabelAr}</span></div>
+              <div class="chip-box"><strong>الجاهزية المستقبلية</strong><span>${m.futureReadiness}</span></div>
+              <div class="chip-box"><strong>سبب الترشيح</strong><span>${m.note}</span></div>
+            </div>
+            <div class="examples">${m.examples.map(ex => `<span>${ex}</span>`).join('')}</div>
           </div>
-          <div class="examples">${m.examples.map(ex => `<span>${ex}</span>`).join('')}</div>
-        </div>
-      `).join('');
+        `).join('');
+      }
 
       const sortedBig = Object.entries(r.bigScores).sort((a,b) => b[1] - a[1]);
       el.big5List.innerHTML = sortedBig.map(([code, score]) => `
@@ -1278,14 +1388,24 @@
       el.consistencyAlert.innerHTML = `<strong style="display:block; margin-bottom:8px">${r.consistencyText}</strong>${r.notes.join(' ')}`;
 
       const titles = r.profile.map(c => RIASEC_DESCRIPTIONS[c].title).join('، ');
-      el.summaryText.innerHTML = `
-        <p style="margin-bottom:12px">يظهر ملف الطالب المهني الأقرب إلى <strong style="color:var(--green-800)">${r.profile.join(' - ')}</strong>،
-        وهذا يعني ميلاً بارزًا نحو: <strong>${titles}</strong>.</p>
-        <p style="margin-bottom:12px">أعلى التخصصات المقترحة لم تُبنَ على الميول فقط، بل على دمج الميول الأساسية مع السمات الشخصية وطريقة العمل المفضلة،
-        ثم تعديلها وفق وضع سوق العمل الحديث وأولوية المسارات الواعدة.</p>
-        <p>يُفضّل استخدام هذه النتيجة ضمن جلسة إرشاد قصيرة، مع مراجعة الأداء الأكاديمي الحقيقي والمواد التي يبرع فيها الطالب،
-        قبل اعتماد قرار نهائي بشأن التخصص الجامعي أو المسار المهني.</p>
-      `;
+      if (isExplorationStage) {
+        el.summaryText.innerHTML = `
+          <p style="margin-bottom:12px">يظهر ملف الطالب المهني الأقرب إلى <strong style="color:var(--green-800)">${r.profile.join(' - ')}</strong>،
+          وهذا يعني ميلاً بارزًا نحو: <strong>${titles}</strong>.</p>
+          <p style="margin-bottom:12px">وبحسب الممارسة العالمية في التوجيه المهني، فإن طلاب <strong>${state.student.grade}</strong> لا تُعرض لهم تخصصات نهائية دقيقة،
+          بل مسارات ومجالات عامة تساعدهم على الاستكشاف التدريجي قبل القرار النهائي.</p>
+          <p>لذلك، يُنصح في هذه المرحلة بالتركيز على تنمية المهارات، ومتابعة الأداء الدراسي، وتجربة الأنشطة والمواد المرتبطة بالمسارات المقترحة قبل تثبيت أي اختيار تخصصي.</p>
+        `;
+      } else {
+        el.summaryText.innerHTML = `
+          <p style="margin-bottom:12px">يظهر ملف الطالب المهني الأقرب إلى <strong style="color:var(--green-800)">${r.profile.join(' - ')}</strong>،
+          وهذا يعني ميلاً بارزًا نحو: <strong>${titles}</strong>.</p>
+          <p style="margin-bottom:12px">أعلى التخصصات المقترحة لم تُبنَ على الميول فقط، بل على دمج الميول الأساسية مع السمات الشخصية وطريقة العمل المفضلة،
+          ثم تعديلها وفق وضع سوق العمل الحديث وأولوية المسارات الواعدة.</p>
+          <p>يُفضّل استخدام هذه النتيجة ضمن جلسة إرشاد قصيرة، مع مراجعة الأداء الأكاديمي الحقيقي والمواد التي يبرع فيها الطالب،
+          قبل اعتماد قرار نهائي بشأن التخصص الجامعي أو المسار المهني.</p>
+        `;
+      }
     }
 
     function exportJSON() {
